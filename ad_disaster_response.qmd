@@ -18,14 +18,16 @@ provides vital information for national policy-making, risk reduction
 strategies, and long-term resilience-building efforts. Thus, advancing
 research in agricultural disaster response is of profound significance
 for achieving the goals of poverty alleviation, climate adaptation, and
-food system resilience amid increasing global uncertainties.
+food system resilience amid increasing global uncertainties (Wang et
+al., 2022; Jaber et al., 2022; Neog et al., 2024).
 
 In this context, remote sensing has become a powerful tool for
 post-disaster evaluations, offering rapid, consistent, and large-scale
 observations of affected areas. Its capacity to deliver objective and
 up-to-date spatial information enables governments, humanitarian
 agencies, and decision-makers to assess damage, estimate losses, and
-prioritize interventions with greater efficiency and accuracy.
+prioritize interventions with greater efficiency and accuracy (Hu et
+al., 2023).
 
 Agricultural disasters are diverse in nature and include droughts,
 floods, tropical storms, pest outbreaks, and wildfires. Each type of
@@ -63,7 +65,8 @@ yields, livestock health, and supply chains, thereby threatening the
 availability, accessibility, and stability of food. An effective
 response strategy helps prevent food shortages, stabilize markets, and
 protect vulnerable populations from falling into food insecurity or
-malnutrition.
+malnutrition (Food and Agriculture Organization \[FAO\], 2023; United
+Nations Development Programme \[UNDP\], 2021).
 
 Second, agricultural disaster response is essential for the rapid
 recovery and rehabilitation of production systems. Post-disaster
@@ -72,7 +75,9 @@ infrastructure, distribution of seeds and agricultural inputs, and
 technical assistance---enable farmers to resume planting and livestock
 operations in a timely manner. These efforts help minimize long-term
 economic losses and reduce the risk of secondary impacts such as rural
-unemployment, land abandonment, and degradation of agroecosystems.
+unemployment, land abandonment, and degradation of agroecosystems
+(UNDP, 2021; Organization for Economic Co-operation and Development \[OECD\],
+2021).
 
 Third, agricultural disaster response provides critical data and
 insights to inform policy-making processes at local, national, and
@@ -81,7 +86,8 @@ impacts enables governments and humanitarian organizations to allocate
 resources efficiently, design targeted aid programs, and strengthen risk
 management frameworks. Moreover, lessons learned from past disaster
 events contribute to the development of more resilient and adaptive
-agricultural systems in the face of future climate-related threats.
+agricultural systems in the face of future climate-related threats
+(FAO, 2025; OECD, 2021).
 
 In sum, agricultural disaster response is not only a reactive mechanism
 but also a strategic pillar for sustaining agricultural livelihoods,
@@ -103,7 +109,8 @@ for effective response and recovery planning. As shown in @fig-image1-disaster,
 after a disaster occurs, the ground operation and control station
 promptly deploys agricultural satellites to capture images of the target
 area and transmit them back to the ground, enabling safe and rapid
-disaster evaluations and analysis over large areas.
+disaster evaluations and analysis over large areas
+(Qamer et al., 2023; Cai et al., 2023).
 
 ```{r}
 #| echo: FALSE
@@ -121,8 +128,9 @@ monitoring of vegetation health, surface water dynamics, land cover
 changes, and infrastructure damage. High temporal resolution enables
 near-real-time tracking of evolving disaster conditions, while high
 spatial and spectral resolution supports the detection of subtle changes
-in crop vigor, soil moisture, and land surface temperature. These
-observations facilitate the quantification of affected areas, the
+in crop vigor, soil moisture, and land surface temperature
+(Abbasi et al., 2025; Qamer et al., 2023). 
+These observations facilitate the quantification of affected areas, the
 classification of damage severity, and the identification of priority
 zones for intervention.
 
@@ -145,7 +153,7 @@ tool for agricultural disaster response and sustainable risk management.
 
 Agricultural systems are highly sensitive to a wide range of natural
 hazards, many of which have intensified in frequency and severity due to
-climate change and environmental degradation. Table 1 provides a
+climate change and environmental degradation. @tbl-types provides a
 detailed list of the main types currently associated with agricultural
 disasters. Among these, droughts, floods, storms, pest outbreaks, and
 wildfires represent the most common and devastating types of disasters
@@ -165,7 +173,9 @@ that directly affect agricultural productivity and rural livelihoods.
 |                                   |     Resource   Destruction                      |     Excessive Reclamation, Overgrazing,   Deforestation, Unregulated Mining                                                                      |
 |                                   |     Engineering   Activities                    |     Unsustainable Hydraulic Projects,   Dam Construction and Water Diversion Damaging Ecosystems, Wetland Reclamation                            |
 
-**Table** **1 Main Types of Disasters Related to Agriculture**
+: Main Types of Disasters Related to Agriculture {#tbl-types}
+
+
 
 Droughts are among the most widespread and insidious threats to
 agriculture. Characterized by prolonged periods of below-average
@@ -174,7 +184,7 @@ deplete water resources for irrigation, and compromise pasture quality
 for livestock. The slow-onset nature of drought makes it particularly
 difficult to detect and manage in its early stages, often leading to
 cumulative and long-lasting impacts on food production and ecosystem
-health.
+health (FAO, 2021; OECD, 2021).
 
 Floods, on the other hand, present a more sudden and often catastrophic
 challenge. Resulting from excessive rainfall, river overflow, or poor
@@ -182,7 +192,7 @@ drainage infrastructure, floods can inundate farmlands, destroy standing
 crops, erode fertile soil layers, and contaminate water sources. In
 low-lying and coastal agricultural regions, repeated flooding events can
 degrade arable land over time, making recovery increasingly difficult
-without significant intervention.
+without significant intervention (FAO, 2021).
 
 Storms, including tropical cyclones, hurricanes, and severe convective
 systems, pose multifaceted risks to agriculture. High winds and
@@ -213,7 +223,7 @@ agriculture to a wide spectrum of environmental hazards. Understanding
 their characteristics, triggers, and cascading effects is essential for
 developing responsive strategies to protect food systems, sustain
 livelihoods, and enhance the resilience of rural communities in
-disaster-prone areas.
+disaster-prone areas (Chen et al., 2024).
 
 ### Core Terminology and Management Phases
 
@@ -223,11 +233,11 @@ agricultural disaster response. In this context, the term disaster
 refers to a serious disruption of the functioning of a community or
 system, caused by natural or human-induced hazards, which results in
 widespread human, material, economic, or environmental losses that
-exceed the affected community's ability to cope using its own resources.
-Within the agricultural domain, disasters often manifest as extreme
-weather events, pest infestations, or environmental stressors that
-severely impair crop production, livestock systems, and rural
-livelihoods.
+exceed the affected community's ability to cope using its own resources
+(OECD & FAO, 2021). Within the agricultural domain, disasters often 
+manifest as extreme weather events, pest infestations, 
+or environmental stressors that severely impair crop production, 
+livestock systems, and rural livelihoods.
 
 Closely related to this concept are the terms damage, loss, and impact,
 which, while sometimes used interchangeably, carry distinct meanings in
@@ -252,7 +262,7 @@ nature, or recovery, which is focused on long-term rebuilding, the
 response phase is characterized by urgency and short-term action.
 Nevertheless, decisions made during this phase---such as how to allocate
 aid or prioritize interventions---can have lasting effects on the
-trajectory of recovery and resilience-building.
+trajectory of recovery and resilience-building (OECD & FAO, 2021).
 
 By establishing a clear conceptual understanding of these terms and the
 function of the response phase, this chapter provides a necessary
@@ -265,8 +275,9 @@ disaster evaluations and agricultural response planning.
 Remote sensing has become a vital tool in modern agricultural disaster
 response, offering timely, scalable, and cost-effective means to
 observe, analyze, and assess natural hazards and their impacts on
-agricultural systems. This chapter provides a comprehensive overview of
-the key technologies, platforms, and analytical methods commonly applied
+agricultural systems (Kumari et al., 2025). This chapter provides 
+a comprehensive overview of the key technologies, 
+platforms, and analytical methods commonly applied
 in remote sensing for disaster-related agricultural statistics. Emphasis
 is placed on monitoring crop conditions, land cover changes, water
 availability, and post-disaster recovery across farming landscapes.
@@ -300,7 +311,8 @@ storms, and wildfires.
 
 Remote sensing technologies encompass a wide array of sensor systems
 designed to capture critical environmental information for agricultural
-disaster evaluations. Optical sensors, which detect reflected sunlight
+disaster evaluations (Westen, 2000). Optical sensors, 
+which detect reflected sunlight
 in the visible and near-infrared spectra, are extensively used for
 monitoring land cover, crop vigor, and surface water dynamics. Radar
 systems, particularly Synthetic Aperture Radar (SAR), operate
@@ -333,9 +345,10 @@ knitr::include_graphics("./images/ad_disaster_response/image2.png")
 ### Common Satellite and UAV Platforms
 
 A variety of satellite and UAV platforms serve as primary carriers for
-remote sensing sensors in agricultural disaster response. The common
+remote sensing sensors in agricultural disaster response (Colpaert,
+2022; Panda et al., 2016). The common
 technical parameters of satellite and UAV platforms and their
-applications in agricultural disasters are shown in Table 2. Satellite
+applications in agricultural disasters are shown in @tbl-sat. Satellite
 missions such as the Sentinel-1 and Sentinel-2, operated by the European
 Space Agency, provide free, high-frequency radar and optical imagery,
 supporting flood mapping, crop monitoring, and damage evaluations. The
@@ -354,7 +367,7 @@ changes and post-disaster agricultural recovery.
 |     UAVs                 |     Rotary-wing UAV     |     DJI, Autel, etc.               |     cm-level/ meter-level    |     Optical/Thermal Camera                 |     Detailed Crop Evaluations            |
 |                          |     Fixed-wing UAV      |     Wingtra, SenseFly              |     1–3 cm                   |     Multispectral System                   |     High-Precision Damage Evaluations    |
 |                          |     VTOL UAV            |     Quantum Systems                |     1 cm / 5 cm              |     LiDAR/ Multispectral                   |     High-Precision Damage Evaluations    |
-: Satellite and UAV technologies for disaster response {#tbl-sat-uav-disasters}
+: Satellite and UAV technologies for disaster response {#tbl-sat}
 
 
 NASA's MODIS sensors aboard the Terra and Aqua satellites offer daily
@@ -366,25 +379,28 @@ rural and peri-urban farming zones. UAVs, equipped with optical,
 thermal, or multispectral sensors, have emerged as highly flexible tools
 capable of acquiring very high-resolution data over targeted
 agricultural sites, providing rapid situational awareness for crop
-damage evaluations, yield loss estimation, and resource planning.
+damage evaluations, yield loss estimation, and resource planning
+(Pajares, 2015).
 
 ## Typical Remote Sensing Methods and Indicators
 
 To interpret remote sensing data effectively in agricultural disaster
 response, a suite of analytical methods and thematic indicators has been
 developed. Vegetation indices such as the Normalized Difference
-Vegetation Index (NDVI) and Enhanced Vegetation Index (EVI) are widely
+Vegetation Index - NDVI (Pettorelli, 2013) 
+and Enhanced Vegetation Index - EVI (Jiang et al., 2008) are widely
 employed to monitor crop health, biomass productivity, and ecological
 recovery following droughts, floods, fires, and pest outbreaks.
 
 For surface water and flood detection, indices like the Normalized
-Difference Water Index (NDWI) and SAR backscatter coefficients reliably
+Difference Water Index (NDWI) (Gao et al., 1996) 
+and SAR backscatter coefficients reliably
 delineate inundated croplands and assess water-related impacts on
 agricultural infrastructure. Drought monitoring integrates thermal
 infrared data to detect surface temperature anomalies and
 evapotranspiration patterns, combined with precipitation records and
 soil moisture estimates to assess water stress and forecast crop yield
-losses.
+losses (Qin et al., 2021).
 
 Change detection techniques are crucial for disaster impact evaluations,
 enabling comparisons of pre- and post-event imagery to quantify damaged
@@ -398,8 +414,9 @@ agricultural statistical reporting.
 ## Workflow and Data Integration for Agricultural Disaster Response
 
 This section outlines the comprehensive workflow and data integration
-framework designed to support agricultural disaster response efforts. As
-illustrated in @fig-image3-disaster, it begins with Baseline Mapping and
+framework designed to support agricultural disaster response efforts 
+(Wang et al., 2022; Jaber et al., 2022; Neog et al., 2024; Hu et al., 2023).
+As illustrated in @fig-image3-disaster, it begins with Baseline Mapping and
 Preparedness, which involves establishing detailed, up-to-date
 agricultural and environmental datasets to serve as reference points
 before disasters occur. Next, it addresses Real-Time Monitoring,
@@ -428,13 +445,13 @@ knitr::include_graphics("./images/ad_disaster_response/image3.png")
 
 Baseline mapping and preparedness form the foundation for effective
 agricultural disaster response by providing comprehensive pre-disaster
-datasets. The types and sources of the basic datasets are shown in Table
-3, this phase involves the systematic collection, integration, and
+datasets. The types and sources of the basic datasets are shown in @tbl-prep.
+This phase involves the systematic collection, integration, and
 analysis of high-resolution agricultural and environmental data,
 including crop types, soil properties, water resources, and historical
 disaster records. Remote sensing technologies such as satellite imagery
 and LiDAR generate detailed spatial maps, which are validated through
-ground surveys to ensure accuracy.
+ground surveys to ensure accuracy (Vu et al., 2025).
 
 |     Data Type                               |     Acquisition Techniques                             |     Update Frequency    |     Main Applications                       |
 |---------------------------------------------|--------------------------------------------------------|-------------------------|---------------------------------------------|
@@ -443,7 +460,7 @@ ground surveys to ensure accuracy.
 |     Historical Hazard Records Repository    |     Archives Digitization + GIS Integration            |     Event-Driven        |     Early Warning Models Training           |
 |     Dynamic Maps of Water Resources         |     Hydrological sensors + Remote Sensing Inversion    |     Monthly             |     Irrigation Optimization Design          |
 
-: Types and sources of basic datasets {#tbl-data-disasters}
+: Types and sources of basic datasets {#tbl-prep}
 
 Beyond data collection, this stage focuses on developing early warning
 systems and contingency plans. By integrating climate models with
@@ -464,13 +481,13 @@ for coordinated disaster response efforts.
 
 Real-time monitoring is essential for detecting and tracking
 agricultural disasters as they occur. The corresponding technical
-parameters for real-time detection are shown in Table 4, this stage
-leverages advanced remote sensing technologies, including synthetic
-aperture radar (SAR) and multispectral imaging, to collect timely data
-on environmental parameters such as temperature, precipitation, and
-vegetation health. These remote observations are complemented by
-field-based sensors and UAV imagery to provide localized,
-high-resolution insights.
+parameters for real-time detection are shown in @tbl-realtime, 
+this stage leverages advanced remote sensing technologies, including synthetic
+aperture radar (SAR) (Panda et al., 2016) and multispectral imaging, 
+to collect timely data on environmental parameters such as temperature, 
+precipitation, and vegetation health. These remote observations are 
+complemented by field-based sensors and UAV imagery to provide localized,
+high-resolution insights (Victor et al., 2024).
 
 
 |     Type of   Technology              |     Spatial   Resolution    |     Timeliness              |     Typical   Application Scenarios                 |
@@ -480,7 +497,7 @@ high-resolution insights.
 |     IoT Sensors                       |     Spot Precise            |     Real-Time Continuous    |     Soil Moisture Monitoring                        |
 |     Aerial   Photography with UAVs    |     0.1–0.5m                |     On-demand               |     Localized On-demand Disaster Verification       |
 
-: Real-time detection parameters {#tbl-realtime-disasters}
+: Real-time detection parameters {#tbl-realtime}
 
 Centralized monitoring platforms integrate these diverse data streams,
 enabling the automated detection of anomalies---like abrupt shifts in
@@ -491,7 +508,8 @@ dissemination of early warnings to farmers and decision-makers through
 mobile apps and SMS alerts.
 
 This phase also highlights the importance of continuous data validation
-and system calibration to maintain accuracy and reliability. Robust
+and system calibration (Clemens-Meyer et al., 2021) 
+to maintain accuracy and reliability. Robust
 communication networks and data-sharing protocols ensure that real-time
 monitoring outputs are actionable, timely, and effectively distributed
 across stakeholders, enhancing the agricultural system's capacity to
@@ -504,7 +522,8 @@ the broader impacts of disasters on agricultural systems. By integrating
 pre-disaster baseline data with post-event observations from remote
 sensing, UAV surveys, and field reports, affected areas are mapped and
 crop losses are estimated using geospatial techniques like change
-detection and vegetation index analysis. As shown in @fig-image4-disaster, the
+detection and vegetation index analysis (Wankhede et al., 2023). 
+As shown in @fig-image4-disaster, the
 2023--2024 drought monitoring NDVI time series comparison example for
 central Hubei clearly illustrates the significant changes in vegetation
 coverage in the affected areas before and after the disaster.
@@ -559,3 +578,135 @@ enhance future preparedness and operational efficiency. By merging
 data-driven insights with local expertise, reporting and decision
 support strengthen the resilience of agricultural systems in the face of
 recurring disasters.
+
+
+## References{-}
+
+Abbasi, S., et al. (2025). Assessment of agricultural drought severity
+using multi-temporal remote sensing data in Lorestan region. Scientific
+Reports, 15(1), Article
+2024. <https://doi.org/10.1038/s41598-025-03087-4>
+
+Cai, S., et al. (2023). Assessment of agricultural drought based on
+multi-source remote sensing components. Agricultural Water Management,
+276, 108117. <https://doi.org/10.1016/j.agwat.2023.108117>
+
+Chen, X., et al. (2024). The measurement of agricultural disaster
+vulnerability in China and its spatiotemporal differentiation. Journal
+of Environmental Management, 317,
+116464. <https://doi.org/10.1016/j.jenvman.2023.116464>
+
+Clemens-Meyer, F. H., Lepot, M., Blumensaat, F., Leutnant, D., & Gruber,
+G. (2021). Data validation and data quality assessment. Metrology in
+Urban Drainage and Stormwater Management: Plug and Pray, edited by:
+Bertrand-Krajewski, J.-L., Clemens-Meyer, F., and Lepot, M., IWA
+Publishing, 327-390. <https://doi.org/10.2166/9781789060119_0327>
+
+Colpaert, A. (2022). Satellite and UAV platforms, remote sensing for
+geographic information systems. Sensors (Basel, Switzerland), 22(12),
+4564. <https://doi.org/10.3390/s22124564>
+
+Food and Agriculture Organization. (2021). The impact of disasters and
+crises on agriculture and food
+security. <https://openknowledge.fao.org/server/api/core/bitstreams/0f03a24f-8d37-4700-aef4-fc436ff32021/content>
+
+Food and Agriculture Organization. (2023). Disaster risk reduction in
+agriculture. <https://www.fao.org/policy-support/policy-themes/disaster-risk-reduction-in-agriculture/en>
+
+Food and Agriculture Organization. (2025). FAO launches a \$150 million
+emergency and early recovery response plan for Ukraine to support
+war-affected rural
+communities. https://www.fao.org/newsroom/detail/fao-launches-a\--150-million-emergency-and-early-recovery-response-plan-for-ukraine-to-support-war-affected-rural-communities/en
+
+Gao, B. C. (1996). NDWI---A normalized difference water index for remote
+sensing of vegetation liquid water from space. Remote sensing of
+environment, 58(3), 257-266.
+
+Hu, L., Zhang, C., Zhang, M., Shi, Y., Lu, J., & Fang, Z. (2023).
+Enhancing FAIR data services in agricultural disaster: A review. Remote
+Sensing, 15(8), 2024. <https://doi.org/10.3390/rs15082024>
+
+Hu, L., Zhang, C., Zhang, M., Shi, Y., Lu, J., & Fang, Z. (2023).
+Enhancing FAIR data services in agricultural disaster: A review. Remote
+Sensing, 15(8), 2024. <https://doi.org/10.3390/rs15082024>
+
+Jaber, M. M., Ali, M. H., Abd, S. K., Jassim, M. M., Alkhayyat, A.,
+Aziz, H. W., & Alkhuwaylidee, A. R. (2022). Predicting climate factors
+based on big data analytics based agricultural disaster
+management. Physics and Chemistry of the Earth, Parts A/B/C, 128,
+103243. <https://doi.org/10.1016/j.pce.2022.103243>
+
+Jiang, Z., Huete, A. R., Didan, K., & Miura, T. (2008). Development of a
+two-band enhanced vegetation index without a blue band. Remote sensing
+of Environment, 112(10), 3833-3845.
+
+Kumari, S., Agarwal, S., Agrawal, N. K., Agarwal, A., & Garg, M. C.
+(2025). A comprehensive review of remote sensing technologies for
+improved geological disaster management. Geological Journal, 60(1),
+223-235. <https://doi.org/10.1002/gj.5072>
+
+Neog, D. R., Singha, G., Dev, S., & Prince, E. H. (2024). Artificial
+intelligence and its application in disaster risk reduction in the
+agriculture sector. In Disaster risk reduction and rural resilience:
+with a focus on agriculture, water, gender and Technology (pp. 279-305).
+Singapore: Springer Nature Singapore.
+<https://doi.org/10.1007/978-981-97-6671-0_15>
+
+Organization for Economic Co-operation and Development. (2021). Building
+agricultural resilience to natural hazard-induced
+disasters. <https://www.oecd.org/content/dam/oecd/en/publications/reports/2021/06/building-agricultural-resilience-to-natural-hazard-induced-disasters_ce136a95/49eefdd7-en.pdf>
+
+Pajares, G. (2015). Overview and current status of remote sensing
+applications based on unmanned aerial vehicles (UAVs). Photogrammetric
+Engineering & Remote Sensing, 81(4), 281-330.
+<https://doi.org/10.14358/PERS.81.4.281>
+
+Panda, S. S., Rao, M. N., Thenkabail, P. S., Misra, D., & Fitzgerald, J.
+P. (2016). Remote sensing systems---Platforms and sensors: Aerial,
+satellite, UAV, optical, radar, and LiDAR. In Remote Sensing Handbook,
+Volume I (pp. 3-86). CRC Press.
+<https://pubs.usgs.gov/publication/70134260>
+
+Pettorelli, N. (2013). The normalized difference vegetation index.
+Oxford University Press, USA.
+
+Qamer, F. M., et al. (2023). A framework for multi-sensor satellite data
+to evaluate crop loss and damage post natural disasters. Remote Sensing,
+15(6), 2023. 
+
+Qin, Q., Wu, Z., Zhang, T., Sagan, V., Zhang, Z., Zhang, Y., Zhang, C.,
+Ren, H., Sun, Y., Xu, W., & Zhao, C. (2021). Optical and thermal remote
+sensing for monitoring agricultural drought. Remote Sensing, 13(24),
+5092.
+
+United Nations Development Programme. (2021). Agriculture guide for
+recovery
+implementation. <https://www.undp.org/latin-america/publications/agriculture-guide-recovery-implementation>
+
+Victor, N., Maddikunta P. K. R., Mary D. R. K., Murugan, R., Chengoden,
+R., & Gadekallu, T. R. (2024). Remote Sensing for Agriculture in the Era
+of Industry 5.0---A Survey. IEEE Journal of Selected Topics in Applied
+Earth Observations and Remote Sensing, vol. 17, pp. 5920-5945, 2024.
+<https://doi.org/10.1109/JSTARS.2024.3370508>
+
+Vu, A. D., Nguyen, K. V., Bui, B. Q., & Kamel, N. (2025). A
+Comprehensive Survey of Super-Resolution Remote Sensing Image Datasets:
+Evolution, Challenges, and Future Directions. IEEE Access.
+<https://doi.org/10.1109/ACCESS.2025.3599535>
+
+Wang, C., Gao, Y., Aziz, A., & Ogunmola, G. A. (2022). Agricultural
+disaster risk management and capability assessment using big data
+analytics. Big Data, 10(3),
+246-261. <https://doi.org/10.1089/big.2020.0411>
+
+Wankhede, S., Armstrong, L., & Tripathy, A. K. (2023). Agricultural
+Drought Forecasting Using NDVI, VCI and Artificial Neural Network. 2023
+IEEE India Geoscience and Remote Sensing Symposium (InGARSS), Bangalore,
+India, 2023, pp. 1-3.
+<https://doi.org/10.1109/InGARSS59135.2023.10490414>
+
+Westen, C. V. (2000). Remote sensing for natural disaster management.
+In ISPRS 2000 congress: geoinformation for all: Amsterdam, the
+Netherlands, 16-23 July, 2000. pp. 1700-1707 (pp. 1700-1707).
+International Society for Photogrammetry and Remote
+Sensing(ISPRS). <http://www.isprs.org/proceedings/XXXIII/congress/part7/1609_XXXIII-part7.pdf>
