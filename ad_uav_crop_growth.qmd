@@ -1,0 +1,7 @@
+---
+title: "Automated Monitoring of Crop Growth Index (CGI) using UAV"
+author: "Xiaohe Gu, Baoyuan Zhang"
+format: html
+---
+
+## 

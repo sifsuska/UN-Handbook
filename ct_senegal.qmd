@@ -431,3 +431,7 @@ The alignment of the AAS protocol with FAO's in-situ data quality framework sign
 Moreover, integrating satellite imagery with field data enabled the use of model-assisted estimators—such as regression estimators—for crop area statistics. This approach yielded more accurate results, with lower coefficients of variation, compared to using field data alone.
 
 Building on these outcomes, DAPSA endorsed the revised protocol and extended its implementation to six additional districts in 2024 (Koungheul, Mbacke, Nioro, Kolda, Tambaconda, Dagana). This successful institutionalization underscores the value of diagnostic frameworks, phased piloting, and continuous quality improvement in advancing the operational use of EO in national agricultural statistics.
+
+## About the authors{-}
+
+Luis Ambrosio Flores (luis.ambrosio@upm.es) is  professor of Statistics. Expert in agricultural and environmental statistics, econometric modeling, climate impact assessment, and EU biodiversity frameworks. Led 30 research projects and served as consultant (ESA, FAO, EU). Key projects: SEN4Stat - Sentinels for Agricultural Statistics;  Global Strategy (GS)-Improving Agricultural & Rural Statistics; Econometric models for assessing climate change impact on agriculture and environment (Spanish Ministry of Science and Technology). Author of 50 publications with 404 citations on Google Scholar.

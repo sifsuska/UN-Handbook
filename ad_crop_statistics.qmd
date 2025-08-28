@@ -91,6 +91,10 @@ A key enabler of this translation has been the coordinated effort of the United 
 
 This chapter embodies this convergence. It illustrates how co-designed approaches—developed through collaboration and grounded in real-world constraints—can elevate EO from a research tool to a pillar of official agricultural statistics. Crucially, it underscores that robust area and yield estimation is not a peripheral technicality, but the decisive link connecting EO technologies to food security planning, climate-smart agriculture, and policy accountability. Without this last mile, EO data remain abstract; with it, they become instruments of evidence-based policy.
 
+## About the Authors{-}
+
+Sherrie Wang is the d’Arbeloff Career Development Assistant Professor at the Massachusetts Institute of Technology in the Department of Mechanical Engineering and Institute for Data, Systems, and Society. Her research integrates machine learning and remote sensing to advance Earth observation analytics, with applications in agriculture, climate, and policy. She earned her Ph.D. in Computational & Mathematical Engineering from Stanford and was a Ciriacy-Wantrup Postdoctoral Fellow at UC Berkeley.
+
 ## References{-}
 
 

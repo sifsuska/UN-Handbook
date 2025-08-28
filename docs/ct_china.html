@@ -8,7 +8,7 @@
 
 <meta name="author" content="Gilberto Camara, Lorenzo de Simone, Ronald Jansen">
 
-<title>UN Handbook on Remote Sensing for Agricultural Statistics - 25&nbsp; Remote Sensing Estimation of Soybean Yield</title>
+<title>UN Handbook on Remote Sensing for Agricultural Statistics - 18&nbsp; Efficient and Reliable Paddy Rice Classification</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -31,8 +31,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./additional.html" rel="next">
-<link href="./cy_colombia.html" rel="prev">
+<link href="./ct_chile.html" rel="next">
+<link href="./ct_zimbabwe.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -75,7 +75,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./crop_yield_estimation.html">Crop yield estimation</a></li><li class="breadcrumb-item"><a href="./cy_china.html"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">Remote Sensing Estimation of Soybean Yield</span></a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./crop_type_mapping.html">Use Cases in Crop Type Mapping</a></li><li class="breadcrumb-item"><a href="./ct_china.html"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Efficient and Reliable Paddy Rice Classification</span></a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -232,7 +232,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./ct_china.html" class="sidebar-item-text sidebar-link">
+  <a href="./ct_china.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Efficient and Reliable Paddy Rice Classification</span></span></a>
   </div>
 </li>
@@ -285,7 +285,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./cy_china.html" class="sidebar-item-text sidebar-link active">
+  <a href="./cy_china.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">Remote Sensing Estimation of Soybean Yield</span></span></a>
   </div>
 </li>
@@ -360,16 +360,16 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#section" id="toc-section" class="nav-link active" data-scroll-target="#section"><span class="header-section-number">25.1</span> </a></li>
+  <li><a href="#section" id="toc-section" class="nav-link active" data-scroll-target="#section"><span class="header-section-number">18.1</span> </a></li>
   </ul>
-<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/FAO-EOSTAT/UN-Handbook/edit/quarto/cy_china.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/FAO-EOSTAT/UN-Handbook/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
+<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/FAO-EOSTAT/UN-Handbook/edit/quarto/ct_china.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/FAO-EOSTAT/UN-Handbook/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">Remote Sensing Estimation of Soybean Yield</span></h1>
+<h1 class="title"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Efficient and Reliable Paddy Rice Classification</span></h1>
 </div>
 
 
@@ -379,7 +379,7 @@ ul.task-list li input[type="checkbox"] {
     <div>
     <div class="quarto-title-meta-heading">Author</div>
     <div class="quarto-title-meta-contents">
-             <p>Li Qiangzi and Xing Du </p>
+             <p>Jingfeng Huang, Yifeng Lou </p>
           </div>
   </div>
     
@@ -390,8 +390,8 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<section id="section" class="level2" data-number="25.1">
-<h2 data-number="25.1" class="anchored" data-anchor-id="section"><span class="header-section-number">25.1</span> </h2>
+<section id="section" class="level2" data-number="18.1">
+<h2 data-number="18.1" class="anchored" data-anchor-id="section"><span class="header-section-number">18.1</span> </h2>
 
 
 </section>
@@ -632,13 +632,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./cy_colombia.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">Rice Phenology in Colombia</span></span>
+      <a href="./ct_zimbabwe.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Crop classification in Zimbabwe</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./additional.html" class="pagination-link">
-        <span class="nav-page-text">Additional Topics</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./ct_chile.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Crop classification and land use mapping in Chile</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

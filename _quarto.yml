@@ -40,6 +40,7 @@ book:
         - ct_mexico.qmd
         - ct_senegal.qmd
         - ct_zimbabwe.qmd
+        - ct_china.qmd
         - ct_chile.qmd
         - ct_digital_earth_africa.qmd
     - part: crop_yield_estimation.qmd
@@ -51,9 +52,11 @@ book:
         - cy_china.qmd
     - part: additional.qmd
       chapters:
-        - ad_geoglam.qmd
+        - ad_crop_statistics.qmd
         - ad_world_cereal.qmd
-        - ad_uav_applications.qmd
+        - ad_uav_field_parcels.qmd
+        - ad_uav_wheat_growth.qmd
+        - ad_uav_crop_growth.qmd
         - ad_disaster_response.qmd
         - ad_china_floods.qmd
         - ad_governance.qmd

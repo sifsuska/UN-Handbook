@@ -1,0 +1,7 @@
+---
+title: "Efficient and Reliable Paddy Rice Classification"
+author: "Jingfeng Huang, Yifeng Lou"
+format: html
+---
+
+## 
