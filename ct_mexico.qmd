@@ -137,6 +137,6 @@ One avenue for investigation is the use of 1D Convolutional Neural Networks (1D-
 
 ## About the author{-}
 
-Dr. Abel Alejandro Coronado Iruegas is the Deputy Director of Research in Data Science at Mexico's National Institute of Statistics and Geography (INEGI). As a national expert in satellite imagery and large-scale Earth Observation (EO) data, he leads remote sensing initiatives to contribute to the improvement of the country's agricultural statistics. His scientific expertise spans data science, machine learning, and spatial data integration, fields in which he has authored several publications. Degrees: Ph.D. and M.Sc.
+Dr. Abel Alejandro Coronado Iruegas is the Deputy Director of Research in Data Science at Mexico's National Institute of Statistics and Geography (INEGI). As a national expert in satellite imagery and large-scale Earth Observation (EO) data, he leads remote sensing initiatives to contribute to the improvement of the country's agricultural statistics. His scientific expertise spans data science, machine learning, and spatial data integration, fields in which he has authored several publications.
 
 ## References{-}
