@@ -53,6 +53,7 @@ book:
     - part: additional.qmd
       chapters:
         - ad_crop_statistics.qmd
+        - ad_crop_statistics_ppi.qmd
         - ad_world_cereal.qmd
         - ad_uav_field_parcels.qmd
         - ad_uav_wheat_growth.qmd
@@ -76,5 +77,6 @@ bibliography:
     - bibliography/un-handbook.bib
     - bibliography/deafrica.bib
     - bibliography/chile.bib
+    - bibliography/ad-ppi.bib
 
 csl: ieee.csl
