@@ -5,7 +5,7 @@
 <meta name="generator" content="quarto-1.3.361">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 <meta name="author" content="Gilberto Camara, Lorenzo de Simone, Ronald Jansen">
-<title>UN Handbook on Remote Sensing for Agricultural Statistics - 6&nbsp; Earth observation data cubes</title>
+<title>UN Handbook on Remote Sensing for Agricultural Statistics - 27&nbsp; Estimating crop statistics using survey-calibrated methods</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -17,40 +17,6 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
-}
-/* CSS for syntax highlighting */
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 /* CSS for citations */
 div.csl-bib-body { }
@@ -80,8 +46,8 @@ div.csl-indent {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./th_lucc.html" rel="next">
-<link href="./th_data_sources.html" rel="prev">
+<link href="./crop_statistics_ppi.html" rel="next">
+<link href="./crop_statistics.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -109,7 +75,7 @@ div.csl-indent {
     "search-submit-button-title": "Submit",
     "search-label": "Search"
   }
-}</script>
+}</script><script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 </head>
 <body class="nav-sidebar floating">
 
@@ -118,7 +84,7 @@ div.csl-indent {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./theory.html">Foundations</a></li><li class="breadcrumb-item"><a href="./th_data_cubes.html"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Earth observation data cubes</span></a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./crop_statistics.html">Extraction of crop statistics from crop type and crop yield maps</a></li><li class="breadcrumb-item"><a href="./crop_statistics_regression.html"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">Estimating crop statistics using survey-calibrated methods</span></a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -188,7 +154,7 @@ div.csl-indent {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./th_data_cubes.html" class="sidebar-item-text sidebar-link active">
+  <a href="./th_data_cubes.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Earth observation data cubes</span></span></a>
   </div>
 </li>
@@ -347,7 +313,7 @@ div.csl-indent {
       <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">
 <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./crop_statistics_regression.html" class="sidebar-item-text sidebar-link">
+  <a href="./crop_statistics_regression.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">Estimating crop statistics using survey-calibrated methods</span></span></a>
   </div>
 </li>
@@ -436,28 +402,19 @@ div.csl-indent {
         <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">Table of contents</h2>
    
   <ul>
-<li><a href="#configurations-to-run-the-chapter" id="toc-configurations-to-run-the-chapter" class="nav-link active" data-scroll-target="#configurations-to-run-the-chapter">Configurations to run the chapter</a></li>
-  <li>
-<a href="#working-with-satellite-image-time-series" id="toc-working-with-satellite-image-time-series" class="nav-link" data-scroll-target="#working-with-satellite-image-time-series"><span class="header-section-number">6.1</span> Working with satellite image time series</a>
-  <ul class="collapse">
-<li><a href="#time-first-space-later" id="toc-time-first-space-later" class="nav-link" data-scroll-target="#time-first-space-later"><span class="header-section-number">6.1.1</span> Time-first, space-later</a></li>
-  </ul>
-</li>
-  <li>
-<a href="#regular-earth-observation-data-cubes" id="toc-regular-earth-observation-data-cubes" class="nav-link" data-scroll-target="#regular-earth-observation-data-cubes"><span class="header-section-number">6.2</span> Regular Earth observation data cubes</a>
-  <ul class="collapse">
-<li><a href="#generating-regular-data-cubes" id="toc-generating-regular-data-cubes" class="nav-link" data-scroll-target="#generating-regular-data-cubes"><span class="header-section-number">6.2.1</span> Generating regular data cubes</a></li>
-  <li><a href="#obtaining-data-from-ard-image-collections" id="toc-obtaining-data-from-ard-image-collections" class="nav-link" data-scroll-target="#obtaining-data-from-ard-image-collections"><span class="header-section-number">6.2.2</span> Obtaining data from ARD image collections</a></li>
-  </ul>
-</li>
-  <li><a href="#summary" id="toc-summary" class="nav-link" data-scroll-target="#summary"><span class="header-section-number">6.3</span> Summary</a></li>
+<li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction"><span class="header-section-number">27.1</span> Introduction</a></li>
+  <li><a href="#statistical-survey" id="toc-statistical-survey" class="nav-link" data-scroll-target="#statistical-survey"><span class="header-section-number">27.2</span> Statistical survey</a></li>
+  <li><a href="#statistical-survey-data" id="toc-statistical-survey-data" class="nav-link" data-scroll-target="#statistical-survey-data"><span class="header-section-number">27.3</span> Statistical survey data</a></li>
+  <li><a href="#maize-acreage-by-regression-estimator" id="toc-maize-acreage-by-regression-estimator" class="nav-link" data-scroll-target="#maize-acreage-by-regression-estimator"><span class="header-section-number">27.4</span> Maize acreage by regression estimator</a></li>
+  <li><a href="#lessons-learned" id="toc-lessons-learned" class="nav-link" data-scroll-target="#lessons-learned"><span class="header-section-number">27.5</span> Lessons learned</a></li>
+  <li><a href="#about-the-authors" id="toc-about-the-authors" class="nav-link" data-scroll-target="#about-the-authors">About the authors</a></li>
   <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
-  </ul><div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/FAO-EOSTAT/UN-Handbook/edit/quarto/th_data_cubes.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/FAO-EOSTAT/UN-Handbook/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
+  </ul><div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/FAO-EOSTAT/UN-Handbook/edit/quarto/crop_statistics_regression.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/FAO-EOSTAT/UN-Handbook/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><div class="quarto-title">
 <h1 class="title">
-<span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Earth observation data cubes</span>
+<span class="chapter-number">27</span>&nbsp; <span class="chapter-title">Estimating crop statistics using survey-calibrated methods</span>
 </h1>
 </div>
 
@@ -468,7 +425,7 @@ div.csl-indent {
     <div>
     <div class="quarto-title-meta-heading">Author</div>
     <div class="quarto-title-meta-contents">
-             <p>Gilberto Camara </p>
+             <p>Lorenzo de Simone, Sophie Bontemps, Boris Nörgaard </p>
           </div>
   </div>
     
@@ -477,158 +434,178 @@ div.csl-indent {
   </div>
   
 
-</header><section id="configurations-to-run-the-chapter" class="level3 unnumbered"><h3 class="unnumbered anchored" data-anchor-id="configurations-to-run-the-chapter">Configurations to run the chapter</h3>
-<div class="cell">
-<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># load package "tibble"</span></span>
-<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tibble.tidyverse.org/">tibble</a></span><span class="op">)</span></span>
-<span><span class="co"># load packages "sits" and "sitsdata"</span></span>
-<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/e-sensing/sits/">sits</a></span><span class="op">)</span></span>
-<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/e-sensing/sitsdata/">sitsdata</a></span><span class="op">)</span></span>
-<span><span class="co"># set tempdir if it does not exist </span></span>
-<span><span class="va">tempdir_r</span> <span class="op">&lt;-</span> <span class="st">"~/un_handbook/tempdir/R/data_cubes"</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/base/files2.html">dir.create</a></span><span class="op">(</span><span class="va">tempdir_r</span>, showWarnings <span class="op">=</span> <span class="cn">FALSE</span>, recursive <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</section><section id="working-with-satellite-image-time-series" class="level2" data-number="6.1"><h2 data-number="6.1" class="anchored" data-anchor-id="working-with-satellite-image-time-series">
-<span class="header-section-number">6.1</span> Working with satellite image time series</h2>
-<p>Satellite imagery provides the most extensive data on our environment. By encompassing vast areas of the Earth’s surface, satellite images enable researchers to analyze local and worldwide transformations. By observing the same location multiple times, satellites provide data on environmental changes and survey areas that are difficult to observe from the ground. Given its unique features, images offer essential information for many applications, including deforestation, crop production, food security, urban footprints, water scarcity, and land degradation. Using time series, experts improve their understanding of ecological patterns and processes. Instead of selecting individual images from specific dates and comparing them, researchers track change continuously <span class="citation" data-cites="Woodcock2020"><a href="#ref-Woodcock2020" role="doc-biblioref">[1]</a></span>. Combined with Earth observation data cubes, time series are a powerful tool for monitoring change, providing insights and information that single snapshots cannot achieve. Time series analysis are a new and exciting paradigm.</p>
-<section id="time-first-space-later" class="level3" data-number="6.1.1"><h3 data-number="6.1.1" class="anchored" data-anchor-id="time-first-space-later">
-<span class="header-section-number">6.1.1</span> Time-first, space-later</h3>
-<p>“Time-first, space-later” is a concept in satellite image classification that takes time series analysis as the first step for analyzing remote sensing data, with spatial information being considered after all time series are classified. The <em>time-first</em> part brings a better understanding of changes in landscapes. Detecting and tracking seasonal and long-term trends becomes feasible, as well as identifying anomalous events or patterns in the data, such as wildfires, floods, or droughts. Each pixel in a data cube is treated as a time series, using information available in the temporal instances of the case. Time series classification is pixel-based, producing a set of labeled pixels. This result is then used as input for the <em>space-later</em> part of the method. In this phase, a smoothing algorithm improves the results of the time-first classification by considering the spatial neighborhood of each pixel. The resulting map thus combines both spatial and temporal information.</p>
-<div class="cell" data-layout-align="center">
-<div class="cell-output-display">
-<div id="fig-ts-intro" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure"><p><img src="./images/th_data_cubes/time_series_general_view.png" style="width:100.0%;height:100.0%" class="figure-img"></p>
-<figcaption class="figure-caption">Figure&nbsp;6.1: Satellite image time series classification (source: <span class="citation" data-cites="Tan2017"><a href="#ref-Tan2017" role="doc-biblioref">[2]</a></span>).</figcaption></figure>
-</div>
-</div>
-</div>
-</section></section><section id="regular-earth-observation-data-cubes" class="level2" data-number="6.2"><h2 data-number="6.2" class="anchored" data-anchor-id="regular-earth-observation-data-cubes">
-<span class="header-section-number">6.2</span> Regular Earth observation data cubes</h2>
-<p>Analysis Ready Data (ARD) collections are often irregular in space and time. Bands may have different resolutions, images may not cover entire tiles, and time intervals are inconsistent. Clouds and sensor artifacts introduce “holes” in the data, corrupting the time series. If time steps differ or values are missing, batch training breaks and the model learns spurious correlations. Machine learning and deep learning (ML/DL) classification algorithms require the input data to be consistent. The dimensionality of the data used for training the model has to be the same as that of the data to be classified. There should be no gaps and no missing values. Thus, to use ML/DL algorithms for remote sensing data, ARD image collections should be converted to regular data cubes.</p>
-<p>A regular EO data cube is a partition of the Earth’s surface which covers the area in periodic intervals. Regular data cubes are derived by ARD images by filling coverage gaps, accounting for cloud coverage, and reprocessing irregular temporal coverage to regular periods. Also, regular data cubes can cover more than a single coordinate projection zone, so as to be defined in large areas.</p>
-<p>We propose the following properties for <em>regular data cubes</em>:</p>
-<ol type="1">
-<li>A regular data cube is a set of three-dimensional arrays with two spatial dimensions and one temporal dimension. Each array contains cells which have the same spatial resolution, the same temporal duration, and the same set of attributes (spectral bands and/or indices).</li>
-<li>The number of dimensions is fixed (2D + time), while the number of attributes is not limited.</li>
-<li>The spatial dimensions are associated to a coordinate projection system, such as the MGRS grid (Military Grid Reference System). A tile of the grid corresponds to a unique zone of the coordinate system. A data cube may span various tiles and projection zones.</li>
-<li>The temporal dimension is a set of continuous and equally spaced intervals.</li>
-<li>For each position in space, the cube should provide a multi-attribute time series. For each time interval, the cube should provide a multi-attribute 2D image (see <a href="#fig-dc-datacubes">Figure&nbsp;<span>6.2</span></a>).</li>
-</ol>
-<div class="cell" data-layout-align="center">
-<div class="cell-output-display">
-<div id="fig-dc-datacubes" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure"><p><img src="./images/th_data_cubes/datacube_conception.png" class="img-fluid figure-img" style="width:100.0%"></p>
-<figcaption class="figure-caption">Figure&nbsp;6.2: Conceptual view of a data cube.</figcaption></figure>
-</div>
-</div>
-</div>
-<section id="generating-regular-data-cubes" class="level3" data-number="6.2.1"><h3 data-number="6.2.1" class="anchored" data-anchor-id="generating-regular-data-cubes">
-<span class="header-section-number">6.2.1</span> Generating regular data cubes</h3>
-<p>Currently, the only cloud service that provides regular data cubes by default is the Brazil Data Cube (BDC). ARD collections available in other cloud services are not regular in space and time. Bands may have different resolutions, images may not cover the entire timeline, and time intervals may be irregular. For this reason, subsets of these collections need to be converted into regular data cubes before further processing. To produce data cubes for machine learning data analysis, this chpater of describes the steps involved in producing and using regular data cubes:</p>
+</header><section id="introduction" class="level2" data-number="27.1"><h2 data-number="27.1" class="anchored" data-anchor-id="introduction">
+<span class="header-section-number">27.1</span> Introduction</h2>
+<p>Producing statistics by counting those pixels classified as a given crop type does not provide unbiased area estimates. Maps are subject to omission and commission errors (Czaplewski, 1992), which are linked to the ability of the classification method to distinguish between classes. Regression estimators and calibration estimators have been widely used to correct such biases (F. J. Gallego and Rueda, 1993; Khan et al., 2018; Olofsson et al., 2014; Li et al.,2023). They are traditional ways to combine accurate, possibly unbiased, information, observed on a sample with less accurate, biased information, known for the whole population or for a larger sample. Said differently, maps are used to improve an estimator that has been computed from a ground survey on a sample in preserving as much as possible the properties of the ground survey estimators (unbiasedness) and reducing the variance (Gallego 2004).</p>
+<p>This chapter presents an application of such regression approach in Zimbabwe, as implemented in the framework of the EO STAT project.</p>
+</section><section id="statistical-survey" class="level2" data-number="27.2"><h2 data-number="27.2" class="anchored" data-anchor-id="statistical-survey">
+<span class="header-section-number">27.2</span> Statistical survey</h2>
+<p>As explained in the Chapter <a href="https://fao-eostat.github.io/UN-Handbook/ct_zimbabwe.html">Crop Classification in Zimbabwe</a>, a field campaign was implemented in Zimbabwe in the framework of the FAO EOSTAT project during the summer season 2024, which consisted in two complementary surveys. On one hand, a statistical area frame survey was conducted to obtain a statistically valid acreage estimate of the main crops. On the other hand, an opportunistic windshield survey was designed to acquire as many georeferenced observations as possible across all major land cover and crop types.</p>
+<p>The windshield survey has been detailed in the earlier Chapter. Those data were used to generate the national wall-to-wall crop type map from the summer 2024. The statistical survey was implemented using a two-stage stratified area sampling frame, where Primary Sampling Units (PSUs) are sampled from an initial population grid and Secondary Sampling Units (SSUs) are sampled within each PSU. The goal of the survey is to estimate the area proportion of the main crop(s) within PSUs to infer a mean proportion across the whole population grid. Knowing the total area covered by the population grid, the mean proportion estimation can be converted to a total acreage estimation.</p>
+<p>Cochran’s formula <span class="citation" data-cites="Cochran1977"><a href="#ref-Cochran1977" role="doc-biblioref">[1]</a></span> was used to compute the total number of samples, corresponding to the SSUs:</p>
+<p><span class="math display">\[
+n = \frac{(\sum{W_iS_i})^2}{[S(\hat{O})^2] + \frac{1}{N}\sum{W_iS_i^2}} \approx{ \left(\frac{\sum{W_iS_i}}{S(\hat{O)}} \right)^2}
+\]</span> where:</p>
 <ul>
-<li>Obtaining data from ARD image collections</li>
-<li>Producing regular data cubes from single- and multi-source data</li>
-<li>Performing operations on data cubes</li>
+<li>
+<span class="math inline">\(N\)</span> is number of population units in the area of interest</li>
+<li>
+<span class="math inline">\(S(\hat{O})\)</span> is the expected standard error of the accuracy estimate, expressed as a proportion</li>
+<li>
+<span class="math inline">\(S_i\)</span> is the standard deviation of stratum <span class="math inline">\(i\)</span>
+</li>
+<li>
+<span class="math inline">\(W_i\)</span> is is the mapped proportion of area of class <span class="math inline">\(i\)</span>
+</li>
+<li>
+<span class="math inline">\(U_i\)</span> is the expected user accuracy of class <span class="math inline">\(i\)</span>
+</li>
 </ul>
-<p>To convert data from ARD collections into regular data cubes we need two operations:</p>
-<ol type="1">
-<li><p>Spatial harmonization: reproject and resample everything onto the same tiling system and spatial resolution. For example, to regularize Sentinel-2 images, it is required to merge the 10-meter bands with the 20-meter bands. Users need to select a single resolution for the regular cube.</p></li>
-<li><p>Temporal harmonization: create equispaced intervals (e.g., 16-day, monthly, or seasonal composites), filling gaps introduced by cloud cover and sensor errors. There are two main options: (a) choosing a median value for each pixel in the time interval; or (b) sorting images in increasing order of cloud cover percentage. In the latter case, the least cloud-filled image is taken as a reference, and the others are used to try to fill its gaps. Pixels with persistent cloud cover are marked as <code>NA</code> and are temporally interpolated during computation.</p></li>
-</ol></section><section id="obtaining-data-from-ard-image-collections" class="level3" data-number="6.2.2"><h3 data-number="6.2.2" class="anchored" data-anchor-id="obtaining-data-from-ard-image-collections">
-<span class="header-section-number">6.2.2</span> Obtaining data from ARD image collections</h3>
-<p>The following example shows how to produce a regular data cube using the R <code>sits</code> package. First, we retrive a set of images cube from the Sentinel-2 collection available in Microsoft’s Planetary Computer (MPC). The area lies within the state of Rondônia, Brazil, and is defined by the MGRS tiles <code>20LKP</code> and <code>20LLP</code>.</p>
-<div class="cell">
-<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Retrieving a non-regular ARD collection from AWS</span></span>
-<span><span class="va">s2_cube_rondonia</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/sits/man/sits_cube.html">sits_cube</a></span><span class="op">(</span></span>
-<span>    source <span class="op">=</span> <span class="st">"AWS"</span>,</span>
-<span>    collection <span class="op">=</span> <span class="st">"SENTINEL-2-L2A"</span>,</span>
-<span>    tiles <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"20LLP"</span>, <span class="st">"20LKP"</span><span class="op">)</span>,</span>
-<span>    bands <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"B02"</span>, <span class="st">"B8A"</span>, <span class="st">"B11"</span>, <span class="st">"CLOUD"</span><span class="op">)</span>,</span>
-<span>    start_date <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/as.Date.html">as.Date</a></span><span class="op">(</span><span class="st">"2018-06-30"</span><span class="op">)</span>,</span>
-<span>    end_date <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/as.Date.html">as.Date</a></span><span class="op">(</span><span class="st">"2018-08-31"</span><span class="op">)</span></span>
-<span><span class="op">)</span></span>
-<span><span class="co"># Show the different timelines of the cube tiles</span></span>
-<span><span class="fu"><a href="https://rdrr.io/pkg/sits/man/sits_timeline.html">sits_timeline</a></span><span class="op">(</span><span class="va">s2_cube_rondonia</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Because N is large (over 2397 million pixels), the second term in the denominator of Eq. (1) can be ignored. A standard error for overall accuracy of 0.01 was targeted and user accuracy values ≥ 0.70 were anticipated. The resulting sample size was n = 1836, thus corresponding to SSUs.</p>
+<p>We performed a stratification with the aim of dividing the population into internally homogeneous subpopulations in terms of cropping intensity. This stratification was based on the ESA WorldCover map. The proportion of cropland within each PSU was calculated (given by the number of cropland pixels divided by the total number of pixels) and the segments were assigned to one of five strata. The strata limits were defined using the Jenks natural breaks classification method. The Jenks algorithm determines the best arrangement of values to minimize each class's average deviation from the class mean, while maximizing each class's deviation from the means of the other classes. In other words, the method seeks to reduce the variance within classes and maximize the variance between classes. Blocks having an agricultural intensity value less than 2 were dropped, as these represented areas with no agriculture, or with negligible agricultural surfaces. Results of this stratification are shown in <a href="#tbl-strata">Table&nbsp;<span>27.1</span></a>.</p>
+<div id="tbl-strata" class="anchored">
+<table class="table">
+<caption>Table&nbsp;27.1: Cropping intensity strata characterization</caption>
+<colgroup>
+<col style="width: 15%">
+<col style="width: 17%">
+<col style="width: 15%">
+<col style="width: 22%">
+<col style="width: 29%">
+</colgroup>
+<thead><tr class="header">
+<th>Strata</th>
+<th>Nb of blocks</th>
+<th>Area (ha)</th>
+<th>Cropland area (ha)</th>
+<th>Agricultural Intensity (%)</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td>Stratum 1</td>
+<td>11291</td>
+<td>4516400</td>
+<td>165196.4424</td>
+<td>3.6</td>
+</tr>
+<tr class="even">
+<td>Stratum 2</td>
+<td>22644</td>
+<td>9057600</td>
+<td>938008.2325</td>
+<td>10.3</td>
+</tr>
+<tr class="odd">
+<td>Stratum 3</td>
+<td>14742</td>
+<td>5896800</td>
+<td>1305204.32</td>
+<td>22.1</td>
+</tr>
+<tr class="even">
+<td>Stratum 4</td>
+<td>8390</td>
+<td>3356000</td>
+<td>1250339.113</td>
+<td>37.2</td>
+</tr>
+<tr class="odd">
+<td>Stratum 5</td>
+<td>2866</td>
+<td>1146400</td>
+<td>683274.7886</td>
+<td>59.6</td>
+</tr>
+</tbody>
+</table>
 </div>
-<div class="cell">
-<div class="cell-output cell-output-stdout">
-<pre><code>$`20LKP`
- [1] "2018-07-03" "2018-07-08" "2018-07-13" "2018-07-18" "2018-07-23"
- [6] "2018-07-28" "2018-08-02" "2018-08-07" "2018-08-12" "2018-08-17"
-[11] "2018-08-22" "2018-08-27"
-
-$`20LLP`
- [1] "2018-06-30" "2018-07-03" "2018-07-05" "2018-07-08" "2018-07-10"
- [6] "2018-07-13" "2018-07-15" "2018-07-18" "2018-07-20" "2018-07-23"
-[11] "2018-07-25" "2018-07-28" "2018-07-30" "2018-08-02" "2018-08-04"
-[16] "2018-08-07" "2018-08-09" "2018-08-12" "2018-08-14" "2018-08-17"
-[21] "2018-08-19" "2018-08-22" "2018-08-24" "2018-08-27" "2018-08-29"</code></pre>
-</div>
-</div>
-<div class="cell">
-<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># plot the least cloudy image of the cube</span></span>
-<span><span class="va">s2_cube_rondonia</span> <span class="op">|&gt;</span>  </span>
-<span>    <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">tile</span> <span class="op">==</span> <span class="st">"20LLP"</span><span class="op">)</span> <span class="op">|&gt;</span>  </span>
-<span>    <span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
+<p>SSUs are defined as squares of 10 x 10 meters cell size, which corresponds to the size of a single Sentinel-2 pixel. Following recommendations from Stehman <span class="citation" data-cites="Stehman2012"><a href="#ref-Stehman2012" role="doc-biblioref">[2]</a></span>, an equal number of SSUs was allocated to each stratum. 25 PSUs were randomly selected from each stratum and in the second stage of sample allocation, 15 SSUs were randomly allocated in each PSU resulting in a total of 1875. <a href="#fig-stats-zimbabwe-2">Figure&nbsp;<span>27.1</span></a> shows the distribution of PSU across the country and across the 5 strata.</p>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
-<div id="fig-s220llp-dc" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure"><p><img src="./images/th_data_cubes/dc_regularize_s2_20llp_non_reg.png" class="img-fluid figure-img" style="width:80.0%"></p>
-<figcaption class="figure-caption">Figure&nbsp;6.3: Instance of non-regularized Sentinel-2 image covering only part of tile tile 20LLP.</figcaption></figure>
+<div id="fig-stats-zimbabwe-2" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure"><p><img src="./images/crop_statistics_regression/image2.png" class="img-fluid figure-img" style="width:80.0%"></p>
+<figcaption class="figure-caption">Figure&nbsp;27.1: Distribution of PSU (black dots) across the country and strata</figcaption></figure>
 </div>
 </div>
 </div>
-<p>Different satellites—even those within the same mission, such as Sentinel-2A and Sentinel-2B—follow slightly different orbits and acquire data at different times. Due to factors such as the Earth’s rotation and the lack of perfect alignment between Earth’s orbit and the satellites’ paths, some regions are not observed by both satellites during each orbital cycle. As a result, image acquisition timelines can differ between tiles.</p>
-<p>In our example, tile <code>20LKP</code> has twelve images within the selected time period, while tile <code>20LLP</code> has twenty-four. To harmonize these differences, we show and an example of the <code><a href="https://rdrr.io/pkg/sits/man/sits_regularize.html">sits_regularize()</a></code> function in the R <code>sits</code> package, which builds a data cube with a regular timeline and estimates the best available pixel value for each time interval.</p>
-<div class="cell">
-<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># set output dir for ARD data if it does not exist </span></span>
-<span><span class="va">tempdir_r_s2</span> <span class="op">&lt;-</span> <span class="st">"~/sitsbook/tempdir/R/dc_regularize/s2"</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/base/files2.html">dir.create</a></span><span class="op">(</span><span class="va">tempdir_r_s2</span>, showWarnings <span class="op">=</span> <span class="cn">FALSE</span>, recursive <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
-<span></span>
-<span><span class="va">s2_cube_local</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/sits/man/sits_cube_copy.html">sits_cube_copy</a></span><span class="op">(</span></span>
-<span>    cube <span class="op">=</span> <span class="va">s2_cube_rondonia</span>,</span>
-<span>    output_dir <span class="op">=</span> <span class="va">tempdir_r_s2</span></span>
-<span><span class="op">)</span></span>
-<span></span>
-<span><span class="co"># set output dir fir regular cube if it does not exist </span></span>
-<span><span class="va">tempdir_r_s2_reg</span> <span class="op">&lt;-</span> <span class="st">"~/un_handbook/tempdir/R/dc_regularize/s2_reg"</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/base/files2.html">dir.create</a></span><span class="op">(</span><span class="va">tempdir_r_s2_reg</span>, showWarnings <span class="op">=</span> <span class="cn">FALSE</span>, recursive <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
-<span></span>
-<span><span class="co"># Regularize the cube to 16-day intervals</span></span>
-<span><span class="va">reg_cube_rondonia</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/sits/man/sits_regularize.html">sits_regularize</a></span><span class="op">(</span></span>
-<span>          cube       <span class="op">=</span> <span class="va">s2_cube_local</span>,</span>
-<span>          output_dir <span class="op">=</span> <span class="va">tempdir_r_s2_reg</span>,</span>
-<span>          res        <span class="op">=</span> <span class="fl">40</span>,</span>
-<span>          period     <span class="op">=</span> <span class="st">"P16D"</span>,</span>
-<span>          multicores <span class="op">=</span> <span class="fl">6</span><span class="op">)</span></span>
-<span></span>
-<span><span class="co"># Plot tile 20LLP of the regularized cube with the least cloud cover</span></span>
-<span><span class="co"># The pixels of the regular data cube cover the full MGRS tile</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">reg_cube_rondonia</span>, tile <span class="op">=</span> <span class="st">"20LLP"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="cell">
+</section><section id="statistical-survey-data" class="level2" data-number="27.3"><h2 data-number="27.3" class="anchored" data-anchor-id="statistical-survey-data">
+<span class="header-section-number">27.3</span> Statistical survey data</h2>
+<p>The statistical survey was implemented during a 2 week-period in February-March 2024. It was conducted by 4 teams (each team being made of one driver and 2 enumerators). The navigation between the PSUs was facilitated by the Path Finder WebGis application and the Survey 123 application was used to collect georeferenced information for each SSU. The repartition of the classes in the dataset is shown in <a href="#fig-stats-zimbabwe-3">Figure&nbsp;<span>27.2</span></a>.</p>
+<div class="cell" data-layout-align="center">
 <div class="cell-output-display">
-<div id="fig-s2reg-dc" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure"><p><img src="./images/th_data_cubes/dc_regularize_20llp_reg.png" class="img-fluid figure-img" style="width:80.0%"></p>
-<figcaption class="figure-caption">Figure&nbsp;6.4: Regularized image for tile Sentinel-2 tile 20LLP.</figcaption></figure>
+<div id="fig-stats-zimbabwe-3" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure"><p><img src="./images/crop_statistics_regression/image3.png" class="img-fluid figure-img" style="width:80.0%"></p>
+<figcaption class="figure-caption">Figure&nbsp;27.2: Land cover classes distribution observed in the statistical dataset.</figcaption></figure>
 </div>
 </div>
 </div>
-</section></section><section id="summary" class="level2" data-number="6.3"><h2 data-number="6.3" class="anchored" data-anchor-id="summary">
-<span class="header-section-number">6.3</span> Summary</h2>
-<p>In this chapter, we learned how to produce regular Earth observation (EO) data cubes from non-regular subsets of ARD collections. Regularization is a key operation when working with time series, as it enables the use of machine learning models on temporally aligned data.</p>
+<p>A data cleaning step was conducted, which resulted in the removal of a significant number of SSUs that did not match the expected collection requirements. The number of SSUs available within each PSUs after this quality control step is displayed in <a href="#fig-stats-zimbabwe-4">Figure&nbsp;<span>27.3</span></a>. This cleaning step, although necessary, decreased the number of SSUs in half the PSUs to less than 15. This will have a significant impact on the error associated to the estimation of the crop proportion within PSUs and therefore on the acreage statistics computation.</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div id="fig-stats-zimbabwe-4" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure"><p><img src="./images/crop_statistics_regression/image4.png" class="img-fluid figure-img" style="width:80.0%"></p>
+<figcaption class="figure-caption">Figure&nbsp;27.3: Number of SSUs by PSUs after the data cleaning.</figcaption></figure>
+</div>
+</div>
+</div>
+</section><section id="maize-acreage-by-regression-estimator" class="level2" data-number="27.4"><h2 data-number="27.4" class="anchored" data-anchor-id="maize-acreage-by-regression-estimator">
+<span class="header-section-number">27.4</span> Maize acreage by regression estimator</h2>
+<p>The statistical survey and the national summer crop type map generated in the FAO EOSTAT project (see Chapter <a href="https://fao-eostat.github.io/UN-Handbook/ct_zimbabwe.html">Crop Classification in Zimbabwe</a>) were then used to estimate maize acreage.</p>
+<p>First, a statistical inference of the stratified sample was computed. The estimated mean <span class="math inline">\(Z_{i}\)</span> and total acreage <span class="math inline">\(\tau_{i}\)</span> of maize within each stratum are given by the following equations.</p>
+<p><span class="math display">\[
+\hat{\tau_i} = A_i * \hat{z_i}
+\]</span></p>
+<p><span class="math display">\[
+\hat{z_i} =  \frac{1}{n_i} * \sum_{j=1}^{n_j} z_i
+\]</span></p>
+<p>The variance of the acreage estimation within each stratum <span class="math inline">\(\text{Var}(\tau_{i})\)</span> and total variance are given by equations (4) and (5):</p>
+<p><span class="math display">\[
+\hat{V}ar(\hat{\tau}) = \sum_{i=1}^H \hat{V}ar(\hat{\tau_i})
+\]</span> <span class="math display">\[
+\hat{V}ar(\hat{\tau_i}) = {A_i}^2 * (1 - \frac{n_i}{N_i}) * \frac{1}{n_i(n_j - 1)} * \sum_{j=1}^{n_j} (z_{ij} - \hat{z_i})
+\]</span></p>
+<p>The map then was combined in the estimation process using a regression estimator, combining spatially exhaustive information from the map with unbiased information from the statistical survey through linear regression.</p>
+<p>The variance of the regression estimator was computed and is given by</p>
+<p><span class="math display">\[
+S_{\hat{y}}^2 = \frac{N -n}{N} \left( \frac{s_y^2(1 - r^2)}{n} + \frac{s_y^2(1 - r^2)(\bar{x} - \mu_x)}{(n-1)s_x^2} \right)   
+\]</span> With <span class="math inline">\(N\)</span> the population size, <span class="math inline">\(n\)</span> the sample size, <span class="math inline">\(s_{y}^{2}\)</span> the variance of proportions in the sample in the statistical survey, <span class="math inline">\(s_{x}^{2}\)</span> the variance in the sample in the map.</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div id="fig-stats-zimbabwe-8" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure"><p><img src="./images/crop_statistics_regression/image8.png" class="img-fluid figure-img" style="width:60.0%"></p>
+<figcaption class="figure-caption">Figure&nbsp;27.4: Regression estimator for the maize between the map and the statistical survey.</figcaption></figure>
+</div>
+</div>
+</div>
+<p>Acreage estimates for maize and their 95% confidence intervals for both methods are shown in <a href="#fig-stats-zimbabwe-9">Figure&nbsp;<span>27.5</span></a>.</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div id="fig-stats-zimbabwe-9" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure"><p><img src="./images/crop_statistics_regression/image9.png" class="img-fluid figure-img" style="width:60.0%"></p>
+<figcaption class="figure-caption">Figure&nbsp;27.5: National scale area estimates for maize during the 2024 summer season.</figcaption></figure>
+</div>
+</div>
+</div>
+<p>The variance has slightly improved when integrating the map in the estimation process. However, the decrease is lower than expected and this is mainly due to the error associated with the maize proportions within PSUs (half of the PSUs with less than 15 SSUs – see figure 3). To decrease this uncertainty, only PSUs containing at least 15 SSUs were used in the regression estimator. However, since the variance of the regression estimator depends on the sample size, the removal of half the PSUs from the dataset limited the potential reduction in variance that could have been achieved using remote sensing.</p>
+</section><section id="lessons-learned" class="level2" data-number="27.5"><h2 data-number="27.5" class="anchored" data-anchor-id="lessons-learned">
+<span class="header-section-number">27.5</span> Lessons learned</h2>
+<p>This use case demonstrated how EO maps can be combined with a statistical survey to improve the acreage estimation. This was done for maize, which is the dominant summer crop in Zimbabwe. The obtained acreage figure is aligned with the estimation from AGRITEX (Department of Agricultural, Technical and Extension Services, responsible for providing technical support and advice to farmers),which, although unofficial, is one of the most reliable estimates available.</p>
+<p>This method has the advantage of being built upon official statistical surveys conducted by the NSOs, thus avoiding questions about the legitimacy of the results. Conversely, it has the drawback of being sensitive to the implementation of these statistical surveys.</p>
+<p>First, the protocols need to make sure that georeferenced information is collected at the crop-level (not only at the household-level). This is quite obvious in area frame surveys, but needs some adjustments in case of list frame.</p>
+<p>Second, samples need to be correctly allocated, which was probably not the case here. As can be seen on Figure 4, the maximum maize proportion values observed in the statistical survey reach only 0.4, which means that agriculture intensity stratification based on the ESA WorldCover product was not efficient. For the future, the stratification can be based on the EOSTAT summer crop type map, which should bring better results.</p>
+<p>Finally, enumerators need to be trained to collect the data of good quality (<strong>discuss the quality assessment here</strong>).</p>
+</section><section id="about-the-authors" class="level2 unnumbered"><h2 class="unnumbered anchored" data-anchor-id="about-the-authors">About the authors</h2>
 </section><section id="references" class="level2 unnumbered"><h2 class="unnumbered anchored" data-anchor-id="references">References</h2>
 
 
 <div id="refs" class="references csl-bib-body" role="list">
-<div id="ref-Woodcock2020" class="csl-entry" role="listitem">
+<div id="ref-Cochran1977" class="csl-entry" role="listitem">
 <div class="csl-left-margin">[1] </div>
-<div class="csl-right-inline">C. E. Woodcock, T. R. Loveland, M. Herold, and M. E. Bauer, <span>“Transitioning from change detection to monitoring with remote sensing: <span>A</span> paradigm shift,”</span> <em>Remote Sensing of Environment</em>, vol. 238, p. 111558, 2020, doi: <a href="https://doi.org/10.1016/j.rse.2019.111558">10.1016/j.rse.2019.111558</a>.</div>
+<div class="csl-right-inline">W. G. Cochran, <em>Sampling techniques</em>. John Wiley &amp; Sons, Ltd, 1977.</div>
 </div>
-<div id="ref-Tan2017" class="csl-entry" role="listitem">
+<div id="ref-Stehman2012" class="csl-entry" role="listitem">
 <div class="csl-left-margin">[2] </div>
-<div class="csl-right-inline">C. W. Tan, G. I. Webb, and F. Petitjean, <span>“<a href="https://doi.org/10.1137/1.9781611974973.32">Indexing and classifying gigabytes of time series under time warping</a>,”</span> in <em>Proceedings of the 2017 <span>SIAM International Conference</span> on <span>Data Mining</span> (<span>SDM</span>)</em>, <span>Society for Industrial and Applied Mathematics</span>, 2017, pp. 282–290.</div>
+<div class="csl-right-inline">S. V. Stehman, <span>“Impact of sample size allocation when using stratified random sampling to estimate accuracy and area of land-cover change,”</span> <em>Remote Sensing Letters</em>, vol. 3, no. 2, pp. 111–120, 2012, doi: <a href="https://doi.org/10.1080/01431161.2010.541950">10.1080/01431161.2010.541950</a>.</div>
 </div>
 </div>
 </section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
@@ -864,13 +841,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script><nav class="page-navigation"><div class="nav-page nav-page-previous">
-      <a href="./th_data_sources.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Earth observation big data sources</span></span>
+      <a href="./crop_statistics.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Extraction of crop statistics from crop type and crop yield maps</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./th_lucc.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Land cover and crop classification schemas</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./crop_statistics_ppi.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">Prediction-Powered Inference (PPI) for Agricultural Decision-Making</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

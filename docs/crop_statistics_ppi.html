@@ -5,7 +5,7 @@
 <meta name="generator" content="quarto-1.3.361">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 <meta name="author" content="Gilberto Camara, Lorenzo de Simone, Ronald Jansen">
-<title>UN Handbook on Remote Sensing for Agricultural Statistics - 27&nbsp; Prediction-Powered Inference (PPI) for Agricultural Decision-Making</title>
+<title>UN Handbook on Remote Sensing for Agricultural Statistics - 28&nbsp; Prediction-Powered Inference (PPI) for Agricultural Decision-Making</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -46,8 +46,8 @@ div.csl-indent {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./ad_world_cereal.html" rel="next">
-<link href="./ad_crop_statistics.html" rel="prev">
+<link href="./uav_agriculture.html" rel="next">
+<link href="./crop_statistics_regression.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -84,7 +84,7 @@ div.csl-indent {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./additional.html">Additional Topics</a></li><li class="breadcrumb-item"><a href="./ad_crop_statistics_ppi.html"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">Prediction-Powered Inference (PPI) for Agricultural Decision-Making</span></a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./crop_statistics.html">Extraction of crop statistics from crop type and crop yield maps</a></li><li class="breadcrumb-item"><a href="./crop_statistics_ppi.html"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">Prediction-Powered Inference (PPI) for Agricultural Decision-Making</span></a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -196,8 +196,14 @@ div.csl-indent {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="./th_semantic_segmentation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Semantic Segmentation for Remote Sensing in Agriculture</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="./th_parcel_extraction.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Automatic Extraction of Parcels</span></span></a>
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Automatic Extraction of Parcels</span></span></a>
   </div>
 </li>
       </ul>
@@ -214,43 +220,43 @@ div.csl-indent {
 <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./ct_poland.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Crop monitoring with Sentinel-1 and Sentinel-2 images in Poland</span></span></a>
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Crop monitoring with Sentinel-1 and Sentinel-2 images in Poland</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./ct_mexico.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Crop classification in Mexico</span></span></a>
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Crop classification in Mexico</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./ct_senegal.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Multi-seasonal crop mapping in Senegal</span></span></a>
+ <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Multi-seasonal crop mapping in Senegal</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./ct_zimbabwe.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Crop classification in Zimbabwe</span></span></a>
+ <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Crop classification in Zimbabwe</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./ct_china.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Efficient and Reliable Paddy Rice Classification</span></span></a>
+ <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Efficient and Reliable Paddy Rice Classification</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./ct_chile.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Crop classification and land use mapping in Chile</span></span></a>
+ <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Crop classification and land use mapping in Chile</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./ct_digital_earth_africa.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Agricultural Mapping with Digital Earth Africa</span></span></a>
+ <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Agricultural Mapping with Digital Earth Africa</span></span></a>
   </div>
 </li>
       </ul>
@@ -267,31 +273,100 @@ div.csl-indent {
 <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./cy_finland.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Early-season crop yield mapping in Finland</span></span></a>
+ <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Early-season crop yield mapping in Finland</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./cy_indonesia.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Mapping crop phenology in Indonesia</span></span></a>
+ <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Mapping crop phenology in Indonesia</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./cy_poland.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Yield forecasting in Poland</span></span></a>
+ <span class="menu-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">Yield forecasting in Poland</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./cy_colombia.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">Rice Phenology in Colombia</span></span></a>
+ <span class="menu-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">Rice Phenology in Colombia</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./cy_china.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">Remote Sensing Estimation of Soybean Yield</span></span></a>
+ <span class="menu-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">Remote Sensing Estimation of Soybean Yield</span></span></a>
+  </div>
+</li>
+      </ul>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./crop_statistics.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Extraction of crop statistics from crop type and crop yield maps</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./crop_statistics_regression.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">Estimating crop statistics using survey-calibrated methods</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./crop_statistics_ppi.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">Prediction-Powered Inference (PPI) for Agricultural Decision-Making</span></span></a>
+  </div>
+</li>
+      </ul>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./uav_agriculture.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">UAV applications in agricultural statistics</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./uav_field_parcels.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">Field Parcel Identification Using UAV Imagery Based on the DCP-MTL Model</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./uav_wheat_growth.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title">Application of UAV in Wheat Growth Monitoring</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./uav_crop_growth.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">31</span>&nbsp; <span class="chapter-title">Automated Monitoring of Crop Growth Index (CGI) using UAV</span></span></a>
+  </div>
+</li>
+      </ul>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./disaster_response.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Remote Sensing for Agricultural Disaster Response</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./dis_china_floods.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">32</span>&nbsp; <span class="chapter-title">An Automated Flood Detection Algorithm for Post-Disaster Assessment</span></span></a>
   </div>
 </li>
       </ul>
@@ -300,57 +375,15 @@ div.csl-indent {
       <div class="sidebar-item-container"> 
             <a href="./additional.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Additional Topics</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">
+      <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth1 show">
 <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./ad_crop_statistics.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">Extraction of crop statistics from crop type and crop yield maps</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./ad_crop_statistics_ppi.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">Prediction-Powered Inference (PPI) for Agricultural Decision-Making</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
   <a href="./ad_world_cereal.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">WorldCereal - A Global Effort for Crop Mapping</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./ad_uav_field_parcels.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">Field Parcel Identification Using UAV Imagery Based on the DCP-MTL Model</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./ad_uav_wheat_growth.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title">Application of UAV in Wheat Growth Monitoring</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./ad_uav_crop_growth.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">31</span>&nbsp; <span class="chapter-title">Automated Monitoring of Crop Growth Index (CGI) using UAV</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./ad_disaster_response.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">32</span>&nbsp; <span class="chapter-title">Remote Sensing for Agricultural Disaster Response</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./ad_china_floods.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">33</span>&nbsp; <span class="chapter-title">An Automated Flood Detection Algorithm for Post-Disaster Assessment</span></span></a>
+ <span class="menu-text"><span class="chapter-number">33</span>&nbsp; <span class="chapter-title">WorldCereal - A Global Effort for Crop Mapping</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -370,22 +403,22 @@ div.csl-indent {
    
   <ul>
 <li>
-<a href="#example-yield-estimation" id="toc-example-yield-estimation" class="nav-link active" data-scroll-target="#example-yield-estimation"><span class="header-section-number">27.1</span> Example: Yield estimation</a>
+<a href="#example-yield-estimation" id="toc-example-yield-estimation" class="nav-link active" data-scroll-target="#example-yield-estimation"><span class="header-section-number">28.1</span> Example: Yield estimation</a>
   <ul class="collapse">
 <li><a href="#mean-estimation" id="toc-mean-estimation" class="nav-link" data-scroll-target="#mean-estimation">Mean estimation</a></li>
   <li><a href="#estimating-other-summary-statistics" id="toc-estimating-other-summary-statistics" class="nav-link" data-scroll-target="#estimating-other-summary-statistics">Estimating other summary statistics</a></li>
   <li><a href="#estimating-associative-relationships" id="toc-estimating-associative-relationships" class="nav-link" data-scroll-target="#estimating-associative-relationships">Estimating associative relationships</a></li>
   </ul>
 </li>
-  <li><a href="#takeaways-and-technical-notes" id="toc-takeaways-and-technical-notes" class="nav-link" data-scroll-target="#takeaways-and-technical-notes"><span class="header-section-number">27.2</span> Takeaways and technical notes</a></li>
+  <li><a href="#takeaways-and-technical-notes" id="toc-takeaways-and-technical-notes" class="nav-link" data-scroll-target="#takeaways-and-technical-notes"><span class="header-section-number">28.2</span> Takeaways and technical notes</a></li>
   <li><a href="#about-the-authors" id="toc-about-the-authors" class="nav-link" data-scroll-target="#about-the-authors">About the Authors</a></li>
   <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
-  </ul><div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/FAO-EOSTAT/UN-Handbook/edit/quarto/ad_crop_statistics_ppi.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/FAO-EOSTAT/UN-Handbook/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
+  </ul><div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/FAO-EOSTAT/UN-Handbook/edit/quarto/crop_statistics_ppi.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/FAO-EOSTAT/UN-Handbook/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><div class="quarto-title">
 <h1 class="title">
-<span class="chapter-number">27</span>&nbsp; <span class="chapter-title">Prediction-Powered Inference (PPI) for Agricultural Decision-Making</span>
+<span class="chapter-number">28</span>&nbsp; <span class="chapter-title">Prediction-Powered Inference (PPI) for Agricultural Decision-Making</span>
 </h1>
 </div>
 
@@ -409,8 +442,8 @@ div.csl-indent {
 <p>Similar to the area or mean estimation cases, the main challenge when estimating more complex statistics is the imperfect nature of satellite-derived maps and the limited quantity of high-quality survey data. Ground surveys, while accurate, are expensive and sparse, often yielding estimates with wide uncertainty. Satellite products, on the other hand, provide broad coverage at low cost, but their predictions can be incorrect in ways that bias downstream analyses. If we rely solely on surveys, our estimates are statistically sound but imprecise; if we rely solely on maps, they are precise but potentially misleading.</p>
 <p>Prediction-Powered Inference (PPI) is a class of methods that offer principled ways to overcome the limitations of Map-only and Survey-only approaches <span class="citation" data-cites="Angelopoulos2023"><a href="#ref-Angelopoulos2023" role="doc-biblioref">[5]</a></span>. The idea is simple but powerful: combine the breadth of satellite-based predictions with the reliability of a small, randomly sampled set of ground-truth observations. First, PPI uses the map product to generate large-scale estimates of the quantity of interest — be it a mean, percentile, or regression coefficient. Then, the calibration sample of ground-truth data is used to measure the bias in those estimates and correct it. Finally, confidence intervals for the quantity of interest are constructed through bootstrap sampling. This <code>Predict-Then-Debias</code> strategy yields estimates that are both unbiased and accompanied by valid confidence intervals, even when the map errors are complex <span class="citation" data-cites="Kluger2025"><a href="#ref-Kluger2025" role="doc-biblioref">[6]</a></span>. In effect, PPI retains the efficiency gains of using massive satellite datasets while safeguarding the statistical validity that comes from survey sampling. Empirical applications show that PPI prevents the misleading conclusions that arise from treating maps as error-free while achieving narrower confidence intervals than using ground-truth data alone — sometimes equivalent to having ten- or twenty-fold more survey data <span class="citation" data-cites="Lu2025"><a href="#ref-Lu2025" role="doc-biblioref">[7]</a></span>.</p>
 <p>We next provide an accessible explanation of a PPI approach, focusing on a few examples. Links to software can be found at the end of this section.</p>
-<section id="example-yield-estimation" class="level2" data-number="27.1"><h2 data-number="27.1" class="anchored" data-anchor-id="example-yield-estimation">
-<span class="header-section-number">27.1</span> Example: Yield estimation</h2>
+<section id="example-yield-estimation" class="level2" data-number="28.1"><h2 data-number="28.1" class="anchored" data-anchor-id="example-yield-estimation">
+<span class="header-section-number">28.1</span> Example: Yield estimation</h2>
 <section id="mean-estimation" class="level3 unnumbered"><h3 class="unnumbered anchored" data-anchor-id="mean-estimation">Mean estimation</h3>
 <p>Suppose we are interested in estimating the average corn yield in a particular year and region and have access to both a corn yield map product and a small field survey of corn yields. We enumerate three approaches to estimating the average corn yield below; the first two are commonly used baselines that each have a substantial limitation, whereas the third is the <code>Predict-Then-Debias</code> approach (an algorithm within the PPI framework).</p>
 <ol type="1">
@@ -422,7 +455,7 @@ div.csl-indent {
 \hat{\theta}_{\text{PTD}} =
 \underbrace{\hat{\gamma}_{\text{map,all}}}_{\text{Map-only estimate}}
 + \underbrace{(\hat{\theta}_{\text{GT,survey}}-\hat{\gamma}_{\text{map,survey}})}_{\text{Bias correction}}
-\tag{27.1}\]</span></span></p>
+\tag{28.1}\]</span></span></p>
 <p><span class="math inline">\(\hat{\theta}_{\text{PTD}}\)</span> is guaranteed to be unbiased, because any bias in <span class="math inline">\(\hat{\gamma}_{\text{map,all}}\)</span> has been removed by a correction term. Since the variance of <span class="math inline">\(\hat{\gamma}_{\text{map,all}}\)</span> is small and the variance of the bias correction term is typically small, the variance of <span class="math inline">\(\hat{\theta}_{\text{PTD}}\)</span> is also usually small. (The more accurate the satellite map product, the smaller the variance of the correction term.)</p>
 <p>In practice, confidence intervals can be calculated using the percentile bootstrap, which involves repeating the procedure of calculating <span class="math inline">\(\hat{\theta}_{\text{PTD}}\)</span> on 2,000 different resamplings of the data. The 2.5th and 97.5th percentiles of these corn yield estimates across the 2,000 bootstrap resamplings will give a 95% confidence interval.</p>
 </li>
@@ -432,49 +465,49 @@ div.csl-indent {
 <div class="cell-output-display">
 <div id="fig-ppi-1" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure"><p><img src="./images/ad_crop_statistics_ppi/CornYieldStatistics2019.png" class="img-fluid figure-img" style="width:100.0%"></p>
-<figcaption class="figure-caption">Figure&nbsp;27.1: Summary statistics of corn yield in the Eastern U.S. in 2019. Point estimates and 95% confidence intervals are displayed for 3 different methods of estimating each summary statistic. The vertical dashed lines correspond to the actual values of the summary statistic, computed on withheld ground truth data. Note that this plot is for illustrative purposes only, as the ground truth data was synthetically generated whereas the map data comes from an actual data product <span class="citation" data-cites="Ma2024"><a href="#ref-Ma2024" role="doc-biblioref">[8]</a></span></figcaption></figure>
+<figcaption class="figure-caption">Figure&nbsp;28.1: Summary statistics of corn yield in the Eastern U.S. in 2019. Point estimates and 95% confidence intervals are displayed for 3 different methods of estimating each summary statistic. The vertical dashed lines correspond to the actual values of the summary statistic, computed on withheld ground truth data. Note that this plot is for illustrative purposes only, as the ground truth data was synthetically generated whereas the map data comes from an actual data product <span class="citation" data-cites="Ma2024"><a href="#ref-Ma2024" role="doc-biblioref">[8]</a></span></figcaption></figure>
 </div>
 </div>
 </div>
-<p><a href="#fig-ppi-1">Figure&nbsp;<span>27.1</span></a> (left panel) gives the estimates and 95% confidence intervals for the average corn yield in the Eastern U.S. using the three different approaches. The vertical dashed line corresponds to the true average yield. The Survey-only approach, which involves averaging yield across the 100 surveyed locations, has wide confidence intervals that contain the true average yield. Meanwhile, the Map-only approach, which involves averaging the map product’s estimated yields across all <span class="math inline">\(71{,}140\)</span> pixels, has a narrow confidence interval but is an overestimate. The <code>Predict-Then-Debias</code> approach, using both the survey and map product, results in narrower confidence intervals than those from the Survey-only approach. Crucially, unlike the Map-only confidence interval, the PTD confidence interval contains the actual average corn yield, calculated from the withheld ground truth data.</p>
-<p>Approaches for estimating the average of a quantity that use a combination of a map product and a surveyed sample are well established in the remote sensing literature <span class="citation" data-cites="McRoberts2022"><a href="#ref-McRoberts2022" role="doc-biblioref">[4]</a></span>. An advantage of the <code>Predict-Then-Debias</code> approach is that, as we will see next, the method generalizes readily to settings where the goal is to estimate some quantity other than an average. As examples, using the same corn yield dataset from the Eastern U.S., <a href="#fig-ppi-1">Figure&nbsp;<span>27.1</span></a> shows results from the <code>Predict-Then-Debias</code> approach when estimating the 25th and 75th percentiles of corn yield as well as the difference of these percentiles (the interquartile range).</p>
+<p><a href="#fig-ppi-1">Figure&nbsp;<span>28.1</span></a> (left panel) gives the estimates and 95% confidence intervals for the average corn yield in the Eastern U.S. using the three different approaches. The vertical dashed line corresponds to the true average yield. The Survey-only approach, which involves averaging yield across the 100 surveyed locations, has wide confidence intervals that contain the true average yield. Meanwhile, the Map-only approach, which involves averaging the map product’s estimated yields across all <span class="math inline">\(71{,}140\)</span> pixels, has a narrow confidence interval but is an overestimate. The <code>Predict-Then-Debias</code> approach, using both the survey and map product, results in narrower confidence intervals than those from the Survey-only approach. Crucially, unlike the Map-only confidence interval, the PTD confidence interval contains the actual average corn yield, calculated from the withheld ground truth data.</p>
+<p>Approaches for estimating the average of a quantity that use a combination of a map product and a surveyed sample are well established in the remote sensing literature <span class="citation" data-cites="McRoberts2022"><a href="#ref-McRoberts2022" role="doc-biblioref">[4]</a></span>. An advantage of the <code>Predict-Then-Debias</code> approach is that, as we will see next, the method generalizes readily to settings where the goal is to estimate some quantity other than an average. As examples, using the same corn yield dataset from the Eastern U.S., <a href="#fig-ppi-1">Figure&nbsp;<span>28.1</span></a> shows results from the <code>Predict-Then-Debias</code> approach when estimating the 25th and 75th percentiles of corn yield as well as the difference of these percentiles (the interquartile range).</p>
 </section><section id="estimating-other-summary-statistics" class="level3 unnumbered"><h3 class="unnumbered anchored" data-anchor-id="estimating-other-summary-statistics">Estimating other summary statistics</h3>
 <p>The <code>Predict-Then-Debias</code> approach readily generalizes beyond tasks of estimating averages. If the goal is to estimate some quantity of interest other than an average, one can follow the same steps as before, except the quantities <span class="math inline">\(\hat{\theta}_{\text{GT,survey}}\)</span>, <span class="math inline">\(\hat{\gamma}_{\text{map,all}}\)</span>, and <span class="math inline">\(\hat{\gamma}_{\text{map,survey}}\)</span> will no longer be sample means and will instead be estimates of the quantity of interest.</p>
-<p>For example, if one wishes to estimate the 25th percentile of corn yield, the Survey-only estimate <span class="math inline">\(\hat{\theta}_{\text{GT,survey}}\)</span> will be the 25th percentile of measurements from the surveyed sample. The Map-only estimate <span class="math inline">\(\hat{\gamma}_{\text{map,all}}\)</span> will be the 25th percentile of the map product predictions across the study region. <span class="math inline">\(\hat{\gamma}_{\text{map,survey}}\)</span> will be the 25th percentile of the map product’s corn yield estimates across the surveyed locations. Finally, <span class="math inline">\(\hat{\theta}_{\text{PTD}}\)</span> will be calculated using <a href="#eq-ptd">Equation&nbsp;<span>27.1</span></a>.</p>
-<p>More generally, <a href="#fig-ppi-2">Figure&nbsp;<span>27.2</span></a> gives an overview of the <code>Predict-Then-Debias</code> procedure when one wants to estimate some quantity of interest <span class="math inline">\(\theta\)</span> using a combination of map-product data and ground truth data from a small survey. For more details about the method, see <span class="citation" data-cites="Kluger2025"><a href="#ref-Kluger2025" role="doc-biblioref">[6]</a></span>.</p>
+<p>For example, if one wishes to estimate the 25th percentile of corn yield, the Survey-only estimate <span class="math inline">\(\hat{\theta}_{\text{GT,survey}}\)</span> will be the 25th percentile of measurements from the surveyed sample. The Map-only estimate <span class="math inline">\(\hat{\gamma}_{\text{map,all}}\)</span> will be the 25th percentile of the map product predictions across the study region. <span class="math inline">\(\hat{\gamma}_{\text{map,survey}}\)</span> will be the 25th percentile of the map product’s corn yield estimates across the surveyed locations. Finally, <span class="math inline">\(\hat{\theta}_{\text{PTD}}\)</span> will be calculated using <a href="#eq-ptd">Equation&nbsp;<span>28.1</span></a>.</p>
+<p>More generally, <a href="#fig-ppi-2">Figure&nbsp;<span>28.2</span></a> gives an overview of the <code>Predict-Then-Debias</code> procedure when one wants to estimate some quantity of interest <span class="math inline">\(\theta\)</span> using a combination of map-product data and ground truth data from a small survey. For more details about the method, see <span class="citation" data-cites="Kluger2025"><a href="#ref-Kluger2025" role="doc-biblioref">[6]</a></span>.</p>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <div id="fig-ppi-2" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure"><p><img src="./images/ad_crop_statistics_ppi/MethodOverviewUpdated.png" class="img-fluid figure-img" style="width:100.0%"></p>
-<figcaption class="figure-caption">Figure&nbsp;27.2: Overview of Predict-Then-Debias Bootstrap procedure to estimate some quantity of interest <span class="math inline">\(\theta\)</span>. The procedure returns point estimates of <span class="math inline">\(\theta\)</span> and valid confidence intervals. Explicit details of the algorithm, as well as hyperlinks to an R package and Python module implementing the algorithm, can be found in <span class="citation" data-cites="Kluger2025"><a href="#ref-Kluger2025" role="doc-biblioref">[6]</a></span>.</figcaption></figure>
+<figcaption class="figure-caption">Figure&nbsp;28.2: Overview of Predict-Then-Debias Bootstrap procedure to estimate some quantity of interest <span class="math inline">\(\theta\)</span>. The procedure returns point estimates of <span class="math inline">\(\theta\)</span> and valid confidence intervals. Explicit details of the algorithm, as well as hyperlinks to an R package and Python module implementing the algorithm, can be found in <span class="citation" data-cites="Kluger2025"><a href="#ref-Kluger2025" role="doc-biblioref">[6]</a></span>.</figcaption></figure>
 </div>
 </div>
 </div>
 </section><section id="estimating-associative-relationships" class="level3 unnumbered"><h3 class="unnumbered anchored" data-anchor-id="estimating-associative-relationships">Estimating associative relationships</h3>
-<p>In many cases, one wishes to investigate how the mapped quantity is associated with a policy, a farm management practice, or an environmental factor (e.g., weather). In such cases, the <code>Predict-Then-Debias</code> approach can still be applied, whether the goal is to estimate a regression coefficient, a correlation coefficient, or some other quantity describing the relationship between multiple variables. One would follow the steps in <a href="#fig-ppi-2">Figure&nbsp;<span>27.2</span></a>, with the difference being that more than one variable is used in each step to calculate the quantity of interest.</p>
+<p>In many cases, one wishes to investigate how the mapped quantity is associated with a policy, a farm management practice, or an environmental factor (e.g., weather). In such cases, the <code>Predict-Then-Debias</code> approach can still be applied, whether the goal is to estimate a regression coefficient, a correlation coefficient, or some other quantity describing the relationship between multiple variables. One would follow the steps in <a href="#fig-ppi-2">Figure&nbsp;<span>28.2</span></a>, with the difference being that more than one variable is used in each step to calculate the quantity of interest.</p>
 <p>We return to the corn yield dataset. Suppose we wish to estimate the best fit regression coefficient in the linear model:</p>
 <p><span class="math display">\[
 Y_{\text{corn}}=\theta_0+\theta_1 X_{\text{temp}} +\theta_2 X_{\text{precip}} + \varepsilon.
 \]</span> In the above linear model, the dependent variable <span class="math inline">\(Y_{\text{corn}}\)</span> is the corn yield, which in our dataset is estimated by a map product across the study region but surveyed at only 100 locations. Independent variables <span class="math inline">\(X_{\text{temp}}\)</span> and <span class="math inline">\(X_{\text{precip}}\)</span> are average growing season temperature and precipitation, respectively; we assume the true values of these are known at all locations in the study region. Coefficient <span class="math inline">\(\theta_1\)</span> is therefore the association between average growing season temperature and corn yield, coefficient <span class="math inline">\(\theta_2\)</span> the association between average growing season precipitation and corn yield, and <span class="math inline">\(\theta_0\)</span> the intercept.</p>
-<p><a href="#fig-ppi-3">Figure&nbsp;<span>27.3</span></a> gives estimates of the regression coefficients and 95% confidence intervals for <span class="math inline">\(\theta_0\)</span>, <span class="math inline">\(\theta_1\)</span>, and <span class="math inline">\(\theta_2\)</span> when using the Survey-only, Map-only and <code>Predict-Then-Debias</code> approaches. We again observe the wide confidence intervals of the Survey-only approach, the (often but not always) biased Map-only estimator, and the PTD estimator combining the strengths of map and survey. See <span class="citation" data-cites="Lu2025"><a href="#ref-Lu2025" role="doc-biblioref">[7]</a></span> for more examples as well as details on how to apply PTD to estimate regression coefficients using remote sensing map products.</p>
+<p><a href="#fig-ppi-3">Figure&nbsp;<span>28.3</span></a> gives estimates of the regression coefficients and 95% confidence intervals for <span class="math inline">\(\theta_0\)</span>, <span class="math inline">\(\theta_1\)</span>, and <span class="math inline">\(\theta_2\)</span> when using the Survey-only, Map-only and <code>Predict-Then-Debias</code> approaches. We again observe the wide confidence intervals of the Survey-only approach, the (often but not always) biased Map-only estimator, and the PTD estimator combining the strengths of map and survey. See <span class="citation" data-cites="Lu2025"><a href="#ref-Lu2025" role="doc-biblioref">[7]</a></span> for more examples as well as details on how to apply PTD to estimate regression coefficients using remote sensing map products.</p>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <div id="fig-ppi-3" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure"><p><img src="./images/ad_crop_statistics_ppi/CornYieldReg2019.png" class="img-fluid figure-img" style="width:100.0%"></p>
-<figcaption class="figure-caption">Figure&nbsp;27.3: Regression coefficient estimates when regressing corn yield on growing season temperature and precipitation. Point estimates and 95% confidence intervals are displayed for 3 different estimation approaches. The vertical dashed lines correspond to the actual values of the regression coefficients, computed on withheld ground truth data. Note that this plot is for illustrative purposes only, as the ground truth data was synthetically generated whereas the map data comes from a sample from the data product in <span class="citation" data-cites="Ma2024"><a href="#ref-Ma2024" role="doc-biblioref">[8]</a></span> from the Eastern U.S. in 2019.</figcaption></figure>
+<figcaption class="figure-caption">Figure&nbsp;28.3: Regression coefficient estimates when regressing corn yield on growing season temperature and precipitation. Point estimates and 95% confidence intervals are displayed for 3 different estimation approaches. The vertical dashed lines correspond to the actual values of the regression coefficients, computed on withheld ground truth data. Note that this plot is for illustrative purposes only, as the ground truth data was synthetically generated whereas the map data comes from a sample from the data product in <span class="citation" data-cites="Ma2024"><a href="#ref-Ma2024" role="doc-biblioref">[8]</a></span> from the Eastern U.S. in 2019.</figcaption></figure>
 </div>
 </div>
 </div>
-</section></section><section id="takeaways-and-technical-notes" class="level2" data-number="27.2"><h2 data-number="27.2" class="anchored" data-anchor-id="takeaways-and-technical-notes">
-<span class="header-section-number">27.2</span> Takeaways and technical notes</h2>
+</section></section><section id="takeaways-and-technical-notes" class="level2" data-number="28.2"><h2 data-number="28.2" class="anchored" data-anchor-id="takeaways-and-technical-notes">
+<span class="header-section-number">28.2</span> Takeaways and technical notes</h2>
 <section id="characteristic-results" class="level4 unnumbered"><h4 class="unnumbered anchored" data-anchor-id="characteristic-results">Characteristic results</h4>
-<p>Even though the experiments involved synthetically generated corn yield data and a real data product, the findings in <a href="#fig-ppi-1">Figure&nbsp;<span>27.1</span></a>, <a href="#fig-ppi-3">Figure&nbsp;<span>27.3</span></a> are characteristic of patterns seen throughout the PPI literature <span class="citation" data-cites="Lu2025 Kluger2025 Angelopoulos2023 Angelopoulos2023a"><a href="#ref-Angelopoulos2023" role="doc-biblioref">[5]</a>–<a href="#ref-Lu2025" role="doc-biblioref">[7]</a>, <a href="#ref-Angelopoulos2023a" role="doc-biblioref">[9]</a></span>. In particular, in most experiments on real datasets, the Map-only approach (referred to as the naïve approach in the PPI literature) exhibits narrow confidence intervals that do not contain the actual quantity of interest while the Survey-only approach (referred to as the classical approach in the PPI literature) typically has wider confidence intervals that contain the actual quantity of interest. Meanwhile, Prediction-Powered approaches, such as the <code>Predict-Then-Debias</code> approach, are typically found to have narrower confidence intervals than the Survey-only approach but still contain the actual quantity of interest.</p>
+<p>Even though the experiments involved synthetically generated corn yield data and a real data product, the findings in <a href="#fig-ppi-1">Figure&nbsp;<span>28.1</span></a>, <a href="#fig-ppi-3">Figure&nbsp;<span>28.3</span></a> are characteristic of patterns seen throughout the PPI literature <span class="citation" data-cites="Lu2025 Kluger2025 Angelopoulos2023 Angelopoulos2023a"><a href="#ref-Angelopoulos2023" role="doc-biblioref">[5]</a>–<a href="#ref-Lu2025" role="doc-biblioref">[7]</a>, <a href="#ref-Angelopoulos2023a" role="doc-biblioref">[9]</a></span>. In particular, in most experiments on real datasets, the Map-only approach (referred to as the naïve approach in the PPI literature) exhibits narrow confidence intervals that do not contain the actual quantity of interest while the Survey-only approach (referred to as the classical approach in the PPI literature) typically has wider confidence intervals that contain the actual quantity of interest. Meanwhile, Prediction-Powered approaches, such as the <code>Predict-Then-Debias</code> approach, are typically found to have narrower confidence intervals than the Survey-only approach but still contain the actual quantity of interest.</p>
 </section><section id="method-flexibility" class="level4 unnumbered"><h4 class="unnumbered anchored" data-anchor-id="method-flexibility">Method flexibility</h4>
 <p>In contrast to methods in the remote sensing literature which are only designed for area estimation <span class="citation" data-cites="Card1982 Stehman2013 Olofsson2013 Olofsson2014"><a href="#ref-Card1982" role="doc-biblioref">[1]</a>–<a href="#ref-Olofsson2014" role="doc-biblioref">[3]</a>, <a href="#ref-Stehman2013" role="doc-biblioref">[10]</a></span> or are only designed for mean estimation <span class="citation" data-cites="McRoberts2022"><a href="#ref-McRoberts2022" role="doc-biblioref">[4]</a></span>), the <code>Predict-Then-Debias</code> <span class="citation" data-cites="Kluger2025"><a href="#ref-Kluger2025" role="doc-biblioref">[6]</a></span> approach can be used to estimate a broad class of possible quantities of interest, including but not limited to areas, means, quantiles and regression coefficients. The <code>Predict-Then-Debias</code> approach also offers flexibility advantages over earlier methods in the Prediction-Powered inference literature <span class="citation" data-cites="Angelopoulos2023 Angelopoulos2023a"><a href="#ref-Angelopoulos2023" role="doc-biblioref">[5]</a>, <a href="#ref-Angelopoulos2023a" role="doc-biblioref">[9]</a></span>. For example, these earlier approaches are not designed for the “Error-in-X” and “Error-in-both” regression settings studied in <span class="citation" data-cites="Lu2025"><a href="#ref-Lu2025" role="doc-biblioref">[7]</a></span>.</p>
 </section><section id="tuning-to-increase-power" class="level4 unnumbered"><h4 class="unnumbered anchored" data-anchor-id="tuning-to-increase-power">Tuning to increase power</h4>
 <p>In practice it is recommended to set the <code>Predict-Then-Debias</code> estimator to be:</p>
 <p><span class="math inline">\(\hat{\theta}_{\text{PTD}}=\omega \hat{\gamma}_{\text{map,all}}+(\hat{\theta}_{\text{GT,calib}}-\omega \hat{\gamma}_{\text{map,calib}})\)</span></p>
-<p>where <span class="math inline">\(\omega\)</span> is a scalar tuning parameter that is automatically chosen to minimize the variance of <span class="math inline">\(\hat{\theta}_{\text{PTD}}\)</span>. This will lead to guarantees that the confidence intervals from the <code>Predict-Then-Debias</code> approach will be narrower than those from the Survey-only approach. Explicit discussion of selecting the tuning parameter <span class="math inline">\(\omega\)</span> is omitted for brevity, although we note that the experiments in <a href="#fig-ppi-1">Figure&nbsp;<span>27.1</span></a>, <a href="#fig-ppi-3">Figure&nbsp;<span>27.3</span></a> used such a tuning parameter. For more details on selecting the tuning parameter <span class="math inline">\(\omega\)</span>, see <span class="citation" data-cites="Lu2025"><a href="#ref-Lu2025" role="doc-biblioref">[7]</a></span> and <span class="citation" data-cites="Kluger2025"><a href="#ref-Kluger2025" role="doc-biblioref">[6]</a></span>.</p>
+<p>where <span class="math inline">\(\omega\)</span> is a scalar tuning parameter that is automatically chosen to minimize the variance of <span class="math inline">\(\hat{\theta}_{\text{PTD}}\)</span>. This will lead to guarantees that the confidence intervals from the <code>Predict-Then-Debias</code> approach will be narrower than those from the Survey-only approach. Explicit discussion of selecting the tuning parameter <span class="math inline">\(\omega\)</span> is omitted for brevity, although we note that the experiments in <a href="#fig-ppi-1">Figure&nbsp;<span>28.1</span></a>, <a href="#fig-ppi-3">Figure&nbsp;<span>28.3</span></a> used such a tuning parameter. For more details on selecting the tuning parameter <span class="math inline">\(\omega\)</span>, see <span class="citation" data-cites="Lu2025"><a href="#ref-Lu2025" role="doc-biblioref">[7]</a></span> and <span class="citation" data-cites="Kluger2025"><a href="#ref-Kluger2025" role="doc-biblioref">[6]</a></span>.</p>
 </section><section id="statistical-guarantees" class="level4 unnumbered"><h4 class="unnumbered anchored" data-anchor-id="statistical-guarantees">Statistical guarantees</h4>
 <p>The <code>Predict-Then-Debias</code> approach has theoretical guarantees of returning valid confidence intervals (meaning that under random sampling, the probability that the confidence interval contains the actual quantity of interest approximately matches the claimed probability). Notably, these statistical guarantees hold regardless of the quality of the map-product and regardless of whether the map-product errors are correlated with other variables in the analysis. The statistical guarantees also do not require any parametric modelling assumptions on the map-product error to hold. For more details on the theoretical guarantees, see <span class="citation" data-cites="Kluger2025"><a href="#ref-Kluger2025" role="doc-biblioref">[6]</a></span>.</p>
 </section><section id="survey-requirements" class="level4 unnumbered"><h4 class="unnumbered anchored" data-anchor-id="survey-requirements">Survey requirements</h4>
@@ -766,13 +799,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script><nav class="page-navigation"><div class="nav-page nav-page-previous">
-      <a href="./ad_crop_statistics.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">Extraction of crop statistics from crop type and crop yield maps</span></span>
+      <a href="./crop_statistics_regression.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">Estimating crop statistics using survey-calibrated methods</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./ad_world_cereal.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">WorldCereal - A Global Effort for Crop Mapping</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./uav_agriculture.html" class="pagination-link">
+        <span class="nav-page-text">UAV applications in agricultural statistics</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

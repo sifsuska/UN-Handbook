@@ -1,6 +1,6 @@
 ---
 title: "Extraction of crop statistics from crop type and crop yield maps"
-author: "Lorenzo de Simone, Inbal Backer-Reshef, Sophie Bontemps, Sherrie Wang, Sergii Scacun, Joseph Wagner"
+author: "Lorenzo de Simone, Inbal Becker-Reshef, Sophie Bontemps, Sherrie Wang, Sergii Scacun, Joseph Wagner"
 format: html
 ---
 
@@ -16,9 +16,9 @@ For National Statistical Offices (NSOs), whose mandate is to produce statistical
 ## Map-Corrected Estimation
 Anchored by: NASA Harvest, Inbal Becker-Reshef and collaborators
 
-This paradigm treats the EO-derived map as a primary product, but one that must be statistically adjusted using validation samples and error matrices. The approach, grounded in the methodology of [@Olofsson2014], involves computing bias-adjusted area estimates by integrating confusion matrix values with map pixel counts and deriving confidence intervals based on sampling theory. This is consistent with operational good practice for statistically valid area estimation from remote sensing, as reviewed in [@Stehman2019].
+This paradigm treats the EO-derived map as a primary product, but one that must be statistically corrected for omission, commission and edge pixel errors. The approach, grounded in the methodology of [@Olofsson2014], adjusts pixel-counted areas from the map, based on a stratified random sample, from which a confusion matrix expressed in terms of proportion of area is derived. Corresponding confidence intervals are computed. This is consistent with operational good practice for statistically valid area estimation from remote sensing, as reviewed in [@Stehman2019].
 
-It is particularly effective when the map covers large areas, classification accuracy is high-to-moderate, and a well-distributed reference dataset is available. This paradigm has been implemented operationally in conflict settings (e.g. Ukraine), where it enabled rapid area estimation despite difficult field conditions. It emphasizes design-based rigor, quantified uncertainty, and transparency — essential features of any official estimate.
+It is particularly effective when the map covers large areas, classification accuracy is high-to-moderate, and a well-distributed reference dataset is available. Reference data can be collected using remote sensing imagery interpretation, when ground access is prevented. This paradigm has been implemented operationally in conflict settings (e.g. Ukraine), where it enabled rapid area estimation despite difficult field conditions. It emphasizes design-based rigor, quantified uncertainty, and transparency — essential features of any official estimate.
 
 ## Survey-Calibrated Mapping
 Anchored by: FAO EOSTAT Zimbabwe, Lorenzo De Simone & Sophie Bontemps

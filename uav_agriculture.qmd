@@ -1,0 +1,9 @@
+---
+title: "UAV applications in agricultural statistics"
+author: "Gilberto Camara, Lorenzo de Simone"
+format: html
+---
+
+## Outline
+
+Describe the use cases.

@@ -33,6 +33,7 @@ book:
         - th_uncertainty.qmd
         - th_validation.qmd
         - th_design_frames.qmd
+        - th_semantic_segmentation.qmd
         - th_parcel_extraction.qmd
     - part: crop_type_mapping.qmd
       chapters:
@@ -50,16 +51,21 @@ book:
         - cy_poland.qmd
         - cy_colombia.qmd
         - cy_china.qmd
+    - part: crop_statistics.qmd
+      chapters:
+        - crop_statistics_regression.qmd
+        - crop_statistics_ppi.qmd
+    - part: uav_agriculture.qmd
+      chapters:
+        - uav_field_parcels.qmd
+        - uav_wheat_growth.qmd
+        - uav_crop_growth.qmd
+    - part: disaster_response.qmd
+      chapters:
+        - dis_china_floods.qmd
     - part: additional.qmd
       chapters:
-        - ad_crop_statistics.qmd
-        - ad_crop_statistics_ppi.qmd
         - ad_world_cereal.qmd
-        - ad_uav_field_parcels.qmd
-        - ad_uav_wheat_growth.qmd
-        - ad_uav_crop_growth.qmd
-        - ad_disaster_response.qmd
-        - ad_china_floods.qmd
         - ad_governance.qmd
 format:
   html:

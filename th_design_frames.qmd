@@ -6,7 +6,77 @@ format: html
 
 ## Outline
 
-This chapter deals with the requirements of field surveys for statistical quality and for compatibility with EO data. Earth Observation (EO) are widely used in agricultural statistics production. However, the accuracy of EO-based land use classification is limited because of the limitations of using in situ census or survey data as training sets for EO applications. In this work, we provide recommendations for National Statistical Offices (NSO) to design in situ data collection campaigns that benefit both conventional statistics and EO-based assessments.
+Sampling frames are the architectural blueprint of agricultural
+statistics --- the invisible scaffolding that determines which farmers
+are counted, which fields are measured, and ultimately how nations
+understand their food systems. For decades, National Statistical Offices
+(NSOs) have often relied on frames that resembled faded blueprints:
+agricultural censuses frozen in time, area grids blind to seasonal
+changes, and farmer registries missing entire segments of the
+population. As cultivation patterns shift and climate pressures reshape
+landscapes, these static frames have become increasingly detached from
+reality. The result has been biased estimates: unregistered smallholders
+may account for a significant share of production yet remain
+statistically invisible, while mismatches between registry parcels and
+actual fields undermine the accuracy of agricultural statistics.
+
+These shortcomings stem from three structural challenges:
+
+1.  Temporal decay -- Agricultural landscapes evolve more quickly
+    than statistical cycles. When sampling frames rely on censuses
+    updated every 5--10 years, they rapidly become obsolete as farmers
+    change crops, fields are subdivided, or land use shifts due to
+    climate or market pressures. Carletto et al {@Carletto2021] highlight how
+    the lack of frequent frame updates erodes the precision and
+    relevance of agricultural surveys even within a single multi‑year
+    survey cycle.
+
+2.  Spatial blindness -- Traditional area frames often include large
+    tracts of non‑agricultural land because they lack current spatial
+    information. This leads to inefficiencies, as enumerators spend time
+    and resources visiting locations where no relevant agricultural
+    activity takes place.
+
+3.  Exclusion bias -- Farmer registries and list frames frequently
+    omit smallholders, tenants, or producers in informal land‑use
+    arrangements. This results in systematic under‑representation of
+    groups that may contribute substantially to agricultural production
+    but remain statistically invisible.
+
+These challenges propagate into agricultural statistics, affecting
+production estimates, food security assessments, and evidence‑based
+policymaking.
+
+## EO as a Partner to Statistical Rigor
+
+Earth Observation (EO) has emerged not as a replacement for statistical
+rigor but as a powerful complement to traditional sampling theory. When
+William Cochran published *Sampling Techniques* in 1977 [@Cochran1977], he articulated
+principles that satellite technology can now operationalize at scale.
+With Sentinel‑1's all‑weather radar imaging and Sentinel‑2's 10‑meter
+resolution and frequent revisit times, NSOs can build sampling frames
+that are both statistically robust and dynamically updated.
+
+EO provides the means to:
+
+-   Update frames frequently: Annual or seasonal cropland masks
+    derived from Sentinel imagery directly address temporal decay by
+    aligning sampling frames with actual land use.
+
+-   Enable spatial stratification: Up‑to‑date land‑cover maps such
+    as ESA's *WorldCover* support the exclusion of non‑agricultural
+    areas and the creation of homogeneous strata, reducing fieldwork
+    costs and improving precision.
+
+-   Enrich list frames: When registries exist, EO-derived parcel
+    boundaries can validate and supplement farmer records, ensuring more
+    complete coverage.
+
+Crucially, EO-based survey design creates reciprocal benefits: the
+georeferenced in‑situ observations collected for statistical estimation
+can also be used as training and validation data for EO‑based crop
+classification models. This synergy allows survey data and EO models to
+improve together over successive agricultural seasons.
 
 ## Matching in situ survey data to remote sensing analysis needs
 
