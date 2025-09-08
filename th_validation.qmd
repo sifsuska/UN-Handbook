@@ -1,9 +1,12 @@
 ---
 title: "Map validation and use of maps for area estimation"
-author: "Gilberto Camara, Lorenzo De Simone, Pierre Defourny, Sophie Bontemps"
+author: "Gilberto Camara, Lorenzo De Simone"
 format: html
 ---
 
 ## Outline
 
-Statistically robust and transparent approaches for assessing accuracy are essential parts of the land classification process. The sits package supports the “good practice” recommendations for designing and implementing an accuracy assessment of a change map and estimating the area based on reference sample data. These recommendations address three components: sampling design, reference data collection, and accuracy estimates. 
+Statistically robust and transparent approaches for assessing accuracy are essential parts of the land classification process. The sits package supports the “good practice” recommendations for designing and implementing an accuracy assessment of a change map and estimating the area based on reference sample data. These recommendations address three components: sampling design, reference data collection, and accuracy estimates[@Olofsson2014].
+
+Crucially, Olofsson et al. argue that area estimation should be based on the reference data, not solely on the classified map. This is because map-derived area estimates are often biased due to classification errors. By weighting the confusion matrix according to the sampling design, one can produce unbiased estimates of the area occupied by each land cover class, along with corresponding standard errors and confidence intervals. This correction is particularly important in studies where accurate area estimation informs policy or decision-making processes.
+

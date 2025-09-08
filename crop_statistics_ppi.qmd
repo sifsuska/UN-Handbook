@@ -188,4 +188,6 @@ A Python module implementing the PTD approach can be found at [Earth-Intelligenc
 
 Sherrie Wang is the d’Arbeloff Career Development Assistant Professor at the Massachusetts Institute of Technology in the Department of Mechanical Engineering and Institute for Data, Systems, and Society. Her research integrates machine learning and remote sensing to advance Earth observation analytics, with applications in agriculture, climate, and policy. She earned her Ph.D. in Computational & Mathematical Engineering from Stanford and was a Ciriacy-Wantrup Postdoctoral Fellow at UC Berkeley.
 
+Dan Kluger is a Michael Hammer Postdoctoral Fellow at the MIT Institute for Data Systems and Society, hosted by Professors Sherrie Wang and Stephen Bates. He is broadly interested in developing statistical methods for applications in agriculture and remote sensing. His current research is on methods for conducting reliable statistical analyses that leverage widely available, yet error-prone proxies. He completed his PhD in Statistics at Stanford University, advised by Professors Art Owen and David Lobell.
+
 ## References{-}
