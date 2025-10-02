@@ -33,13 +33,13 @@ book:
         - th_uncertainty.qmd
         - th_validation.qmd
         - th_design_frames.qmd
+        - th_alignment.qmd
         - th_semantic_segmentation.qmd
         - th_parcel_extraction.qmd
     - part: crop_type_mapping.qmd
       chapters:
         - ct_poland.qmd
         - ct_mexico.qmd
-        - ct_senegal.qmd
         - ct_zimbabwe.qmd
         - ct_china.qmd
         - ct_chile.qmd
@@ -49,11 +49,11 @@ book:
         - cy_finland.qmd
         - cy_indonesia.qmd
         - cy_poland.qmd
-        - cy_colombia.qmd
         - cy_china.qmd
     - part: crop_statistics.qmd
       chapters:
         - crop_statistics_regression.qmd
+        - crop_statistics_calibration.qmd
         - crop_statistics_ppi.qmd
     - part: uav_agriculture.qmd
       chapters:

@@ -12,14 +12,13 @@ estimates. Maps are subject to omission and commission errors (Czaplewski, 1992)
 which are linked to the ability of the
 classification method to distinguish between classes. Regression
 estimators and calibration estimators have been widely used to correct
-such biases (F. J. Gallego and Rueda, 1993; Khan et al., 2018; Olofsson
-et al., 2014; Li et al.,2023). They are traditional ways to combine
+such biases [@Gallego2004] [@Olofsson2014]. They are traditional ways to combine
 accurate, possibly unbiased, information, observed on a sample with less
 accurate, biased information, known for the whole population or for a
 larger sample. Said differently, maps are used to improve an estimator
 that has been computed from a ground survey on a sample in preserving
 as much as possible the properties of the ground survey estimators
-(unbiasedness) and reducing the variance (Gallego 2004).
+(unbiasedness) and reducing the variance [@Gallego2004].
 
 This chapter presents an application of such regression approach in
 Zimbabwe, as implemented in the framework of the EO STAT project.

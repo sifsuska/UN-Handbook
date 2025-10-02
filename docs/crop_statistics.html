@@ -210,14 +210,20 @@ div.csl-indent {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="./th_alignment.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Alignment of field data collection to EO statistical requirements</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="./th_semantic_segmentation.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Semantic Segmentation for Remote Sensing in Agriculture</span></span></a>
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Semantic Segmentation for Remote Sensing in Agriculture</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./th_parcel_extraction.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Automatic Extraction of Parcels</span></span></a>
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Automatic Extraction of Parcels</span></span></a>
   </div>
 </li>
       </ul>
@@ -234,19 +240,13 @@ div.csl-indent {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./ct_poland.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Crop monitoring with Sentinel-1 and Sentinel-2 images in Poland</span></span></a>
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Crop monitoring with Sentinel-1 and Sentinel-2 images in Poland</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./ct_mexico.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Crop classification in Mexico</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./ct_senegal.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Multi-seasonal crop mapping in Senegal</span></span></a>
+ <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Crop classification in Mexico</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -304,14 +304,8 @@ div.csl-indent {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./cy_colombia.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">Rice Phenology in Colombia</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
   <a href="./cy_china.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">Remote Sensing Estimation of Soybean Yield</span></span></a>
+ <span class="menu-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">Remote Sensing Estimation of Soybean Yield</span></span></a>
   </div>
 </li>
       </ul>
@@ -328,7 +322,13 @@ div.csl-indent {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./crop_statistics_regression.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">Estimating crop statistics using survey-calibrated methods</span></span></a>
+ <span class="menu-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">Estimating crop statistics using survey-calibrated methods</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./crop_statistics_calibration.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">Estimating crop statistics for list frame data</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -421,6 +421,7 @@ div.csl-indent {
   <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a></li>
   <li><a href="#map-corrected-estimation" id="toc-map-corrected-estimation" class="nav-link" data-scroll-target="#map-corrected-estimation">Map-Corrected Estimation</a></li>
   <li><a href="#survey-calibrated-mapping" id="toc-survey-calibrated-mapping" class="nav-link" data-scroll-target="#survey-calibrated-mapping">Survey-Calibrated Mapping</a></li>
+  <li><a href="#survey-integrated-estimation-for-list-frames-with-categorical-labels" id="toc-survey-integrated-estimation-for-list-frames-with-categorical-labels" class="nav-link" data-scroll-target="#survey-integrated-estimation-for-list-frames-with-categorical-labels">Survey-Integrated Estimation for List Frames with Categorical Labels</a></li>
   <li><a href="#uncertainty-aware-inference-from-imperfect-maps" id="toc-uncertainty-aware-inference-from-imperfect-maps" class="nav-link" data-scroll-target="#uncertainty-aware-inference-from-imperfect-maps">Uncertainty-Aware Inference from Imperfect Maps</a></li>
   <li><a href="#why-these-paradigms-matter" id="toc-why-these-paradigms-matter" class="nav-link" data-scroll-target="#why-these-paradigms-matter">Why These Paradigms Matter</a></li>
   <li><a href="#choosing-the-right-paradigm-comparative-considerations" id="toc-choosing-the-right-paradigm-comparative-considerations" class="nav-link" data-scroll-target="#choosing-the-right-paradigm-comparative-considerations">Choosing the Right Paradigm: Comparative Considerations</a></li>
@@ -473,10 +474,18 @@ div.csl-indent {
 <p>Anchored by: FAO EOSTAT Zimbabwe, Lorenzo De Simone &amp; Sophie Bontemps</p>
 <p>This paradigm places the statistical survey at the center, using EO maps as auxiliary information to enhance the representativeness, cost-efficiency, and resolution of national estimates. In the Zimbabwe case, a stratified ground survey (over 1,600 Secondary Sampling Units) was used not only for validating the crop type map, but also to build regression models that calibrated the mapped crop proportions. These regression estimators were then applied across the full gridded domain to derive corrected national crop area estimates. This model-assisted approach captures the best of both worlds: it leverages the spatial wall-to-wall nature of EO maps while preserving the statistical integrity of survey-based estimation. Importantly, it allowed FAO and ZIMSTAT to reduce bias and variance in estimates without increasing survey costs — a key feature for NSOs with resource constraints.</p>
 </section>
+<section id="survey-integrated-estimation-for-list-frames-with-categorical-labels" class="level2">
+<h2 class="anchored" data-anchor-id="survey-integrated-estimation-for-list-frames-with-categorical-labels">Survey-Integrated Estimation for List Frames with Categorical Labels</h2>
+<p>Anchored by: Luis Ambrosio, UPM/Spain</p>
+<p>When survey data are collected through a list frame—that is, one labeled centroid per parcel without direct measurement of parcel areas—linear regression estimators designed for continuous variables are not appropriate. In this setting, a different approach is required to combine EO information with survey observations in a way that remains statistically valid.</p>
+<p>The survey-integrated method developed by Ambrosio et al. <span class="citation" data-cites="Ambrosio2023"><a href="#ref-Ambrosio2023" role="doc-biblioref">[3]</a></span> addresses this challenge by applying a multinomial (categorical) regression estimator. In a case study conducted by FAO and UCL in Senegal, crop-type labels from the Agricultural and Animal Statistics (AAS) survey were integrated with EO-derived crop maps to produce design-consistent acreage estimates, along with valid measures of uncertainty (standard errors, coefficients of variation, and confidence intervals).</p>
+<p>This paradigm preserves the design-based foundations of official statistics while taking advantage of wall-to-wall EO coverage. Efficiency gains are frequently observed, as the multinomial regression exploits the predictive information in the EO map to reduce variance relative to direct survey expansion. Importantly, the method remains compliant with official-statistics standards: estimates are reproducible, uncertainty is explicitly quantified, and the approach can be generalized to other list-frame survey contexts.</p>
+<p>The Senegal case demonstrates how EO data and list-frame surveys can be systematically integrated to generate reliable national and sub-national crop area statistics, without the need to collect full parcel areas. This represents a cost-effective and operationally viable solution for NSOs working with list-frame infrastructures, and a significant methodological innovation for the statistical use of EO.</p>
+</section>
 <section id="uncertainty-aware-inference-from-imperfect-maps" class="level2">
 <h2 class="anchored" data-anchor-id="uncertainty-aware-inference-from-imperfect-maps">Uncertainty-Aware Inference from Imperfect Maps</h2>
 <p>Anchored by: Sherrie Wang (MIT/Stanford) – Prediction-Powered Inference (PPI)</p>
-<p>This emerging paradigm tackles the hardest scenario: using imperfect or low-accuracy maps to produce reliable estimates, even when the available ground data are scarce. Sherrie Wang and collaborators introduced a framework known as Prediction-Powered Inference (PPI), which explicitly accounts for the predictive (but uncertain) nature of maps. Instead of assuming that EO outputs are accurate, PPI quantifies their uncertainty and integrates it into the estimation procedure, allowing users to generate statistically valid area and regression estimates with far fewer labeled data points <span class="citation" data-cites="Kluger2021"><a href="#ref-Wang2022" role="doc-biblioref">[4]</a></span>.</p>
+<p>This emerging paradigm tackles the hardest scenario: using imperfect or low-accuracy maps to produce reliable estimates, even when the available ground data are scarce. Sherrie Wang and collaborators introduced a framework known as Prediction-Powered Inference (PPI), which explicitly accounts for the predictive (but uncertain) nature of maps. Instead of assuming that EO outputs are accurate, PPI quantifies their uncertainty and integrates it into the estimation procedure, allowing users to generate statistically valid area and regression estimates with far fewer labeled data points <span class="citation" data-cites="Kluger2021"><a href="#ref-Wang2022" role="doc-biblioref">[5]</a></span>.</p>
 <p>In benchmarking exercises, PPI was shown to dramatically reduce the confidence interval width compared to traditional methods, even when only a small ground-truth sample was available. This paradigm is particularly well-suited for data-scarce or rapidly changing contexts, where EO is the only timely source of information and statistical inference must be done with minimal fieldwork.</p>
 </section>
 <section id="why-these-paradigms-matter" class="level2">
@@ -620,11 +629,14 @@ div.csl-indent {
 <div id="ref-Stehman2019" class="csl-entry" role="listitem">
 <div class="csl-left-margin">[2] </div><div class="csl-right-inline">S. V. Stehman and G. M. Foody, <span>“Key issues in rigorous accuracy assessment of land cover products,”</span> <em>Remote Sensing of Environment</em>, vol. 231, p. 111199, 2019, doi: <a href="https://doi.org/10.1016/j.rse.2019.05.018">10.1016/j.rse.2019.05.018</a>.</div>
 </div>
+<div id="ref-Ambrosio2023" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[3] </div><div class="csl-right-inline">L. Ambrosio, L. Iglesias, C. Marín, and N. Deffense, <span>“Integration of remote sensing data into national statistical office sampling designs for agriculture,”</span> <em>Statistical Journal of the IAOS</em>, vol. 39, no. 2, pp. 473–489, 2023, doi: <a href="https://doi.org/10.3233/SJI-220116">10.3233/SJI-220116</a>.</div>
+</div>
 <div id="ref-Kluger2021" class="csl-entry" role="listitem">
-<div class="csl-left-margin">[3] </div><div class="csl-right-inline">D. M. Kluger, S. Wang, and D. B. Lobell, <span>“Two shifts for crop mapping: <span>Leveraging</span> aggregate crop statistics to improve satellite-based maps in new regions,”</span> <em>Remote Sensing of Environment</em>, vol. 262, p. 112488, 2021, doi: <a href="https://doi.org/10.1016/j.rse.2021.112488">10.1016/j.rse.2021.112488</a>.</div>
+<div class="csl-left-margin">[4] </div><div class="csl-right-inline">D. M. Kluger, S. Wang, and D. B. Lobell, <span>“Two shifts for crop mapping: <span>Leveraging</span> aggregate crop statistics to improve satellite-based maps in new regions,”</span> <em>Remote Sensing of Environment</em>, vol. 262, p. 112488, 2021, doi: <a href="https://doi.org/10.1016/j.rse.2021.112488">10.1016/j.rse.2021.112488</a>.</div>
 </div>
 <div id="ref-Wang2022" class="csl-entry" role="listitem">
-<div class="csl-left-margin">[4] </div><div class="csl-right-inline">S. Wang, F. Waldner, and D. B. Lobell, <span>“Unlocking large-scale crop field delineation in smallholder farming systems with transfer learning and weak supervision,”</span> <em>Remote Sensing</em>, vol. 14, no. 22, 2022.</div>
+<div class="csl-left-margin">[5] </div><div class="csl-right-inline">S. Wang, F. Waldner, and D. B. Lobell, <span>“Unlocking large-scale crop field delineation in smallholder farming systems with transfer learning and weak supervision,”</span> <em>Remote Sensing</em>, vol. 14, no. 22, 2022.</div>
 </div>
 </div>
 </section>
@@ -866,12 +878,12 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
       <a href="./cy_china.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">Remote Sensing Estimation of Soybean Yield</span></span>
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">Remote Sensing Estimation of Soybean Yield</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
       <a href="./crop_statistics_regression.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">Estimating crop statistics using survey-calibrated methods</span></span> <i class="bi bi-arrow-right-short"></i>
+        <span class="nav-page-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">Estimating crop statistics using survey-calibrated methods</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

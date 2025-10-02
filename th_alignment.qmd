@@ -1,5 +1,5 @@
 ---
-title: "Multi-seasonal crop mapping in Senegal"
+title: "Alignment of field data collection to EO statistical requirements"
 author: 
   - "Lorenzo De Simone"
   - "Sophie Bontemps"
@@ -20,9 +20,30 @@ library(kableExtra)
 
 ## Introduction
 
-Earth Observation (EO) technologies are increasingly recognized as transformative tools for enhancing agricultural statistics. However, their integration into official systems is often constrained by the structure and quality of in-situ data collected via agricultural surveys and censuses.
+Earth Observation (EO) technologies are increasingly recognized as
+transformative tools for producing timely, granular, and spatially
+explicit agricultural statistics. However, the reliability of EO-based
+products ultimately depends on the quality of the in-situ data used to
+train, validate, and integrate them into national statistical systems.
+Poorly designed or inconsistently collected survey data can undermine
+the accuracy of crop maps and, by extension, the credibility of official
+statistics derived from them.
 
-In response, FAO, through the EOSTAT and European Space Agency Sen4Stat projects, developed a diagnostic framework to assess the fitness-for-use of collected in-situ data for EO applications. Since 2019, FAO and UCLouvain have collaborated with the Direction de l'Analyse, de la Prévision et des Statistiques Agricoles (DAPSA) under the EOSTAT project to assess and enhance the compatibility of Senegal's agricultural survey system with EO applications. The Annual Agricultural Survey (AAS) in place in Senegal is a list frame survey over all country. Holdings are selected through a stratified sampling from the 526.000 holdings in Senegal, which corresponds to ~ 0.4%. These holdings are spread in all the Senegalese departments, in direct ratio to the size of these departments.
+This chapter therefore focuses on **in-situ** data quality as a
+prerequisite for effective EO applications in agriculture statistics**.
+Using Senegal as a case study, it examines how survey protocols affect
+the accuracy of EO-based crop type mapping and how adjustments to survey
+design can substantially improve results. We first introduce FAO's
+in-situ quality framework, developed under the EOSTAT and ESA Sen4Stat
+projects, which diagnoses the fitness-for-use of survey data for EO
+applications. We then contrast two mapping exercises: one based on the
+2018 Annual Agricultural Survey (AAS), which produced modest results
+(overall accuracy \~78%), and another based on an adjusted protocol
+piloted in 2021 in Nioro, which enabled substantially higher accuracies
+(\>85%). Finally, we briefly illustrate how improved survey quality also
+facilitates the integration of EO with statistical estimators for crop
+area, while directing the reader to the dedicated chapter by Ambrosio et
+al. (this volume) for a full methodological treatment.
 
 ## FAO in-situ quality framework
 
@@ -113,7 +134,7 @@ The Annual Agricultural Survey (AAS) database from 2018 was shared by DAPSA as a
 #| label: fig-senegal-1
 #| fig-align: center
 #| fig-cap: Household locations covered by the 2018 agricultural survey.
-knitr::include_graphics("./images/ct_senegal/image1.png")
+knitr::include_graphics("./images/th_alignment/image1.png")
 ```
 
 Parcels' area is also measured with GPS and this measured area is then reported manually in the survey questionnaire available on the tablet. Unfortunately, the GPS traces are not systematically archived – only a subset of them are kept for quality control by the supervision team at DAPSA. A subset of these traces, mainly located between Touba and Thiès, was also shared by DAPSA (@fig-senegal-2).
@@ -129,8 +150,8 @@ Parcels' area is also measured with GPS and this measured area is then reported 
 #| fig-subcap:
 #|  - "GPS tracks location"
 #|  - "Parcels boundaries with GPS point/lines"
-knitr::include_graphics("images/ct_senegal/image2.png")
-knitr::include_graphics("images/ct_senegal/image3.png")
+knitr::include_graphics("images/th_alignment/image2.png")
+knitr::include_graphics("images/th_alignment/image3.png")
 ```
 
 To summarize, georeferenced information is available at crop-level, as points (parcels boundaries are not available by-default), for a selection of parcels. Information is collected at the right timing to allow crop identification and additional information.
@@ -148,7 +169,7 @@ First, all points located too close to roads and buildings were removed and poin
 #| label: fig-senegal-3
 #| fig-align: center
 #| fig-cap: Challenge to localize the surveyed parcels in the statistical database due to the fact that parcels are localized by geo-points (i.e. a single GPS coordinate)
-knitr::include_graphics("./images/ct_senegal/image4.png")
+knitr::include_graphics("./images/th_alignment/image4.png")
 ```
 
 In order to avoid manually checking all points, the points were transformed into polygons by applying a 20-m buffer and the homogeneity of these polygons was assessed statistically. The assumption was that if the point was taken in the middle of the parcel, the resulting buffer would be homogeneous. Conversely, a point taken along the edge of the plot would result in a buffer mixing different crop types or including other land cover types such as roads or trees. This assessment was done calculating the standard deviation of the Normalized Difference Vegetation Index standard deviation.
@@ -168,7 +189,7 @@ The raw GPS traces were converted into usable polygon shapefiles. This process i
 #| label: fig-senegal-4
 #| fig-align: center
 #| fig-cap: GPS traces successfully converted into shapefiles and represented well parcels boundaries
-knitr::include_graphics("./images/ct_senegal/image5.png")
+knitr::include_graphics("./images/th_alignment/image5.png")
 ```
 
 The GPS traces needed also to be quality controlled and filtered:
@@ -186,10 +207,10 @@ The GPS traces needed also to be quality controlled and filtered:
 #| label: fig-senegal-5
 #| fig-align: center
 #| fig-cap: Example of GPS traces that contain more than parcels boundaries
-knitr::include_graphics("./images/ct_senegal/image6.png")
+knitr::include_graphics("./images/th_alignment/image6.png")
 ```
 
-Finally, too small polygons (the ones that disappeared after a 10-m inside buffer) were removed. Only 1,593 high-quality parcel boundaries remained, concentrated in central and western Senegal and representing 2089 hectares shared unequally into 22 crop type classes (@fig-senegal-6).
+Finally, small polygons (the ones that disappeared after a 10-m inside buffer) were removed. Only 1,593 high-quality parcel boundaries remained, concentrated in central and western Senegal and representing 2089 hectares shared unequally into 22 crop type classes (@fig-senegal-6).
 
 ```{r}
 #| echo: FALSE
@@ -204,8 +225,8 @@ Finally, too small polygons (the ones that disappeared after a 10-m inside buffe
 #| fig-subcap:
 #|  - "GPS boundaries"
 #|  - "Crop type distribution"
-knitr::include_graphics("./images/ct_senegal/image7.png")
-knitr::include_graphics("./images/ct_senegal/image8.png")
+knitr::include_graphics("./images/th_alignment/image7.png")
+knitr::include_graphics("./images/th_alignment/image8.png")
 ```
 
 These crop data are expected to be the most useful ones because (i) they are polygons, thus including several pixels belonging to the same crop and (ii) the parcels boundaries have been checked manually. Nevertheless, these data don’t contain enough samples in all the crop types and they are not spread over the whole country.
@@ -229,7 +250,7 @@ A local crop type map was also produced, focusing only on the Sentinel-2 tile wh
 #| label: fig-senegal-7
 #| fig-align: center
 #| fig-cap: Sentinel-2 10-meter resolution crop type map over the tile where most of the GPS traces were located
-knitr::include_graphics("./images/ct_senegal/image9.png")
+knitr::include_graphics("./images/th_alignment/image9.png")
 ```
 
 The rigorous preprocessing and quality assessment of the AAS and GPS traces data played a pivotal role in achieving this result. However, the AAS protocol in place was not optimal to allow reaching higher mapping accuracy: GPS information is mainly recorded as points, minor crops are under-represented and contextual information was missing (e.g. field heterogeneity, mixed cropping).
@@ -258,11 +279,11 @@ A total of 231 plots were investigated in the ODK application, out of the 396 pl
 Taking the GPS traces as reference, the quality of the field boundaries collected with ODK was quite heterogeneous at the beginning of the field campaign (@fig-senegal-8). This was due to the time required to learn a new tool, and it was gradually resolved over the course of the campaign thanks to the continuous guidance provided by DAPSA and UCLouvain.
 
 ::: {#fig-senegal-8 layout="[[46,50], [100]]" fig-cap="Parcel's polygons from Garmin GPS in red and from the tablet's GPS in green."}
-![(a)](./images/ct_senegal/image10.png)
+![(a)](./images/th_alignment/image10.png)
 
-![(b)](./images/ct_senegal/image11.png)
+![(b)](./images/th_alignment/image11.png)
 
-![(c)](./images/ct_senegal/image12.png)
+![(c)](./images/th_alignment/image12.png)
 :::
 
 ### Comparative analysis of the survey data
@@ -276,7 +297,7 @@ The data collected in the field by the tablet in manual mode were compared to th
 #| out-width: 100%
 #| fig-align: center
 #| fig-cap: Predicted areas by the ODK app on an Android tab (blue points), the red line is the regression line related to the predicted dataset and the green line, the reference related to the GPS dataset
-knitr::include_graphics("./images/ct_senegal/image13.png")
+knitr::include_graphics("./images/th_alignment/image13.png")
 ```
 
 Several measurements deviate significantly from the reference, which comes from the use of the manual mode in ODK (i.e. enumerators to manually encode GPS measures at the inflection points of the plot). Errors in the area measurements were caused by:
@@ -294,7 +315,7 @@ Statistically and visually, the tablet dataset is less accurate than the one rec
 #| out-width: 80%
 #| fig-align: center
 #| fig-cap: Examples of parcel’s delineations by the GPS in red, by the tablet with ODK Collect in manual mode in orange and in automated mode in green
-knitr::include_graphics("./images/ct_senegal/image14.png")
+knitr::include_graphics("./images/th_alignment/image14.png")
 ```
 
 ### Additional non-crop class data
@@ -316,7 +337,7 @@ The Sen4Stat toolbox is a standalone operational processing chain which aims at 
 #| out-width: 100%
 #| fig-align: center
 #| fig-cap: Open-source Sen4Stat toolbox
-knitr::include_graphics("./images/ct_senegal/image15.png")
+knitr::include_graphics("./images/th_alignment/image15.png")
 ```
 
 The system has been tested and demonstrated in various countries around the world, thus addressing a wide diversity of both cropping systems and agricultural data collection protocols. It is available for download on the Sen4Stat website ([esa-sen4stat.org](https://www.esa-sen4stat.org/)).
@@ -338,8 +359,8 @@ The crop type map was generated at the end of the season from May 1, 2021, to De
 #| fig-subcap:
 #|  - "Statistical distribution"
 #|  - "Spatial distribution"
-knitr::include_graphics("./images/ct_senegal/image16.png")
-knitr::include_graphics("./images/ct_senegal/image17.png")
+knitr::include_graphics("./images/th_alignment/image16.png")
+knitr::include_graphics("./images/th_alignment/image17.png")
 ```
 
 The obtained crop type map is shown in @fig-senegal-13
@@ -351,7 +372,7 @@ The obtained crop type map is shown in @fig-senegal-13
 #| out-width: 90%
 #| fig-align: center
 #| fig-cap: Crop type classification of the Nioro department based on satellite imagery from May 1, 2021 to December 31, 2021 
-knitr::include_graphics("./images/ct_senegal/image19.png")
+knitr::include_graphics("./images/th_alignment/image19.png")
 ```
 
 The confusion matrix (@fig-senegal-14) indicates an overall accuracy of 97.1% for the cropland mask and 88.2% for the crop type map. F-score values were 98% for cropland and 95% for non-cropland. For specific crops, F-scores reached 95.2% for groundnut, 83.8% for millet, but only 54.8% for maize, which showed substantial omissions. The representation of the three crops in the dataset was highly unbalanced, and the number of samples is clearly too low to allow a proper maize classification. 
@@ -363,7 +384,7 @@ The confusion matrix (@fig-senegal-14) indicates an overall accuracy of 97.1% fo
 #| out-width: 90%
 #| fig-align: center
 #| fig-cap: Confusion matrix (expressed in number of pixels) for the crop type map, with contamination and omission values for each crop, UA as user accuracy and PA as producer accuracy
-knitr::include_graphics("./images/ct_senegal/image18.png")
+knitr::include_graphics("./images/th_alignment/image18.png")
 ```
 
 ### Crop area indicator
@@ -383,8 +404,8 @@ Crop area statistics were derived from the crop type map to support EO-based agr
 #| fig-subcap:
 #|  - "Estimation of the crop share"
 #|  - "Cultivated area"
-knitr::include_graphics("./images/ct_senegal/image20.png")
-knitr::include_graphics("./images/ct_senegal/image21.png")
+knitr::include_graphics("./images/th_alignment/image20.png")
+knitr::include_graphics("./images/th_alignment/image21.png")
 ```
 
 ### Acreage estimation by integrating survey and EO data
@@ -408,8 +429,8 @@ Because the sampling design in Senegal is a list frame, the integration of remot
 #| fig-subcap:
 #|  - "Crop acreage estimates using EO and ground data in Nioro"
 #|  - "Efficiency of using the crop type map for crop acreage estimation"
-knitr::include_graphics("./images/ct_senegal/image22.png")
-knitr::include_graphics("./images/ct_senegal/image23.png")
+knitr::include_graphics("./images/th_alignment/image22.png")
+knitr::include_graphics("./images/th_alignment/image23.png")
 ```
 
 The use of a wall-to-wall map also allows to make acreage estimates available at the “arrondissement” levels with a reasonable error (expressed as the coefficient of variation), as shown in @fig-senegal-17.
@@ -421,16 +442,40 @@ The use of a wall-to-wall map also allows to make acreage estimates available at
 #| out-width: 80%
 #| fig-align: center
 #| fig-cap: Crop acreage estimates at the district (arrondissement) level
-knitr::include_graphics("./images/ct_senegal/image24.png")
+knitr::include_graphics("./images/th_alignment/image24.png")
 ```
 
 ## Conclusions
 
-The alignment of the AAS protocol with FAO's in-situ data quality framework significantly enhanced the compatibility of field data with EO applications. Classification accuracy improved from below 78% (with the original 2018 AAS data) to over 85% following the pilot implementation in 2021–2022. This result has to be confirmed by an implementation at larger scale, but it already nicely illustrates the impact of structured, high-quality, plot-level georeferencing.
+The Senegal case study demonstrates that the quality of in-situ data is
+the decisive factor shaping the performance of EO applications in
+agricultural statistics. The comparison between the 2018 and 2021 AAS
+protocols highlights how weaknesses in survey design --- reliance on GPS
+points instead of polygons, insufficient metadata, and limited
+contextual information --- constrained the accuracy of crop type
+mapping, with overall accuracy limited to \~78%. By contrast, the
+adjusted Nioro protocol, which emphasized polygon delineation, improved
+georeferencing, and richer labeling, achieved accuracies exceeding 85%.
+This improvement cannot be attributed to EO algorithms alone but to the
+stronger foundations provided by high-quality field data.
 
-Moreover, integrating satellite imagery with field data enabled the use of model-assisted estimators—such as regression estimators—for crop area statistics. This approach yielded more accurate results, with lower coefficients of variation, compared to using field data alone.
+While this chapter briefly illustrated how survey-integrated approaches
+can support crop area estimation, the methodological details are
+developed in depth in Ambrosio et al. (this volume). What is clear,
+however, is that **EO cannot substitute for poor survey data; rather, it
+magnifies the importance of well-structured, statistically sound survey
+protocols.** In practice, robust EO applications require a deliberate
+alignment of agricultural surveys with geospatial requirements.
 
-Building on these outcomes, DAPSA endorsed the revised protocol and extended its implementation to six additional districts in 2024 (Koungheul, Mbacke, Nioro, Kolda, Tambaconda, Dagana). This successful institutionalization underscores the value of diagnostic frameworks, phased piloting, and continuous quality improvement in advancing the operational use of EO in national agricultural statistics.
+The institutional uptake of the adjusted protocol by DAPSA --- now
+extended to six districts --- underscores the operational value of
+investing in survey quality. By embedding diagnostic frameworks,
+piloting revised protocols, and integrating them into national practice,
+Senegal has laid the groundwork for a sustainable, statistically
+defensible use of EO in agriculture. This case thus illustrates a
+broader lesson: the road to EO-enabled agricultural statistics begins
+not with satellite imagery, but with the design and quality of in-situ
+data collection.
 
 ## About the authors{-}
 

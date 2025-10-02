@@ -26,6 +26,40 @@ Anchored by: FAO EOSTAT Zimbabwe, Lorenzo De Simone & Sophie Bontemps
 This paradigm places the statistical survey at the center, using EO maps as auxiliary information to enhance the representativeness, cost-efficiency, and resolution of national estimates. In the Zimbabwe case, a stratified ground survey (over 1,600 Secondary Sampling Units) was used not only for validating the crop type map, but also to build regression models that calibrated the mapped crop proportions. These regression estimators were then applied across the full gridded domain to derive corrected national crop area estimates.
 This model-assisted approach captures the best of both worlds: it leverages the spatial wall-to-wall nature of EO maps while preserving the statistical integrity of survey-based estimation. Importantly, it allowed FAO and ZIMSTAT to reduce bias and variance in estimates without increasing survey costs — a key feature for NSOs with resource constraints.
 
+## Survey-Integrated Estimation for List Frames with Categorical Labels
+Anchored by: Luis Ambrosio, UPM/Spain
+
+When survey data are collected through a list frame---that is, one
+labeled centroid per parcel without direct measurement of parcel
+areas---linear regression estimators designed for continuous variables
+are not appropriate. In this setting, a different approach is required
+to combine EO information with survey observations in a way that remains
+statistically valid.
+
+The survey-integrated method developed by Ambrosio et al. [@Ambrosio2023]
+addresses this challenge by applying a multinomial (categorical)
+regression estimator. In a case study conducted by FAO and UCL in Senegal, 
+crop-type labels from the Agricultural and Animal Statistics (AAS) survey were
+integrated with EO-derived crop maps to produce design-consistent
+acreage estimates, along with valid measures of uncertainty (standard
+errors, coefficients of variation, and confidence intervals).
+
+This paradigm preserves the design-based foundations of official
+statistics while taking advantage of wall-to-wall EO coverage.
+Efficiency gains are frequently observed, as the multinomial regression
+exploits the predictive information in the EO map to reduce variance
+relative to direct survey expansion. Importantly, the method remains
+compliant with official-statistics standards: estimates are
+reproducible, uncertainty is explicitly quantified, and the approach can
+be generalized to other list-frame survey contexts.
+
+The Senegal case demonstrates how EO data and list-frame surveys can be
+systematically integrated to generate reliable national and sub-national
+crop area statistics, without the need to collect full parcel areas.
+This represents a cost-effective and operationally viable solution for
+NSOs working with list-frame infrastructures, and a significant
+methodological innovation for the statistical use of EO.
+
 ## Uncertainty-Aware Inference from Imperfect Maps
 
 Anchored by: Sherrie Wang (MIT/Stanford) – Prediction-Powered Inference (PPI)
