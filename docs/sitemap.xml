@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://FAO-EOSTAT.github.io/UN-Handbook/index.html</loc>
-    <lastmod>2025-10-02T22:24:18.739Z</lastmod>
+    <lastmod>2025-10-03T17:41:00.295Z</lastmod>
   </url>
   <url>
     <loc>https://FAO-EOSTAT.github.io/UN-Handbook/howto.html</loc>
@@ -22,7 +22,7 @@
   </url>
   <url>
     <loc>https://FAO-EOSTAT.github.io/UN-Handbook/th_data_sources.html</loc>
-    <lastmod>2025-10-02T22:24:18.771Z</lastmod>
+    <lastmod>2025-10-03T13:52:43.858Z</lastmod>
   </url>
   <url>
     <loc>https://FAO-EOSTAT.github.io/UN-Handbook/th_data_cubes.html</loc>
@@ -54,7 +54,7 @@
   </url>
   <url>
     <loc>https://FAO-EOSTAT.github.io/UN-Handbook/th_alignment.html</loc>
-    <lastmod>2025-10-02T22:24:18.840Z</lastmod>
+    <lastmod>2025-10-03T18:00:38.913Z</lastmod>
   </url>
   <url>
     <loc>https://FAO-EOSTAT.github.io/UN-Handbook/th_semantic_segmentation.html</loc>
@@ -122,7 +122,7 @@
   </url>
   <url>
     <loc>https://FAO-EOSTAT.github.io/UN-Handbook/crop_statistics_calibration.html</loc>
-    <lastmod>2025-10-02T22:24:21.957Z</lastmod>
+    <lastmod>2025-10-03T17:49:16.551Z</lastmod>
   </url>
   <url>
     <loc>https://FAO-EOSTAT.github.io/UN-Handbook/crop_statistics_ppi.html</loc>

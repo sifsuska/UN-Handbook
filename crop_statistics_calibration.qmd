@@ -22,11 +22,11 @@ a single point per sampled parcel, with no information on parcel area.
 
 We define the survey vector as
 $$
-  \mathbf{y_i} = \begin{pmatrix}y_{i1}\\ y_{ik} \\ .. \\y_{iK} \end{pmatrix}, 1 \leq k \leq K
+  \mathbf{y_i} = \begin{pmatrix}y_{i1}\\ y_{ik} \\ .. \\y_{iK} \end{pmatrix}
 $${#eq-survey}
 
-where $y_{ik}$ is 1 if the crop covers pixel $i$ and 0 
-otherwise. The total number of crop categories is $K$ is so that
+where $y_{ik}$ is 1 if the crop $k$ covers pixel $i$ and 0 
+otherwise. The total number of crop categories is $K$ so that
 $$
   \sum_{k=1}^{K} y_{ik} = 1
 $${#eq-sumy}
@@ -37,7 +37,7 @@ represents a fixed land area $a$.
 
 The population total of the survey vector is 
 $$
-  \mathbf{y_N} = \sum_{i=1}^{N} \mathbf{y_i} = \begin{pmatrix} \sum_{i=1}^{N}y_{i1} \\ .. \\ \sum_{i=1}^{N}y_{ik}  \\ .. \\ \sum_{i=1}^{N}y_{iK} \end{pmatrix} = \begin{pmatrix} y_{N1} \\ .. \\ y_{Nk} \\ .. \\ y_{NK} \end{pmatrix}, 1 \leq k \leq K
+  \mathbf{y_N} = \sum_{i=1}^{N} \mathbf{y_i} = \begin{pmatrix} \sum_{i=1}^{N}y_{i1} \\ .. \\ \sum_{i=1}^{N}y_{ik}  \\ .. \\ \sum_{i=1}^{N}y_{iK} \end{pmatrix} = \begin{pmatrix} y_{N1} \\ .. \\ y_{Nk} \\ .. \\ y_{NK} \end{pmatrix}
 $${#eq-poptotal}
 
 
@@ -49,7 +49,7 @@ $$
 $${#eq-area}
 Our goal is to estimate the total $\mathbf{y_N}$ or the mean value
 $$
-  \overline{\mathbf{y}}_N = \frac{1}{N}\sum_{i=1}^{N}\mathbf{y_i} = \begin{pmatrix} \frac{y_{N1}}{N}\\ .. \\ \frac{y_{Nk}}{N} \\ .. \\ \frac{y_NK}{N} \end{pmatrix}, 1 \leq k \leq K
+  \overline{\mathbf{y}}_N = \frac{1}{N}\sum_{i=1}^{N}\mathbf{y_i} = \begin{pmatrix} \frac{y_{N1}}{N}\\ .. \\ \frac{y_{Nk}}{N} \\ .. \\ \frac{y_NK}{N} \end{pmatrix}
 $${#eq-meany}
 
 
@@ -62,21 +62,21 @@ $${#eq-multinom}
 
 where
 $$
-  \boldsymbol{\mu_i} = \begin{pmatrix}\mu_{i1}\\ .. \\ \mu_{ik} \\ .. \\\mu_{iK} \end{pmatrix}, 1 \leq k \leq K
+  \boldsymbol{\mu_i} = \begin{pmatrix}\mu_{i1}\\ .. \\ \mu_{ik} \\ .. \\\mu_{iK} \end{pmatrix}
 $${#eq-muvec}
 and $\mu_{ik}$ is the probability that unit $i$ belongs to category $k$, i.e., the
-probability $y_{ik} = 1$ of and $y_{ik'} = 0, \forall k' \neq k$, subject to the constraint
+probability of $y_{ik} = 1$  and $y_{ik'} = 0, \forall k' \neq k$, subject to the constraint
 $$
   \sum_{k=1}^{K}\mu_{ik} = 1.
 $${#eq-summu}
 
 
 The probabilities $\mu_{ik}$  are estimated using a sample of pixels 
-$\{(\mathbf{y_i}, \mathbf{x_i}), i = 1, 2, ..., N_s\}$ whose total number is $N_s$
+$\{(\mathbf{y_i}, \mathbf{x_i}), i = 1, 2, ..., n\}$ whose total number is $n$
 selected with known inclusion 
-probabilities $\pi_i$, together with the associated RS data vector
+probabilities $\pi_i$, together with the associated remote sensing data vector which has $L$ components
 $$
-  \mathbf{x_i} = \left(\begin{array}{c} x_{i1}, .., x_{il}, .., x_{iL} \end{array}\right), 1 \leq l \leq L.
+  \mathbf{x_i} = \left(\begin{array}{c} x_{i1}, .., x_{il}, .., x_{iL} \end{array}\right)
 $${#eq-xrow}
 
 To link $\mu_{ik}$ with remote sensing data, we use a multinomial logit model 
@@ -86,7 +86,7 @@ $${#eq-multimu}
 
 where 
 $$
-  \boldsymbol{\beta_k} = \begin{pmatrix}\beta_{k1}\\ .. \\ \beta_{kl} \\ .. \\\beta_{kL} \end{pmatrix}, 1 \leq l \leq L
+  \boldsymbol{\beta_k} = \begin{pmatrix}\beta_{k1}\\ .. \\ \beta_{kl} \\ .. \\\beta_{kL} \end{pmatrix}
 $${#eq-betavec}
 
 is the parameter vector for crop $k$. To estimate the probability $\mu_{ik}$ that the cover of pixel $i$ is crop $k = 1, 2, ..., K$ it is sufficient to acquire estimates of $\boldsymbol{\beta_k}$ for $k = 1, 2, ..., K-1$. The probability of category $K$ is 
@@ -95,45 +95,45 @@ $$
 $${#eq-muk}
 which can be computed using the estimates $\boldsymbol{\hat{\beta}}_{nk}$ for $k = 1, 2, ..., K-1$. 
 
-The design-based estimator 
+The design-based estimator (where $n$ ias the sample size)
 $$
-  \mathbf{\hat{B}_n} = \begin{pmatrix} \boldsymbol{\hat{\beta}}_{n1} \\ .. \\ \boldsymbol{\hat{\beta}}_{nk} \\ .. \\ \boldsymbol{\hat{\beta}}_{nK-1} \end{pmatrix}, 1 \leq k \leq K-1 
+  \boldsymbol{\hat{\beta}_n} = \begin{pmatrix} \boldsymbol{\hat{\beta}}_{n1} \\ .. \\ \boldsymbol{\hat{\beta}}_{nk} \\ .. \\ \boldsymbol{\hat{\beta}}_{nK-1} \end{pmatrix}
 $${#eq-design}
 is design-consistent for the maximum likelihood estimator of $\boldsymbol{\beta}$, expressed as
 $$
-  \boldsymbol{B} = \begin{pmatrix}\boldsymbol{\beta}_{1}\\ .. \\ \boldsymbol{\beta}_{k} \\ .. \\ \boldsymbol{\beta}_{K-1} \end{pmatrix}, 1 \leq k \leq K-1
+  \boldsymbol{\beta} = \begin{pmatrix}\beta_{1}\\ .. \\ \beta_{k} \\ .. \\ \beta_{K-1} \end{pmatrix}
 $${#eq-mlest}
 
-based on the available population data $\{(\mathbf{y_i}, \mathbf{x_i}), i = 1, 2, ..., N\}$, under the assumption that the population behaves like a simple random sample from
+based on the population data $\{(\mathbf{y_i}, \mathbf{x_i}), i = 1, 2, ..., N\}$, under the assumption that the population behaves like a simple random sample from
 the multinomial model. Estimation is performed iteratively using
-weighted likelihood equations based on inclusion probabilities
+weighted likelihood equations based on inclusion probabilities [@Fuller2011]
 $$
   \mathbf{\hat{B}}_{\pi}^{(m+1)} = \mathbf{\hat{B}}_{\pi}^{(m)} + \left[ \sum_{i = 1}^{N_s}\frac{\mathbf{H}(y_i,\boldsymbol{\beta})}{{\pi_i}} \Bigg|_{\boldsymbol{\beta} = \mathbf{\hat{B}}_{\pi}^{(m)}} \right]_{}^{-1} \sum_{i = 1}^{N_s}\frac{\mathbf{b}(y_i,\boldsymbol{\beta})}{{\pi_i}}\Bigg|_{\boldsymbol{\beta} = \mathbf{\hat{B}}_{\pi}^{(m)}}
 $${#eq-wlike}
 where 
 $$
-  \mathbf{b}(y_i,\boldsymbol{\beta}) =  col_{1 \leq k \leq k-1}row_{1 \leq l \leq K -1}\Bigl[ (y_{ik} - \mu_{ik})x_{il} \Bigr]
+  \mathbf{b}(y_i,\boldsymbol{\beta}) =  col_{1 \leq k \leq K-1}row_{1 \leq l \leq L}\Bigl[ (y_{ik} - \mu_{ik})x_{il} \Bigr]
 $${#eq-blike}
 and
 $$
-  \mathbf{H}(y_i,\boldsymbol{\beta}) = col_{1 \leq k \leq k-1}row_{1 \leq l \leq K -1 }\Bigl[(\delta_{kl}\mu_{ik} - \mu_{ik}\mu_{il})\otimes \mathbf{x}_{i}^\top\mathbf{x}_{i}\Bigr]
+  \mathbf{H}(y_i,\boldsymbol{\beta}) = col_{1 \leq k \leq K-1}row_{1 \leq k' \leq K -1 }\Bigl[(\delta_{kk'}\mu_{ik} - \mu_{ik}\mu_{ik'})\otimes \mathbf{x}_{i}^\top\mathbf{x}_{i}\Bigr]
 $${#eq-hlike}
-with $\delta_{kl} = 1$ if $k = l$ and $\delta_{kl} = 0$ otherwise.
+with $\delta_{kk'} = 1$ if $k = k'$ and $\delta_{kk'} = 0$ otherwise.
 
 A design-consistent estimator of the total number of pixels covered by
 each crop
 $$
-  \mathbf{y}_{N} = \begin{pmatrix}y_{N1}\\ .. \\ y_{Nk} \\ .. \\y_{kL} \end{pmatrix}, 1 \leq k \leq K
+  \mathbf{y}_{N} = \begin{pmatrix}y_{N1}\\ .. \\ y_{Nk} \\ .. \\y_{NK} \end{pmatrix}
 $${#eq-pixcrop}
 is given by
 $$
-  \mathbf{\hat{y}}_{N} = \sum_{i=1}^{N}\boldsymbol{\hat{\mu}_i} + \frac{N}{\hat{N}_p} \sum_{i=1}^{N_s}\frac{\mathbf{y}_i - \boldsymbol{\hat{\mu}_i}}{\pi_i}
+  \mathbf{\hat{y}}_{N} = \sum_{i=1}^{N}\boldsymbol{\hat{\mu}_i} + \frac{N}{\hat{N}_p} \sum_{i=1}^{n}\frac{\mathbf{y}_i - \boldsymbol{\hat{\mu}_i}}{\pi_i}
 $${#eq-estpixcrop}
 In @eq-estpixcrop, $\boldsymbol{\hat{\mu_i}}$ is a column vector, expressed as
 $$
-    \boldsymbol{\hat{\mu}}_i = \begin{pmatrix} \hat{\mu}_{i1}\\ .. \\ \hat{\mu}_{ik} \\ .. \\ \hat{\mu}_{iK-1} \end{pmatrix}, 1 \leq k \leq K
+    \boldsymbol{\hat{\mu}}_i = \begin{pmatrix} \hat{\mu}_{i1}\\ .. \\ \hat{\mu}_{ik} \\ .. \\ \hat{\mu}_{iK-1} \end{pmatrix}
 $${#eq-estmu}
-For classes $k=1,..., k-1$, each of the terms of $\boldsymbol{\hat{\mu_i}}$ in @eq-estpixcrop is estimated by 
+For classes $k=1,..., K-1$, each of the terms of $\boldsymbol{\hat{\mu_i}}$ in @eq-estpixcrop is estimated by 
 $$
  \hat{\mu}_{ik} = \frac{exp(\mathbf{x}_i\mathbf{\hat{B}}_{\pi,k})}{ 1 + exp(\mathbf{x}_i\mathbf{\hat{B}}_{\pi,k})}, \quad k = 1,2, ..., K-1
 $${#eq-estmu1}
@@ -143,11 +143,11 @@ $$
 $${#eq-estmu1}
 In @eq-estpixcrop, the normalization factor $\hat{N}_p$ is given by
 $$
-  \hat{N}_p = \sum_{i=1}^{N_s}\frac{1}{\pi_i}.
+  \hat{N}_p = \sum_{i=1}^{n}\frac{1}{\pi_i}.
 $${#eq-estnp-hat}
-Based on the above, we can compute the estimator of the total number of pixels covered by crop $k \le K$, given by
+Based on the above, we can compute the estimator of the total number of pixels covered by crop $k \le K-1$, given by
 $$
-    \hat{y}_{Nk} = \sum_{i=1}^{N}\hat{\mu}_{ki} + \frac{N}{\hat{N}_p} \sum_{i=1}^{N_s}\frac{y_{ki} - \hat{\mu}_{ki}}{\pi_i}, \quad k = 1,2, ..., K-1
+    \hat{y}_{Nk} = \sum_{i=1}^{N}\hat{\mu}_{ki} + \frac{N}{\hat{N}_p} \sum_{i=1}^{n}\frac{y_{ki} - \hat{\mu}_{ki}}{\pi_i}, \quad k = 1,2, ..., K-1
 $${#eq-pixcrop1}
 
 and for crop $K$ the estimator is 
@@ -157,28 +157,28 @@ $${#eq-pixcrop2}
 
 The sampling covariance matrix of $\mathbf{\hat{y}}_{NK}$ is approximated by
 $$
-  \mathbf{V\hat{y}}_N = N^2\mathbf{V}\frac{1}{\hat{N}_p}\sum_{i=1}^{N_s}\frac{\mathbf{\hat{y}}_i - \boldsymbol{\mu}_i}{\pi_i}
+  \mathbf{V\hat{y}}_N \approx N^2\mathbf{V}\frac{1}{\hat{N}_p}\sum_{i=1}^{n}\frac{\mathbf{y}_i - \boldsymbol{\mu}_i}{\pi_i}
 $${#eq-sampcov}
 which can also be expressed as
 $$
-  \mathbf{V\hat{y}}_N = col_{1 \leq k \leq k-1}row_{1 \leq k' \leq K -1 }\Bigl(N^2Cov(\hat{y}_{rk}, \hat{y}_{rk'}) \Bigr)
+  \mathbf{V\hat{y}}_N \approx col_{1 \leq k \leq K-1}row_{1 \leq k' \leq K -1 }\Bigl(N^2Cov(\hat{y}_{rk}, \hat{y}_{rk'}) \Bigr)
 $${#eq-sampcov2}
 To compute the covariance matrix for elements $\hat{y}_{rk}$ in @eq-sampcov2, we consider that
 $$
-  \hat{y}_{rk} = \frac{1}{\hat{N}_p}\sum_{i=1}^{N_s}\frac{y_{ki} - \mu_{ki}}{\pi_i}.
+  \hat{y}_{rk} = \frac{1}{\hat{N}_p}\sum_{i=1}^{n}\frac{y_{ki} - \mu_{ki}}{\pi_i}.
 $${#eq-covelem}
 Each estimator $\hat{y}_{rk}$ is a function of the estimators of the total number of sampling units of category $k$, given by
 $$
-  \hat{N}_{pk} = \sum_{i=1}^{N_s}\frac{y_{ki}}{\pi_i}, \quad k = 1,2, ..., K
+  \hat{N}_{pk} = \sum_{i=1}^{n}\frac{y_{ki}}{\pi_i}, \quad k = 1,2, ..., K
 $${#eq-estnpk}
 noting that
 $$
   \hat{N}_p = \sum_{k=1}^{K}\hat{N}_{pk}. 
 $${#eq-estnp}
 The estimators $\hat{y}_{rk}$ also depend on the total residuals of class $k$, 
-given by the second term of @eq-covelem
+estimated by the second term of @eq-covelem
 $$
-  \mathbf{\hat{r}}_{kN} = \sum_{i=1}^{N_s}\frac{y_{ki} - \mu_{ki}}{\pi_i}
+  \hat{r}_{kN} = \sum_{i=1}^{n}\frac{y_{ki} - \mu_{ki}}{\pi_i}
 $${#eq-resid}
 for each class $k$. 
 
@@ -187,20 +187,20 @@ the sampling variance $V\hat{y}_{Nk}$ for each crop class $k = 1,2,..., K-1$. Le
 row vector $\mathbf{\hat{G}}_k$ be such that its  $K+1$ components are the estimators 
 on which $\hat{y}_{rk}$ depends, and be given by
 $$
-  \mathbf{\hat{G}}_k = \Bigl[ \mathbf{\hat{r}}_{kN}, \hat{N}_{p1}, \hat{N}_{p2}, ..., \hat{N}_{pK} \Bigr].
+  \mathbf{\hat{G}}_k = \Bigl[ \hat{r}_{kN}, \hat{N}_{p1}, \hat{N}_{p2}, ..., \hat{N}_{pK} \Bigr].
 $${#eq-ghat}
 
 The $\hat{y}_{Nk}$ sampling variance is approximated by
 $$
-  V\hat{y}_{Nk} = row_{1 \leq j \leq K+1} \biggl(\frac{\partial\hat{y}_{rk}}{\partial{g_j}}\biggr)\enspace \mathbf{V\hat{G}}_k \enspace  col_{1 \leq j \leq K+1}\biggl(\frac{\partial\hat{y}_{rk}}{\partial{g_j}}\biggr)
-$${eq-ysamplvar}
+  V\hat{y}_{Nk} \approx row_{1 \leq j \leq K+1} \biggl(\frac{\partial\hat{y}_{rk}}{\partial{g_j}}\biggr)\enspace \mathbf{V\hat{G}}_k \enspace  col_{1 \leq j \leq K+1}\biggl(\frac{\partial\hat{y}_{rk}}{\partial{g_j}}\biggr)
+$${#eq-ysamplvar}
 where 
 $$
-  \mathbf{V\hat{G}}_k = col_{1 \leq j \leq K+1} row_{1 \leq j \leq K+1} \biggl(Cov\bigl(g_j,g_{j'} \bigr) \biggr)
-$${eq-designcov}
+  \mathbf{V\hat{G}}_k = col_{1 \leq j \leq K+1} row_{1 \leq j' \leq K+1} \biggl(Cov\bigl(g_j,g_{j'} \bigr) \biggr)
+$${#eq-designcov}
 
 is the design-based covariance matrix of $\mathbf{\hat{G}}_k$. The
-sampling covariance matrix $\mathbf{\hat{y}}_N$ is estimated replacing $\boldsymbol{\mu}_i$ $\boldsymbol{\hat{\mu}}_i$ by in $V\hat{y}_{N}$ [@Fuller2011].
+sampling covariance matrix $\mathbf{\hat{y}}_N$ is estimated replacing $\boldsymbol{\mu}_i$ by $\boldsymbol{\hat{\mu}}_i$ in $V\hat{y}_{N}$ [@Fuller2011].
 
 ## Crop type maps 
 
@@ -245,7 +245,7 @@ database provided in Annex 6a).
 |     Millet       |     -0.010655           |     1.47958334     |     0.88931346    |     8.76504093     |
 |     Groundnut    |     -0.659204           |     -0.59871700    |     2.89873948    |     1.21898514     |
 
-: Model parameter estimate ($\mathbf{\hat{B}}_{\pi millet}$ and $\mathbf{\hat{B}}_{\pi groundnut} $) {#tbl-parameters}
+: Model parameter estimate ($\mathbf{\hat{B}}_{\pi,millet}$ and $\mathbf{\hat{B}}_{\pi, groundnut}$) {#tbl-parameters}
 
 These coefficients reflect how strongly each EO classification predicts
 the presence of a given crop type in the field. The EO classification
@@ -316,7 +316,7 @@ same characteristic in a given population, cost efficiency is a key
 criterion. Let $C_{GD}$ be the cost and $V_{GD}$ the sampling error of the current
 sampling strategy using only ground data, and let $C_{GD+RS}$  and $V_{GD+RS}$ 
 be the cost and
-sampling error, respectively, of the strategy integrating ground and RS
+sampling error, respectively, of the strategy integrating ground and remote sensing (RS)
 data. The cost efficiency  is $C_{GD}V_{GD}$ for the former 
 and $C_{GD+RS}V_{GD+RS}$ for the latter.
 
@@ -329,18 +329,18 @@ assume in the following that $C_{GD+RS} \approx C_{GD}$ , simplifying the compar
 
 The sampling variance of the $y_{Nk}$ estimator based on ground data alone is 
 $$
-  V_{GD} = N^2V\frac{1}{\hat{N}_p}\sum_{i=1}^{N}\frac{y_{ki}}{\pi_i}
+  V_{GD} = N^2V\frac{1}{\hat{N}_p}\sum_{i=1}^{n}\frac{y_{ki}}{\pi_i}
 $${#eq-vgdsamplvar}
 
 and that based on its integration with RS data is
 $$
-V_{GD+RS} = N^2V\frac{1}{\hat{N}_p}\sum_{i=1}^{N_s}\frac{y_{ki} - \mu_{ki}}{\pi_i}.
+V_{GD+RS} = N^2V\frac{1}{\hat{N}_p}\sum_{i=1}^{n}\frac{y_{ki} - \mu_{ki}}{\pi_i}.
 $${#eq-vgdrssamplvar}
 
 The relative efficiency of RS data for estimating the total number of pixels covered
 by crop $k$ is
 $$
-  RE_{RSk} = V\frac{1}{\hat{N}_p}\sum_{i=1}^{N_s}\frac{y_{ki}}{\pi_i}\biggl( V\frac{1}{\hat{N}_p}\sum_{i=1}^{N_s}\frac{y_{ki} - \mu_{ki}}{\pi_i}\biggr)^{-1}.
+  RE_{RSk} = V\frac{1}{\hat{N}_p}\sum_{i=1}^{n}\frac{y_{ki}}{\pi_i}\biggl( V\frac{1}{\hat{N}_p}\sum_{i=1}^{n}\frac{y_{ki} - \mu_{ki}}{\pi_i}\biggr)^{-1}.
 $${#eq-rers}
 
 We evaluate the RS data efficiency $RE_{RSk}$ for the acreage estimation of millet
@@ -366,17 +366,17 @@ third of the current cost, without loss of accuracy.
 
 ## District-level estimates
 
-The total survey value in the domain $R$ is 
+The total of survey vector in the domain $R$ of size $N_R$ pixels is 
 $$
-  \mathbf{\hat{y}}_{N_{R}} = \sum_{i=1}^{N_R}\mathbf{\hat{y}}_i = col_{1 \leq k \leq K}\biggl( \sum_{i=1}^{N_R} y_{ik}\ \biggr) = \begin{pmatrix}y_{N_R1}\\ .. \\ y_{N_Rk} \\ .. \\y_{N_RK} \end{pmatrix}, \quad k=1,2,...,K.
+  \mathbf{y}_{N_{R}} = \sum_{i=1}^{N_R}\mathbf{y}_i = col_{1 \leq k \leq K}\biggl( \sum_{i=1}^{N_R} y_{ik}\ \biggr) = \begin{pmatrix}y_{N_R1}\\ .. \\ y_{N_Rk} \\ .. \\y_{N_RK} \end{pmatrix}
 $${#eq-totalsurvey}
 
 
 In @eq-totalsurvey, $y_{N_Rk}$ is the number of
 pixels in $R$ covered by crop $k$. To estimate $\mathbf{y}_{N_{R}}$, 
-we use the sample $s$ of size $N_s$
+we use the sample $s$ of size $n$
 selected from the population with inclusion probabilities
-${\pi_i, i = 1, 2,..., N_s}$
+${\pi_i, i = 1, 2,..., N}$
 and the estimator 
 $$
   \mathbf{\hat{y}}_{N_{R}} = \sum_{i=1}^{N_R}\boldsymbol{\hat{\mu}}_i + \frac{N_R}{\hat{N}_{R_p}}\sum_{i=1}^{n_R}\frac{\mathbf{\hat{y}}_i - \boldsymbol{\hat{\mu}}_i}{\pi_i}
@@ -385,18 +385,18 @@ $${#eq-est-region}
 The parameter $n_R$ is the number of units in the sample belonging to the
 study domain, given by 
 $$
-  n_R = \sum_{i=1}^{N_s}I_i
+  n_R = \sum_{i=1}^{n}I_i
 $${#eq-nr}
-where the indicator variable $I_i$ is 1 if the sample belongs to the region $R$ and 0 otherwise.
+where the indicator variable $I_i$ is 1 if the pixel belongs to the region $R$ and 0 otherwise.
 
 and 
 $$
   \hat{N}_{Rp} = \sum_{i=1}^{n_R}\frac{I_i}{\pi_i}.
 $${#eq-nrp}
 
-The sampling covariance of $\mathbf{y}_{N_R}$ is given approximately by 
+The sampling covariance of $\mathbf{\hat{y}}_{N_R}$ is given approximately by 
 $$
-  \mathbf{V\hat{y}}_{N_R} = N_R^2\mathbf{V}\frac{1}{\hat{N}_{R_p}}\sum_{i=1}^{n_R}\frac{\mathbf{\hat{y}}_i - \boldsymbol{\mu}_i}{\pi_i}.
+  \mathbf{V\hat{y}}_{N_R} \approx N_R^2\mathbf{V}\frac{1}{\hat{N}_{R_p}}\sum_{i=1}^{n_R}\frac{\mathbf{y}_i - \boldsymbol{\mu}_i}{\pi_i}.
 $${#eq-sampcov-reg}
 also expressed as
 
@@ -412,16 +412,16 @@ $$ {#eq-y-rkr}
 
 and
 $$
-  \mathbf{\hat{G}}_{Rk} = \Bigl[ \mathbf{\hat{r}}_{kN_R}\enspace \hat{N}_{N_Rp1} \enspace  \hat{N}_{N_Rp2} \enspace  ... \enspace \hat{N}_{N_RpK} \Bigr].
+  \mathbf{\hat{G}}_{Rk} = \Bigl[ \mathbf{r}_{kN_R}\enspace N_{N_Rp1} \enspace  N_{N_Rp2} \enspace  ... \enspace N_{N_RpK} \Bigr].
 $${#eq-grk}
-The sampling variance $\hat{Y}_{N_Rk}$ is given approximately by 
+The sampling variance of $\hat{y}_{N_Rk}$ is given approximately by 
 $$
-  V\hat{y}_{N_Rk} = row_{1 \leq j \leq K+1} \biggl(\frac{\partial\hat{y}_{Rrk}}{\partial{g_{Rj}}} \biggr)\enspace \mathbf{V\hat{G}}_{Rk} \enspace  col_{1 \leq j \leq K+1}\biggl(\frac{\partial\hat{y}_{Rrk}}{\partial{g_{Rj}}}\biggr)
+  V\hat{y}_{N_Rk} \approx row_{1 \leq j \leq K+1} \biggl(\frac{\partial\hat{y}_{Rrk}}{\partial{g_{Rj}}} \biggr)\enspace \mathbf{V\hat{G}}_{Rk} \enspace  col_{1 \leq j \leq K+1}\biggl(\frac{\partial\hat{y}_{Rrk}}{\partial{g_{Rj}}}\biggr)
 $${#eq-ysamplvarrk}
 
 where
 $$
-  \mathbf{V\hat{G}}_{Rk} = col_{1 \leq j \leq K+1} row_{1 \leq j \leq K+1} \biggl(Cov\bigl(g_{Rj},g_{Rj'} \bigr) \biggr)
+  \mathbf{V\hat{G}}_{Rk} = col_{1 \leq j \leq K+1} row_{1 \leq j' \leq K+1} \biggl(Cov\bigl(g_{Rj},g_{Rj'} \bigr) \biggr)
 $${#eq-vgrk}
 The sampling covariance matrix $\mathbf{\hat{y}}_{N_R}$ is estimated 
 replacing $\boldsymbol{\mu}_i$ by $\boldsymbol{\hat{\mu}}_i$in @eq-sampcov-reg.
@@ -429,7 +429,7 @@ replacing $\boldsymbol{\mu}_i$ by $\boldsymbol{\hat{\mu}}_i$in @eq-sampcov-reg.
 To illustrate the application of point sampling and multinomial logit
 models at sub-national scale, crop acreage estimates were generated for
 three districts (Arrondissements) within the Nioro region: Medina Sabakh,
-Paoskoto, and Wack Ngouna. The estimates are in @tbl-est-district (Annex 4
+Paoskoto, and Wack Ngouna. The estimates are in @tbl-district (Annex 4
 contains the R scripts to compute these estimates using the database
 provided in Annex 6a, and Annex 5 contains the R Scripts to compute the
 standard errors and coefficients of variation, using the database
@@ -445,7 +445,7 @@ provided in Annex 6c).
   Wack Ngouna      30831.77         11.9          24030.71         10.7
   Total Nioro      89215,00         4.11          78815,00         3.71
 
-: Crop acreage estimates at the district (arrondissement) level, Nioro, Senegal, 2021. {#tbl-est-district}. 
+: Crop acreage estimates at the district level, Nioro, Senegal, 2021. {#tbl-district}
 
 The estimated accuracy at district (arrondissement) level is, as
 expected, lower than at the national level. However, the sampling error
@@ -455,7 +455,7 @@ labeling as official statistics.
 The differences between the number of pixels in the EO crop type millet
 and the design-based estimate of the number of pixels covered by millet
 are smaller than the sampling error in Medina Sabakh (0.7%) and Paoskoto
-(4.1), and larger than the design-based estimate in Wack Ngouna (12.4%).
+(4.1%), and larger than the design-based estimate in Wack Ngouna (12.4%).
 The differences between the number of pixels in the EO crop type
 groundnut and the design-based estimate of the number of pixels covered
 by groundnut are smaller than sampling error in the three districts:

@@ -326,7 +326,7 @@ As part of the pilot, enumerators were instructed to collect data on non-crop la
 
 ### Sen4Stat solution
 
-The crop type classification was done using the Sen4Stat system (European Space Agency, 2019), an evolution of the Sen2Agri system, whose performance has been demonstrated and validated in a variety of contexts (Defourny et al., 2019).
+The crop type classification was done using the Sen4Stat system, an evolution of the Sen2Agri system, whose performance has been demonstrated and validated in a variety of contexts [@Defourny2019]
 
 The Sen4Stat toolbox is a standalone operational processing chain which aims at facilitating the uptake of Earth Observation data in the official processes of National Statistical Offices, since the early stages of the agricultural surveys to the production of statistics. It automatically ingests and processes Sentinel-1 and Sentinel-2 time series in a seamless way for operational crop mapping and yield modelling, using ground data provided by national statistical surveys. It generates a set of EO-based products, such as time series of biophysical indicators, crop type maps and yield estimates. These EO products are then integrated with the agricultural survey to improve the statistics. Different types of statistics improvements are targeted by the system: (i) reduction of the estimates error, (ii) disaggregation to smaller administrative units, (iii) provision of timely crop area and yield estimators and (iv) optimization of sampling design by using maps to build or update sampling master frames. EO products are also used to support the quality control of the survey data. 
 
@@ -410,7 +410,7 @@ knitr::include_graphics("./images/th_alignment/image21.png")
 
 ### Acreage estimation by integrating survey and EO data
 
-Producing statistics by counting those pixels classified as a given crop type does not provide unbiased area estimates. Maps are subject to omission and commission errors (Czaplewski, 1992), which are linked to the ability of the classification method to distinguish between classes. Regression estimators and calibration estimators have been widely used to correct such biases (F. J. Gallego and Rueda, 1993; Khan et al., 2018; Olofsson et al., 2014; Li et al.,2023). They are traditional ways to combine accurate, possibly unbiased, information, observed on a sample with less accurate, biased information, known for the whole population or for a larger sample. Said differently, maps are used to improve an estimator that has been computed from a ground survey on a sample in preserving as much as possible the properties of the ground survey estimators (unbiasedness) and reducing the variance (Gallego 2004).
+Producing statistics by counting those pixels classified as a given crop type does not provide unbiased area estimates. Maps are subject to omission and commission errors, which are linked to the ability of the classification method to distinguish between classes. Regression estimators and calibration estimators have been widely used to correct such biases [@Gallego1993] [@Olofsson2014] [@Khan2018] [@Tyukavina2025]. They are traditional ways to combine accurate, possibly unbiased, information, observed on a sample with less accurate, biased information, known for the whole population or for a larger sample. Said differently, maps are used to improve an estimator that has been computed from a ground survey on a sample in preserving as much as possible the properties of the ground survey estimators (unbiasedness) and reducing the variance [@Gallego2004].
 
 Because the sampling design in Senegal is a list frame, the integration of remote sensing and ground data cannot be done using linear models, but with multinomial logit models. These multinomial models deal with the uncertainties and generate probabilities that a pixel of a given class in the map is actually this given crop on the ground.  Despite the fact that the map was not perfect, this model successfully demonstrates the added-value of EO data for agricultural statistics estimation.
 
@@ -453,7 +453,7 @@ agricultural statistics. The comparison between the 2018 and 2021 AAS
 protocols highlights how weaknesses in survey design --- reliance on GPS
 points instead of polygons, insufficient metadata, and limited
 contextual information --- constrained the accuracy of crop type
-mapping, with overall accuracy limited to \~78%. By contrast, the
+mapping, with overall accuracy limited to ~78%. By contrast, the
 adjusted Nioro protocol, which emphasized polygon delineation, improved
 georeferencing, and richer labeling, achieved accuracies exceeding 85%.
 This improvement cannot be attributed to EO algorithms alone but to the
@@ -461,10 +461,10 @@ stronger foundations provided by high-quality field data.
 
 While this chapter briefly illustrated how survey-integrated approaches
 can support crop area estimation, the methodological details are
-developed in depth in Ambrosio et al. (this volume). What is clear,
-however, is that **EO cannot substitute for poor survey data; rather, it
+developed in depth in Ambrosio in Chapter "Estimating crop statistics for list frame data"(this volume). What is clear,
+however, is that EO cannot substitute for poor survey data; rather, it
 magnifies the importance of well-structured, statistically sound survey
-protocols.** In practice, robust EO applications require a deliberate
+protocols. In practice, robust EO applications require a deliberate
 alignment of agricultural surveys with geospatial requirements.
 
 The institutional uptake of the adjusted protocol by DAPSA --- now
@@ -477,6 +477,4 @@ broader lesson: the road to EO-enabled agricultural statistics begins
 not with satellite imagery, but with the design and quality of in-situ
 data collection.
 
-## About the authors{-}
-
-Luis Ambrosio Flores (luis.ambrosio@upm.es) is  professor of Statistics. Expert in agricultural and environmental statistics, econometric modeling, climate impact assessment, and EU biodiversity frameworks. Led 30 research projects and served as consultant (ESA, FAO, EU). Key projects: SEN4Stat - Sentinels for Agricultural Statistics;  Global Strategy (GS)-Improving Agricultural & Rural Statistics; Econometric models for assessing climate change impact on agriculture and environment (Spanish Ministry of Science and Technology). Author of 50 publications with 404 citations on Google Scholar.
+## References{-}

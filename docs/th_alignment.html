@@ -18,7 +18,26 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="site_libs/quarto-nav/headroom.min.js"></script>
@@ -413,7 +432,7 @@ ul.task-list li input[type="checkbox"] {
   </ul>
 </li>
   <li><a href="#conclusions" id="toc-conclusions" class="nav-link" data-scroll-target="#conclusions"><span class="header-section-number">13.6</span> Conclusions</a></li>
-  <li><a href="#about-the-authors" id="toc-about-the-authors" class="nav-link" data-scroll-target="#about-the-authors">About the authors</a></li>
+  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
   </ul><div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/FAO-EOSTAT/UN-Handbook/edit/quarto/th_alignment.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/FAO-EOSTAT/UN-Handbook/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
     </div>
 <!-- main -->
@@ -724,7 +743,7 @@ ul.task-list li input[type="checkbox"] {
 <span class="header-section-number">13.5</span> Crop Classification and area indicators</h2>
 <section id="sen4stat-solution" class="level3" data-number="13.5.1"><h3 data-number="13.5.1" class="anchored" data-anchor-id="sen4stat-solution">
 <span class="header-section-number">13.5.1</span> Sen4Stat solution</h3>
-<p>The crop type classification was done using the Sen4Stat system (European Space Agency, 2019), an evolution of the Sen2Agri system, whose performance has been demonstrated and validated in a variety of contexts (Defourny et al., 2019).</p>
+<p>The crop type classification was done using the Sen4Stat system, an evolution of the Sen2Agri system, whose performance has been demonstrated and validated in a variety of contexts <span class="citation" data-cites="Defourny2019"><a href="#ref-Defourny2019" role="doc-biblioref">[1]</a></span></p>
 <p>The Sen4Stat toolbox is a standalone operational processing chain which aims at facilitating the uptake of Earth Observation data in the official processes of National Statistical Offices, since the early stages of the agricultural surveys to the production of statistics. It automatically ingests and processes Sentinel-1 and Sentinel-2 time series in a seamless way for operational crop mapping and yield modelling, using ground data provided by national statistical surveys. It generates a set of EO-based products, such as time series of biophysical indicators, crop type maps and yield estimates. These EO products are then integrated with the agricultural survey to improve the statistics. Different types of statistics improvements are targeted by the system: (i) reduction of the estimates error, (ii) disaggregation to smaller administrative units, (iii) provision of timely crop area and yield estimators and (iv) optimization of sampling design by using maps to build or update sampling master frames. EO products are also used to support the quality control of the survey data.</p>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
@@ -801,7 +820,7 @@ ul.task-list li input[type="checkbox"] {
 </div>
 </section><section id="acreage-estimation-by-integrating-survey-and-eo-data" class="level3" data-number="13.5.4"><h3 data-number="13.5.4" class="anchored" data-anchor-id="acreage-estimation-by-integrating-survey-and-eo-data">
 <span class="header-section-number">13.5.4</span> Acreage estimation by integrating survey and EO data</h3>
-<p>Producing statistics by counting those pixels classified as a given crop type does not provide unbiased area estimates. Maps are subject to omission and commission errors (Czaplewski, 1992), which are linked to the ability of the classification method to distinguish between classes. Regression estimators and calibration estimators have been widely used to correct such biases (F. J. Gallego and Rueda, 1993; Khan et al., 2018; Olofsson et al., 2014; Li et al.,2023). They are traditional ways to combine accurate, possibly unbiased, information, observed on a sample with less accurate, biased information, known for the whole population or for a larger sample. Said differently, maps are used to improve an estimator that has been computed from a ground survey on a sample in preserving as much as possible the properties of the ground survey estimators (unbiasedness) and reducing the variance (Gallego 2004).</p>
+<p>Producing statistics by counting those pixels classified as a given crop type does not provide unbiased area estimates. Maps are subject to omission and commission errors, which are linked to the ability of the classification method to distinguish between classes. Regression estimators and calibration estimators have been widely used to correct such biases <span class="citation" data-cites="Gallego1993"><a href="#ref-Gallego1993" role="doc-biblioref">[2]</a></span> <span class="citation" data-cites="Olofsson2014"><a href="#ref-Olofsson2014" role="doc-biblioref">[3]</a></span> <span class="citation" data-cites="Khan2018"><a href="#ref-Khan2018" role="doc-biblioref">[4]</a></span> <span class="citation" data-cites="Tyukavina2025"><a href="#ref-Tyukavina2025" role="doc-biblioref">[5]</a></span>. They are traditional ways to combine accurate, possibly unbiased, information, observed on a sample with less accurate, biased information, known for the whole population or for a larger sample. Said differently, maps are used to improve an estimator that has been computed from a ground survey on a sample in preserving as much as possible the properties of the ground survey estimators (unbiasedness) and reducing the variance <span class="citation" data-cites="Gallego2004"><a href="#ref-Gallego2004" role="doc-biblioref">[6]</a></span>.</p>
 <p>Because the sampling design in Senegal is a list frame, the integration of remote sensing and ground data cannot be done using linear models, but with multinomial logit models. These multinomial models deal with the uncertainties and generate probabilities that a pixel of a given class in the map is actually this given crop on the ground. Despite the fact that the map was not perfect, this model successfully demonstrates the added-value of EO data for agricultural statistics estimation.</p>
 <p><a href="#fig-senegal-16">Figure&nbsp;<span>13.16</span></a> presents the crop acreage estimates in the department of Nioro, for the two main crops which are millet and groundnut and shows the efficiency of using the crop type map to support this estimation of crop acreages.</p>
 <div id="fig-senegal-16" class="cell quarto-layout-panel">
@@ -836,12 +855,37 @@ ul.task-list li input[type="checkbox"] {
 </section></section><section id="conclusions" class="level2" data-number="13.6"><h2 data-number="13.6" class="anchored" data-anchor-id="conclusions">
 <span class="header-section-number">13.6</span> Conclusions</h2>
 <p>The Senegal case study demonstrates that the quality of in-situ data is the decisive factor shaping the performance of EO applications in agricultural statistics. The comparison between the 2018 and 2021 AAS protocols highlights how weaknesses in survey design — reliance on GPS points instead of polygons, insufficient metadata, and limited contextual information — constrained the accuracy of crop type mapping, with overall accuracy limited to ~78%. By contrast, the adjusted Nioro protocol, which emphasized polygon delineation, improved georeferencing, and richer labeling, achieved accuracies exceeding 85%. This improvement cannot be attributed to EO algorithms alone but to the stronger foundations provided by high-quality field data.</p>
-<p>While this chapter briefly illustrated how survey-integrated approaches can support crop area estimation, the methodological details are developed in depth in Ambrosio et al.&nbsp;(this volume). What is clear, however, is that <strong>EO cannot substitute for poor survey data; rather, it magnifies the importance of well-structured, statistically sound survey protocols.</strong> In practice, robust EO applications require a deliberate alignment of agricultural surveys with geospatial requirements.</p>
+<p>While this chapter briefly illustrated how survey-integrated approaches can support crop area estimation, the methodological details are developed in depth in Ambrosio in Chapter “Estimating crop statistics for list frame data”(this volume). What is clear, however, is that EO cannot substitute for poor survey data; rather, it magnifies the importance of well-structured, statistically sound survey protocols. In practice, robust EO applications require a deliberate alignment of agricultural surveys with geospatial requirements.</p>
 <p>The institutional uptake of the adjusted protocol by DAPSA — now extended to six districts — underscores the operational value of investing in survey quality. By embedding diagnostic frameworks, piloting revised protocols, and integrating them into national practice, Senegal has laid the groundwork for a sustainable, statistically defensible use of EO in agriculture. This case thus illustrates a broader lesson: the road to EO-enabled agricultural statistics begins not with satellite imagery, but with the design and quality of in-situ data collection.</p>
-</section><section id="about-the-authors" class="level2 unnumbered"><h2 class="unnumbered anchored" data-anchor-id="about-the-authors">About the authors</h2>
-<p>Luis Ambrosio Flores (luis.ambrosio@upm.es) is professor of Statistics. Expert in agricultural and environmental statistics, econometric modeling, climate impact assessment, and EU biodiversity frameworks. Led 30 research projects and served as consultant (ESA, FAO, EU). Key projects: SEN4Stat - Sentinels for Agricultural Statistics; Global Strategy (GS)-Improving Agricultural &amp; Rural Statistics; Econometric models for assessing climate change impact on agriculture and environment (Spanish Ministry of Science and Technology). Author of 50 publications with 404 citations on Google Scholar.</p>
+</section><section id="references" class="level2 unnumbered"><h2 class="unnumbered anchored" data-anchor-id="references">References</h2>
 
 
+<div id="refs" class="references csl-bib-body" role="list">
+<div id="ref-Defourny2019" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[1] </div>
+<div class="csl-right-inline">P. Defourny <em>et al.</em>, <span>“Near real-time agriculture monitoring at national scale at parcel resolution: <span>Performance</span> assessment of the <span>Sen2-Agri</span> automated system in various cropping systems around the world,”</span> <em>Remote Sensing of Environment</em>, vol. 221, pp. 551–568, 2019, doi: <a href="https://doi.org/10.1016/j.rse.2018.11.007">10.1016/j.rse.2018.11.007</a>.</div>
+</div>
+<div id="ref-Gallego1993" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[2] </div>
+<div class="csl-right-inline">F. J. Gallego, J. Delince, and C. Rueda, <span>“Crop area estimates through remote sensing: Stability of the regression correction,”</span> <em>International Journal of Remote Sensing</em>, vol. 14, no. 18, pp. 3433–3445, 1993, doi: <a href="https://doi.org/10.1080/01431169308904456">10.1080/01431169308904456</a>.</div>
+</div>
+<div id="ref-Olofsson2014" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[3] </div>
+<div class="csl-right-inline">P. Olofsson, G. M. Foody, M. Herold, S. V. Stehman, C. E. Woodcock, and M. A. Wulder, <span>“Good practices for estimating area and assessing accuracy of land change,”</span> <em>Remote Sensing of Environment</em>, vol. 148, pp. 42–57, 2014, doi: <a href="https://doi.org/10.1016/j.rse.2014.02.015">https://doi.org/10.1016/j.rse.2014.02.015</a>.</div>
+</div>
+<div id="ref-Khan2018" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[4] </div>
+<div class="csl-right-inline">A. Khan <em>et al.</em>, <span>“Evaluating <span>Landsat</span> and <span>RapidEye Data</span> for <span>Winter Wheat Mapping</span> and <span>Area Estimation</span> in <span>Punjab</span>, <span>Pakistan</span>,”</span> <em>Remote Sensing</em>, vol. 10, no. 4, p. 489, 2018, doi: <a href="https://doi.org/10.3390/rs10040489">10.3390/rs10040489</a>.</div>
+</div>
+<div id="ref-Tyukavina2025" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[5] </div>
+<div class="csl-right-inline">A. Tyukavina, S. V. Stehman, A. H. Pickens, P. Potapov, and M. C. Hansen, <span>“Practical global sampling methods for estimating area and map accuracy of land cover and change,”</span> <em>Remote Sensing of Environment</em>, vol. 324, p. 114714, 2025, doi: <a href="https://doi.org/10.1016/j.rse.2025.114714">10.1016/j.rse.2025.114714</a>.</div>
+</div>
+<div id="ref-Gallego2004" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[6] </div>
+<div class="csl-right-inline">F. J. Gallego, <span>“Remote sensing and land cover area estimation,”</span> <em>International Journal of Remote Sensing</em>, vol. 25, no. 15, pp. 3019–3047, 2004, doi: <a href="https://doi.org/10.1080/01431160310001619607">10.1080/01431160310001619607</a>.</div>
+</div>
+</div>
 </section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
