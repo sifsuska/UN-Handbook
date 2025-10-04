@@ -443,7 +443,8 @@ div.csl-indent {
 </section><section id="national-level-estimators" class="level2" data-number="27.2"><h2 data-number="27.2" class="anchored" data-anchor-id="national-level-estimators">
 <span class="header-section-number">27.2</span> National-level estimators</h2>
 <p>We define the survey vector as <span id="eq-survey"><span class="math display">\[
-  \mathbf{y_i} = \begin{pmatrix}y_{i1}\\ y_{ik} \\ .. \\y_{iK} \end{pmatrix}
+  \mathbf{y_i} = \begin{pmatrix}y_{i1}\\ .. \\
+  y_{ik} \\ .. \\y_{iK} \end{pmatrix}
 \tag{27.1}\]</span></span></p>
 <p>where <span class="math inline">\(y_{ik}\)</span> is 1 if the crop <span class="math inline">\(k\)</span> covers pixel <span class="math inline">\(i\)</span> and 0 otherwise. The total number of crop categories is <span class="math inline">\(K\)</span> so that <span id="eq-sumy"><span class="math display">\[
   \sum_{k=1}^{K} y_{ik} = 1
@@ -452,7 +453,7 @@ div.csl-indent {
 <p>The population total of the survey vector is <span id="eq-poptotal"><span class="math display">\[
   \mathbf{y_N} = \sum_{i=1}^{N} \mathbf{y_i} = \begin{pmatrix} \sum_{i=1}^{N}y_{i1} \\ .. \\ \sum_{i=1}^{N}y_{ik}  \\ .. \\ \sum_{i=1}^{N}y_{iK} \end{pmatrix} = \begin{pmatrix} y_{N1} \\ .. \\ y_{Nk} \\ .. \\ y_{NK} \end{pmatrix}
 \tag{27.3}\]</span></span></p>
-<p>where <span class="math inline">\(y_{Nk}\)</span> is the number of pixels covered by crop <span class="math inline">\(k\)</span>. Assuming each pixel is covered by only one crop (or mixed classes are defined), the area covered by crop <span class="math inline">\(k\)</span> is <span class="math inline">\(A_k = a*Y_{Nk}\)</span> and the total area is <span id="eq-area"><span class="math display">\[
+<p>where <span class="math inline">\(y_{Nk}\)</span> is the number of pixels covered by crop <span class="math inline">\(k\)</span>. Assuming each pixel is covered by only one crop (or mixed classes are defined), the area covered by crop <span class="math inline">\(k\)</span> is <span class="math inline">\(A_k = a*y_{Nk}\)</span> and the total area is <span id="eq-area"><span class="math display">\[
   A = \sum_{k=1}^{K} A_k
 \tag{27.4}\]</span></span> Our goal is to estimate the total <span class="math inline">\(\mathbf{y_N}\)</span> or the mean value <span id="eq-meany"><span class="math display">\[
   \overline{\mathbf{y}}_N = \frac{1}{N}\sum_{i=1}^{N}\mathbf{y_i} = \begin{pmatrix} \frac{y_{N1}}{N}\\ .. \\ \frac{y_{Nk}}{N} \\ .. \\ \frac{y_NK}{N} \end{pmatrix}
@@ -477,14 +478,14 @@ div.csl-indent {
 \tag{27.11}\]</span></span></p>
 <p>is the parameter vector for crop <span class="math inline">\(k\)</span>. To estimate the probability <span class="math inline">\(\mu_{ik}\)</span> that the cover of pixel <span class="math inline">\(i\)</span> is crop <span class="math inline">\(k = 1, 2, ..., K\)</span> it is sufficient to acquire estimates of <span class="math inline">\(\boldsymbol{\beta_k}\)</span> for <span class="math inline">\(k = 1, 2, ..., K-1\)</span>. The probability of category <span class="math inline">\(K\)</span> is <span id="eq-muk"><span class="math display">\[
   \mu_{iK} = 1 - \sum_{k=1}^{K-1}\mu_{ik}
-\tag{27.12}\]</span></span> which can be computed using the estimates <span class="math inline">\(\boldsymbol{\hat{\beta}}_{nk}\)</span> for <span class="math inline">\(k = 1, 2, ..., K-1\)</span>.</p>
-<p>The design-based estimator (where <span class="math inline">\(n\)</span> ias the sample size) <span id="eq-design"><span class="math display">\[
-  \boldsymbol{\hat{\beta}_n} = \begin{pmatrix} \boldsymbol{\hat{\beta}}_{n1} \\ .. \\ \boldsymbol{\hat{\beta}}_{nk} \\ .. \\ \boldsymbol{\hat{\beta}}_{nK-1} \end{pmatrix}
+\tag{27.12}\]</span></span> which can be computed using the estimates <span class="math inline">\(\mathbf{\hat{B}}_{\pi k}\)</span> for <span class="math inline">\(k = 1, 2, ..., K-1\)</span>.</p>
+<p>The design-based estimator (where <span class="math inline">\(\pi\)</span> indicates that the estimator depends on the inclusion probabilities defined by the NSO in the sampling design)<br><span id="eq-design"><span class="math display">\[
+  \mathbf{\hat{B}}_\pi = \begin{pmatrix} \mathbf{\hat{B}}_{\pi 1} \\ .. \\ \mathbf{\hat{B}}_{\pi k} \\ .. \\ \mathbf{\hat{B}}_{\pi K} \end{pmatrix}
 \tag{27.13}\]</span></span> is design-consistent for the maximum likelihood estimator of <span class="math inline">\(\boldsymbol{\beta}\)</span>, expressed as <span id="eq-mlest"><span class="math display">\[
-  \boldsymbol{\beta} = \begin{pmatrix}\beta_{1}\\ .. \\ \beta_{k} \\ .. \\ \beta_{K-1} \end{pmatrix}
+  \boldsymbol{\beta} = \begin{pmatrix}\boldsymbol{\beta}_{1}\\ .. \\ \boldsymbol{\beta}_{k} \\ .. \\ \boldsymbol{\beta}_{K} \end{pmatrix}
 \tag{27.14}\]</span></span></p>
 <p>based on the population data <span class="math inline">\(\{(\mathbf{y_i}, \mathbf{x_i}), i = 1, 2, ..., N\}\)</span>, under the assumption that the population behaves like a simple random sample from the multinomial model. Estimation is performed iteratively using weighted likelihood equations based on inclusion probabilities <span class="citation" data-cites="Fuller2011"><a href="#ref-Fuller2011" role="doc-biblioref">[2]</a></span> <span id="eq-wlike"><span class="math display">\[
-  \mathbf{\hat{B}}_{\pi}^{(m+1)} = \mathbf{\hat{B}}_{\pi}^{(m)} + \left[ \sum_{i = 1}^{N_s}\frac{\mathbf{H}(y_i,\boldsymbol{\beta})}{{\pi_i}} \Bigg|_{\boldsymbol{\beta} = \mathbf{\hat{B}}_{\pi}^{(m)}} \right]_{}^{-1} \sum_{i = 1}^{N_s}\frac{\mathbf{b}(y_i,\boldsymbol{\beta})}{{\pi_i}}\Bigg|_{\boldsymbol{\beta} = \mathbf{\hat{B}}_{\pi}^{(m)}}
+  \mathbf{\hat{B}}_{\pi}^{(m+1)} = \mathbf{\hat{B}}_{\pi}^{(m)} + \left[ \sum_{i = 1}^{n}\frac{\mathbf{H}(y_i,\boldsymbol{\beta})}{{\pi_i}} \Bigg|_{\boldsymbol{\beta} = \mathbf{\hat{B}}_{\pi}^{(m)}} \right]_{}^{-1} \sum_{i = 1}^{n}\frac{\mathbf{b}(y_i,\boldsymbol{\beta})}{{\pi_i}}\Bigg|_{\boldsymbol{\beta} = \mathbf{\hat{B}}_{\pi}^{(m)}}
 \tag{27.15}\]</span></span> where <span id="eq-blike"><span class="math display">\[
   \mathbf{b}(y_i,\boldsymbol{\beta}) =  col_{1 \leq k \leq K-1}row_{1 \leq l \leq L}\Bigl[ (y_{ik} - \mu_{ik})x_{il} \Bigr]
 \tag{27.16}\]</span></span> and <span id="eq-hlike"><span class="math display">\[
@@ -497,7 +498,7 @@ div.csl-indent {
 \tag{27.19}\]</span></span> In <a href="#eq-estpixcrop">Equation&nbsp;<span>27.19</span></a>, <span class="math inline">\(\boldsymbol{\hat{\mu_i}}\)</span> is a column vector, expressed as <span id="eq-estmu"><span class="math display">\[
     \boldsymbol{\hat{\mu}}_i = \begin{pmatrix} \hat{\mu}_{i1}\\ .. \\ \hat{\mu}_{ik} \\ .. \\ \hat{\mu}_{iK-1} \end{pmatrix}
 \tag{27.20}\]</span></span> For classes <span class="math inline">\(k=1,..., K-1\)</span>, each of the terms of <span class="math inline">\(\boldsymbol{\hat{\mu_i}}\)</span> in <a href="#eq-estpixcrop">Equation&nbsp;<span>27.19</span></a> is estimated by <span id="eq-estmu1"><span class="math display">\[
-\hat{\mu}_{ik} = \frac{exp(\mathbf{x}_i\mathbf{\hat{B}}_{\pi,k})}{ 1 + exp(\mathbf{x}_i\mathbf{\hat{B}}_{\pi,k})}, \quad k = 1,2, ..., K-1
+\hat{\mu}_{ik} = \frac{exp(\mathbf{x}_i\mathbf{\hat{B}}_{\pi k})}{ 1 + exp(\mathbf{x}_i\mathbf{\hat{B}}_{\pi k})}, \quad k = 1,2, ..., K-1
 \tag{27.21}\]</span></span> For class <span class="math inline">\(k=K\)</span>, the estimator of <span class="math inline">\(\boldsymbol{\hat{\mu_i}}\)</span> is <span id="eq-estmu1"><span class="math display">\[
 \hat{\mu}_{iK} = 1 - \sum_{k=1}^{K-1}\hat{\mu}_{ik}.
 \tag{27.22}\]</span></span> In <a href="#eq-estpixcrop">Equation&nbsp;<span>27.19</span></a>, the normalization factor <span class="math inline">\(\hat{N}_p\)</span> is given by <span id="eq-estnp-hat"><span class="math display">\[
@@ -732,7 +733,7 @@ V_{GD+RS} = N^2V\frac{1}{\hat{N}_p}\sum_{i=1}^{n}\frac{y_{ki} - \mu_{ki}}{\pi_i}
   \hat{y}_{Rrk} = \frac{1}{\hat{N}_{Rp}}\sum_{i=1}^{n_R}\frac{y_{ki} - \mu_{ki}}{\pi_i}
 \tag{27.43}\]</span></span></p>
 <p>and <span id="eq-grk"><span class="math display">\[
-  \mathbf{\hat{G}}_{Rk} = \Bigl[ \mathbf{r}_{kN_R}\enspace N_{N_Rp1} \enspace  N_{N_Rp2} \enspace  ... \enspace N_{N_RpK} \Bigr].
+  \mathbf{\hat{G}}_{Rk} = \Bigl[ r_{kN_R}\enspace N_{N_Rp1} \enspace  N_{N_Rp2} \enspace  ... \enspace N_{N_RpK} \Bigr].
 \tag{27.44}\]</span></span> The sampling variance of <span class="math inline">\(\hat{y}_{N_Rk}\)</span> is given approximately by <span id="eq-ysamplvarrk"><span class="math display">\[
   V\hat{y}_{N_Rk} \approx row_{1 \leq j \leq K+1} \biggl(\frac{\partial\hat{y}_{Rrk}}{\partial{g_{Rj}}} \biggr)\enspace \mathbf{V\hat{G}}_{Rk} \enspace  col_{1 \leq j \leq K+1}\biggl(\frac{\partial\hat{y}_{Rrk}}{\partial{g_{Rj}}}\biggr)
 \tag{27.45}\]</span></span></p>

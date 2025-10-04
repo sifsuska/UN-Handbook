@@ -22,7 +22,8 @@ a single point per sampled parcel, with no information on parcel area.
 
 We define the survey vector as
 $$
-  \mathbf{y_i} = \begin{pmatrix}y_{i1}\\ y_{ik} \\ .. \\y_{iK} \end{pmatrix}
+  \mathbf{y_i} = \begin{pmatrix}y_{i1}\\ .. \\
+  y_{ik} \\ .. \\y_{iK} \end{pmatrix}
 $${#eq-survey}
 
 where $y_{ik}$ is 1 if the crop $k$ covers pixel $i$ and 0 
@@ -43,7 +44,7 @@ $${#eq-poptotal}
 
 where $y_{Nk}$ is the number of pixels covered by crop $k$. 
 Assuming each pixel is covered by only one crop
-(or mixed classes are defined), the area covered by crop $k$ is $A_k = a*Y_{Nk}$ and the total area is
+(or mixed classes are defined), the area covered by crop $k$ is $A_k = a*y_{Nk}$ and the total area is
 $$
   A = \sum_{k=1}^{K} A_k
 $${#eq-area}
@@ -93,22 +94,22 @@ is the parameter vector for crop $k$. To estimate the probability $\mu_{ik}$ tha
 $$
   \mu_{iK} = 1 - \sum_{k=1}^{K-1}\mu_{ik}
 $${#eq-muk}
-which can be computed using the estimates $\boldsymbol{\hat{\beta}}_{nk}$ for $k = 1, 2, ..., K-1$. 
+which can be computed using the estimates $\mathbf{\hat{B}}_{\pi k}$ for $k = 1, 2, ..., K-1$. 
 
-The design-based estimator (where $n$ ias the sample size)
+The design-based estimator (where $\pi$ indicates that the estimator depends on the inclusion probabilities defined by the NSO in the sampling design)  
 $$
-  \boldsymbol{\hat{\beta}_n} = \begin{pmatrix} \boldsymbol{\hat{\beta}}_{n1} \\ .. \\ \boldsymbol{\hat{\beta}}_{nk} \\ .. \\ \boldsymbol{\hat{\beta}}_{nK-1} \end{pmatrix}
+  \mathbf{\hat{B}}_\pi = \begin{pmatrix} \mathbf{\hat{B}}_{\pi 1} \\ .. \\ \mathbf{\hat{B}}_{\pi k} \\ .. \\ \mathbf{\hat{B}}_{\pi K} \end{pmatrix}
 $${#eq-design}
 is design-consistent for the maximum likelihood estimator of $\boldsymbol{\beta}$, expressed as
 $$
-  \boldsymbol{\beta} = \begin{pmatrix}\beta_{1}\\ .. \\ \beta_{k} \\ .. \\ \beta_{K-1} \end{pmatrix}
+  \boldsymbol{\beta} = \begin{pmatrix}\boldsymbol{\beta}_{1}\\ .. \\ \boldsymbol{\beta}_{k} \\ .. \\ \boldsymbol{\beta}_{K} \end{pmatrix}
 $${#eq-mlest}
 
 based on the population data $\{(\mathbf{y_i}, \mathbf{x_i}), i = 1, 2, ..., N\}$, under the assumption that the population behaves like a simple random sample from
 the multinomial model. Estimation is performed iteratively using
 weighted likelihood equations based on inclusion probabilities [@Fuller2011]
 $$
-  \mathbf{\hat{B}}_{\pi}^{(m+1)} = \mathbf{\hat{B}}_{\pi}^{(m)} + \left[ \sum_{i = 1}^{N_s}\frac{\mathbf{H}(y_i,\boldsymbol{\beta})}{{\pi_i}} \Bigg|_{\boldsymbol{\beta} = \mathbf{\hat{B}}_{\pi}^{(m)}} \right]_{}^{-1} \sum_{i = 1}^{N_s}\frac{\mathbf{b}(y_i,\boldsymbol{\beta})}{{\pi_i}}\Bigg|_{\boldsymbol{\beta} = \mathbf{\hat{B}}_{\pi}^{(m)}}
+  \mathbf{\hat{B}}_{\pi}^{(m+1)} = \mathbf{\hat{B}}_{\pi}^{(m)} + \left[ \sum_{i = 1}^{n}\frac{\mathbf{H}(y_i,\boldsymbol{\beta})}{{\pi_i}} \Bigg|_{\boldsymbol{\beta} = \mathbf{\hat{B}}_{\pi}^{(m)}} \right]_{}^{-1} \sum_{i = 1}^{n}\frac{\mathbf{b}(y_i,\boldsymbol{\beta})}{{\pi_i}}\Bigg|_{\boldsymbol{\beta} = \mathbf{\hat{B}}_{\pi}^{(m)}}
 $${#eq-wlike}
 where 
 $$
@@ -135,7 +136,7 @@ $$
 $${#eq-estmu}
 For classes $k=1,..., K-1$, each of the terms of $\boldsymbol{\hat{\mu_i}}$ in @eq-estpixcrop is estimated by 
 $$
- \hat{\mu}_{ik} = \frac{exp(\mathbf{x}_i\mathbf{\hat{B}}_{\pi,k})}{ 1 + exp(\mathbf{x}_i\mathbf{\hat{B}}_{\pi,k})}, \quad k = 1,2, ..., K-1
+ \hat{\mu}_{ik} = \frac{exp(\mathbf{x}_i\mathbf{\hat{B}}_{\pi k})}{ 1 + exp(\mathbf{x}_i\mathbf{\hat{B}}_{\pi k})}, \quad k = 1,2, ..., K-1
 $${#eq-estmu1}
 For class $k=K$, the estimator of $\boldsymbol{\hat{\mu_i}}$ is
 $$
@@ -412,7 +413,7 @@ $$ {#eq-y-rkr}
 
 and
 $$
-  \mathbf{\hat{G}}_{Rk} = \Bigl[ \mathbf{r}_{kN_R}\enspace N_{N_Rp1} \enspace  N_{N_Rp2} \enspace  ... \enspace N_{N_RpK} \Bigr].
+  \mathbf{\hat{G}}_{Rk} = \Bigl[ r_{kN_R}\enspace N_{N_Rp1} \enspace  N_{N_Rp2} \enspace  ... \enspace N_{N_RpK} \Bigr].
 $${#eq-grk}
 The sampling variance of $\hat{y}_{N_Rk}$ is given approximately by 
 $$
