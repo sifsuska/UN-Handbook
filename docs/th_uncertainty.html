@@ -547,7 +547,7 @@ div.csl-indent {
 <span class="header-section-number">10.4.1</span> Load and regularize Sentinel-2 data cube</h3>
 <div class="cell">
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Select a S2 tile</span></span>
-<span><span class="va">s2_cube_ro</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/sits/man/sits_cube.html">sits_cube</a></span><span class="op">(</span></span>
+<span><span class="va">s2_cube_ro</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://e-sensing.github.io/sits/reference/sits_cube.html">sits_cube</a></span><span class="op">(</span></span>
 <span>      source <span class="op">=</span> <span class="st">"AWS"</span>,</span>
 <span>      collection <span class="op">=</span> <span class="st">"SENTINEL-S2-L2A-COGS"</span>,</span>
 <span>      tiles <span class="op">=</span> <span class="st">"20LMR"</span>,</span>
@@ -562,7 +562,7 @@ div.csl-indent {
 <span>        lat_max <span class="op">=</span> <span class="op">-</span><span class="fl">8.72290</span>, lat_min <span class="op">=</span> <span class="op">-</span><span class="fl">8.95630</span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># Regularize the small area cube</span></span>
-<span><span class="va">s2_reg_cube_ro</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/sits/man/sits_regularize.html">sits_regularize</a></span><span class="op">(</span></span>
+<span><span class="va">s2_reg_cube_ro</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://e-sensing.github.io/sits/reference/sits_regularize.html">sits_regularize</a></span><span class="op">(</span></span>
 <span>  cube <span class="op">=</span> <span class="va">s2_cube_ro</span>,</span>
 <span>  output_dir <span class="op">=</span> <span class="va">tempdir_r</span>,</span>
 <span>  res <span class="op">=</span> <span class="fl">20</span>,</span>
@@ -626,17 +626,17 @@ div.csl-indent {
 <span><span class="fu"><a href="https://rdrr.io/r/utils/data.html">data</a></span><span class="op">(</span><span class="st">"samples_prodes_4classes"</span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># Select the same three bands used in the data cube</span></span>
-<span><span class="va">samples_4classes_3bands</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/sits/man/sits_select.html">sits_select</a></span><span class="op">(</span></span>
+<span><span class="va">samples_4classes_3bands</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://e-sensing.github.io/sits/reference/sits_select.html">sits_select</a></span><span class="op">(</span></span>
 <span>    data <span class="op">=</span> <span class="va">samples_prodes_4classes</span>, </span>
 <span>    bands <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"B02"</span>, <span class="st">"B8A"</span>, <span class="st">"B11"</span><span class="op">)</span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># Train a Random Forest model </span></span>
-<span><span class="va">rfor_model</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/sits/man/sits_train.html">sits_train</a></span><span class="op">(</span></span>
+<span><span class="va">rfor_model</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://e-sensing.github.io/sits/reference/sits_train.html">sits_train</a></span><span class="op">(</span></span>
 <span>    samples <span class="op">=</span> <span class="va">samples_4classes_3bands</span>, </span>
-<span>    ml_method <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/sits/man/sits_rfor.html">sits_rfor</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span>
+<span>    ml_method <span class="op">=</span> <span class="fu"><a href="https://e-sensing.github.io/sits/reference/sits_rfor.html">sits_rfor</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># Classify the small area cube</span></span>
-<span><span class="va">s2_cube_probs</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/sits/man/sits_classify.html">sits_classify</a></span><span class="op">(</span></span>
+<span><span class="va">s2_cube_probs</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://e-sensing.github.io/sits/reference/sits_classify.html">sits_classify</a></span><span class="op">(</span></span>
 <span>    data <span class="op">=</span> <span class="va">s2_reg_cube_ro</span>,</span>
 <span>    ml_model <span class="op">=</span> <span class="va">rfor_model</span>,</span>
 <span>    output_dir <span class="op">=</span> <span class="va">tempdir_r</span>,</span>
@@ -644,14 +644,14 @@ div.csl-indent {
 <span>    multicores <span class="op">=</span> <span class="fl">5</span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># Post-process the probability cube</span></span>
-<span><span class="va">s2_cube_bayes</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/sits/man/sits_smooth.html">sits_smooth</a></span><span class="op">(</span></span>
+<span><span class="va">s2_cube_bayes</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://e-sensing.github.io/sits/reference/sits_smooth.html">sits_smooth</a></span><span class="op">(</span></span>
 <span>    cube <span class="op">=</span> <span class="va">s2_cube_probs</span>,</span>
 <span>    output_dir <span class="op">=</span> <span class="va">tempdir_r</span>,</span>
 <span>    memsize <span class="op">=</span> <span class="fl">16</span>,</span>
 <span>    multicores <span class="op">=</span> <span class="fl">4</span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># Label the post-processed  probability cube</span></span>
-<span><span class="va">s2_cube_label</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/sits/man/sits_label_classification.html">sits_label_classification</a></span><span class="op">(</span></span>
+<span><span class="va">s2_cube_label</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://e-sensing.github.io/sits/reference/sits_label_classification.html">sits_label_classification</a></span><span class="op">(</span></span>
 <span>    cube <span class="op">=</span> <span class="va">s2_cube_bayes</span>,</span>
 <span>    output_dir <span class="op">=</span> <span class="va">tempdir_r</span>,</span>
 <span>    memsize <span class="op">=</span> <span class="fl">16</span>,</span>
@@ -668,7 +668,7 @@ div.csl-indent {
 <p>The resulting map correctly identifies the forest area and the deforestation. However, it misclassifies the area covered by the Samuel hydroelectric dam. The reason is the lack of samples for classes related to surface water and wetlands. To improve the classification, we need to improve our samples. To do that, the first step is to calculate the uncertainty of the classification.</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode" id="cb7"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Calculate the uncertainty cube</span></span>
-<span><span class="va">s2_cube_uncert</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/sits/man/sits_uncertainty.html">sits_uncertainty</a></span><span class="op">(</span></span>
+<span><span class="va">s2_cube_uncert</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://e-sensing.github.io/sits/reference/sits_uncertainty.html">sits_uncertainty</a></span><span class="op">(</span></span>
 <span>    cube <span class="op">=</span> <span class="va">s2_cube_bayes</span>,</span>
 <span>    type <span class="op">=</span> <span class="st">"margin"</span>,</span>
 <span>    output_dir <span class="op">=</span> <span class="va">tempdir_r</span>,</span>
@@ -684,10 +684,10 @@ div.csl-indent {
 </div>
 </div>
 </div>
-<p>As expected, the places of highest uncertainty are those covered by surface water or associated with wetlands. These places are likely to be misclassified. For this reason, <code>sits</code> provides <code><a href="https://rdrr.io/pkg/sits/man/sits_uncertainty_sampling.html">sits_uncertainty_sampling()</a></code>, which takes the uncertainty cube as its input and produces a tibble with locations in WGS84 with high uncertainty. The function has three parameters: <code>n</code>, the number of uncertain points to be included; <code>min_uncert</code>, the minimum value of uncertainty for pixels to be included in the list; and <code>sampling_window</code>, which defines a window where only one sample will be selected. The aim of <code>sampling_window</code> is to improve the spatial distribution of the new samples by avoiding points in the same neighborhood to be included. After running the function, we can use <code><a href="https://rdrr.io/pkg/sits/man/sits_view.html">sits_view()</a></code> to visualize the location of the samples.</p>
+<p>As expected, the places of highest uncertainty are those covered by surface water or associated with wetlands. These places are likely to be misclassified. For this reason, <code>sits</code> provides <code><a href="https://e-sensing.github.io/sits/reference/sits_uncertainty_sampling.html">sits_uncertainty_sampling()</a></code>, which takes the uncertainty cube as its input and produces a tibble with locations in WGS84 with high uncertainty. The function has three parameters: <code>n</code>, the number of uncertain points to be included; <code>min_uncert</code>, the minimum value of uncertainty for pixels to be included in the list; and <code>sampling_window</code>, which defines a window where only one sample will be selected. The aim of <code>sampling_window</code> is to improve the spatial distribution of the new samples by avoiding points in the same neighborhood to be included. After running the function, we can use <code><a href="https://e-sensing.github.io/sits/reference/sits_view.html">sits_view()</a></code> to visualize the location of the samples.</p>
 <div class="cell">
 <div class="sourceCode" id="cb8"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Find samples with high uncertainty</span></span>
-<span><span class="va">new_samples</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/sits/man/sits_uncertainty_sampling.html">sits_uncertainty_sampling</a></span><span class="op">(</span></span>
+<span><span class="va">new_samples</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://e-sensing.github.io/sits/reference/sits_uncertainty_sampling.html">sits_uncertainty_sampling</a></span><span class="op">(</span></span>
 <span>    uncert_cube <span class="op">=</span> <span class="va">s2_cube_uncert</span>,</span>
 <span>    n <span class="op">=</span> <span class="fl">20</span>,</span>
 <span>    min_uncert <span class="op">=</span> <span class="fl">0.5</span>,</span>
@@ -696,7 +696,7 @@ div.csl-indent {
 </section></section><section id="view-samples" class="level2" data-number="10.5"><h2 data-number="10.5" class="anchored" data-anchor-id="view-samples">
 <span class="header-section-number">10.5</span> View samples</h2>
 <div class="cell">
-<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/pkg/sits/man/sits_view.html">sits_view</a></span><span class="op">(</span><span class="va">new_samples</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://e-sensing.github.io/sits/reference/sits_view.html">sits_view</a></span><span class="op">(</span><span class="va">new_samples</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
@@ -712,7 +712,7 @@ div.csl-indent {
 <span><span class="va">new_samples</span><span class="op">$</span><span class="va">label</span> <span class="op">&lt;-</span> <span class="st">"Wetland"</span></span>
 <span></span>
 <span><span class="co"># Obtain the time series from the regularized cube </span></span>
-<span><span class="va">new_samples_ts</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/sits/man/sits_get_data.html">sits_get_data</a></span><span class="op">(</span></span>
+<span><span class="va">new_samples_ts</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://e-sensing.github.io/sits/reference/sits_get_data.html">sits_get_data</a></span><span class="op">(</span></span>
 <span>    cube <span class="op">=</span> <span class="va">s2_reg_cube_ro</span>,</span>
 <span>    samples <span class="op">=</span> <span class="va">new_samples</span><span class="op">)</span></span>
 <span></span>
@@ -722,12 +722,12 @@ div.csl-indent {
 <span>    <span class="va">new_samples_ts</span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># Train a RF model with the new sample set</span></span>
-<span><span class="va">rfor_model_v2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/sits/man/sits_train.html">sits_train</a></span><span class="op">(</span></span>
+<span><span class="va">rfor_model_v2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://e-sensing.github.io/sits/reference/sits_train.html">sits_train</a></span><span class="op">(</span></span>
 <span>    samples <span class="op">=</span> <span class="va">samples_round_2</span>, </span>
-<span>    ml_method <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/sits/man/sits_rfor.html">sits_rfor</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span>
+<span>    ml_method <span class="op">=</span> <span class="fu"><a href="https://e-sensing.github.io/sits/reference/sits_rfor.html">sits_rfor</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># Classify the small area cube</span></span>
-<span><span class="va">s2_cube_probs_v2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/sits/man/sits_classify.html">sits_classify</a></span><span class="op">(</span></span>
+<span><span class="va">s2_cube_probs_v2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://e-sensing.github.io/sits/reference/sits_classify.html">sits_classify</a></span><span class="op">(</span></span>
 <span>    data <span class="op">=</span> <span class="va">s2_reg_cube_ro</span>,</span>
 <span>    ml_model <span class="op">=</span> <span class="va">rfor_model_v2</span>,</span>
 <span>    output_dir <span class="op">=</span> <span class="va">tempdir_r</span>,</span>
@@ -736,7 +736,7 @@ div.csl-indent {
 <span>    multicores <span class="op">=</span> <span class="fl">4</span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># Post-process the probability cube</span></span>
-<span><span class="va">s2_cube_bayes_v2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/sits/man/sits_smooth.html">sits_smooth</a></span><span class="op">(</span></span>
+<span><span class="va">s2_cube_bayes_v2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://e-sensing.github.io/sits/reference/sits_smooth.html">sits_smooth</a></span><span class="op">(</span></span>
 <span>    cube <span class="op">=</span> <span class="va">s2_cube_probs_v2</span>,</span>
 <span>    output_dir <span class="op">=</span> <span class="va">tempdir_r</span>,</span>
 <span>    version <span class="op">=</span> <span class="st">"v2"</span>,</span>
@@ -744,7 +744,7 @@ div.csl-indent {
 <span>    multicores <span class="op">=</span> <span class="fl">4</span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># Label the post-processed  probability cube</span></span>
-<span><span class="va">s2_cube_label_v2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/sits/man/sits_label_classification.html">sits_label_classification</a></span><span class="op">(</span></span>
+<span><span class="va">s2_cube_label_v2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://e-sensing.github.io/sits/reference/sits_label_classification.html">sits_label_classification</a></span><span class="op">(</span></span>
 <span>    cube <span class="op">=</span> <span class="va">s2_cube_bayes_v2</span>,</span>
 <span>    output_dir <span class="op">=</span> <span class="va">tempdir_r</span>,</span>
 <span>    version <span class="op">=</span> <span class="st">"v2"</span>,</span>
@@ -763,7 +763,7 @@ div.csl-indent {
 <p>The results show a significant quality gain over the earlier classification. There are still some areas of confusion in the exposed soils inside the inundation area, some of which have been classified as burned areas. It is also useful to show the uncertainty map associated with the second model.</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode" id="cb11"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Calculate the uncertainty cube</span></span>
-<span><span class="va">s2_cube_uncert_v2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/sits/man/sits_uncertainty.html">sits_uncertainty</a></span><span class="op">(</span></span>
+<span><span class="va">s2_cube_uncert_v2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://e-sensing.github.io/sits/reference/sits_uncertainty.html">sits_uncertainty</a></span><span class="op">(</span></span>
 <span>    cube <span class="op">=</span> <span class="va">s2_cube_bayes_v2</span>,</span>
 <span>    type <span class="op">=</span> <span class="st">"margin"</span>,</span>
 <span>    output_dir <span class="op">=</span> <span class="va">tempdir_r</span>,</span>

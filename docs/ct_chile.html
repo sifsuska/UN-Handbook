@@ -702,7 +702,7 @@ div.csl-indent {
 <span>  <span class="fu"><a href="https://tibble.tidyverse.org/reference/add_row.html">add_row</a></span><span class="op">(</span>name <span class="op">=</span> <span class="st">"No_Samples"</span>,          color <span class="op">=</span> <span class="st">"white"</span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># Load the color table into `sits`</span></span>
-<span><span class="fu"><a href="https://rdrr.io/pkg/sits/man/sits_colors_set.html">sits_colors_set</a></span><span class="op">(</span><span class="va">cl_tbl_eng</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span><span class="fu"><a href="https://e-sensing.github.io/sits/reference/sits_colors_set.html">sits_colors_set</a></span><span class="op">(</span><span class="va">cl_tbl_eng</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>In this example, we replicated the land use and land cover classification results developed for the entire study area but focused on a specific region to ensure the reproducibility of the process. To illustrate the workflow, we selected a small region covering tile 19HBA, which contains a high concentration of agricultural land (<a href="#fig-map">Figure&nbsp;<span>20.1</span></a>). The classification covers the period from May 2020 to May 2021, aligned with the agricultural calendar, and uses a temporal resolution of 16 days throughout the analysis. It is important to note that the workflow includes stochastic processes, such as model training or sampling steps, which may lead to slight variations in results across different runs, even when using the same input data and parameters.&nbsp;</p>
 </section><section id="study-area-data" class="level2" data-number="20.3"><h2 data-number="20.3" class="anchored" data-anchor-id="study-area-data">
@@ -720,7 +720,7 @@ div.csl-indent {
 <div class="cell">
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Create an irregular data cube covering a small area of the MZ4</span></span>
 <span><span class="co"># Access the Sentinel through the MPC</span></span>
-<span><span class="va">sent_19HBA</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/sits/man/sits_cube.html">sits_cube</a></span><span class="op">(</span></span>
+<span><span class="va">sent_19HBA</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://e-sensing.github.io/sits/reference/sits_cube.html">sits_cube</a></span><span class="op">(</span></span>
 <span>  source         <span class="op">=</span> <span class="st">"MPC"</span>,                           </span>
 <span>  collection     <span class="op">=</span> <span class="st">"SENTINEL-2-L2A"</span>,                </span>
 <span>  tiles          <span class="op">=</span> <span class="st">"19HBA"</span>,                          </span>
@@ -731,7 +731,7 @@ div.csl-indent {
 <p>The generated data cube is irregular, so it must be regularized before proceeding with the analysis. As recommended in the <a href="https://e-sensing.github.io/sitsbook/dc_regularize.html">sitsbook</a> documentation, we first download the images locally prior to applying the regularization step. While this is not strictly required, it is considered a best practice. However, if local storage is limited, regularization can be performed directly on the remote data source.</p>
 <div class="cell">
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Copy images locally</span></span>
-<span><span class="va">sent_19HBA</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/sits/man/sits_cube_copy.html">sits_cube_copy</a></span><span class="op">(</span></span>
+<span><span class="va">sent_19HBA</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://e-sensing.github.io/sits/reference/sits_cube_copy.html">sits_cube_copy</a></span><span class="op">(</span></span>
 <span>  cube       <span class="op">=</span> <span class="va">sent_19HBA</span>,</span>
 <span>  multicores <span class="op">=</span> <span class="fl">5</span>,</span>
 <span>  output_dir <span class="op">=</span> <span class="va">dir_19HBA_cubeS2</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -739,15 +739,15 @@ div.csl-indent {
 <p>The <code>sits</code> package supports access to both local and remote image collections. Next step demonstrate how to read locally stored images after copying them from the remote source. The only distinction between accessing local versus remote data lies in the <code>data_dir</code> parameter, which indicates the directory path where the images are stored locally.</p>
 <div class="cell">
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Access local data cube</span></span>
-<span><span class="va">sent_19HBA</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/sits/man/sits_cube.html">sits_cube</a></span><span class="op">(</span></span>
+<span><span class="va">sent_19HBA</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://e-sensing.github.io/sits/reference/sits_cube.html">sits_cube</a></span><span class="op">(</span></span>
 <span>    source     <span class="op">=</span> <span class="st">"MPC"</span>,</span>
 <span>    collection <span class="op">=</span> <span class="st">"SENTINEL-2-L2A"</span>,</span>
 <span>    data_dir   <span class="op">=</span> <span class="va">dir_19HBA_cubeS2</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>After creating the local data cube, we proceed with the regularization step using the <code><a href="https://rdrr.io/pkg/sits/man/sits_regularize.html">sits_regularize()</a></code> function. In this case, the entire timeline of the irregular data cube is regularized, assuming it shares the same timeline as the ground truth data. A temporal resolution of 16 days was defined for the regularization process.</p>
+<p>After creating the local data cube, we proceed with the regularization step using the <code><a href="https://e-sensing.github.io/sits/reference/sits_regularize.html">sits_regularize()</a></code> function. In this case, the entire timeline of the irregular data cube is regularized, assuming it shares the same timeline as the ground truth data. A temporal resolution of 16 days was defined for the regularization process.</p>
 <div class="cell">
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Regularize the cube to 16 day intervals </span></span>
-<span><span class="va">sent_19HBA_reg</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/sits/man/sits_regularize.html">sits_regularize</a></span><span class="op">(</span></span>
+<span><span class="va">sent_19HBA_reg</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://e-sensing.github.io/sits/reference/sits_regularize.html">sits_regularize</a></span><span class="op">(</span></span>
 <span>  cube       <span class="op">=</span> <span class="va">sent_19HBA</span>,                  </span>
 <span>  period     <span class="op">=</span> <span class="st">"P16D"</span>,                         </span>
 <span>  output_dir <span class="op">=</span> <span class="va">dir_19HBA_cubeS2reg</span>,  </span>
@@ -772,16 +772,16 @@ div.csl-indent {
 <p>Given that both MZ4 and the region of interest (ROI) exhibit considerable topographic variability, with a steep altitudinal gradient (<a href="#fig-map">Figure&nbsp;<span>20.1</span></a>), it becomes relevant to integrate elevation data into the analysis. In mountainous countries like Chile, where elevation strongly influences climatic and soil conditions, this altitudinal variability plays a key role in shaping the spatial distribution of land use and vegetation cover. In our example, we integrate a DEM into a data cube (this agricultural region in Chile covers the Andes, where steep elevation gradients justify its inclusion). We use the Copernicus Global DEM-30, selecting the area covered by the 19HBA tile. For MZ4, we selected the entire ROI within the study area.</p>
 <div class="cell">
 <div class="sourceCode" id="cb7"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># DEM irregular cube </span></span>
-<span><span class="va">dem_19HBA</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/sits/man/sits_cube.html">sits_cube</a></span><span class="op">(</span></span>
+<span><span class="va">dem_19HBA</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://e-sensing.github.io/sits/reference/sits_cube.html">sits_cube</a></span><span class="op">(</span></span>
 <span>  source      <span class="op">=</span> <span class="st">"MPC"</span>,             </span>
 <span>  collection  <span class="op">=</span> <span class="st">"COP-DEM-GLO-30"</span>,  </span>
 <span>  tiles       <span class="op">=</span> <span class="st">"19HBA"</span>,          </span>
 <span>  bands       <span class="op">=</span> <span class="st">"ELEVATION"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>After obtaining the data cube for the selected tile, the next step is to regularize it using the <code><a href="https://rdrr.io/pkg/sits/man/sits_regularize.html">sits_regularize()</a></code> function. This function generates a regularized data cube that exactly matches the spatial and temporal extent of the selected tile.</p>
+<p>After obtaining the data cube for the selected tile, the next step is to regularize it using the <code><a href="https://e-sensing.github.io/sits/reference/sits_regularize.html">sits_regularize()</a></code> function. This function generates a regularized data cube that exactly matches the spatial and temporal extent of the selected tile.</p>
 <div class="cell">
 <div class="sourceCode" id="cb8"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Regularizing DEM cube</span></span>
-<span><span class="va">dem_19HBA_reg</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/sits/man/sits_regularize.html">sits_regularize</a></span><span class="op">(</span></span>
+<span><span class="va">dem_19HBA_reg</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://e-sensing.github.io/sits/reference/sits_regularize.html">sits_regularize</a></span><span class="op">(</span></span>
 <span>  cube       <span class="op">=</span> <span class="va">dem_19HBA</span>,</span>
 <span>  res        <span class="op">=</span> <span class="fl">10</span>,</span>
 <span>  bands      <span class="op">=</span> <span class="st">"ELEVATION"</span>,</span>
@@ -800,10 +800,10 @@ div.csl-indent {
 </div>
 </div>
 </section><section id="computing-vegetation-indexes" class="level3 unnumbered"><h3 class="unnumbered anchored" data-anchor-id="computing-vegetation-indexes">Computing vegetation indexes</h3>
-<p>The <code>sits</code> package provides powerful tools for performing operations directly on data cubes, enabling users to manipulate and extract information from multitemporal satellite imagery. One of these key functions is <code><a href="https://rdrr.io/pkg/sits/man/sits_apply.html">sits_apply()</a></code>, which allows the computation of custom indices using R expressions. In the step below, we illustrate its use by calculating the NDVI index. For MZ4, we apply this function to compute NDVI, EVI, and NDWI indices, and we also derive the <em>slope</em> from the DEM using the <code>terra</code> package, enhancing the feature set with topographic information.</p>
+<p>The <code>sits</code> package provides powerful tools for performing operations directly on data cubes, enabling users to manipulate and extract information from multitemporal satellite imagery. One of these key functions is <code><a href="https://e-sensing.github.io/sits/reference/sits_apply.html">sits_apply()</a></code>, which allows the computation of custom indices using R expressions. In the step below, we illustrate its use by calculating the NDVI index. For MZ4, we apply this function to compute NDVI, EVI, and NDWI indices, and we also derive the <em>slope</em> from the DEM using the <code>terra</code> package, enhancing the feature set with topographic information.</p>
 <div class="cell">
 <div class="sourceCode" id="cb9"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Calculate NDVI index using bands B08 and B04</span></span>
-<span><span class="va">sent_19HBA_reg</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/sits/man/sits_apply.html">sits_apply</a></span><span class="op">(</span><span class="va">sent_19HBA_reg</span>,</span>
+<span><span class="va">sent_19HBA_reg</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://e-sensing.github.io/sits/reference/sits_apply.html">sits_apply</a></span><span class="op">(</span><span class="va">sent_19HBA_reg</span>,</span>
 <span>                          NDVI <span class="op">=</span> <span class="op">(</span><span class="op">(</span><span class="va">B08</span> <span class="op">-</span> <span class="va">B04</span><span class="op">)</span> <span class="op">/</span> <span class="op">(</span><span class="va">B08</span> <span class="op">+</span> <span class="va">B04</span><span class="op">)</span><span class="op">)</span>,</span>
 <span>                          memsize <span class="op">=</span> <span class="fl">32</span>,</span>
 <span>                          multicores <span class="op">=</span> <span class="fl">8</span>,</span>
@@ -822,11 +822,11 @@ div.csl-indent {
 </div>
 </div>
 </section><section id="combining-multitemporal-data-cubes-with-dems" class="level3 unnumbered"><h3 class="unnumbered anchored" data-anchor-id="combining-multitemporal-data-cubes-with-dems">Combining multitemporal data cubes with DEMs</h3>
-<p>As stated in the <code>sitsbook</code>, an alternative for incorporating elevation data is to merge the image data cube with the DEM using the <code><a href="https://rdrr.io/pkg/sits/man/sits_merge.html">sits_merge()</a></code> function, treating the DEM as an additional band. This replicates the DEM across all time steps, creating an artificial time series. It can be particularly beneficial in areas where elevation strongly influences land cover patterns.</p>
+<p>As stated in the <code>sitsbook</code>, an alternative for incorporating elevation data is to merge the image data cube with the DEM using the <code><a href="https://e-sensing.github.io/sits/reference/sits_merge.html">sits_merge()</a></code> function, treating the DEM as an additional band. This replicates the DEM across all time steps, creating an artificial time series. It can be particularly beneficial in areas where elevation strongly influences land cover patterns.</p>
 <div class="cell">
 <div class="sourceCode" id="cb10"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Merging multitemporal data cubes with DEM</span></span>
 <span><span class="co"># In the case of Chile, the DEM should be used as a time series band</span></span>
-<span><span class="va">cube_19HBA</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/sits/man/sits_merge.html">sits_merge</a></span><span class="op">(</span><span class="va">sent_19HBA_reg</span>, <span class="va">dem_19HBA_reg</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span><span class="va">cube_19HBA</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://e-sensing.github.io/sits/reference/sits_merge.html">sits_merge</a></span><span class="op">(</span><span class="va">sent_19HBA_reg</span>, <span class="va">dem_19HBA_reg</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section></section><section id="satellite-image-time-series" class="level2" data-number="20.5"><h2 data-number="20.5" class="anchored" data-anchor-id="satellite-image-time-series">
 <span class="header-section-number">20.5</span> Satellite image time series</h2>
@@ -834,7 +834,7 @@ div.csl-indent {
 <p>After creating the data cube, the next step is to extract the time series for the ground truth data. In this case we use an <code>sf</code> object with <code>POINT</code> geometry as <code>samples</code> parameter (See <a href="#sec-training-data"><span>Section&nbsp;20.2.3</span></a>). In this case, all samples share the same dates and correspond to those of the data cube.</p>
 <div class="cell">
 <div class="sourceCode" id="cb11"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Read the points from the cube and produce a tibble with time series</span></span>
-<span><span class="va">samples_19HBA</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/sits/man/sits_get_data.html">sits_get_data</a></span><span class="op">(</span></span>
+<span><span class="va">samples_19HBA</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://e-sensing.github.io/sits/reference/sits_get_data.html">sits_get_data</a></span><span class="op">(</span></span>
 <span>  cube       <span class="op">=</span> <span class="va">cube_19HBA</span>,            </span>
 <span>  samples    <span class="op">=</span> <span class="va">points_roi</span>,              </span>
 <span>  labet_attr <span class="op">=</span> <span class="st">"label"</span>,                </span>
@@ -875,13 +875,13 @@ div.csl-indent {
 </div>
 </div>
 <p>For the region of interest in this example, we obtained a time series of 21,291 samples. For the entire MZ4, the number of samples is 62,823 (some points could not be retrieved).</p>
-<p>When working with extensive time series data, it is helpful to generate a single plot that summarizes the key temporal dynamics of each class. The function <code><a href="https://rdrr.io/pkg/sits/man/sits_patterns.html">sits_patterns()</a></code> predict an idealized approximation of the time series associated with each class across bands. The resulting patterns can be visualized using the <code><a href="https://rspatial.github.io/terra/reference/plot.html">plot()</a></code> function.</p>
+<p>When working with extensive time series data, it is helpful to generate a single plot that summarizes the key temporal dynamics of each class. The function <code><a href="https://e-sensing.github.io/sits/reference/sits_patterns.html">sits_patterns()</a></code> predict an idealized approximation of the time series associated with each class across bands. The resulting patterns can be visualized using the <code><a href="https://rspatial.github.io/terra/reference/plot.html">plot()</a></code> function.</p>
 <p>For better visualization, the 22 Level 3 classes available in this area of interest were grouped into four main categories: <em>Agricultural Lands,</em> which includes the eight agricultural Level 3 classes; <em>Forest Plantation</em>, which consists of the three forest-related Level 3 categories; <em>Native Vegetation</em>, comprising six Level 3 classes associated with areas covered by natural vegetation; and <em>Non-Vegetated Areas</em>, which includes five Level 3 categories, both natural and artificial, that lack vegetation cover.</p>
 <div class="cell">
 <div class="sourceCode" id="cb13"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Estimate the patterns for each class and plot them</span></span>
 <span><span class="va">samples_19HBA</span> <span class="op">|&gt;</span> </span>
-<span>  <span class="fu"><a href="https://rdrr.io/pkg/sits/man/sits_select.html">sits_select</a></span><span class="op">(</span>bands <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"B04"</span>, <span class="st">"B08"</span>, <span class="st">"B11"</span>, <span class="st">"NDVI"</span><span class="op">)</span><span class="op">)</span> <span class="op">|&gt;</span></span>
-<span>  <span class="fu"><a href="https://rdrr.io/pkg/sits/man/sits_patterns.html">sits_patterns</a></span><span class="op">(</span><span class="op">)</span> <span class="op">|&gt;</span> </span>
+<span>  <span class="fu"><a href="https://e-sensing.github.io/sits/reference/sits_select.html">sits_select</a></span><span class="op">(</span>bands <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"B04"</span>, <span class="st">"B08"</span>, <span class="st">"B11"</span>, <span class="st">"NDVI"</span><span class="op">)</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu"><a href="https://e-sensing.github.io/sits/reference/sits_patterns.html">sits_patterns</a></span><span class="op">(</span><span class="op">)</span> <span class="op">|&gt;</span> </span>
 <span>  <span class="fu"><a href="https://rspatial.github.io/terra/reference/plot.html">plot</a></span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="tabset-margin-container"></div><div class="panel-tabset">
@@ -944,7 +944,7 @@ div.csl-indent {
 <p>The <code>sits</code> package provides a clustering technique based on Self-Organizing Maps (SOM) as an alternative to hierarchical clustering methods for quality control of training samples. SOM is a dimensionality reduction technique that projects high-dimensional data onto a two-dimensional map while preserving the topological relationships between data patterns. This property facilitates the visualization and assessment of the internal consistency of the samples, helping to identify outliers, mislabeled classes, or regions with high spectral-temporal heterogeneity that could negatively impact the performance of the classification model.</p>
 <p>For model parsimony, only a subset of bands from the time series is selected, those that best capture the relevant temporal and spectral variability. This reduced set of information is then used for quality assessment, as well as for the subsequent training and classification processes, ensuring computational efficiency without compromising model performance. For the MZ4 we selected the following bands: <code>NDVI, EVI, NDWI, B8A, B11, B12, B07, B05, B02, ELEVATION, SLOPE</code>. In this example we use all the presents bands, which are <code>NDVI, B04, B08, B11</code>, and <code>ELEVATION</code>.</p>
 <section id="creating-the-som-map" class="level5 unnumbered"><h5 class="unnumbered anchored" data-anchor-id="creating-the-som-map">Creating the SOM map</h5>
-<p>To perform the quality assessment based on SOM, the first step is to run <code><a href="https://rdrr.io/pkg/sits/man/sits_som_map.html">sits_som_map()</a></code>. The grid size is defined by the sample size, according the suggestions by <span class="citation" data-cites="Vesanto2000"><a href="#ref-Vesanto2000" role="doc-biblioref">[31]</a></span>, as implemented in <span class="citation" data-cites="Santos2021"><a href="#ref-Santos2021" role="doc-biblioref">[28]</a></span> and <span class="citation" data-cites="deSimone2025"><a href="#ref-deSimone2025" role="doc-biblioref">[30]</a></span>.</p>
+<p>To perform the quality assessment based on SOM, the first step is to run <code><a href="https://e-sensing.github.io/sits/reference/sits_som_map.html">sits_som_map()</a></code>. The grid size is defined by the sample size, according the suggestions by <span class="citation" data-cites="Vesanto2000"><a href="#ref-Vesanto2000" role="doc-biblioref">[31]</a></span>, as implemented in <span class="citation" data-cites="Santos2021"><a href="#ref-Santos2021" role="doc-biblioref">[28]</a></span> and <span class="citation" data-cites="deSimone2025"><a href="#ref-deSimone2025" role="doc-biblioref">[30]</a></span>.</p>
 <p>For the implementation of the other parameters see the <a href="https://e-sensing.github.io/sitsbook/ts_som.html">“Self-Organized maps for sample quality control”</a> chapter in <code>sitsbook</code> and <span class="citation" data-cites="Santos2021"><a href="#ref-Santos2021" role="doc-biblioref">[28]</a></span>.</p>
 <div class="cell">
 <div class="sourceCode" id="cb14"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Determine grid size</span></span>
@@ -952,7 +952,7 @@ div.csl-indent {
 <span><span class="va">min_grid</span>  <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/Round.html">floor</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/MathFun.html">sqrt</a></span><span class="op">(</span><span class="fl">5</span> <span class="op">*</span> <span class="fu"><a href="https://rdrr.io/r/base/MathFun.html">sqrt</a></span><span class="op">(</span><span class="va">n_samples</span><span class="op">)</span><span class="op">)</span><span class="op">)</span> <span class="op">-</span> <span class="fl">2</span> </span>
 <span></span>
 <span><span class="co">#  Clustering time series using SOM</span></span>
-<span><span class="va">som_map</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/sits/man/sits_som_map.html">sits_som_map</a></span><span class="op">(</span>data      <span class="op">=</span> <span class="va">samples_19HBA</span>,    </span>
+<span><span class="va">som_map</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://e-sensing.github.io/sits/reference/sits_som_map.html">sits_som_map</a></span><span class="op">(</span>data      <span class="op">=</span> <span class="va">samples_19HBA</span>,    </span>
 <span>                        grid_xdim <span class="op">=</span> <span class="va">min_grid</span>,         </span>
 <span>                        grid_ydim <span class="op">=</span> <span class="va">min_grid</span>,          </span>
 <span>                        alpha     <span class="op">=</span> <span class="fl">0.05</span>,              </span>
@@ -973,11 +973,11 @@ div.csl-indent {
 </div>
 <p>The SOM map provides a general view of the spectral similarity among different land cover and land use classes, while also highlighting the separation between them. According to the legend, when a class appears as a compact grouping of a specific color, and that color does not appear scattered in other regions of the map, it indicates that the class exhibits high internal spectral consistency. This means that the samples share similar spectral behavior and are distinguishable from other classes. A clear example of this is the <code>Artificial_surfaces</code> class, which appears as a well-defined cluster in the lower-right section of the SOM map, suggesting strong differentiation from other categories. Conversely, when a class does not form a distinct cluster and its color is scattered across different areas of the map, this suggests low internal spectral consistency, meaning the samples within that class display varied spectral behaviors or overlap with other classes. This is the case for the <code>Annual_pastures</code> class, which appears highly fragmented and mixed with different classes, such as <code>Shrublands</code>. This dispersion indicates potential spectral confusion or high internal variability. In such cases, it may be advisable to reassess the consistency of the training samples or consider adjustments in the thematic class definitions.</p>
 </section><section id="measuring-confusion-between-labels-using-som" class="level5 unnumbered"><h5 class="unnumbered anchored" data-anchor-id="measuring-confusion-between-labels-using-som">Measuring confusion between labels using SOM</h5>
-<p>The next step in the SOM-based quality assessment involves analyzing label confusion. For this purpose, the <code>sits</code> package provides <code><a href="https://rdrr.io/pkg/sits/man/sits_som_evaluate_cluster.html">sits_som_evaluate_cluster()</a></code> function that groups the neurons of the SOM according to their majority label and generates a tibble with the results. Each group corresponds to a specific label, and the tibble shows the percentage of samples from each label present in each cluster.</p>
+<p>The next step in the SOM-based quality assessment involves analyzing label confusion. For this purpose, the <code>sits</code> package provides <code><a href="https://e-sensing.github.io/sits/reference/sits_som_evaluate_cluster.html">sits_som_evaluate_cluster()</a></code> function that groups the neurons of the SOM according to their majority label and generates a tibble with the results. Each group corresponds to a specific label, and the tibble shows the percentage of samples from each label present in each cluster.</p>
 <p>In an ideal scenario, all samples within a cluster would belong to a single label, reflecting a clear and accurate classification. However, in practice, clusters often contain samples from different labels, indicating confusion in the classification. This information is key to identifying and quantifying the overlap between labels and assessing the quality of the training dataset. Sample-level label confusion can be visualized in a bar chart, which illustrates the initial confusion among the training sample labels.</p>
 <div class="cell">
 <div class="sourceCode" id="cb15"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Produce a tibble with a summary of the mixed labels</span></span>
-<span><span class="va">som_eval</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/sits/man/sits_som_evaluate_cluster.html">sits_som_evaluate_cluster</a></span><span class="op">(</span><span class="va">som_map</span><span class="op">)</span> </span>
+<span><span class="va">som_eval</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://e-sensing.github.io/sits/reference/sits_som_evaluate_cluster.html">sits_som_evaluate_cluster</a></span><span class="op">(</span><span class="va">som_map</span><span class="op">)</span> </span>
 <span></span>
 <span><span class="co"># Plot the confusion between clusters</span></span>
 <span><span class="fu"><a href="https://rspatial.github.io/terra/reference/plot.html">plot</a></span><span class="op">(</span><span class="va">som_eval</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -992,10 +992,10 @@ div.csl-indent {
 </div>
 <p>The confusion by cluster reveals that some classes are well separated, with a dominant color in their corresponding cluster, such as <code>Snow_glaciers</code>, <code>Water_bodies</code>, <code>Deciduous_forest</code>, <code>Winter_crops</code>, and <code>Clear_cut_plantation</code>, indicating clear and consistent spectral patterns.However, several classes show overlap with spectrally or contextually similar categories. This is the case for <code>Perennial_fruit_tree,</code> which displays dispersion toward plantation areas, suggesting challenges in separating perennial orchards from managed forest systems. There is also considerable confusion between <code>Grasslands</code> and <code>Annual_pastures</code>, and between <code>Bare_soils</code> and <code>Artificial_surfaces</code>.</p>
 </section><section id="detecting-noisy-samples-using-som" class="level5 unnumbered"><h5 class="unnumbered anchored" data-anchor-id="detecting-noisy-samples-using-som">Detecting noisy samples using SOM</h5>
-<p>The analysis based on SOM maps allows the identification and eventually removal of samples that may be confused with other classes, using the discrete probability distribution associated with each neuron, through the <code><a href="https://rdrr.io/pkg/sits/man/sits_som_clean_samples.html">sits_som_clean_samples()</a></code> function. This approach evaluates probabilities by considering the frequency of occurrence of samples within their corresponding cluster. For this study (both for the example and the full dataset), a probabilistic filter was applied by setting a threshold of 0.5 for both probabilities.</p>
+<p>The analysis based on SOM maps allows the identification and eventually removal of samples that may be confused with other classes, using the discrete probability distribution associated with each neuron, through the <code><a href="https://e-sensing.github.io/sits/reference/sits_som_clean_samples.html">sits_som_clean_samples()</a></code> function. This approach evaluates probabilities by considering the frequency of occurrence of samples within their corresponding cluster. For this study (both for the example and the full dataset), a probabilistic filter was applied by setting a threshold of 0.5 for both probabilities.</p>
 <div class="cell">
 <div class="sourceCode" id="cb16"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Detecting noisy samples using SOM</span></span>
-<span><span class="va">all_eval</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/sits/man/sits_som_clean_samples.html">sits_som_clean_samples</a></span><span class="op">(</span></span>
+<span><span class="va">all_eval</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://e-sensing.github.io/sits/reference/sits_som_clean_samples.html">sits_som_clean_samples</a></span><span class="op">(</span></span>
 <span>  som_map <span class="op">=</span> <span class="va">som_map</span>,</span>
 <span>  prior_threshold <span class="op">=</span> <span class="fl">0.5</span>,</span>
 <span>  posterior_threshold <span class="op">=</span> <span class="fl">0.5</span>,</span>
@@ -1017,10 +1017,10 @@ div.csl-indent {
 </section></section><section id="reducing-imbalances-in-training-samples" class="level4 unnumbered"><h4 class="unnumbered anchored" data-anchor-id="reducing-imbalances-in-training-samples">Reducing imbalances in training samples</h4>
 <p>Imbalanced training data is a common issue in Earth observation analysis, occurring when the distribution of samples across class labels is uneven. In the dataset used for this example, the two most frequent classes (<code>Deciduous_fruit_tree</code> and <code>Mature_plantation</code><em>)</em> account for 22.4% of all sample units. In contrast, the two least frequent classes (<code>Wetlands</code> and <code>Mountain_grasslands</code>) represent only 0.8% of the dataset<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a>.</p>
 <p>Although this distribution reflects the actual land cover in the Maule and Ñuble Regions, the imbalance in sample representation is a problematic characteristic of a training dataset. Machine learning algorithms tend to perform better on classes with more training instances, while instances from minority classes are more likely to be misclassified.. Therefore, reducing sample imbalance can positively impact classification accuracy <span class="citation" data-cites="Johnson2019"><a href="#ref-Johnson2019" role="doc-biblioref">[32]</a></span>.</p>
-<p>The <code><a href="https://rdrr.io/pkg/sits/man/sits_reduce_imbalance.html">sits_reduce_imbalance()</a></code> function addresses training set imbalance by oversampling minority classes and undersampling majority ones (through SOM maps; more details in <a href="https://e-sensing.github.io/sitsbook/ts_balance.html">sitsbook</a>). It uses the SMOTE method for oversampling, which generates synthetic samples by interpolating between pairs of nearest neighbors within minority class clusters.</p>
+<p>The <code><a href="https://e-sensing.github.io/sits/reference/sits_reduce_imbalance.html">sits_reduce_imbalance()</a></code> function addresses training set imbalance by oversampling minority classes and undersampling majority ones (through SOM maps; more details in <a href="https://e-sensing.github.io/sitsbook/ts_balance.html">sitsbook</a>). It uses the SMOTE method for oversampling, which generates synthetic samples by interpolating between pairs of nearest neighbors within minority class clusters.</p>
 <div class="cell">
 <div class="sourceCode" id="cb17"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Minimum and maximum number will depend on how many samples there are in the smallest and largest class</span></span>
-<span><span class="va">balanced_samples</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/sits/man/sits_reduce_imbalance.html">sits_reduce_imbalance</a></span><span class="op">(</span></span>
+<span><span class="va">balanced_samples</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://e-sensing.github.io/sits/reference/sits_reduce_imbalance.html">sits_reduce_imbalance</a></span><span class="op">(</span></span>
 <span>  samples         <span class="op">=</span> <span class="va">samples_19HBA</span>,   </span>
 <span>  n_samples_over  <span class="op">=</span> <span class="fl">200</span>,     </span>
 <span>  n_samples_under <span class="op">=</span> <span class="fl">800</span>,   </span>
@@ -1059,14 +1059,14 @@ div.csl-indent {
 22 Young_plantation       728 0.0667</code></pre>
 </div>
 </div>
-<p>To evaluate the effect of imbalance reduction, as recommended by <code>sits</code> authors, we apply the SOM clustering technique introduced previously. We first generate the SOM using <code><a href="https://rdrr.io/pkg/sits/man/sits_som_map.html">sits_som_map()</a></code>, and then analyze the clustering results with <code>sits_som_evaluate_clusters()</code>.</p>
+<p>To evaluate the effect of imbalance reduction, as recommended by <code>sits</code> authors, we apply the SOM clustering technique introduced previously. We first generate the SOM using <code><a href="https://e-sensing.github.io/sits/reference/sits_som_map.html">sits_som_map()</a></code>, and then analyze the clustering results with <code>sits_som_evaluate_clusters()</code>.</p>
 <div class="cell">
 <div class="sourceCode" id="cb19"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Determine grid size for new SOM map</span></span>
 <span><span class="va">n_samples</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/length.html">length</a></span><span class="op">(</span><span class="va">balanced_samples</span><span class="op">$</span><span class="va">longitude</span><span class="op">)</span></span>
 <span><span class="va">min_grid_size</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/Round.html">floor</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/MathFun.html">sqrt</a></span><span class="op">(</span><span class="fl">5</span> <span class="op">*</span> <span class="fu"><a href="https://rdrr.io/r/base/MathFun.html">sqrt</a></span><span class="op">(</span><span class="va">n_samples</span><span class="op">)</span><span class="op">)</span><span class="op">)</span> <span class="op">-</span> <span class="fl">2</span> </span>
 <span></span>
 <span><span class="co"># Clustering time series using SOM</span></span>
-<span><span class="va">som_map_balanced</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/sits/man/sits_som_map.html">sits_som_map</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">balanced_samples</span>,</span>
+<span><span class="va">som_map_balanced</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://e-sensing.github.io/sits/reference/sits_som_map.html">sits_som_map</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">balanced_samples</span>,</span>
 <span>                                 grid_xdim <span class="op">=</span> <span class="va">min_grid_size</span>,</span>
 <span>                                 grid_ydim <span class="op">=</span> <span class="va">min_grid_size</span>,</span>
 <span>                                 alpha <span class="op">=</span> <span class="fl">0.05</span>,</span>
@@ -1075,7 +1075,7 @@ div.csl-indent {
 <span>                                 mode <span class="op">=</span> <span class="st">"pbatch"</span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># Produce a tibble with a summary of the mixed labels</span></span>
-<span><span class="va">som_eval_bal</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/sits/man/sits_som_evaluate_cluster.html">sits_som_evaluate_cluster</a></span><span class="op">(</span><span class="va">som_map_balanced</span><span class="op">)</span></span>
+<span><span class="va">som_eval_bal</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://e-sensing.github.io/sits/reference/sits_som_evaluate_cluster.html">sits_som_evaluate_cluster</a></span><span class="op">(</span><span class="va">som_map_balanced</span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># Show the result</span></span>
 <span><span class="fu"><a href="https://rspatial.github.io/terra/reference/plot.html">plot</a></span><span class="op">(</span><span class="va">som_eval_bal</span><span class="op">)</span> </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1092,19 +1092,19 @@ div.csl-indent {
 <p>The application of SMOTE and SOM-based balancing improved cluster purity for many classes, but some confusion remains, especially among spectrally or temporally similar vegetation types.</p>
 </section></section></section><section id="training-a-machine-learning-model" class="level2" data-number="20.6"><h2 data-number="20.6" class="anchored" data-anchor-id="training-a-machine-learning-model">
 <span class="header-section-number">20.6</span> Training a machine learning model</h2>
-<p>The next step in creating a classified map involves training a model. We apply the <code><a href="https://rdrr.io/pkg/sits/man/sits_train.html">sits_train()</a></code> function to train a Random Forest (a CPU-based classification) classifier using the balanced sample data generated previously.</p>
+<p>The next step in creating a classified map involves training a model. We apply the <code><a href="https://e-sensing.github.io/sits/reference/sits_train.html">sits_train()</a></code> function to train a Random Forest (a CPU-based classification) classifier using the balanced sample data generated previously.</p>
 <div class="cell">
 <div class="sourceCode" id="cb20"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Train a random forest model</span></span>
-<span><span class="va">rfor_model</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/sits/man/sits_train.html">sits_train</a></span><span class="op">(</span></span>
+<span><span class="va">rfor_model</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://e-sensing.github.io/sits/reference/sits_train.html">sits_train</a></span><span class="op">(</span></span>
 <span>  samples <span class="op">=</span> <span class="va">balanced_samples</span>,</span>
-<span>  ml_method <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/sits/man/sits_rfor.html">sits_rfor</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span>  ml_method <span class="op">=</span> <span class="fu"><a href="https://e-sensing.github.io/sits/reference/sits_rfor.html">sits_rfor</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section><section id="sec-data-cube-classification" class="level2" data-number="20.7"><h2 data-number="20.7" class="anchored" data-anchor-id="sec-data-cube-classification">
 <span class="header-section-number">20.7</span> Data cube classification</h2>
-<p>After training the machine learning model, the process continues by applying this trained model to a satellite data cube. We use the <code><a href="https://rdrr.io/pkg/sits/man/sits_classify.html">sits_classify()</a></code> function, which requires a regular data cube and a trained model as input parameters; as additional information, we provide the region of interest (both for the example and the entire Macrozone) to generate a cube with cropped boundaries.</p>
+<p>After training the machine learning model, the process continues by applying this trained model to a satellite data cube. We use the <code><a href="https://e-sensing.github.io/sits/reference/sits_classify.html">sits_classify()</a></code> function, which requires a regular data cube and a trained model as input parameters; as additional information, we provide the region of interest (both for the example and the entire Macrozone) to generate a cube with cropped boundaries.</p>
 <div class="cell">
 <div class="sourceCode" id="cb21"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Classify the raster image</span></span>
-<span><span class="va">probs_19HBA</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/sits/man/sits_classify.html">sits_classify</a></span><span class="op">(</span></span>
+<span><span class="va">probs_19HBA</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://e-sensing.github.io/sits/reference/sits_classify.html">sits_classify</a></span><span class="op">(</span></span>
 <span>  data       <span class="op">=</span> <span class="va">cube_19HBA</span>,              </span>
 <span>  ml_model   <span class="op">=</span> <span class="va">rfor_model</span>,   </span>
 <span>  roi        <span class="op">=</span> <span class="va">roi_test</span>,</span>
@@ -1147,11 +1147,11 @@ div.csl-indent {
 </section><section id="spatial-smoothing" class="level2" data-number="20.8"><h2 data-number="20.8" class="anchored" data-anchor-id="spatial-smoothing">
 <span class="header-section-number">20.8</span> Spatial smoothing</h2>
 <p>Spatial smoothing to the classification results. This step incorporates the spatial neighborhood of each pixel, helping to reduce isolated misclassifications, particularly in transitional zones.</p>
-<p>The post-processing method is based on the Bayesian approach to data analysis, which interprets probability as a measure of belief in an event. To properly perform Bayesian smoothing, it is necessary to estimate the local logit variance for each class, which allows for the correct setting of the model’s hyperparameters. This estimation is carried out using the <code><a href="https://rdrr.io/pkg/sits/man/sits_variance.html">sits_variance()</a></code> function, which takes as input a probability data cube, a window size that defines the spatial neighborhood, and a fraction of pixels within that window to be used for variance calculation <span class="citation" data-cites="Camara2024b"><a href="#ref-Camara2024b" role="doc-biblioref">[25]</a></span>.</p>
+<p>The post-processing method is based on the Bayesian approach to data analysis, which interprets probability as a measure of belief in an event. To properly perform Bayesian smoothing, it is necessary to estimate the local logit variance for each class, which allows for the correct setting of the model’s hyperparameters. This estimation is carried out using the <code><a href="https://e-sensing.github.io/sits/reference/sits_variance.html">sits_variance()</a></code> function, which takes as input a probability data cube, a window size that defines the spatial neighborhood, and a fraction of pixels within that window to be used for variance calculation <span class="citation" data-cites="Camara2024b"><a href="#ref-Camara2024b" role="doc-biblioref">[25]</a></span>.</p>
 <p>The distinct patterns of these classes are quantitatively assessed using the <code><a href="https://rspatial.github.io/terra/reference/summary.html">summary()</a></code> function. When applied to variance cubes, this function reports the logit variance values corresponding to the upper interquartile range, offering insights into the spatial variability within each class.</p>
 <div class="cell">
 <div class="sourceCode" id="cb22"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># calculate variance</span></span>
-<span><span class="va">var_19HBA</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/sits/man/sits_variance.html">sits_variance</a></span><span class="op">(</span></span>
+<span><span class="va">var_19HBA</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://e-sensing.github.io/sits/reference/sits_variance.html">sits_variance</a></span><span class="op">(</span></span>
 <span>  cube           <span class="op">=</span> <span class="va">probs_19HBA</span>,</span>
 <span>  window_size    <span class="op">=</span> <span class="fl">7</span>,</span>
 <span>  neigh_fraction <span class="op">=</span> <span class="fl">0.50</span>,</span>
@@ -1201,10 +1201,10 @@ div.csl-indent {
 100%            11.08        21.66     9.68        10.66            22.73</code></pre>
 </div>
 </div>
-<p>To remove the outliers and classification errors, we run a smoothing procedure with <code><a href="https://rdrr.io/pkg/sits/man/sits_smooth.html">sits_smooth()</a></code>. The parameters <code>window_size</code> and <code>neigh_fraction</code> control how many pixels in a neighborhood the Bayesian estimator will use to calculate the local statistics. The <code>smoothness</code> values for the classes are set as recommended in <span class="citation" data-cites="Camara2024b"><a href="#ref-Camara2024b" role="doc-biblioref">[25]</a></span> and <a href="https://e-sensing.github.io/sitsbook/cl_smoothing.html">“Bayesian smoothing for classification post-processing”</a> following the results of the summary of the logit variances.</p>
+<p>To remove the outliers and classification errors, we run a smoothing procedure with <code><a href="https://e-sensing.github.io/sits/reference/sits_smooth.html">sits_smooth()</a></code>. The parameters <code>window_size</code> and <code>neigh_fraction</code> control how many pixels in a neighborhood the Bayesian estimator will use to calculate the local statistics. The <code>smoothness</code> values for the classes are set as recommended in <span class="citation" data-cites="Camara2024b"><a href="#ref-Camara2024b" role="doc-biblioref">[25]</a></span> and <a href="https://e-sensing.github.io/sitsbook/cl_smoothing.html">“Bayesian smoothing for classification post-processing”</a> following the results of the summary of the logit variances.</p>
 <div class="cell">
 <div class="sourceCode" id="cb24"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Compute Bayesian smoothing</span></span>
-<span><span class="va">smooth_19HBA</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/sits/man/sits_smooth.html">sits_smooth</a></span><span class="op">(</span></span>
+<span><span class="va">smooth_19HBA</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://e-sensing.github.io/sits/reference/sits_smooth.html">sits_smooth</a></span><span class="op">(</span></span>
 <span>  cube           <span class="op">=</span> <span class="va">probs_19HBA</span>,</span>
 <span>  window_size    <span class="op">=</span> <span class="fl">7</span>,</span>
 <span>  neigh_fraction <span class="op">=</span> <span class="fl">0.50</span>,</span>
@@ -1261,7 +1261,7 @@ div.csl-indent {
 <p>The final step consists of labeling the probability map by assigning class labels to the pixels with the highest probability values. This is done by selecting, for each pixel, the class with the maximum probability among all sample classes.</p>
 <div class="cell">
 <div class="sourceCode" id="cb25"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Generate the thematic map</span></span>
-<span><span class="va">class_19HBA</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/sits/man/sits_label_classification.html">sits_label_classification</a></span><span class="op">(</span></span>
+<span><span class="va">class_19HBA</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://e-sensing.github.io/sits/reference/sits_label_classification.html">sits_label_classification</a></span><span class="op">(</span></span>
 <span>  cube <span class="op">=</span> <span class="va">smooth_19HBA</span>,</span>
 <span>  multicores <span class="op">=</span> <span class="fl">4</span>,</span>
 <span>  memsize <span class="op">=</span> <span class="fl">12</span>,</span>
@@ -1333,7 +1333,7 @@ div.csl-indent {
 <span>  <span class="fu"><a href="https://tibble.tidyverse.org/reference/add_row.html">add_row</a></span><span class="op">(</span>name <span class="op">=</span> <span class="st">"No_Samples"</span>,          color <span class="op">=</span> <span class="st">"white"</span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># Load the color table into `sits`</span></span>
-<span><span class="fu"><a href="https://rdrr.io/pkg/sits/man/sits_colors_set.html">sits_colors_set</a></span><span class="op">(</span><span class="va">cl_tbl_eng</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://e-sensing.github.io/sits/reference/sits_colors_set.html">sits_colors_set</a></span><span class="op">(</span><span class="va">cl_tbl_eng</span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># Vector of labels</span></span>
 <span><span class="va">labels_lv2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span></span>
@@ -1353,7 +1353,7 @@ div.csl-indent {
 <span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># Load data cube from local files</span></span>
-<span><span class="va">mz4_lv2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/sits/man/sits_cube.html">sits_cube</a></span><span class="op">(</span></span>
+<span><span class="va">mz4_lv2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://e-sensing.github.io/sits/reference/sits_cube.html">sits_cube</a></span><span class="op">(</span></span>
 <span>  source     <span class="op">=</span> <span class="st">"MPC"</span>,</span>
 <span>  collection <span class="op">=</span> <span class="st">"SENTINEL-2-L2A"</span>,</span>
 <span>  data_dir   <span class="op">=</span> <span class="va">dir_out_rec</span>,</span>
@@ -1377,7 +1377,7 @@ div.csl-indent {
 </div>
 </div>
 <p>This method involves dividing the population into homogeneous subgroups (using Cochran’s methos for stratified random sampling), or strata, and then applying random sampling within each stratum. In the context of LULC mapping, the classification map serves as the basis for stratification, where each land cover class is treated as a distinct and homogeneous stratum.</p>
-<p>For this purpose, we use the <code><a href="https://rdrr.io/pkg/sits/man/sits_sampling_design.html">sits_sampling_design()</a></code> function, which requires the prior definition of the <code>expected_ua</code> (user’s accuracy) for each class. In addition, it takes as parameters a <code>std_err</code> (standard error) of 0.01 and a <code>rare_class_prop</code> (proportion of rare classes) of 0.1, respectively. Three sample allocation scenarios, 75, 100, and 120 samples per class, are to be generated for subsequent evaluation and selection.</p>
+<p>For this purpose, we use the <code><a href="https://e-sensing.github.io/sits/reference/sits_sampling_design.html">sits_sampling_design()</a></code> function, which requires the prior definition of the <code>expected_ua</code> (user’s accuracy) for each class. In addition, it takes as parameters a <code>std_err</code> (standard error) of 0.01 and a <code>rare_class_prop</code> (proportion of rare classes) of 0.1, respectively. Three sample allocation scenarios, 75, 100, and 120 samples per class, are to be generated for subsequent evaluation and selection.</p>
 <div class="cell">
 <div class="sourceCode" id="cb28"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Vector of labels</span></span>
 <span><span class="va">labels_lv2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span>                                </span>
@@ -1397,7 +1397,7 @@ div.csl-indent {
 <span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># Load data cube from local files</span></span>
-<span><span class="va">mz4_lv2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/sits/man/sits_cube.html">sits_cube</a></span><span class="op">(</span></span>
+<span><span class="va">mz4_lv2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://e-sensing.github.io/sits/reference/sits_cube.html">sits_cube</a></span><span class="op">(</span></span>
 <span>  source     <span class="op">=</span> <span class="st">"MPC"</span>,</span>
 <span>  collection <span class="op">=</span> <span class="st">"SENTINEL-2-L2A"</span>,</span>
 <span>  data_dir   <span class="op">=</span> <span class="va">dir_out_rec</span>,</span>
@@ -1410,7 +1410,7 @@ div.csl-indent {
 </div>
 <div class="cell">
 <div class="sourceCode" id="cb29"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Sampling design (Level 2)</span></span>
-<span><span class="va">sampling_design</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/sits/man/sits_sampling_design.html">sits_sampling_design</a></span><span class="op">(</span></span>
+<span><span class="va">sampling_design</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://e-sensing.github.io/sits/reference/sits_sampling_design.html">sits_sampling_design</a></span><span class="op">(</span></span>
 <span>    cube            <span class="op">=</span> <span class="va">mz4_lv2</span>,</span>
 <span>    expected_ua     <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span></span>
 <span>        Artificial_surfaces <span class="op">=</span> <span class="fl">0.75</span>,</span>
@@ -1472,7 +1472,7 @@ Snow_glaciers       75       97        </code></pre>
 <p>The next step is to select a sampling design option to generate a set of points through stratified sampling. These points will later serve as the basis for accuracy assessment. In this case, we select the <code>alloc_100</code> option from the sampling design to generate a set of stratified samples and save the results in a shp file.</p>
 <div class="cell">
 <div class="sourceCode" id="cb31"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># select samples</span></span>
-<span><span class="va">samples</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/sits/man/sits_stratified_sampling.html">sits_stratified_sampling</a></span><span class="op">(</span>cube <span class="op">=</span> <span class="va">mz4_lv2</span>,</span>
+<span><span class="va">samples</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://e-sensing.github.io/sits/reference/sits_stratified_sampling.html">sits_stratified_sampling</a></span><span class="op">(</span>cube <span class="op">=</span> <span class="va">mz4_lv2</span>,</span>
 <span>                                    <span class="va">sampling_design</span>, <span class="st">"alloc_100"</span>,</span>
 <span>                                    shp_file <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste0</a></span><span class="op">(</span><span class="va">dir_19HBA_out</span>, <span class="st">"/samples_MZ4_nv2.shp"</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -1489,11 +1489,11 @@ Snow_glaciers       75       97        </code></pre>
 </section><section id="accuracy-assessment-of-classified-sampling" class="level3" data-number="20.10.3"><h3 data-number="20.10.3" class="anchored" data-anchor-id="accuracy-assessment-of-classified-sampling">
 <span class="header-section-number">20.10.3</span> Accuracy assessment of classified sampling</h3>
 <p>To measure the accuracy of classified images, an area weighting technique is used. The need for area-weighted estimates arises because the classes of uses and/or coverages are not evenly distributed across space.</p>
-<p>To produce adjusted area estimates for classified maps, the <code><a href="https://rdrr.io/pkg/sits/man/sits_accuracy.html">sits_accuracy()</a></code> function is used. This function requires two main inputs: the classified data cube and a set of well-selected reference points obtained through stratified random sampling.</p>
+<p>To produce adjusted area estimates for classified maps, the <code><a href="https://e-sensing.github.io/sits/reference/sits_accuracy.html">sits_accuracy()</a></code> function is used. This function requires two main inputs: the classified data cube and a set of well-selected reference points obtained through stratified random sampling.</p>
 <div class="cell">
 <div class="sourceCode" id="cb32"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">mz4_val_lv2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://r-spatial.github.io/sf/reference/st_read.html">st_read</a></span><span class="op">(</span><span class="st">"data/ct_chile/Samples/samples_validation_mz4.shp"</span><span class="op">)</span> </span>
 <span></span>
-<span><span class="va">area_acc</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/sits/man/sits_accuracy.html">sits_accuracy</a></span><span class="op">(</span></span>
+<span><span class="va">area_acc</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://e-sensing.github.io/sits/reference/sits_accuracy.html">sits_accuracy</a></span><span class="op">(</span></span>
 <span>  data <span class="op">=</span> <span class="va">mz4_lv2</span>, </span>
 <span>  validation <span class="op">=</span> <span class="va">mz4_val_lv2</span></span>
 <span><span class="op">)</span></span>

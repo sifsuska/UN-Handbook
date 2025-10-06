@@ -509,7 +509,7 @@ div.csl-indent {
 <p>and for crop <span class="math inline">\(K\)</span> the estimator is <span id="eq-pixcrop2"><span class="math display">\[
   \hat{y}_{NK} = N - \sum_{k=1}^{K-1} \hat{y}_{Nk}.
 \tag{27.25}\]</span></span></p>
-<p>The sampling covariance matrix of <span class="math inline">\(\mathbf{\hat{y}}_{NK}\)</span> is approximated by <span id="eq-sampcov"><span class="math display">\[
+<p>The sampling covariance matrix of <span class="math inline">\(\mathbf{\hat{y}}_{N}\)</span> is approximated by <span id="eq-sampcov"><span class="math display">\[
   \mathbf{V\hat{y}}_N \approx N^2\mathbf{V}\frac{1}{\hat{N}_p}\sum_{i=1}^{n}\frac{\mathbf{y}_i - \boldsymbol{\mu}_i}{\pi_i}
 \tag{27.26}\]</span></span> which can also be expressed as <span id="eq-sampcov2"><span class="math display">\[
   \mathbf{V\hat{y}}_N \approx col_{1 \leq k \leq K-1}row_{1 \leq k' \leq K -1 }\Bigl(N^2Cov(\hat{y}_{rk}, \hat{y}_{rk'}) \Bigr)
@@ -525,7 +525,7 @@ div.csl-indent {
 <p>The diagonal elements of the variance matrix <span class="math inline">\(\mathbf{V\hat{y}}_N\)</span> provide the sampling variance <span class="math inline">\(V\hat{y}_{Nk}\)</span> for each crop class <span class="math inline">\(k = 1,2,..., K-1\)</span>. Let the row vector <span class="math inline">\(\mathbf{\hat{G}}_k\)</span> be such that its <span class="math inline">\(K+1\)</span> components are the estimators on which <span class="math inline">\(\hat{y}_{rk}\)</span> depends, and be given by <span id="eq-ghat"><span class="math display">\[
   \mathbf{\hat{G}}_k = \Bigl[ \hat{r}_{kN}, \hat{N}_{p1}, \hat{N}_{p2}, ..., \hat{N}_{pK} \Bigr].
 \tag{27.32}\]</span></span></p>
-<p>The <span class="math inline">\(\hat{y}_{Nk}\)</span> sampling variance is approximated by <span id="eq-ysamplvar"><span class="math display">\[
+<p>Let <span class="math inline">\(g_1 = \hat{r}_{KN}, g_2 = \hat{N}_{p1}, g_3 = \hat{N}_{p2}, ..., g_{N+1} = \hat{N}_{pK}\)</span>. The sampling variance <span class="math inline">\(\hat{y}_{Nk}\)</span> is approximated by <span id="eq-ysamplvar"><span class="math display">\[
   V\hat{y}_{Nk} \approx row_{1 \leq j \leq K+1} \biggl(\frac{\partial\hat{y}_{rk}}{\partial{g_j}}\biggr)\enspace \mathbf{V\hat{G}}_k \enspace  col_{1 \leq j \leq K+1}\biggl(\frac{\partial\hat{y}_{rk}}{\partial{g_j}}\biggr)
 \tag{27.33}\]</span></span> where <span id="eq-designcov"><span class="math display">\[
   \mathbf{V\hat{G}}_k = col_{1 \leq j \leq K+1} row_{1 \leq j' \leq K+1} \biggl(Cov\bigl(g_j,g_{j'} \bigr) \biggr)
@@ -733,13 +733,14 @@ V_{GD+RS} = N^2V\frac{1}{\hat{N}_p}\sum_{i=1}^{n}\frac{y_{ki} - \mu_{ki}}{\pi_i}
   \hat{y}_{Rrk} = \frac{1}{\hat{N}_{Rp}}\sum_{i=1}^{n_R}\frac{y_{ki} - \mu_{ki}}{\pi_i}
 \tag{27.43}\]</span></span></p>
 <p>and <span id="eq-grk"><span class="math display">\[
-  \mathbf{\hat{G}}_{Rk} = \Bigl[ r_{kN_R}\enspace N_{N_Rp1} \enspace  N_{N_Rp2} \enspace  ... \enspace N_{N_RpK} \Bigr].
-\tag{27.44}\]</span></span> The sampling variance of <span class="math inline">\(\hat{y}_{N_Rk}\)</span> is given approximately by <span id="eq-ysamplvarrk"><span class="math display">\[
-  V\hat{y}_{N_Rk} \approx row_{1 \leq j \leq K+1} \biggl(\frac{\partial\hat{y}_{Rrk}}{\partial{g_{Rj}}} \biggr)\enspace \mathbf{V\hat{G}}_{Rk} \enspace  col_{1 \leq j \leq K+1}\biggl(\frac{\partial\hat{y}_{Rrk}}{\partial{g_{Rj}}}\biggr)
-\tag{27.45}\]</span></span></p>
+  \mathbf{\hat{G}}_{Rk} = \Bigl[ \hat{r}_{kN_R}\enspace \hat{N}_{N_Rp1} \enspace  \hat{N}_{N_Rp2} \enspace  ... \enspace \hat{N}_{N_RpK} \Bigr].
+\tag{27.44}\]</span></span> Let $$</p>
+<p>g_{R1} = <em>{kN_R}, g</em>{R2} = <em>{N_Rp1}, , …, g</em>{RK+1} = <em>{N_RpK} <span class="math display">\[{#eq-gest}
+The sampling variance of $\hat{y}_{N_Rk}$ is given approximately by
+\]</span> V</em>{N_Rk} row_{1 j K+1} ( )<em>{Rk} col</em>{1 j K+1}() $${#eq-ysamplvarrk}</p>
 <p>where <span id="eq-vgrk"><span class="math display">\[
   \mathbf{V\hat{G}}_{Rk} = col_{1 \leq j \leq K+1} row_{1 \leq j' \leq K+1} \biggl(Cov\bigl(g_{Rj},g_{Rj'} \bigr) \biggr)
-\tag{27.46}\]</span></span> The sampling covariance matrix <span class="math inline">\(\mathbf{\hat{y}}_{N_R}\)</span> is estimated replacing <span class="math inline">\(\boldsymbol{\mu}_i\)</span> by <span class="math inline">\(\boldsymbol{\hat{\mu}}_i\)</span>in <a href="#eq-sampcov-reg">Equation&nbsp;<span>27.42</span></a>.</p>
+\tag{27.45}\]</span></span> The sampling covariance matrix <span class="math inline">\(\mathbf{\hat{y}}_{N_R}\)</span> is estimated replacing <span class="math inline">\(\boldsymbol{\mu}_i\)</span> by <span class="math inline">\(\boldsymbol{\hat{\mu}}_i\)</span>in <a href="#eq-sampcov-reg">Equation&nbsp;<span>27.42</span></a>.</p>
 <p>To illustrate the application of point sampling and multinomial logit models at sub-national scale, crop acreage estimates were generated for three districts (Arrondissements) within the Nioro region: Medina Sabakh, Paoskoto, and Wack Ngouna. The estimates are in <a href="#tbl-district">Table&nbsp;<span>27.4</span></a> (Annex 4 contains the R scripts to compute these estimates using the database provided in Annex 6a, and Annex 5 contains the R Scripts to compute the standard errors and coefficients of variation, using the database provided in Annex 6c).</p>
 <div id="tbl-district" class="anchored">
 <table class="table">

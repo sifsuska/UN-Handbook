@@ -156,7 +156,7 @@ $$
   \hat{y}_{NK} = N - \sum_{k=1}^{K-1} \hat{y}_{Nk}.
 $${#eq-pixcrop2}
 
-The sampling covariance matrix of $\mathbf{\hat{y}}_{NK}$ is approximated by
+The sampling covariance matrix of $\mathbf{\hat{y}}_{N}$ is approximated by
 $$
   \mathbf{V\hat{y}}_N \approx N^2\mathbf{V}\frac{1}{\hat{N}_p}\sum_{i=1}^{n}\frac{\mathbf{y}_i - \boldsymbol{\mu}_i}{\pi_i}
 $${#eq-sampcov}
@@ -191,7 +191,7 @@ $$
   \mathbf{\hat{G}}_k = \Bigl[ \hat{r}_{kN}, \hat{N}_{p1}, \hat{N}_{p2}, ..., \hat{N}_{pK} \Bigr].
 $${#eq-ghat}
 
-The $\hat{y}_{Nk}$ sampling variance is approximated by
+Let $g_1 = \hat{r}_{KN}, g_2 = \hat{N}_{p1}, g_3 = \hat{N}_{p2}, ..., g_{N+1} = \hat{N}_{pK}$. The sampling variance $\hat{y}_{Nk}$ is approximated by
 $$
   V\hat{y}_{Nk} \approx row_{1 \leq j \leq K+1} \biggl(\frac{\partial\hat{y}_{rk}}{\partial{g_j}}\biggr)\enspace \mathbf{V\hat{G}}_k \enspace  col_{1 \leq j \leq K+1}\biggl(\frac{\partial\hat{y}_{rk}}{\partial{g_j}}\biggr)
 $${#eq-ysamplvar}
@@ -413,8 +413,13 @@ $$ {#eq-y-rkr}
 
 and
 $$
-  \mathbf{\hat{G}}_{Rk} = \Bigl[ r_{kN_R}\enspace N_{N_Rp1} \enspace  N_{N_Rp2} \enspace  ... \enspace N_{N_RpK} \Bigr].
+  \mathbf{\hat{G}}_{Rk} = \Bigl[ \hat{r}_{kN_R}\enspace \hat{N}_{N_Rp1} \enspace  \hat{N}_{N_Rp2} \enspace  ... \enspace \hat{N}_{N_RpK} \Bigr].
 $${#eq-grk}
+Let 
+$$
+
+g_{R1} = \hat{r}_{kN_R}, \enspace g_{R2} = \hat{N}_{N_Rp1}, \enspace, ..., \enspace g_{RK+1} = \hat{N}_{N_RpK}
+$${#eq-gest}
 The sampling variance of $\hat{y}_{N_Rk}$ is given approximately by 
 $$
   V\hat{y}_{N_Rk} \approx row_{1 \leq j \leq K+1} \biggl(\frac{\partial\hat{y}_{Rrk}}{\partial{g_{Rj}}} \biggr)\enspace \mathbf{V\hat{G}}_{Rk} \enspace  col_{1 \leq j \leq K+1}\biggl(\frac{\partial\hat{y}_{Rrk}}{\partial{g_{Rj}}}\biggr)

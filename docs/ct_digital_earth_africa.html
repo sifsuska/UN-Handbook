@@ -635,7 +635,7 @@ Geodetic CRS:  WGS 84
 <p>Now that the reference data has been loaded and inspected, satellite data can be loaded to serve as input data in the classification. The code chunk below loads the Digital Earth Africa Sentinel-2 GeoMAD including all surface reflectance bands and the SMAD band. Measurements and further product information can be found the in <a href="https://explorer.digitalearth.africa/products/gm_s2_annual#measurements">DE Africa Explorer</a> and the <a href="https://docs.digitalearthafrica.org/en/latest/data_specs/GeoMAD_specs.html">product specifications</a>.</p>
 <p>The GeoMAD is loaded for the year 2020 because that’s when the reference data was collected. The region of interest (roi) is set as the bounding box of the reference data collection. <code>EPSG:6933</code> is the native coordinate reference system for the GeoMADs and most Digital Earth Africa products, so it’s used for loading the cube.</p>
 <div class="cell">
-<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">dea_s2_cube</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/sits/man/sits_cube.html">sits_cube</a></span><span class="op">(</span></span>
+<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">dea_s2_cube</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://e-sensing.github.io/sits/reference/sits_cube.html">sits_cube</a></span><span class="op">(</span></span>
 <span>    source <span class="op">=</span> <span class="st">"DEAFRICA"</span>,</span>
 <span>    collection <span class="op">=</span> <span class="st">"GM-S2-ANNUAL"</span>,</span>
 <span>    roi <span class="op">=</span> <span class="fu"><a href="https://r-spatial.github.io/sf/reference/st_transform.html">st_transform</a></span><span class="op">(</span><span class="fu"><a href="https://r-spatial.github.io/sf/reference/st_as_sfc.html">st_as_sfc</a></span><span class="op">(</span><span class="fu"><a href="https://r-spatial.github.io/sf/reference/st_bbox.html">st_bbox</a></span><span class="op">(</span><span class="va">rwa_2020</span><span class="op">)</span><span class="op">)</span>, <span class="st">"EPSG:6933"</span><span class="op">)</span>,</span>
@@ -664,7 +664,7 @@ Geodetic CRS:  WGS 84
 <p>As this workflow is producing a crop type map, the surface reflectance data will be masked to cropland areas only. There are numerous ways this can be achieved. In this case, the masking will be conducted with functions from the <code>terra</code> package.</p>
 <p>First, a mosaic is created by fusing the tiles in the geomedian data cube. This is plotted in true colour and provides an indication of the spatial extent of the analysis.</p>
 <div class="cell">
-<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">mosaic</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/sits/man/sits_mosaic.html">sits_mosaic</a></span><span class="op">(</span></span>
+<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">mosaic</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://e-sensing.github.io/sits/reference/sits_mosaic.html">sits_mosaic</a></span><span class="op">(</span></span>
 <span>  cube <span class="op">=</span> <span class="va">dea_s2_cube</span>,</span>
 <span>  crs <span class="op">=</span> <span class="st">"EPSG:6933"</span>,</span>
 <span>  output_dir <span class="op">=</span> <span class="st">"data/ct_digital_earth_africa"</span>,</span>
@@ -808,7 +808,7 @@ assets, bbox, collection, geometry, id, links, properties, stac_extensions, stac
 <span class="header-section-number">21.7.3</span> Create a new data cube</h3>
 <p>A new data cube needs to be created which refers to the masked surface reflectance data. This cube will be created from local files, so the relevant directory is specified in the <code>sits_cube</code> function. The <code>parse_info</code> argument specifies how the filenames can be read. Other parameters like the period and region of interest are the same as the original GeoMAD data cube.</p>
 <div class="cell">
-<div class="sourceCode" id="cb17"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">dea_s2_masked</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/sits/man/sits_cube.html">sits_cube</a></span><span class="op">(</span></span>
+<div class="sourceCode" id="cb17"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">dea_s2_masked</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://e-sensing.github.io/sits/reference/sits_cube.html">sits_cube</a></span><span class="op">(</span></span>
 <span>  source <span class="op">=</span> <span class="st">"DEAFRICA"</span>,</span>
 <span>  collection <span class="op">=</span> <span class="st">"GM-S2-ANNUAL"</span>,</span>
 <span>  data_dir <span class="op">=</span> <span class="st">"data/ct_digital_earth_africa/masked"</span>,</span>
@@ -847,7 +847,7 @@ assets, bbox, collection, geometry, id, links, properties, stac_extensions, stac
 <span><span class="va">rwa_2020_crops</span> <span class="op">&lt;-</span> <span class="va">rwa_2020</span> <span class="op">|&gt;</span> </span>
 <span>                    <span class="fu"><a href="https://tidyr.tidyverse.org/reference/drop_na.html">drop_na</a></span><span class="op">(</span><span class="st">"Type of Cr"</span><span class="op">)</span></span>
 <span></span>
-<span><span class="va">tseries</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/sits/man/sits_get_data.html">sits_get_data</a></span><span class="op">(</span></span>
+<span><span class="va">tseries</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://e-sensing.github.io/sits/reference/sits_get_data.html">sits_get_data</a></span><span class="op">(</span></span>
 <span>  cube <span class="op">=</span> <span class="va">dea_s2_masked</span>,</span>
 <span>  label_attr <span class="op">=</span> <span class="st">"Type of Cr"</span>,</span>
 <span>  samples <span class="op">=</span> <span class="va">rwa_2020_crops</span></span>
@@ -878,7 +878,7 @@ assets, bbox, collection, geometry, id, links, properties, stac_extensions, stac
 <p>The <code>sits</code> function <a href="https://rdrr.io/cran/sits/man/sits_reduce_imbalance.html"><code>reduce_imbalance</code></a> makes corrections to imbalanced training data by over and under sampling. Self organised mapping (SOM) is used for under sampling and synthetic minority oversampling technique (SMOTE) is used for over sampling <span class="citation" data-cites="Chawla2002"><a href="#ref-Santos2021a" role="doc-biblioref">[15]</a></span>. Values are entered for the number of samples to over and under sample.</p>
 <p>The result of the imbalance reduction is returned in the output and shows that each class accounts for at least 5% of the observations. If there was a particular interest in mapping uncommon crops, there could be further balance correction undertaken. Several methods have been proposed and investigated for dealing with class imbalance problems in crop type mapping <span class="citation" data-cites="Waldner2019"><a href="#ref-Waldner2019" role="doc-biblioref">[16]</a></span>.</p>
 <div class="cell">
-<div class="sourceCode" id="cb21"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">balanced_samples</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/sits/man/sits_reduce_imbalance.html">sits_reduce_imbalance</a></span><span class="op">(</span></span>
+<div class="sourceCode" id="cb21"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">balanced_samples</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://e-sensing.github.io/sits/reference/sits_reduce_imbalance.html">sits_reduce_imbalance</a></span><span class="op">(</span></span>
 <span>    samples <span class="op">=</span> <span class="va">tseries</span>,</span>
 <span>    n_samples_over <span class="op">=</span> <span class="fl">50</span>,</span>
 <span>    n_samples_under <span class="op">=</span> <span class="fl">150</span>,</span>
@@ -919,9 +919,9 @@ assets, bbox, collection, geometry, id, links, properties, stac_extensions, stac
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>time_series <span class="op">=</span> <span class="fu"><a href="https://purrr.tidyverse.org/reference/map.html">map</a></span><span class="op">(</span><span class="va">time_series</span>, <span class="op">~</span> <span class="fu"><a href="https://tidyr.tidyverse.org/reference/drop_na.html">drop_na</a></span><span class="op">(</span><span class="va">.x</span><span class="op">)</span><span class="op">)</span><span class="op">)</span> <span class="op">|&gt;</span></span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="fu"><a href="https://purrr.tidyverse.org/reference/map.html">map_lgl</a></span><span class="op">(</span><span class="va">time_series</span>, <span class="op">~</span> <span class="fu"><a href="https://rspatial.github.io/terra/reference/dimensions.html">nrow</a></span><span class="op">(</span><span class="va">.x</span><span class="op">)</span> <span class="op">&gt;</span> <span class="fl">0</span><span class="op">)</span><span class="op">)</span></span>
 <span></span>
-<span><span class="va">rfor_model</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/sits/man/sits_train.html">sits_train</a></span><span class="op">(</span></span>
+<span><span class="va">rfor_model</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://e-sensing.github.io/sits/reference/sits_train.html">sits_train</a></span><span class="op">(</span></span>
 <span>  <span class="va">balanced_samples</span>,</span>
-<span>  ml_method <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/sits/man/sits_rfor.html">sits_rfor</a></span><span class="op">(</span><span class="op">)</span></span>
+<span>  ml_method <span class="op">=</span> <span class="fu"><a href="https://e-sensing.github.io/sits/reference/sits_rfor.html">sits_rfor</a></span><span class="op">(</span><span class="op">)</span></span>
 <span><span class="op">)</span></span>
 <span></span>
 <span><span class="fu"><a href="https://rspatial.github.io/terra/reference/plot.html">plot</a></span><span class="op">(</span><span class="va">rfor_model</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -936,10 +936,10 @@ assets, bbox, collection, geometry, id, links, properties, stac_extensions, stac
 <p>The <code>sits</code> package provides a function for performing cross-validation as an accuracy assessment for classification models. The k-fold cross validation method splits the data into k-subsets. For each subset, a sample of data is withheld while the model is trained on all other subsets and then validated on the subset that was withheld. This process returns a confusion matrix and accuracy statistics.</p>
 <p>The overall accuracy statistic of 61.4% might be considered acceptable, especially given the large number (13) of classes and class imbalance. However, some classes, such as beans and sorghum, have quite low precision, recall and F1 values, which indicate how accurately individual classes are classified. If there was a particular interest in mapping these specific crop types, further class imbalance treatments or other approaches, such as introducing further predictor variables, might be considered. In this case, the next step will be combining classes to reduce issues associated with class imbalance.</p>
 <div class="cell">
-<div class="sourceCode" id="cb24"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">rfor_validate_rwa</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/sits/man/sits_kfold_validate.html">sits_kfold_validate</a></span><span class="op">(</span></span>
+<div class="sourceCode" id="cb24"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">rfor_validate_rwa</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://e-sensing.github.io/sits/reference/sits_kfold_validate.html">sits_kfold_validate</a></span><span class="op">(</span></span>
 <span>    samples <span class="op">=</span> <span class="va">balanced_samples</span>,</span>
 <span>    folds <span class="op">=</span> <span class="fl">5</span>,</span>
-<span>    ml_method <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/sits/man/sits_rfor.html">sits_rfor</a></span><span class="op">(</span><span class="op">)</span>,</span>
+<span>    ml_method <span class="op">=</span> <span class="fu"><a href="https://e-sensing.github.io/sits/reference/sits_rfor.html">sits_rfor</a></span><span class="op">(</span><span class="op">)</span>,</span>
 <span>    multicores <span class="op">=</span> <span class="fl">2</span>,</span>
 <span>    progress <span class="op">=</span> <span class="cn">FALSE</span></span>
 <span><span class="op">)</span></span>
@@ -1040,7 +1040,7 @@ F1 score                  0.7451        0.08571               NA</code></pre>
 </div>
 <p>The <code>sits_reduce_imbalance</code> function is again used to produce a dataset where each class represents at least 10% of total observations.</p>
 <div class="cell">
-<div class="sourceCode" id="cb28"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">balanced_samples_comb</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/sits/man/sits_reduce_imbalance.html">sits_reduce_imbalance</a></span><span class="op">(</span></span>
+<div class="sourceCode" id="cb28"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">balanced_samples_comb</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://e-sensing.github.io/sits/reference/sits_reduce_imbalance.html">sits_reduce_imbalance</a></span><span class="op">(</span></span>
 <span>    samples <span class="op">=</span> <span class="va">tseries_comb</span>,</span>
 <span>    n_samples_over <span class="op">=</span> <span class="fl">80</span>,</span>
 <span>    n_samples_under <span class="op">=</span> <span class="fl">150</span>,</span>
@@ -1070,16 +1070,16 @@ F1 score                  0.7451        0.08571               NA</code></pre>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>time_series <span class="op">=</span> <span class="fu"><a href="https://purrr.tidyverse.org/reference/map.html">map</a></span><span class="op">(</span><span class="va">time_series</span>, <span class="op">~</span> <span class="fu"><a href="https://tidyr.tidyverse.org/reference/drop_na.html">drop_na</a></span><span class="op">(</span><span class="va">.x</span><span class="op">)</span><span class="op">)</span><span class="op">)</span> <span class="op">|&gt;</span></span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="fu"><a href="https://purrr.tidyverse.org/reference/map.html">map_lgl</a></span><span class="op">(</span><span class="va">time_series</span>, <span class="op">~</span> <span class="fu"><a href="https://rspatial.github.io/terra/reference/dimensions.html">nrow</a></span><span class="op">(</span><span class="va">.x</span><span class="op">)</span> <span class="op">&gt;</span> <span class="fl">0</span><span class="op">)</span><span class="op">)</span></span>
 <span></span>
-<span><span class="va">rfor_model_comb</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/sits/man/sits_train.html">sits_train</a></span><span class="op">(</span></span>
+<span><span class="va">rfor_model_comb</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://e-sensing.github.io/sits/reference/sits_train.html">sits_train</a></span><span class="op">(</span></span>
 <span>  <span class="va">balanced_samples_comb</span>,</span>
-<span>  ml_method <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/sits/man/sits_rfor.html">sits_rfor</a></span><span class="op">(</span><span class="op">)</span></span>
+<span>  ml_method <span class="op">=</span> <span class="fu"><a href="https://e-sensing.github.io/sits/reference/sits_rfor.html">sits_rfor</a></span><span class="op">(</span><span class="op">)</span></span>
 <span><span class="op">)</span></span>
 <span></span>
-<span><span class="va">rfor_comb_validate_rwa</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/sits/man/sits_kfold_validate.html">sits_kfold_validate</a></span><span class="op">(</span></span>
+<span><span class="va">rfor_comb_validate_rwa</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://e-sensing.github.io/sits/reference/sits_kfold_validate.html">sits_kfold_validate</a></span><span class="op">(</span></span>
 <span>    samples <span class="op">=</span> <span class="va">balanced_samples_comb</span>,</span>
 <span>    folds <span class="op">=</span> <span class="fl">5</span>,</span>
 <span>    progress <span class="op">=</span> <span class="cn">FALSE</span>,</span>
-<span>    ml_method <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/sits/man/sits_rfor.html">sits_rfor</a></span><span class="op">(</span><span class="op">)</span>,</span>
+<span>    ml_method <span class="op">=</span> <span class="fu"><a href="https://e-sensing.github.io/sits/reference/sits_rfor.html">sits_rfor</a></span><span class="op">(</span><span class="op">)</span>,</span>
 <span>    multicores <span class="op">=</span> <span class="fl">2</span></span>
 <span><span class="op">)</span></span>
 <span></span>
@@ -1124,7 +1124,7 @@ F1 score                            0.5811            0.6820            0.5799</
 <div class="cell">
 <div class="sourceCode" id="cb32"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/gc.html">gc</a></span><span class="op">(</span><span class="op">)</span></span>
 <span></span>
-<span><span class="va">crop_probs</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/sits/man/sits_classify.html">sits_classify</a></span><span class="op">(</span></span>
+<span><span class="va">crop_probs</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://e-sensing.github.io/sits/reference/sits_classify.html">sits_classify</a></span><span class="op">(</span></span>
 <span>  data <span class="op">=</span> <span class="va">dea_s2_masked</span>,</span>
 <span>  ml_model <span class="op">=</span> <span class="va">rfor_model_comb</span>,</span>
 <span>  output_dir <span class="op">=</span> <span class="st">"data/ct_digital_earth_africa"</span>,</span>
@@ -1136,7 +1136,7 @@ F1 score                            0.5811            0.6820            0.5799</
 </div>
 <p>The probability layers can be used to generate a classified map with labels showing the distribution of predicted crop groups in space.</p>
 <div class="cell">
-<div class="sourceCode" id="cb33"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">crop_class</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/sits/man/sits_label_classification.html">sits_label_classification</a></span><span class="op">(</span></span>
+<div class="sourceCode" id="cb33"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">crop_class</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://e-sensing.github.io/sits/reference/sits_label_classification.html">sits_label_classification</a></span><span class="op">(</span></span>
 <span>  cube <span class="op">=</span> <span class="va">crop_probs</span>,</span>
 <span>  multicores <span class="op">=</span> <span class="fl">4</span>,</span>
 <span>  memsize <span class="op">=</span> <span class="fl">12</span>,</span>
