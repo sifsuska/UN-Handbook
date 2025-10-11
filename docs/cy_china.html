@@ -1,14 +1,11 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
-
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.3.361">
-
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-
 <meta name="author" content="Gilberto Camara, Lorenzo de Simone, Ronald Jansen">
-
-<title>UN Handbook on Remote Sensing for Agricultural Statistics - 25&nbsp; Remote Sensing Estimation of Soybean Yield</title>
+<title>UN Handbook on Remote Sensing for Agricultural Statistics - 25&nbsp; Remote Sensing Estimation of Soybean Yield Based on Multi-Scenario Simulation</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -21,8 +18,26 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
-
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="site_libs/quarto-nav/headroom.min.js"></script>
@@ -41,8 +56,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
-<script id="quarto-search-options" type="application/json">{
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light"><script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
   "collapse-after": 3,
@@ -62,33 +76,24 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
-
-
 </head>
-
 <body class="nav-sidebar floating">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top">
-  <nav class="quarto-secondary-nav">
-    <div class="container-fluid d-flex">
+  <header id="quarto-header" class="headroom fixed-top"><nav class="quarto-secondary-nav"><div class="container-fluid d-flex">
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./crop_yield_estimation.html">Crop yield estimation</a></li><li class="breadcrumb-item"><a href="./cy_china.html"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">Remote Sensing Estimation of Soybean Yield</span></a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./crop_yield_estimation.html">Crop yield estimation</a></li><li class="breadcrumb-item"><a href="./cy_china.html"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">Remote Sensing Estimation of Soybean Yield Based on Multi-Scenario Simulation</span></a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
       </button>
     </div>
-  </nav>
-</header>
-<!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+  </nav></header><!-- content --><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto">
-    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto"><div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="./">UN Handbook on Remote Sensing for Agricultural Statistics</a> 
         <div class="sidebar-tools-main">
@@ -108,7 +113,7 @@ ul.task-list li input[type="checkbox"] {
         </div>
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
-        <li class="sidebar-item">
+<li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Welcome</span></span></a>
@@ -134,8 +139,8 @@ ul.task-list li input[type="checkbox"] {
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./th_remote_sensing.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Remote sensing images: optical, SAR</span></span></a>
@@ -208,7 +213,7 @@ ul.task-list li input[type="checkbox"] {
   </div>
 </li>
       </ul>
-  </li>
+</li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="./crop_type_mapping.html" class="sidebar-item-text sidebar-link">
@@ -217,8 +222,8 @@ ul.task-list li input[type="checkbox"] {
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./ct_poland.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Crop monitoring with Sentinel-1 and Sentinel-2 images in Poland</span></span></a>
@@ -255,7 +260,7 @@ ul.task-list li input[type="checkbox"] {
   </div>
 </li>
       </ul>
-  </li>
+</li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="./crop_yield_estimation.html" class="sidebar-item-text sidebar-link">
@@ -264,8 +269,8 @@ ul.task-list li input[type="checkbox"] {
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./cy_finland.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Early-season crop yield mapping in Finland</span></span></a>
@@ -286,11 +291,11 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./cy_china.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">Remote Sensing Estimation of Soybean Yield</span></span></a>
+ <span class="menu-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">Remote Sensing Estimation of Soybean Yield Based on Multi-Scenario Simulation</span></span></a>
   </div>
 </li>
       </ul>
-  </li>
+</li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="./crop_statistics.html" class="sidebar-item-text sidebar-link">
@@ -299,8 +304,8 @@ ul.task-list li input[type="checkbox"] {
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./crop_statistics_regression.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">Estimating crop statistics using survey-calibrated methods</span></span></a>
@@ -319,7 +324,7 @@ ul.task-list li input[type="checkbox"] {
   </div>
 </li>
       </ul>
-  </li>
+</li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="./uav_agriculture.html" class="sidebar-item-text sidebar-link">
@@ -328,8 +333,8 @@ ul.task-list li input[type="checkbox"] {
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./uav_field_parcels.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">Field Parcel Identification Using UAV Imagery Based on the DCP-MTL Model</span></span></a>
@@ -348,7 +353,7 @@ ul.task-list li input[type="checkbox"] {
   </div>
 </li>
       </ul>
-  </li>
+</li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="./disaster_response.html" class="sidebar-item-text sidebar-link">
@@ -357,15 +362,15 @@ ul.task-list li input[type="checkbox"] {
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./dis_china_floods.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">32</span>&nbsp; <span class="chapter-title">An Automated Flood Detection Algorithm for Post-Disaster Assessment</span></span></a>
   </div>
 </li>
       </ul>
-  </li>
+</li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="./additional.html" class="sidebar-item-text sidebar-link">
@@ -374,8 +379,8 @@ ul.task-list li input[type="checkbox"] {
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
+      <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./ad_world_cereal.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">33</span>&nbsp; <span class="chapter-title">WorldCereal - A Global Effort for Crop Mapping</span></span></a>
@@ -388,27 +393,31 @@ ul.task-list li input[type="checkbox"] {
   </div>
 </li>
       </ul>
-  </li>
+</li>
     </ul>
-    </div>
-</nav>
-<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+</div>
+</nav><div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">Table of contents</h2>
+        <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#section" id="toc-section" class="nav-link active" data-scroll-target="#section"><span class="header-section-number">25.1</span> </a></li>
-  </ul>
-<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/FAO-EOSTAT/UN-Handbook/edit/quarto/cy_china.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/FAO-EOSTAT/UN-Handbook/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
+<li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction"><span class="header-section-number">25.1</span> Introduction</a></li>
+  <li><a href="#experimental-area-and-data" id="toc-experimental-area-and-data" class="nav-link" data-scroll-target="#experimental-area-and-data"><span class="header-section-number">25.2</span> Experimental Area and Data</a></li>
+  <li><a href="#methods" id="toc-methods" class="nav-link" data-scroll-target="#methods"><span class="header-section-number">25.3</span> Methods</a></li>
+  <li><a href="#results" id="toc-results" class="nav-link" data-scroll-target="#results"><span class="header-section-number">25.4</span> Results</a></li>
+  <li><a href="#discussion" id="toc-discussion" class="nav-link" data-scroll-target="#discussion"><span class="header-section-number">25.5</span> Discussion</a></li>
+  <li><a href="#conclusions" id="toc-conclusions" class="nav-link" data-scroll-target="#conclusions"><span class="header-section-number">25.6</span> Conclusions</a></li>
+  <li><a href="#code-and-availability" id="toc-code-and-availability" class="nav-link" data-scroll-target="#code-and-availability"><span class="header-section-number">25.7</span> Code and Availability</a></li>
+  <li><a href="#about-the-authors" id="toc-about-the-authors" class="nav-link" data-scroll-target="#about-the-authors"><span class="header-section-number">25.8</span> About the Authors</a></li>
+  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
+  </ul><div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/FAO-EOSTAT/UN-Handbook/edit/quarto/cy_china.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/FAO-EOSTAT/UN-Handbook/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
-
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
-<h1 class="title"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">Remote Sensing Estimation of Soybean Yield</span></h1>
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><div class="quarto-title">
+<h1 class="title">
+<span class="chapter-number">25</span>&nbsp; <span class="chapter-title">Remote Sensing Estimation of Soybean Yield Based on Multi-Scenario Simulation</span>
+</h1>
 </div>
 
 
@@ -427,16 +436,145 @@ ul.task-list li input[type="checkbox"] {
   </div>
   
 
-</header>
+</header><section id="introduction" class="level2" data-number="25.1"><h2 data-number="25.1" class="anchored" data-anchor-id="introduction">
+<span class="header-section-number">25.1</span> Introduction</h2>
+<p>Food security is critical for national stability and sustainable development. Accurate crop yield monitoring provides essential data for policy-making, precision agriculture, and agricultural finance. Remote sensing enables large-scale, dynamic crop monitoring, supporting yield estimation through vegetation indices and other biophysical parameters. Traditional methods rely on empirical models using remote sensing data, while machine learning improves accuracy but faces challenges due to limited training samples and cloud-affected data. Crop growth models, based on agronomic mechanisms, offer higher precision but require complex parameterization processes. Recent advances integrate remote sensing with crop models via data assimilation, balancing accuracy and scalability. However, computational complexity and retrieval errors remain constraints. To address these limitations, this case introduces a hybrid modeling approach combining machine learning with crop growth models, enhancing yield estimation accuracy, automation, and spatiotemporal generalization for soybean production.</p>
+</section><section id="experimental-area-and-data" class="level2" data-number="25.2"><h2 data-number="25.2" class="anchored" data-anchor-id="experimental-area-and-data">
+<span class="header-section-number">25.2</span> Experimental Area and Data</h2>
+<p>This case selects the black soil region of Northeast China as the research area, covering Heilongjiang, Jilin, Liaoning provinces, and the eastern part of Inner Mongolia Autonomous Region, totaling 40 prefecture-level cities with an area of approximately 1.24 million square kilometers (<a href="#fig-1-cy-china">Figure&nbsp;<span>25.1</span></a>). The Northeast region is the main soybean-producing area in China, accounting for approximately 64% of the country’s annual production. Around 97% of the soybeans are rain-fed during the growing season <span class="citation" data-cites="Guo2022"><a href="#ref-Guo2022" role="doc-biblioref">[1]</a></span> <span class="citation" data-cites="Yu2020"><a href="#ref-Yu2020" role="doc-biblioref">[2]</a></span>, which extends from May to late September <span class="citation" data-cites="Zhao2021"><a href="#ref-Zhao2021" role="doc-biblioref">[3]</a></span>.</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div id="fig-1-cy-china" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure"><p><img src="./images/cy_china/image1.png" class="img-fluid figure-img" style="width:90.0%"></p>
+<figcaption class="figure-caption">Figure&nbsp;25.1: Geographical location of the experimental area.</figcaption></figure>
+</div>
+</div>
+</div>
+<p>Ground surveys were conducted in 2022 and 2023, collecting soybean yield data from 21 and 18 sample plots, respectively. Each plot contained nine randomly placed 1×1m quadrats, with harvested samples oven-dried to determine yield. Sowing dates were recorded during fieldwork. Leaf Area Index (LAI) data were obtained from the ground-based CAPLOS platform</p>
+<p>Ground surveys were conducted in 2022 and 2023, collecting soybean yield data from 21 and 18 sample plots, respectively. Each plot contained nine randomly placed 1×1m quadrats, with harvested samples oven-dried to determine yield. Sowing dates were recorded during fieldwork. Leaf Area Index (LAI) data were obtained from the ground-based CAPLOS platform from AIR Centre of the Chinese National Academy of Sciences, covering three growing seasons (2021-2023). Meteorological data included variables (temperature, precipitation, wind speed, etc.) from 51 weather stations (1980-2021) near soybean-growing areas, supplemented with ERA5-Land reanalysis data for phenology estimation.</p>
+<p>Soil data were sourced from the 1:1,000,000-scale digital soil database of the Institute of Soil Science, Chinese Academy of Sciences <span class="citation" data-cites="Shi2004"><a href="#ref-Shi2004" role="doc-biblioref">[4]</a></span>. Remote sensing data included Sentinel-2 and MODIS LAI products <span class="citation" data-cites="Knyazikhin2018"><a href="#ref-Knyazikhin2018" role="doc-biblioref">[5]</a></span> for regional soybean yield estimation, with MODIS-derived yields used to correct Sentinel-2 biases. Soybean distribution maps were derived from Zhao et al.’s OIF knowledge graph and distance-preserving segmentation method (accuracy &gt;90%) <span class="citation" data-cites="Zhao2022"><a href="#ref-Zhao2022" role="doc-biblioref">[6]</a></span>. Historical provincial yield statistics (1980-2022) from statistical yearbooks were used for model validation and regional-scale accuracy evaluation.</p>
+</section><section id="methods" class="level2" data-number="25.3"><h2 data-number="25.3" class="anchored" data-anchor-id="methods">
+<span class="header-section-number">25.3</span> Methods</h2>
+<p>The technical workflow of the hybrid methodology for soybean yield estimation is shown in <a href="#fig-2-cy-china">Figure&nbsp;<span>25.2</span></a>. It includes the following key steps: 1) Generating a training dataset based on the WOFOST model that simulates soybean growth and yields under various climates, soil, cultivars and agro-management practices, 2) Training a GRU model to identify the relationships between simulated LAI and yield, 3) Producing soybean yield maps under multi-scale using LAI derived from MODIS and Sentinel-2 remote sensing data and 4) Accuracy evaluation using field-measured and statistical data.</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div id="fig-2-cy-china" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure"><p><img src="./images/cy_china/image2.jpeg" class="img-fluid figure-img" style="width:90.0%"></p>
+<figcaption class="figure-caption">Figure&nbsp;25.2: Overall flowchart of the hybrid method.</figcaption></figure>
+</div>
+</div>
+</div>
+<p>A process-based WOFOST crop growth model <span class="citation" data-cites="vanDiepen1989"><a href="#ref-vanDiepen1989" role="doc-biblioref">[7]</a></span> was employed to simulate soybean development and yield formation under diverse scenarios. By integrating 42-year meteorological data from 51 stations, 4 soil types, 5 soybean varieties, and 4 sowing dates, a comprehensive dataset of 171,360 simulated scenarios was generated to support yield estimation.</p>
+<p>Deep learning techniques were applied to identify key yield-related indicators from the simulated dataset. A Gated Recurrent Unit (GRU) model <span class="citation" data-cites="Cho2014"><a href="#ref-Cho2014" role="doc-biblioref">[8]</a></span> was trained and dynamically optimized <span class="citation" data-cites="Acikkar2024"><a href="#ref-Acikkar2024" role="doc-biblioref">[9]</a></span> to establish robust yield prediction relationships.</p>
+<p>The experimental area was stratified by accumulated temperature zones to account for maturity differences. Phenological stages were determined, and LAI (a critical yield indicator) was retrieved from remote sensing data using empirical methods <span class="citation" data-cites="Pasqualotto2019"><a href="#ref-Pasqualotto2019" role="doc-biblioref">[10]</a></span>. The trained GRU model was then applied to generate multi-year spatial yield distribution maps.</p>
+<p>Model performance was evaluated using field-measured yield data and municipal-level statistical yield records, ensuring reliability across scales.</p>
+</section><section id="results" class="level2" data-number="25.4"><h2 data-number="25.4" class="anchored" data-anchor-id="results">
+<span class="header-section-number">25.4</span> Results</h2>
+<p>To validate the reliability of simulated LAI data, this case compared field-measured LAI (2021-2023) with 5,000 randomly selected LAI curves from the multi-scenario simulation dataset (<a href="#fig-3-cy-china">Figure&nbsp;<span>25.3</span></a>). The results demonstrate strong consistency between simulated and observed LAI trends, with approximately 88% of field samples (n = 83, where n represents the number of observed samples within the simulation range) falling within the simulation envelope. This confirms that the WOFOST model effectively captures soybean growth dynamics, ensuring high-quality training data for the GRU model.</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div id="fig-3-cy-china" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure"><p><img src="./images/cy_china/image3.jpeg" class="img-fluid figure-img" style="width:80.0%"></p>
+<figcaption class="figure-caption">Figure&nbsp;25.3: Comparison between simulated mean LAI (randomly selected n=5,000) and field-measured LAI in 2021 (n=38), 2022 (n=46), and 2023 (n=10).</figcaption></figure>
+</div>
+</div>
+</div>
+<p>The simulated soybean yields exhibited a normal distribution with a mean value of 2675.66 kg/ha, covering a wide spectrum from low to high yield scenarios. As shown in <a href="#fig-4-cy-china">Figure&nbsp;<span>25.4</span></a>, the simulated dataset showed the most comprehensive yield distribution range when compared with historical statistical records (1980-2022), documented yields in literature, and field-measured yields (2022-2023). This comparison confirms both the inclusiveness of the multi-scenario knowledge base and the reliability of the simulation framework. The robust and representative yield dataset provides a solid foundation for developing high-precision, fine-resolution soybean yield estimation models.</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div id="fig-4-cy-china" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure"><p><img src="./images/cy_china/image4.jpeg" class="img-fluid figure-img" style="width:100.0%"></p>
+<figcaption class="figure-caption">Figure&nbsp;25.4: Comparison of simulated yields (A) with statistical yields (B), documented yields from literature (C), and field-measured yields obtained in this case (D).</figcaption></figure>
+</div>
+</div>
+</div>
+<p>At the field scale, the yield estimation results demonstrated high accuracy when validated against field-measured yield data from 2022 and 2023, effectively capturing spatial yield variability. The estimated values showed strong correlation with observations (R² &gt; 0.65, p &lt; 0.01), with more stable performance and lower errors in fields exhibiting uniform yields. Across both years, the overall estimation accuracy reached R² = 0.73, RMSE = 287.44 kg/ha, and MRE = 10.02%. Notably, the highest precision was achieved in 2023 (RMSE = 271.07 kg/ha, MRE = 8.57%), confirming the effectiveness of the dataset for fine-scale yield estimation.</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div id="fig-5-cy-china" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure"><p><img src="./images/cy_china/image5.jpeg" class="img-fluid figure-img" style="width:100.0%"></p>
+<figcaption class="figure-caption">Figure&nbsp;25.5: Accuracy validation results at field scale.</figcaption></figure>
+</div>
+</div>
+</div>
+<p>At the regional scale (municipal level), this case aggregated 2019–2022 yield maps to the corresponding administrative units and compared them with official statistics (<a href="#fig-6-cy-china">Figure&nbsp;<span>25.6</span></a>). The estimates demonstrated strong inter-annual consistency, with correlation coefficients exceeding 0.60 (p &lt; 0.01) across all years. The overall validation metrics showed R² = 0.62, RMSE = 272.36 kg/ha, and MRE = 12.08%, with optimal performance in 2022 (MRE &lt; 10%). These results confirm that the hybrid modeling framework maintains robust stability and applicability at the regional scale.</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div id="fig-6-cy-china" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure"><p><img src="./images/cy_china/image6.jpeg" class="img-fluid figure-img" style="width:100.0%"></p>
+<figcaption class="figure-caption">Figure&nbsp;25.6: Accuracy validation results at regional scale (municipal level).</figcaption></figure>
+</div>
+</div>
+</div>
+<p>The spatial distribution maps of remotely estimated soybean yields from 2019 to 2023 are shown in <a href="#fig-7-cy-china">Figure&nbsp;<span>25.7</span></a>. Overall, the pixel-scale yield estimation not only captures yield information at a finer resolution but also demonstrates commendable performance at the municipal level. Furthermore, this method enables dynamic and flexible yield estimation based on available data, showing significant potential for large-scale soybean yield evaluation.</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div id="fig-7-cy-china" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure"><p><img src="./images/cy_china/image7.png" class="img-fluid figure-img" style="width:100.0%"></p>
+<figcaption class="figure-caption">Figure&nbsp;25.7: Spatial distribution maps of soybean yield estimates (2019-2023).</figcaption></figure>
+</div>
+</div>
+</div>
+</section><section id="discussion" class="level2" data-number="25.5"><h2 data-number="25.5" class="anchored" data-anchor-id="discussion">
+<span class="header-section-number">25.5</span> Discussion</h2>
+<p>The hybrid modeling framework developed in this case demonstrates significant advantages in improving soybean yield estimation accuracy and spatiotemporal generalizability. However, several limitations should be acknowledged. First, the model parameters were not calibrated through data assimilation, which could lead to relatively larger estimation errors in topographically complex regions. Second, the GRU model training process involves redundant information and potential overfitting issues, affecting its generalizability across years or regions. Additionally, uncertainties in remote sensing input data (e.g., LAI retrieval accuracy, mixed-pixel effects, and downscaling of ERA5 data) could further influence yield estimation precision. To enhance model applicability, future research should prioritize developing eco-regionalization frameworks based on climatic, topographic, and agricultural management factors to optimize parameters and minimize input redundancy. Additionally, integrating high-resolution environmental data with advanced data assimilation techniques could further improve model scalability and robustness in regional applications.</p>
+</section><section id="conclusions" class="level2" data-number="25.6"><h2 data-number="25.6" class="anchored" data-anchor-id="conclusions">
+<span class="header-section-number">25.6</span> Conclusions</h2>
+<p>This case developed a 20 m-resolution soybean yield dataset for Northeast China (2019-2023) by integrating the WOFOST crop model with GRU neural networks and multi-source remote sensing/environmental data. The yield estimates demonstrated robust accuracy and spatiotemporal stability across validation scales, achieving a field-level RMSE of 287.44 kg/ha and municipal-scale mean MRE of 11.46%. MODIS data correction effectively mitigated Sentinel-2 image gaps, enhancing spatial consistency. The framework provides high-resolution, reliable support for precision agriculture implementation, regional yield monitoring, and food security policy-making, showing with the powerful potential for applications in developing countries lacking earth observations.</p>
+</section><section id="code-and-availability" class="level2" data-number="25.7"><h2 data-number="25.7" class="anchored" data-anchor-id="code-and-availability">
+<span class="header-section-number">25.7</span> Code and Availability</h2>
+<p>(TBD: include python notebook here)</p>
+</section><section id="about-the-authors" class="level2" data-number="25.8"><h2 data-number="25.8" class="anchored" data-anchor-id="about-the-authors">
+<span class="header-section-number">25.8</span> About the Authors</h2>
+<p>Qiangzi Li received the Ph.D.&nbsp;degree in cartography and geographic information system (GIS) from the Graduate University of Chinese Academy of Sciences, Beijing, in 2008. He is an Associate Professor. He is a Associate Professor at Aerospace Information Research Institute of the Chinese Academy of Sciences. His research interests include crop acreage and yield estimation using remote sensing.</p>
+<p>Xin Du received the Ph.D.&nbsp;degree in cartography and geographical information systems from the Institute of Remote Sensing Applications, Chinese Academy of Sciences, Beijing, China, in 2011. He is currently an Associate Professor with the Aerospace Information Research Institute, Chinese Academy of Sciences. His research interests include remote sensing Big Data intelligent modeling, smart agriculture and remote sensing, and ecological and environmental remote sensing.</p>
+<p>Hongyan Wang is a researcher at the Aerospace Information Research Institute of the Chinese Academy of Sciences</p>
+</section><section id="references" class="level2 unnumbered"><h2 class="unnumbered anchored" data-anchor-id="references">References</h2>
 
-<section id="section" class="level2" data-number="25.1">
-<h2 data-number="25.1" class="anchored" data-anchor-id="section"><span class="header-section-number">25.1</span> </h2>
 
-
-</section>
-
-</main> <!-- /main -->
-<script id="quarto-html-after-body" type="application/javascript">
+<div id="refs" class="references csl-bib-body" role="list">
+<div id="ref-Guo2022" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[1] </div>
+<div class="csl-right-inline">Y. Guo, H. Xia, L. Pan, X. Zhao, and R. Li, <span>“Mapping the Northern Limit of Double Cropping Using a Phenology-Based Algorithm and Google Earth Engine,”</span> <em>Remote Sensing</em>, vol. 14, no. 4, p. 1004, Feb. 2022, doi: <a href="https://doi.org/10.3390/rs14041004">10.3390/rs14041004</a>.</div>
+</div>
+<div id="ref-Yu2020" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[2] </div>
+<div class="csl-right-inline">Q. Yu <em>et al.</em>, <span>“A cultivated planet in 2010 – <span>Part</span> 2: <span>The</span> global gridded agricultural-production maps,”</span> <em>Earth System Science Data</em>, vol. 12, no. 4, pp. 3545–3572, 2020, doi: <a href="https://doi.org/10.5194/essd-12-3545-2020">10.5194/essd-12-3545-2020</a>.</div>
+</div>
+<div id="ref-Zhao2021" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[3] </div>
+<div class="csl-right-inline">R. Zhao, Y. Li, and M. Ma, <span>“Mapping <span>Paddy Rice</span> with <span>Satellite Remote Sensing</span>: <span>A Review</span>,”</span> <em>Sustainability</em>, vol. 13, no. 2, p. 503, 2021, doi: <a href="https://doi.org/10.3390/su13020503">10.3390/su13020503</a>.</div>
+</div>
+<div id="ref-Shi2004" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[4] </div>
+<div class="csl-right-inline">X. Z. Shi <em>et al.</em>, <span>“Soil <span>Database</span> of 1:1,000,000 <span>Digital Soil Survey</span> and <span>Reference System</span> of the <span>Chinese Genetic Soil Classification System</span>,”</span> <em>Soil Survey Horizons</em>, vol. 45, no. 4, pp. 129–136, 2004, doi: <a href="https://doi.org/10.2136/sh2004.4.0129">10.2136/sh2004.4.0129</a>.</div>
+</div>
+<div id="ref-Knyazikhin2018" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[5] </div>
+<div class="csl-right-inline">Y. Knyazikhin, J. Glassy, J. Privette, Y. Tian, and S. Running, <span>“<span>MODIS Leaf Area Index</span> (<span>LAI</span>) and <span>Fraction</span> of <span>Photosynthetically Active Radiation Absorbed</span> by <span>Vegetation</span> (<span>FPAR</span>) <span>Product</span> (<span>MOD15</span>) <span>Algorithm Theoretical Basis</span>.”</span> NASA, 2018.</div>
+</div>
+<div id="ref-Zhao2022" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[6] </div>
+<div class="csl-right-inline">L. Zhao <em>et al.</em>, <span>“In-season crop type identification using optimal feature knowledge graph,”</span> <em>ISPRS Journal of Photogrammetry and Remote Sensing</em>, vol. 194, pp. 250–266, 2022, doi: <a href="https://doi.org/10.1016/j.isprsjprs.2022.10.017">10.1016/j.isprsjprs.2022.10.017</a>.</div>
+</div>
+<div id="ref-vanDiepen1989" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[7] </div>
+<div class="csl-right-inline">C. a. van Diepen, J. Wolf, H. van Keulen, and C. Rappoldt, <span>“<span>WOFOST</span>: A simulation model of crop production,”</span> <em>Soil Use and Management</em>, vol. 5, no. 1, pp. 16–24, 1989, doi: <a href="https://doi.org/10.1111/j.1475-2743.1989.tb00755.x">10.1111/j.1475-2743.1989.tb00755.x</a>.</div>
+</div>
+<div id="ref-Cho2014" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[8] </div>
+<div class="csl-right-inline">K. Cho <em>et al.</em>, <span>“Learning <span>Phrase Representations</span> using <span>RNN Encoder</span>–<span>Decoder</span> for <span>Statistical Machine Translation</span>,”</span> in <em>Proceedings of the 2014 <span>Conference</span> on <span>Empirical Methods</span> in <span>Natural Language Processing</span> (<span>EMNLP</span>)</em>, 2014, pp. 1724–1734, doi: <a href="https://doi.org/10.3115/v1/D14-1179">10.3115/v1/D14-1179</a>.</div>
+</div>
+<div id="ref-Acikkar2024" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[9] </div>
+<div class="csl-right-inline">M. Açikkar, <span>“Fast grid search: <span>A</span> grid search-inspired algorithm for optimizing hyperparameters of support vector regression,”</span> <em>Turkish Journal of Electrical Engineering and Computer Sciences</em>, vol. 32, no. 1, pp. 68–92, 2024, doi: <a href="https://doi.org/10.55730/1300-0632.4056">10.55730/1300-0632.4056</a>.</div>
+</div>
+<div id="ref-Pasqualotto2019" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[10] </div>
+<div class="csl-right-inline">N. Pasqualotto, J. Delegido, S. Van Wittenberghe, M. Rinaldi, and J. Moreno, <span>“Multi-<span>Crop Green LAI Estimation</span> with a <span>New Simple Sentinel-2 LAI Index</span> (<span>SeLI</span>),”</span> <em>Sensors</em>, vol. 19, no. 4, p. 904, 2019, doi: <a href="https://doi.org/10.3390/s19040904">10.3390/s19040904</a>.</div>
+</div>
+</div>
+</section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
     const mode = bsSheetEl.getAttribute("data-mode");
@@ -668,9 +806,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
   }
 });
-</script>
-<nav class="page-navigation">
-  <div class="nav-page nav-page-previous">
+</script><nav class="page-navigation"><div class="nav-page nav-page-previous">
       <a href="./cy_poland.html" class="pagination-link">
         <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">Yield forecasting in Poland</span></span>
       </a>          
@@ -682,8 +818,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   </div>
 </nav>
 </div> <!-- /content -->
-<footer class="footer">
-  <div class="nav-footer">
+<footer class="footer"><div class="nav-footer">
     <div class="nav-footer-left">Edited by Gilberto Camara, Lorenzo de Simone and Ronald Jansen.</div>   
     <div class="nav-footer-center">
       &nbsp;
@@ -691,7 +826,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     <div class="nav-footer-right">This book was built with <a href="https://quarto.org/">Quarto</a>.</div>
   </div>
 </footer>
-
 
 
 </body></html>
