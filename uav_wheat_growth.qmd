@@ -1,6 +1,6 @@
 ---
 title: "Application of UAV in Wheat Growth Monitoring"
-author: "Ma Xingming, Zhang Juanjuan, Cheng Tao"
+author: "Xingming Ma, Juanjuan Zhang, Tao Cheng"
 format: html
 ---
 
@@ -233,7 +233,7 @@ detection range, where signal noise tends to be higher (see @fig-3-uav-wheat).
 Furthermore, a correlation analysis was conducted between the UHD185
 data and the resampled ASD spectra within the 458-830 nm range. The
 results showed a strong correlation, with the coefficient of
-determination (R²) exceeding 0.99, as shown in @fig-4-uav-wheat.
+determination (R²) exceeding 0.99, as shown in @fig-3-uav-wheat.
 
 These findings indicate that the UHD185 hyperspectral data in the
 458-830 nm range (corresponding to bands 3-96) are reliable and suitable
@@ -241,24 +241,18 @@ for use in the estimation of winter wheat LAI.
 
 ```{r}
 #| echo: FALSE
+#| layout-ncol: 2
 #| label: fig-3-uav-wheat
-#| out-width: 90%
 #| fig-cap: |
-#|  Comparison of UHD185 and resampling ASD spectral curves.
+#|  Comparison of UHD185 and resampling ASD.
+#| fig-subcap:
+#|    - Comparison between spectral curves.
+#|    - Correlation between spectral reflectance.
 #| fig-align: center
 knitr::include_graphics("./images/uav_wheat_growth/image3.jpeg")
-```
-
-
-```{r}
-#| echo: FALSE
-#| label: fig-4-uav-wheat
-#| out-width: 70%
-#| fig-cap: |
-#|  Correlation between UHD185 and resampling ASD spectral reflectance.
-#| fig-align: center
 knitr::include_graphics("./images/uav_wheat_growth/image4.jpeg")
 ```
+
 
 Correlation analysis was conducted between the measured LAI of winter
 wheat and both the original canopy spectral reflectance and the FD
@@ -296,7 +290,7 @@ selected using the FD method, all with correlation coefficients greater
 than 0.6, accounting for 4.25% of the total number of bands. These
 selected bands were 506, 546, 774, and 830 nm.
 
-@fig-6-uav-wheat and @fig-7-uav-wheat show the variable selection process 
+@fig-6-uav-wheat shows the variable selection process 
 using the SPA
 algorithm. During SPA execution, the minimum number of selected bands
 was set to 5, and the maximum to 94. As shown in @fig-6-uav-wheat, the
@@ -309,24 +303,18 @@ These bands were: 458, 466, 474, 482, 498, 502, 506, 510, 518, 526, 530,
 
 ```{r}
 #| echo: FALSE
+#| layout-ncol: 2
 #| label: fig-6-uav-wheat
-#| out-width: 75%
 #| fig-cap: |
-#|  SPA variable filtering process: (a) number of model variables.
+#|  SPA variable filtering process
+#| fig-subcap: 
+#|    - number of model variables.
+#|    - variable indexes.
 #| fig-align: center
 knitr::include_graphics("./images/uav_wheat_growth/image6.png")
-```
-
-
-```{r}
-#| echo: FALSE
-#| label: fig-7-uav-wheat
-#| out-width: 75%
-#| fig-cap: |
-#|  SPA variable filtering process: (b) variable indexes.
-#| fig-align: center
 knitr::include_graphics("./images/uav_wheat_growth/image7.png")
 ```
+
 
 @fig-8-uav-wheat illustrates the feature band selection process using the
 CARS (Competitive Adaptive Reweighted Sampling) method. As shown in the top
@@ -512,7 +500,7 @@ sensing.
 
 ## About the authors
 
-Xingming Ma is a researcher at the College of Agronomy, Henan Agricultural University, Zhengzhou, China. 
+Xingming Ma (email: xinmingma@126.com) is a researcher at the College of Agronomy, Henan Agricultural University, Zhengzhou, China. 
 
 Juanjuan Zhang is a researcher at the College of Agronomy, Henan Agricultural University, Zhengzhou, China.
 
