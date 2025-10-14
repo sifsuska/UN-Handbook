@@ -1,6 +1,6 @@
 ---
 title: "Remote Sensing Estimation of Soybean Yield Based on Multi-Scenario Simulation"
-author: "Li Qiangzi and Xing Du"
+author: "Li Qiangzi, Xing Du and Hongyan Wang"
 format: html
 ---
 
@@ -263,11 +263,12 @@ observations.
 
 ## About the Authors
 
-Qiangzi Li (email: liqz@aircas.ac.cn) received the Ph.D. degree in cartography and geographic information system (GIS) from the Graduate University of Chinese Academy of Sciences, Beijing, in 2008. He is an Associate Professor. He is a Associate Professor at Aerospace Information Research Institute of the Chinese Academy of Sciences. His research interests include crop acreage and yield estimation using remote sensing.
+Qiangzi Li((email: liqz@aircas.ac.cn)),Ph.D. and professor at the Aerospace Information Research Institute of the Chinese Academy of Sciences, specially appointed professor of the Chinese Academy of Sciences, and foreign academician of the Russian Academy of Sciences. He has been engaged in fundamental research and monitoring practices of remote sensing applications in agriculture, natural resources, ecological environment, and public security. He has led or participated in more than 80 projects, including National Key Research and Development Programs and National Natural Science Foundation grants, and has published over 200 journal articles.
 
 Xin Du (email: duxin@aircas.ac.cn)received the Ph.D. degree in cartography and geographical information systems from the Institute of Remote Sensing Applications, Chinese Academy of Sciences, Beijing, China, in 2011. He is currently an Associate Professor with the Aerospace Information Research Institute, Chinese Academy of Sciences. His research interests include remote sensing Big Data intelligent modeling, smart agriculture and remote sensing, and ecological and environmental remote sensing.
 
-Hongyan Wang (email: wanghy@aircas.ac.cn)is a researcher at the Aerospace Information Research Institute of the Chinese Academy of Sciences
+Hongyan Wang(email: wanghy@aircas.ac.cn)is Associate Professor with the Aerospace Information Research Institute, Chinese Academy of Sciences.Her research interests include crop mapping,Crop yield estimation，application of remote sensing in precision agriculture, and monitoring and evaluation of land degradation.
+
 
 
 ## References{-}
