@@ -1797,5 +1797,12 @@
     "title": "34  Data Governance for Agricultural Statistics",
     "section": "34.1 Introduction",
     "text": "34.1 Introduction"
+  },
+  {
+    "objectID": "ct_mexico.html#code-availability",
+    "href": "ct_mexico.html#code-availability",
+    "title": "\n16  Crop classification in Mexico\n",
+    "section": "\n16.6 Code availability",
+    "text": "16.6 Code availability\nThe reproducible code for this work is available in a Github repository. Please follow the steps indicated in the repository to execute this example."
   }
 ]
