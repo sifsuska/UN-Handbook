@@ -34,7 +34,6 @@ book:
         - th_validation.qmd
         - th_design_frames.qmd
         - th_alignment.qmd
-        - th_semantic_segmentation.qmd
         - th_parcel_extraction.qmd
     - part: crop_type_mapping.qmd
       chapters:
@@ -48,6 +47,7 @@ book:
       chapters:
         - cy_finland.qmd
         - cy_indonesia.qmd
+        - cy_colombia.qmd
         - cy_poland.qmd
         - cy_china.qmd
     - part: crop_statistics.qmd
@@ -78,6 +78,8 @@ format:
 
 bibliography:
     - bibliography/un-handbook.bib
+    - bibliography/colombia.bib
+    - bibliography/references-ibge.bib
     - bibliography/e-sensing.bib
     - bibliography/indonesia.bib
     - bibliography/mexico.bib

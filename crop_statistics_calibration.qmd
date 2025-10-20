@@ -417,7 +417,6 @@ $$
 $${#eq-grk}
 Let 
 $$
-
 g_{R1} = \hat{r}_{kN_R}, \enspace g_{R2} = \hat{N}_{N_Rp1}, \enspace, ..., \enspace g_{RK+1} = \hat{N}_{N_RpK}
 $${#eq-gest}
 The sampling variance of $\hat{y}_{N_Rk}$ is given approximately by 
