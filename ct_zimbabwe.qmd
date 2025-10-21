@@ -1,6 +1,6 @@
 ---
 title: "Crop classification in Zimbabwe"
-author: "Lorenzo De Simone, Sophie Bontemps, Nelson Mpfugami, Phibion Chiwara"
+author: "Lorenzo De Simone, Sophie Bontemps, Boris Nörgaard, Nelson Mpfugami, Phibion Chiwara"
 format: html
 ---
 
@@ -35,13 +35,38 @@ water-related indices such as NDWI. Red-edge indices, which are
 particularly sensitive to crop growth stages, were also included to
 capture differences in crop phenology across the season.
 
-To calibrate and validate the classification, a comprehensive set of
-ground observations was collected. The core of this dataset consisted of
-approximately 2,910 windshield survey points, systematically collected
-across the country. To strengthen spatial and spectral
-representativeness, these points were further augmented with 1,410
-polygons delineated by expert photointerpretation of Sentinel-2 and very
-high-resolution imagery.
+To calibrate and validate the classification, the suitability of 
+existing data collected by national stakeholders was first examined. 
+Indeed, crop data is regularly collected by different departments 
+inside the Ministry of Lands, Agriculture, Fisheries, Water, and 
+Rural Development through scattered field campaign efforts. 
+However, these local field campaigns did not allow to have 
+a complete view of the crop situation at the national-level. 
+The National Statistical Office, ZIMSTAT, is also implemented 
+their own survey but without crop geolocalization. 
+Therefore, a comprehensive set of ground observations was collected. 
+The core of this dataset consisted of approximately 2,910 windshield 
+survey points, collected across the country. 
+
+The quality assessment of the data collected concluded in their good
+quality; points being located inside parcels and in homogeneous areas.
+To strengthen spatial and spectral representativeness, homogeneous areas
+were delineated by photo-interpretation around these windshield points,
+thus moving from point to polygon and increase the number of pixels
+available for calibrating the classification algorithm (@fig-1-zimbabwe).
+The photo-interpretation was based on a combination of very
+high-resolution (VHR) images and time series of Sentinel-2 images with a
+specific focus on classes' spectral homogeneity and purity.
+
+```{r}
+#| echo: FALSE
+#| label: fig-1-zimbabwe
+#| out-width: 90%
+#| fig-cap: |
+#|   Example of augmented windhsield sample points (in green) delineated into polygons (in red).
+#| fig-align: center
+knitr::include_graphics("./images/ct_zimbabwe/image1.png")
+```
 
 Non-crop classes were equally important for robust classification. For
 this purpose, about 500 samples were extracted from the ESA WorldCover
@@ -54,28 +79,31 @@ stress.
 
 The integration of all these sources produced the final in-situ dataset
 used for classification and validation, which is presented in
-@fig-1-zimbabwe. This dataset provided the statistical foundation for training the Random Forest model and for assessing the quality of the national crop type map.
+@fig-2-zimbabwe. This dataset provided the statistical foundation for training the Random Forest model and for assessing the quality of the national crop type map.
 
 ```{r}
 #| echo: FALSE
-#| label: fig-1-zimbabwe
+#| label: fig-2-zimbabwe
 #| out-width: 90%
 #| fig-cap: |
 #|   Final in-situ dataset for crop type classification for the 2024 summer season.
 #| fig-align: center
-knitr::include_graphics("./images/ct_zimbabwe/image_1.png")
+knitr::include_graphics("./images/ct_zimbabwe/image2.png")
 ```
 
 ## Crop classification
 
 The crop type classification was carried out using the Sen4Stat toolbox,
 which integrates statistical survey data with Earth Observation imagery
-through machine learning techniques. For this case study, a Random
+through machine learning techniques. The Sen4Stat system is an evolution of the Sen2Agri system, whose performance has been demonstrated and validated in a
+variety of contexts [@Defourny2019].
+
+
+For this case study, a Random
 Forest (RF) algorithm was chosen because of its robustness, its ability
 to handle high-dimensional datasets, and its proven performance in
-agricultural mapping tasks.
-
-The model was trained on a set of input features derived from Sentinel-2
+agricultural mapping tasks. The model was trained on a 
+set of input features derived from Sentinel-2
 multi-temporal imagery. These included not only the reflectance values
 from the spectral bands but also a series of vegetation and water
 indices, such as NDVI, NDWI, and brightness indices, which capture
@@ -91,7 +119,8 @@ One of the main challenges in the Zimbabwe dataset was the imbalance of
 classes, with dominant categories such as maize and non-cropland
 strongly outweighing minority crops like sorghum, millets, and oilseeds.
 To address this, the Synthetic Minority Oversampling Technique (SMOTE)
-was applied during training. This procedure generates artificial samples
+was applied during training [@Chawla2002]. 
+This procedure generates artificial samples
 of underrepresented classes based on their spectral and temporal
 properties, improving the ability of the RF classifier to learn
 distinctive signatures for minor crops.
@@ -109,8 +138,7 @@ phenological behavior.
 
 The outcome of the classification process was the production of a
 national crop type map for the 2024 summer season, presented in 
-@fig-2-zimbabwe. The map provides a spatially explicit representation of Zimbabwe's agricultural landscape, highlighting the dominance 
-of particular crops
+@fig-4-zimbabwe. The map provides a spatially explicit representation of Zimbabwe's agricultural landscape, highlighting the dominance of particular crops
 and the regional diversity of production systems.
 
 As expected, maize emerged as the most widespread crop, covering large
@@ -130,12 +158,33 @@ production at the national scale.
 
 ```{r}
 #| echo: FALSE
-#| label: fig-2-zimbabwe
+#| label: fig-4-zimbabwe
 #| out-width: 90%
 #| fig-cap: |
 #|   National crop type map of Zimbabwe for the 2024 summer season.
 #| fig-align: center
-knitr::include_graphics("./images/ct_zimbabwe/image_2.png")
+knitr::include_graphics("./images/ct_zimbabwe/image4.png")
+```
+
+
+```{r}
+#| echo: FALSE
+#| label: fig-5-zimbabwe
+#| out-width: 90%
+#| fig-cap: |
+#|   Zoom on an irrigated sugarcane farm in Chiredzi district.
+#| fig-align: center
+knitr::include_graphics("./images/ct_zimbabwe/image5.png")
+```
+
+```{r}
+#| echo: FALSE
+#| label: fig-6-zimbabwe
+#| out-width: 90%
+#| fig-cap: |
+#|   Zoom on a maize and millets dominated area.
+#| fig-align: center
+knitr::include_graphics("./images/ct_zimbabwe/image6.png")
 ```
 
 
@@ -152,17 +201,17 @@ The results yielded an overall accuracy of 77.04 percent, demonstrating
 that the methodology was able to capture the main crop types with a
 satisfactory level of reliability for national-scale applications. More
 detailed insights into class-specific performance are illustrated in the
-F-score chart (@fig-3-zimbabwe) and the confusion matrix 
-(@fig-4-zimbabwe).
+F-score chart (@fig-7-zimbabwe) and the confusion matrix 
+(@fig-8-zimbabwe).
 
 ```{r}
 #| echo: FALSE
-#| label: fig-3-zimbabwe
+#| label: fig-7-zimbabwe
 #| out-width: 90%
 #| fig-cap: |
 #|   Class-specific F-scores of the national summer crop type map.
 #| fig-align: center
-knitr::include_graphics("./images/ct_zimbabwe/image_3.png")
+knitr::include_graphics("./images/ct_zimbabwe/image7.png")
 ```
 
 Performance varied notably across crop types. Sugarcane achieved very
@@ -184,12 +233,12 @@ monitoring and food security planning.
 
 ```{r}
 #| echo: FALSE
-#| label: fig-4-zimbabwe
+#| label: fig-8-zimbabwe
 #| out-width: 90%
 #| fig-cap: |
 #|   Confusion matrix of the national crop type classification.
 #| fig-align: center
-knitr::include_graphics("./images/ct_zimbabwe/image_4.png")
+knitr::include_graphics("./images/ct_zimbabwe/image8.png")
 ```
 
 
@@ -217,6 +266,16 @@ crops had far fewer samples. This imbalance limited the model's ability
 to capture the variability of minor crops, reducing their classification
 accuracy.
 
+More samples should have also been targeted in the shrubland and
+grassland classes, which were not well discriminated against by
+cropland. This might be due to the specific context of the drought in
+2024, which significantly reduced the contrast between natural
+vegetation and crops, but this type of confusion might be expected even
+without drought in smallholder agriculture systems. In the data
+collection, moving from points to polygons could also be a
+recommendation in the future to increase the number of calibration
+pixels.
+
 These findings underscore the importance of designing balanced and
 representative in-situ datasets, especially when aiming for
 national-scale applications. Targeted sampling in difficult
@@ -239,7 +298,7 @@ generally decreases as the number of crop classes increases, due to
 class imbalance and spectral similarity among crops with overlapping
 phenological cycles [@Foody2002, @Orynbaikyzy2019]. In fact,
 accuracies above 70%--75% are rarely attained in national-scale
-classifications with more than five crop classes [Defourny2022]. 
+classifications with more than five crop classes [@Defourny2019]. 
 Against this benchmark, the Zimbabwe outcome can be considered
 robust: sugarcane was mapped with high reliability, while confusion
 among cereals pointed to known challenges that could be addressed
