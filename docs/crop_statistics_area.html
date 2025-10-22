@@ -1,0 +1,859 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.361">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+<meta name="author" content="Gilberto Camara, Lorenzo de Simone, Ronald Jansen">
+<title>UN Handbook on Remote Sensing for Agricultural Statistics - 26&nbsp; Crop Statistics using Weigthed Area Estimators</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./crop_statistics_regression.html" rel="next">
+<link href="./crop_statistics.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light"><script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+</head>
+<body class="nav-sidebar floating">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top"><nav class="quarto-secondary-nav"><div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./crop_statistics.html">Extraction of crop statistics from crop type and crop yield maps</a></li><li class="breadcrumb-item"><a href="./crop_statistics_area.html"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">Crop Statistics using Weigthed Area Estimators</span></a></li></ol></nav>
+      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+      </a>
+      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav></header><!-- content --><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto"><div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">UN Handbook on Remote Sensing for Agricultural Statistics</a> 
+        <div class="sidebar-tools-main">
+    <a href="https://github.com/FAO-EOSTAT/UN-Handbook" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
+  <a href="" class="quarto-reader-toggle quarto-navigation-tool px-1" onclick="window.quartoToggleReader(); return false;" title="Toggle reader mode">
+  <div class="quarto-reader-toggle-btn">
+  <i class="bi"></i>
+  </div>
+</a>
+</div>
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+<li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Welcome</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./howto.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">How to use this handbook</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./introduction.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Introduction</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./theory.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Foundations</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./th_remote_sensing.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Remote sensing images: optical, SAR</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./th_data_sources.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Earth observation big data sources</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./th_data_cubes.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Earth observation data cubes</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./th_lucc.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Land cover and crop classification schemas</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./th_quality_control.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Quality control of training sets for agricultural statistics</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./th_machine_learning.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Machine learning algorithms for image time series</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./th_uncertainty.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Spatial map uncertainty estimation</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./th_validation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Map validation and use of maps for area estimation</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./th_design_frames.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Remote Sensing in the Design of Sampling Frames</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./th_alignment.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Alignment of field data collection to EO statistical requirements</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./th_parcel_extraction.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Semantic Segmentation for Automatic Field Boundary Delineation</span></span></a>
+  </div>
+</li>
+      </ul>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./crop_type_mapping.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Use Cases in Crop Type Mapping</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ct_poland.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Crop monitoring with Sentinel-1 and Sentinel-2 images in Poland</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ct_mexico.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Crop classification in Mexico</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ct_zimbabwe.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Crop classification in Zimbabwe</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ct_china.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Efficient and Reliable Paddy Rice Classification</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ct_chile.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Crop classification and land use mapping in Chile</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ct_digital_earth_africa.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Agricultural Mapping with Digital Earth Africa</span></span></a>
+  </div>
+</li>
+      </ul>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./crop_yield_estimation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Crop yield estimation</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./cy_finland.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Early-season crop yield mapping in Finland</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./cy_indonesia.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Mapping crop phenology in Indonesia</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./cy_colombia.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Rice Phenology Mapping in Colombia</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./cy_poland.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">Yield forecasting in Poland</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./cy_china.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">Remote Sensing Estimation of Soybean Yield Based on Multi-Scenario Simulation</span></span></a>
+  </div>
+</li>
+      </ul>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./crop_statistics.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Extraction of crop statistics from crop type and crop yield maps</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./crop_statistics_area.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">Crop Statistics using Weigthed Area Estimators</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./crop_statistics_regression.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">Estimating crop statistics using survey-calibrated methods</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./crop_statistics_calibration.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">Estimating crop statistics for list frame data</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./crop_statistics_ppi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">Prediction-Powered Inference (PPI) for Agricultural Decision-Making</span></span></a>
+  </div>
+</li>
+      </ul>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./uav_agriculture.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">UAV applications in agricultural statistics</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./uav_field_parcels.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title">Field Parcel Identification Using UAV Imagery Based on the DCP-MTL Model</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./uav_wheat_growth.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">31</span>&nbsp; <span class="chapter-title">Application of UAV in Wheat Growth Monitoring</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./uav_crop_growth.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">32</span>&nbsp; <span class="chapter-title">Automated Monitoring of Crop Growth Index using UAV</span></span></a>
+  </div>
+</li>
+      </ul>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./disaster_response.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Remote Sensing for Agricultural Disaster Response</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./dis_china_floods.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">33</span>&nbsp; <span class="chapter-title">An Automated Flood Detection Algorithm for Post-Disaster Assessment</span></span></a>
+  </div>
+</li>
+      </ul>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./additional.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Additional Topics</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ad_world_cereal.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">34</span>&nbsp; <span class="chapter-title">WorldCereal - A Global Effort for Crop Mapping</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ad_governance.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">35</span>&nbsp; <span class="chapter-title">Data Governance for Agricultural Statistics</span></span></a>
+  </div>
+</li>
+      </ul>
+</li>
+    </ul>
+</div>
+</nav><div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+<li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction"><span class="header-section-number">26.1</span> Introduction</a></li>
+  <li>
+<a href="#methods" id="toc-methods" class="nav-link" data-scroll-target="#methods"><span class="header-section-number">26.2</span> Methods</a>
+  <ul class="collapse">
+<li><a href="#understanding-sunflower-phenology-using-s1-sensor" id="toc-understanding-sunflower-phenology-using-s1-sensor" class="nav-link" data-scroll-target="#understanding-sunflower-phenology-using-s1-sensor"><span class="header-section-number">26.2.1</span> Understanding sunflower phenology using S1 sensor</a></li>
+  <li><a href="#photointerpretation-of-s1-to-obtain-calibration-and-validation-data" id="toc-photointerpretation-of-s1-to-obtain-calibration-and-validation-data" class="nav-link" data-scroll-target="#photointerpretation-of-s1-to-obtain-calibration-and-validation-data"><span class="header-section-number">26.2.2</span> Photointerpretation of S1 to obtain calibration and validation data</a></li>
+  </ul>
+</li>
+  <li>
+<a href="#random-forest-model-using-s1-satellite-data-for-sunflower-mapping" id="toc-random-forest-model-using-s1-satellite-data-for-sunflower-mapping" class="nav-link" data-scroll-target="#random-forest-model-using-s1-satellite-data-for-sunflower-mapping"><span class="header-section-number">26.3</span> Random Forest model using S1 satellite data for sunflower mapping</a>
+  <ul class="collapse">
+<li><a href="#sunflower-map-validation-and-area-estimation" id="toc-sunflower-map-validation-and-area-estimation" class="nav-link" data-scroll-target="#sunflower-map-validation-and-area-estimation"><span class="header-section-number">26.3.1</span> Sunflower map validation and area estimation</a></li>
+  </ul>
+</li>
+  <li><a href="#results-discussion" id="toc-results-discussion" class="nav-link" data-scroll-target="#results-discussion"><span class="header-section-number">26.4</span> Results &amp; Discussion</a></li>
+  <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion"><span class="header-section-number">26.5</span> Conclusion</a></li>
+  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
+  </ul><div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/FAO-EOSTAT/UN-Handbook/edit/quarto/crop_statistics_area.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/FAO-EOSTAT/UN-Handbook/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><div class="quarto-title">
+<h1 class="title">
+<span class="chapter-number">26</span>&nbsp; <span class="chapter-title">Crop Statistics using Weigthed Area Estimators</span>
+</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Abdul Qadir, Sergii Skakun, Josef Wagner, Inbal Becker-Reshef </p>
+          </div>
+  </div>
+    
+  
+    
+  </div>
+  
+
+</header><section id="introduction" class="level2" data-number="26.1"><h2 data-number="26.1" class="anchored" data-anchor-id="introduction">
+<span class="header-section-number">26.1</span> Introduction</h2>
+<p>Accurate and timely agricultural production data are crucial for ensuring global food security. Traditionally obtained through agricultural censuses and field surveys, these data can be effectively complemented by open-access satellite Earth observations, which offer a cost-efficient means to monitor crops consistently across large spatial and temporal scales. However, precise crop-type identification (e.g., sunflower) from satellite imagery remains challenging in large, heterogeneous agricultural regions characterized by diverse crop types and variable field sizes <span class="citation" data-cites="Song2017"><a href="#ref-Song2017" role="doc-biblioref">[1]</a></span>.</p>
+<p>Producing reliable national-scale crop maps requires high-quality satellite data, representative ground-truth samples for training, probabilistically selected validation datasets, and high-performance computing infrastructure. Traditionally, statistical area estimation and satellite-based crop mapping have been operated as independent processes. However, even highly accurate satellite-derived maps are unsuitable for area estimation due to biases introduced by misclassifications and mixed pixels. In contrast, sample-based ground-reference data provides unbiased estimators with quantifiable uncertainty. Recent studies have demonstrated the benefits of integrating these approaches to generate consistent crop area estimates at the national scale, for eg, soybean in the United States, Argentina, and South America; wheat in Pakistan; and Sunflower in Ukraine <span class="citation" data-cites="Qadir2024a"><a href="#ref-Qadir2024a" role="doc-biblioref">[2]</a></span>. This integration not only enhances the reliability of agricultural statistics but also supports timely decision-making for food security and disaster response. However, obtaining high-quality field-based observations remains a major challenge, as ground surveys are often costly, time-consuming, and, in some cases, infeasible due to conflict, government restrictions, or logistical issues.</p>
+<p>Therefore, the primary objective of this study is to estimate the national-scale sunflower planted area across Ukraine-controlled territories in 2023 using photo-interpreted labels derived from satellite imagery without field visits. Monitoring sunflower in Ukraine is critical because Ukraine is one of the largest producers and is also the most profitable crop. Furthermore, sunflower production has a significant impact on&nbsp;soil degradation&nbsp;due to the violation of crop rotation policies <span class="citation" data-cites="Qadir2023"><a href="#ref-Qadir2023" role="doc-biblioref">[3]</a></span>. This study further demonstrates how the integration of synthetic aperture radar (SAR) data, machine learning algorithms, and statistically sound sampling frameworks can support operational sunflower monitoring in data-limited environments.</p>
+</section><section id="methods" class="level2" data-number="26.2"><h2 data-number="26.2" class="anchored" data-anchor-id="methods">
+<span class="header-section-number">26.2</span> Methods</h2>
+<p>The overall flowchart of the proposed methods is shown in&nbsp;<a href="#fig-1-crop-area">Figure&nbsp;<span>26.1</span></a> and is based on the methodology proposed in Qadir et al.&nbsp; <span class="citation" data-cites="Qadir2023"><a href="#ref-Qadir2024" role="doc-biblioref">[4]</a></span>. The proposed approach consists of four major modules: 1) Understanding sunflower phenology using S1 SAR sensor; 2) Photointerpretation of S1 to obtain calibration and validation data; 3) Developing a Random Forest (RF) based model using S1 for sunflower mapping; 4) Sample-based unbiased sunflower area estimation.</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div id="fig-1-crop-area" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure"><p><img src="./images/crop_statistics_area/image1.png" class="img-fluid figure-img" style="width:90.0%"></p>
+<figcaption class="figure-caption">Figure&nbsp;26.1: Workflow for sampling-based sunflower mapping and crop area estimation.</figcaption></figure>
+</div>
+</div>
+</div>
+<section id="understanding-sunflower-phenology-using-s1-sensor" class="level3" data-number="26.2.1"><h3 data-number="26.2.1" class="anchored" data-anchor-id="understanding-sunflower-phenology-using-s1-sensor">
+<span class="header-section-number">26.2.1</span> Understanding sunflower phenology using S1 sensor</h3>
+<p>Sunflower’s distinctive architecture, characterized by broad leaves, yellow capitula, facilitates its discrimination from other summer crops such as maize and soybean when observed using C-band SAR sensor <span class="citation" data-cites="Qadir2023"><a href="#ref-Qadir2023" role="doc-biblioref">[3]</a></span>. Another key feature of sunflower is heliotropism, the solar tracking of young leaves and buds. The plant follows the Sun from east to west during the day and reorients eastward at night through its circadian rhythm. Once flowering begins, this movement ceases, and the flower heads remain permanently oriented eastward (<a href="#fig-2-crop-area">Figure&nbsp;<span>26.2</span></a>), imparting a directional effect to the canopy.</p>
+<p>Sentinel-1 (S1) operates at C-band (∼5.6 cm wavelength), which is comparable to the characteristic size of the sunflower flower head. Its sun-synchronous, right-looking antenna is</p>
+<p>capable of monitoring sunflower phenology and directional effects. Over Ukraine, Sentinel-1 descends from north to south at approximately 04:00 UTC (07:00 local time) (<a href="#fig-2-crop-area">Figure&nbsp;<span>26.2</span></a>). Once flowering begins, the heads become permanently oriented eastward, facing the descending pass (fig-2-crop-area (a)). This eastward orientation (directional effect) introduces a strong scattering component, leading to increased VV backscatter and a corresponding decrease in the VH/VV ratio in C-band SAR observations (<a href="#fig-2-crop-area">Figure&nbsp;<span>26.2</span></a> (b)). This phenomenon, unique to sunflower, enhances the separability of sunflowers from other summer crops like maize and soybean resulting in better performance with S1 data acquired in the descending orbit.</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div id="fig-2-crop-area" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure"><p><img src="./images/crop_statistics_area/image2.png" class="img-fluid figure-img" style="width:90.0%"></p>
+<figcaption class="figure-caption">Figure&nbsp;26.2: (a) Directional behavior as observed in the sunflower due to the large flower head facing east permanently in comparison to the maize crop (bottom) over Ukraine, for descending and ascending pass. (b) Temporal behavior of radar median backscattering (in dB) for VH, VV and VH/VV for both ascending and descending orbit from a sunflower field.</figcaption></figure>
+</div>
+</div>
+</div>
+</section><section id="photointerpretation-of-s1-to-obtain-calibration-and-validation-data" class="level3" data-number="26.2.2"><h3 data-number="26.2.2" class="anchored" data-anchor-id="photointerpretation-of-s1-to-obtain-calibration-and-validation-data">
+<span class="header-section-number">26.2.2</span> Photointerpretation of S1 to obtain calibration and validation data</h3>
+<p>Sunflower photo-interpretation was based on its distinct backscattering signature relative to other summer crops, particularly maize and soybean, during peak flowering. The directional behavior of the sunflower, captured by S1, is described above. To identify sunflower fields, seasonal median composites were generated from descending orbit data for three key crop-growing periods in Ukraine: spring (March-May), summer (June-August), and autumn (September-November). These composites were visualized by assigning red, green, and blue channels to VV backscatter from spring, summer, and autumn, respectively <span class="citation" data-cites="Qadir2024a"><a href="#ref-Qadir2024" role="doc-biblioref">[4]</a></span>. Sunflower exhibits high VV backscatter during summer (June-August) in the descending orbit compared to other summer crops. This results in dominant greenish tones for summer cropland (<a href="#fig-3-crop-area">Figure&nbsp;<span>26.3</span></a> (a), yellow star), with sunflower fields appearing as bright neon green (<a href="#fig-3-crop-area">Figure&nbsp;<span>26.3</span></a> (a), yellow circle).An example of the photointerpretation process used to label sunflower, non-sunflower, and non-cropland areas is shown in <a href="#fig-2-crop-area">Figure&nbsp;<span>26.2</span></a> and also provided in the attached <a href="https://ra-work.users.earthengine.app/view/photo-interpretation-for-mapping-sunflower-in-ukraine">Google Earth Engine (GEE) application</a>.</p>
+<p>To identify other summer and winter crops as well as non-cropland areas, we integrated S1 with Sentinel-2 (S2) and high-resolution Google Earth data. For S2, bi-monthly median composites were created using the Near-Infrared (B8), Red (B4), and Green (B3) bands, assigned to red, green, and blue channels, respectively, for March-April, May-June, and July-August (<a href="#fig-3-crop-area">Figure&nbsp;<span>26.3</span></a> b-d). The March-April composites are dominated by winter crops, May-June by both winter and spring crops, and July-August by summer crops, including sunflower. Crops during the peak growth stages gives high reflectance in the NIR band, resulting in dominant reddish tone and hence assist in identifying the specific winter or summer cropland. Non-cropland classes such as urban, water bodies, wasteland, and forest/plantation were identified using their stable spectral and backscattering signatures across the S1, S2, and high-resolution time series imagery.</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div id="fig-3-crop-area" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure"><p><img src="./images/crop_statistics_area/image3.png" class="img-fluid figure-img" style="width:100.0%"></p>
+<figcaption class="figure-caption">Figure&nbsp;26.3: S1 and S2 false color median composite for visual interpretation. The S1 VV RGB composites is represented by Red: March-May, Green: Jun-Aug, Blue: March-May in (a). The S2 RGB composites are represented by Red: NIR, Green: Red, Blue: Green in (b-d). For S2, bi-monthly median composites are generated for March-April (b), May-June (c), July-August (d), respectively.</figcaption></figure>
+</div>
+</div>
+</div>
+<p>In the end, each pixel was interpreted as sunflower, non-sunflower, and non-cropland class and subsequently employed either to train the ML based RF model or to generate a confusion matrix in terms of area proportions and subsequently estimate areas and accuracy values along with corresponding uncertainties as described in the following sections.</p>
+</section></section><section id="random-forest-model-using-s1-satellite-data-for-sunflower-mapping" class="level2" data-number="26.3"><h2 data-number="26.3" class="anchored" data-anchor-id="random-forest-model-using-s1-satellite-data-for-sunflower-mapping">
+<span class="header-section-number">26.3</span> Random Forest model using S1 satellite data for sunflower mapping</h2>
+<p>The sunflower mapping methodology follows <span class="citation" data-cites="Qadir2024"><a href="#ref-Qadir2024" role="doc-biblioref">[4]</a></span> and is based on the crop’s directional behavior. In the first step, we calibrated a Random Forest (RF) model using S1-derived metrics and photo-interpreted labels (Section 2). Calibration incorporated 42 multi-temporal metrics derived from S1 ascending and descending orbit data, which were processed separately to capture sunflower’s directional behavior characteristics.</p>
+<p>The RF model was configured with 300 <em>trees</em> and default parameters for <em>variables per split</em>, <em>minimum leaf population</em>, and <em>bag fraction</em>. A two-phase classification strategy was implemented <span class="citation" data-cites="Qadir2024"><a href="#ref-Qadir2024" role="doc-biblioref">[4]</a></span>. In the first stage, cropland was classified into six classes: sunflower, non-sunflower summer crops, winter crops, water, forest/vegetation, urban and barren. In the second stage, all non-sunflower and non-cropland classes were aggregated into a single class resulting in binary sunflower and non-sunflower classes. To minimize misclassification with non-cropland areas, we masked other land cover types using the land cover map. Isolated pixels were filtered, and the final sunflower map was projected to the Albers equal area projection for subsequent analyses.</p>
+<section id="sunflower-map-validation-and-area-estimation" class="level3" data-number="26.3.1"><h3 data-number="26.3.1" class="anchored" data-anchor-id="sunflower-map-validation-and-area-estimation">
+<span class="header-section-number">26.3.1</span> Sunflower map validation and area estimation</h3>
+<p>The experimental design for sample-based sunflower area estimation followed well-established recommended practices <span class="citation" data-cites="Olofsson2014"><a href="#ref-Olofsson2014" role="doc-biblioref">[5]</a></span> to derive unbiased area and uncertainty estimates at the national scale. Ukraine was divided into three classes: sunflower, non-sunflower cropland, and non-cropland to generate random samples. These three classes served as strata in a stratified random sampling design, with 20 × 20 m² pixels as sampling units. For estimating area and assessing accuracy of sunflower maps, we follow the recommended best practices for estimating accuracy of LUCC maps, using Cochran’s method for stratified random sampling <span class="citation" data-cites="Cochran1977"><a href="#ref-Cochran1977" role="doc-biblioref">[6]</a></span> and then producing and area-weighted estimation as described in Olofsson et al.<span class="citation" data-cites="Olofsson2014"><a href="#ref-Olofsson2014" role="doc-biblioref">[5]</a></span>. This estimation is described in detail in the <a href="https://fao-eostat.github.io/UN-Handbook/th_validation.html">“Map validation and use of maps for area estimation”</a> chapter of this Handbook.</p>
+<p>A confusion matrix was constructed from the samples to compute area proportions, which were then used to estimate overall, user’s, and producer’s accuracies and their standard errors. A target user’s accuracy of 0.85 was set for sunflower. In total, we selected 500 samples out of sunflower, non-sunflower cropland and non-cropland were represented by 200, 200 and 100 samples respectively. A working example of the sampling-based area estimation is provided in the Excel file described in the section “Code availability” below.</p>
+<p>Each sample was labeled independently through photointerpretation of multi-temporal SAR composites (S1), optical false-color composites (S2) (shown in <a href="#fig-2-crop-area">Figure&nbsp;<span>26.2</span></a>) and also very high-resolution Google Earth Engine imagery, as can be see in the link to <a href="https://ra-work.users.earthengine.app/view/photo-interpretation-for-mapping-sunflower-in-ukraine">Google Earth Engine</a>.</p>
+</section></section><section id="results-discussion" class="level2" data-number="26.4"><h2 data-number="26.4" class="anchored" data-anchor-id="results-discussion">
+<span class="header-section-number">26.4</span> Results &amp; Discussion</h2>
+<p>We estimated the sunflower planted area in Ukrainian-controlled territory to be 5.99&nbsp;±&nbsp;0.25 million hectares (Mha) in 2023, compared to 5.66 Mha obtained based on pixel counting. Unlike simple pixel counting which assumes that each mapped pixel is classified correctly, the area estimation method incorporates the confusion matrix to adjust for classification errors, thereby providing unbiased estimates of class areas and their associated confidence intervals. The sunflower map for Ukraine in 2023 is shown in <a href="https://ra-work.users.earthengine.app/view/sunflower-map-ukraine-2023">Google Earth Engine</a>.</p>
+<p><a href="#tbl-conmat">Table&nbsp;<span>26.1</span></a> shows the confusion matrix in terms of area proportions along with per-class performance metrics: producer’s accuracy (PA) and user’s accuracy (UA). Overall, per-class PA/UA values were close or higher than 90%, reflecting high classification reliability and supporting robustness of the sunflower area estimates. Consequently, the sample-based estimation approach yielded higher precision and greater statistical validity than the pixel-counting method, which can otherwise underestimate or overestimate true area extents depending on misclassification rates.</p>
+<div id="tbl-conmat" class="anchored">
+<table class="table">
+<caption>Table&nbsp;26.1: Confusion matrix of the sunflower classification maps (cell entries represent proportion of area)</caption>
+<colgroup>
+<col style="width: 7%">
+<col style="width: 19%">
+<col style="width: 26%">
+<col style="width: 19%">
+<col style="width: 12%">
+<col style="width: 7%">
+<col style="width: 7%">
+</colgroup>
+<thead><tr class="header">
+<th></th>
+<th></th>
+<th>Reference</th>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td>Map</td>
+<td>Class</td>
+<td>Sunflower 2023</td>
+<td>Non-sunflower cropland</td>
+<td>Non-cropland</td>
+<td>UA</td>
+<td>PA</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>Sunflower 2023</td>
+<td>0.11</td>
+<td>0.0002</td>
+<td>0.00</td>
+<td>0.97</td>
+<td>0.91</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>Non-sunflower cropland</td>
+<td>0.01</td>
+<td>0.38</td>
+<td>0.04</td>
+<td>0.88</td>
+<td>0.96</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>Non-cropland</td>
+<td>0.00</td>
+<td>0.01</td>
+<td>0.44</td>
+<td>0.97</td>
+<td>0.91</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section><section id="conclusion" class="level2" data-number="26.5"><h2 data-number="26.5" class="anchored" data-anchor-id="conclusion">
+<span class="header-section-number">26.5</span> Conclusion</h2>
+<p>This study demonstrated the operational capability of SAR data for sunflower area estimation without relying on field observations at the country level. The directional behavior of sunflowers as detected by S1 data, plays a crucial role in their identification and mapping. By integrating sampling-based approach in crop area mapping, the disparity between the sampling-based area and classified area is substantially reduced.</p>
+<p>To create the reference classification for labeling each sampling unit, a combination of S1 and S2 data from Copernicus open archive, together with Google Earth provides a source of cost-free reference data equivalent to field observation required for sunflower identification. By combining the multi-source high resolution optical with SAR, along with Google Earth data ensures the process of creating the sunflower reference classification is of higher quality than the sunflower classification-based map-making process and is aligned to the good practice recommendations.</p>
+<p>The proposed method has certain limitations, particularly in regions where only the S1 ascending orbit is available. Our analysis in <span class="citation" data-cites="Qadir2024"><a href="#ref-Qadir2024" role="doc-biblioref">[4]</a></span> showed that in regions where only ascending orbit data exist, the model achieved lower accuracy compared to regions with both or only descending orbit coverage. Additionally, this approach relies on satellite acquisitions available only until the end of August and therefore cannot be applied for early-season sunflower identification or area estimation.</p>
+<p>Care should be taken when implementing this model to other regions, as the accuracy of the resulting sunflower maps is affected by the choice of non-cropland mask. When using land cover/cropland masks, it is critical to assess their suitability for the specific application, taking into account the purpose of use, such as broad-scale ecosystem accounting versus site-specific change detection. Users should also consider trade-offs between thematic resolution, global versus local accuracy, and class-specific biases when selecting appropriate land cover datasets.</p>
+<p>Furthermore, photo-interpretation to identify sunflower fields is based on expert knowledge of both SAR and optical data, which may vary among interpreters and across regions due to differences in crop cycles, crop types, and agroecological conditions. Therefore, caution should be exercised when applying this approach to other regions, particularly in smallholder farming systems where sunflower is not a dominant crop and photo-interpretation has its own challenges.</p>
+</section><section id="references" class="level2 unnumbered"><h2 class="unnumbered anchored" data-anchor-id="references">References</h2>
+
+
+<div id="refs" class="references csl-bib-body" role="list">
+<div id="ref-Song2017" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[1] </div>
+<div class="csl-right-inline">X.-P. Song <em>et al.</em>, <span>“National-scale soybean mapping and area estimation in the <span>United States</span> using medium resolution satellite imagery and field survey,”</span> <em>Remote Sensing of Environment</em>, vol. 190, pp. 383–395, 2017, doi: <a href="https://doi.org/10.1016/j.rse.2017.01.008">10.1016/j.rse.2017.01.008</a>.</div>
+</div>
+<div id="ref-Qadir2024a" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[2] </div>
+<div class="csl-right-inline">A. Qadir, S. Skakun, I. Becker-Reshef, N. Kussul, and A. Shelestov, <span>“Estimation of sunflower planted areas in <span>Ukraine</span> during full-scale <span>Russian</span> invasion: <span>Insights</span> from <span>Sentinel-1 SAR</span> data,”</span> <em>Science of Remote Sensing</em>, vol. 10, p. 100139, 2024, doi: <a href="https://doi.org/10.1016/j.srs.2024.100139">10.1016/j.srs.2024.100139</a>.</div>
+</div>
+<div id="ref-Qadir2023" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[3] </div>
+<div class="csl-right-inline">A. Qadir, S. Skakun, J. Eun, M. Prashnani, and L. Shumilo, <span>“Sentinel-1 time series data for sunflower (<span><em>Helianthus</em></span><span> <em>Annuus</em></span>) phenology monitoring,”</span> <em>Remote Sensing of Environment</em>, vol. 295, p. 113689, 2023, doi: <a href="https://doi.org/10.1016/j.rse.2023.113689">10.1016/j.rse.2023.113689</a>.</div>
+</div>
+<div id="ref-Qadir2024" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[4] </div>
+<div class="csl-right-inline">A. Qadir, S. Skakun, N. Kussul, A. Shelestov, and I. Becker-Reshef, <span>“A generalized model for mapping sunflower areas using <span>Sentinel-1 SAR</span> data,”</span> <em>Remote Sensing of Environment</em>, vol. 306, p. 114132, 2024, doi: <a href="https://doi.org/10.1016/j.rse.2024.114132">10.1016/j.rse.2024.114132</a>.</div>
+</div>
+<div id="ref-Olofsson2014" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[5] </div>
+<div class="csl-right-inline">P. Olofsson, G. M. Foody, M. Herold, S. V. Stehman, C. E. Woodcock, and M. A. Wulder, <span>“Good practices for estimating area and assessing accuracy of land change,”</span> <em>Remote Sensing of Environment</em>, vol. 148, pp. 42–57, 2014, doi: <a href="https://doi.org/10.1016/j.rse.2014.02.015">https://doi.org/10.1016/j.rse.2014.02.015</a>.</div>
+</div>
+<div id="ref-Cochran1977" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[6] </div>
+<div class="csl-right-inline">W. G. Cochran, <em>Sampling techniques</em>. John Wiley &amp; Sons, Ltd, 1977.</div>
+</div>
+</div>
+</section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script><nav class="page-navigation"><div class="nav-page nav-page-previous">
+      <a href="./crop_statistics.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Extraction of crop statistics from crop type and crop yield maps</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./crop_statistics_regression.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">Estimating crop statistics using survey-calibrated methods</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+<footer class="footer"><div class="nav-footer">
+    <div class="nav-footer-left">Edited by Gilberto Camara, Lorenzo de Simone and Ronald Jansen.</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
+    <div class="nav-footer-right">This book was built with <a href="https://quarto.org/">Quarto</a>.</div>
+  </div>
+</footer>
+
+
+</body></html>

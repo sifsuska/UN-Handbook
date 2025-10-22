@@ -52,6 +52,7 @@ book:
         - cy_china.qmd
     - part: crop_statistics.qmd
       chapters:
+        - crop_statistics_area.qmd
         - crop_statistics_regression.qmd
         - crop_statistics_calibration.qmd
         - crop_statistics_ppi.qmd

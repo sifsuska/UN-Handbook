@@ -291,11 +291,10 @@ than 0.6, accounting for 4.25% of the total number of bands. These
 selected bands were 506, 546, 774, and 830 nm.
 
 @fig-6-uav-wheat shows the variable selection process 
-using the SPA
-algorithm. During SPA execution, the minimum number of selected bands
+using the SPA algorithm. During SPA execution, the minimum number of selected bands
 was set to 5, and the maximum to 94. As shown in @fig-6-uav-wheat, the
 minimum RMSE of 1.049 was obtained when the number of variables reached
-the optimal band count. @fig-7-uav-wheat displays the 28 optimal feature
+the optimal band count. @fig-6-uav-wheat also displays the 28 optimal feature
 bands selected by SPA, accounting for 29.8% of all spectral variables.
 These bands were: 458, 466, 474, 482, 498, 502, 506, 510, 518, 526, 530,
 534, 542, 546, 558, 566, 570, 574, 610, 626, 650, 658, 686, 698, 710,
