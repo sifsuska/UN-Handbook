@@ -1,5 +1,5 @@
 ---
-title: "Crop Statistics using Weigthed Area Estimators"
+title: "Crop Statistics using Weighted Area Estimators"
 author: "Abdul Qadir, Sergii Skakun, Josef Wagner, Inbal Becker-Reshef"
 format: html
 ---
