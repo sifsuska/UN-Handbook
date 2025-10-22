@@ -67,7 +67,7 @@ book:
     - part: additional.qmd
       chapters:
         - ad_world_cereal.qmd
-        - ad_governance.qmd
+        - ad_learning.qmd
 format:
   html:
     theme:
