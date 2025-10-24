@@ -864,15 +864,15 @@
     "objectID": "ct_china.html#code-and-data-availability",
     "href": "ct_china.html#code-and-data-availability",
     "title": "\n18  Efficient and Reliable Paddy Rice Classification\n",
-    "section": "\n18.7 Code and data availability",
-    "text": "18.7 Code and data availability\nThe PRICOS code is available in the GitHub link. Due to the large amount of input data, only part of Colusa County is shown. In this study, Python 3.12 was used. The main code was developed and executed in a Windows 11 environment, relying on multiple third-party libraries for remote sensing image reading, processing, visualization, and classification accuracy evaluation. To ensure stability and compatibility in spatial data processing, it is recommended to create a virtual environment on the Anaconda platform for unified management of library versions.\nThe code is also available in Google Earth Engine (GEE). Due to GEE memory limitations, only part of Colusa County is shown."
+    "section": "Code and data availability",
+    "text": "Code and data availability\nThe PRICOS code is available in the GitHub link. Due to the large amount of input data, only part of Colusa County is shown. In this study, Python 3.12 was used. The main code was developed and executed in a Windows 11 environment, relying on multiple third-party libraries for remote sensing image reading, processing, visualization, and classification accuracy evaluation. To ensure stability and compatibility in spatial data processing, it is recommended to create a virtual environment on the Anaconda platform for unified management of library versions.\nThe code is also available in Google Earth Engine (GEE). Due to GEE memory limitations, only part of Colusa County is shown."
   },
   {
     "objectID": "ct_china.html#about-the-authors",
     "href": "ct_china.html#about-the-authors",
     "title": "\n18  Efficient and Reliable Paddy Rice Classification\n",
-    "section": "\n18.8 About the authors",
-    "text": "18.8 About the authors\nProfessor Jingfeng Huang (email: hjf@zju.edu.cn), Zhejiang University, China is dedicated to teaching, research, and applications in agricultural remote sensing. His team has published nearly 400 papers in prominent academic journals. He has authored a series of scientific monographs on agricultural remote sensing and information technology,\nYifeng Lou is a researcher at Zhejiang University, China, who primarily focuses on remote sensing-based estimation and dynamic monitoring of paddy rice planting area, providing data support for food security."
+    "section": "About the authors",
+    "text": "About the authors\nProfessor Jingfeng Huang (email: hjf@zju.edu.cn), Zhejiang University, China is dedicated to teaching, research, and applications in agricultural remote sensing. His team has published nearly 400 papers in prominent academic journals. He has authored a series of scientific monographs on agricultural remote sensing and information technology,\nYifeng Lou is a researcher at Zhejiang University, China, who primarily focuses on remote sensing-based estimation and dynamic monitoring of paddy rice planting area, providing data support for food security."
   },
   {
     "objectID": "ct_china.html#references",

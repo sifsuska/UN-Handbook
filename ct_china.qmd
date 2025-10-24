@@ -319,7 +319,7 @@ lightweight and highly transferable, which makes it particularly
 suitable for application in regions with limited field data.
 
 
-## Code and data availability 
+## Code and data availability{-} 
 
 The PRICOS code is available in the [GitHub link](https://github.com/JokoLou/A-Paddy-Rice-Index-Combining-Optical-and-SAR-Features-PRICOS). Due to the large amount of input data, only part of Colusa County is shown. In this study, Python 3.12 was used. The main code was developed and
 executed in a Windows 11 environment, relying on multiple third-party
@@ -332,7 +332,7 @@ library versions.
 The code is also available in [Google Earth Engine (GEE)](https://code.earthengine.google.com/eb4f07a4d990934a55022941e722ec3f). 
 Due to GEE memory limitations, only part of Colusa County is shown.
 
-## About the authors
+## About the authors{-}
 
 Professor Jingfeng Huang (email: hjf@zju.edu.cn), Zhejiang University, China is dedicated to teaching, research, and applications in agricultural remote sensing. 
 His  team has published nearly 400 papers in prominent academic journals.
