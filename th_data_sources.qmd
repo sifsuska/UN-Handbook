@@ -150,7 +150,6 @@ The `sits` package supports access to open data collection from Microsoft's Plan
 
 The SENTINEL-2/2A ARD images available in MPC have the same bands and resolutions as those available in AWS (see above). The example below shows how to access the `SENTINEL-2-L2A` collection. 
 
-## R
 ```{r}
 #| eval: false
 # Create a data cube covering an area in the Brazilian Amazon
@@ -183,7 +182,6 @@ knitr::include_graphics("./images/th_data_sources/mpc_s2.png")
 
 The `LANDSAT-C2-L2` collection provides access to data from Landsat-4/5/7/8/9 satellites. Images from these satellites have been intercalibrated to ensure data consistency. For compatibility between the different Landsat sensors, the band names are BLUE, GREEN, RED,  NIR08,  SWIR16, and SWIR22. All images have 30 m resolution. For this collection,  tile search is not supported; the `roi` parameter should be used. The example below shows how to retrieve data from a region of interest covering the city of Brasilia in Brazil. 
 
-## R
 ```{r}
 #| eval: false
 # Read a ROI that covers part of the Northeastern coast of Brazil
@@ -223,7 +221,6 @@ Access to Sentinel-1 GRD images can be done either by MGRS tiles (`tiles`) or by
 
 The following example shows how to create a data cube of S1 GRD images over a region in Mato Grosso Brazil that is an area of the Amazon forest that has been deforested. The resulting cube will not follow any specific projection and its coordinates will be stated as EPSG 4326 (latitude/longitude). Its geometry is derived from the SAR slant-range perspective; thus, it will appear included in relation to the Earth's longitude. 
 
-## R
 ```{r}
 #| eval: false
 cube_s1_grd <-  sits_cube(
