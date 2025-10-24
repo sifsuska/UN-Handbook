@@ -314,9 +314,9 @@ Such advancements would provide more timely and broadly applicable
 technical support for regional food security evaluation and agricultural
 management.
 
-## Code and data availability 
+## Code and data availability{-}
 
-The code for this work is available in [Github](https://github.com/Songbeibeibei/CGI/raw/main/CGI_grade.zip)
+The code for this work is available in [Github](https://github.com/Songbeibeibei/CGI)
 
 ## About the authors
 

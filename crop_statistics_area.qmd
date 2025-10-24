@@ -84,7 +84,6 @@ directional effect to the canopy.
 Sentinel-1 (S1) operates at C-band (∼5.6 cm wavelength), which is
 comparable to the characteristic size of the sunflower flower head. Its
 sun-synchronous, right-looking antenna is
-
 capable of monitoring sunflower phenology and directional effects. Over
 Ukraine, Sentinel-1 descends from north to south at approximately 04:00
 UTC (07:00 local time) (@fig-2-crop-area). Once flowering begins, the heads become
