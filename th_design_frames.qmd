@@ -183,4 +183,4 @@ knitr::include_graphics("./images//th_design_frames/QA_plot_Ethiopia.png")
 
 In this chapter, we provide recommendations for National Statistical Offices (NSO) to design in situ data collection campaigns that benefit both conventional statistics and EO-based assessments. Following these guidelines will increase the accuracy of EO-based land use classification.
 
-References{-}
+## References{-}
