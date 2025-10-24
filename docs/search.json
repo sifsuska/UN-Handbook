@@ -1663,7 +1663,7 @@
     "href": "uav_wheat_growth.html#about-the-authors",
     "title": "\n31  Application of UAV in Wheat Growth Monitoring\n",
     "section": "\n31.6 About the authors",
-    "text": "31.6 About the authors\nXingming Ma (email: xinmingma@126.com) is a researcher at the College of Agronomy, Henan Agricultural University, Zhengzhou, China.\nJuanjuan Zhang is a researcher at the College of Agronomy, Henan Agricultural University, Zhengzhou, China.\nTao Cheng is a researcher at College of Information and Management, Henan Agricultural University, Zhengzhou, China."
+    "text": "31.6 About the authors\nXinming Ma (email: xinmingma@126.com) is a researcher at the College of Agronomy, Henan Agricultural University, Zhengzhou, China.\nJuanjuan Zhang is a researcher at the College of Agronomy, Henan Agricultural University, Zhengzhou, China.\nTao Cheng is a researcher at College of Information and Management, Henan Agricultural University, Zhengzhou, China."
   },
   {
     "objectID": "uav_wheat_growth.html#reference",
@@ -1923,5 +1923,12 @@
     "title": "\n12  Remote Sensing in the Design of Sampling Frames\n",
     "section": "References",
     "text": "References\n\n\n\n\n[1] \nC. Carletto, A. Dillon, and A. Zezza, “Agricultural Data Collection to Minimize Measurement Error and Maximize Coverage,” Global Poverty Research Lab, Working {{Paper}} 21-108, 2021.\n\n\n[2] \nW. G. Cochran, Sampling techniques. John Wiley & Sons, Ltd, 1977.\n\n\n[3] \nJ. Delincé, “The cost-effectiveness of remote sensing in agricultural statistics,” J. Delincé, Ed. Rome: Handbook of the Global Strategy to improve Agricultural; Rural Statistics (GSARS), 2017.\n\n\n[4] \nP. Defourny et al., “Near real-time agriculture monitoring at national scale at parcel resolution: Performance assessment of the Sen2-Agri automated system in various cropping systems around the world,” Remote Sensing of Environment, vol. 221, pp. 551–568, 2019, doi: 10.1016/j.rse.2018.11.007."
+  },
+  {
+    "objectID": "ct_poland.html#about-the-authors",
+    "href": "ct_poland.html#about-the-authors",
+    "title": "\n15  Crop monitoring with Sentinel-1 and Sentinel-2 images in Poland\n",
+    "section": "About the authors",
+    "text": "About the authors\nNatalia Kotulak is a consultant at the Statistical Office in Olsztyn, part of Poland’s Central Statistical Office. She specializes in applying satellite remote sensing and geospatial analysis to agriculture, sustainable development, and environmental monitoring presented her research at conferences on the use of remote sensing in public statistics. A graduate in Geodesy and Cartography from the University of Warmia and Mazury in Olsztyn, she has co-authored scientific publications on radar-based land displacement.\nPrzemysław Slesiński is a geodesy and remote-sensing specialist with a Master’s in Geodesy and Satellite Navigation. Since 2011 he has been Chief Specialist at the Statistical Office in Olsztyn, developing spatial databases, performing network analyses, and processing satellite data for agricultural statistics. He also serves as IT technician and UAV operator at the University of Warmia and Mazury. Skills: GIS (ArcGIS, QGIS, SNAP), object-based classification, SAR processing and machine learning; co-author of multiple EO publications."
   }
 ]

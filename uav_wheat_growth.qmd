@@ -1,6 +1,6 @@
 ---
 title: "Application of UAV in Wheat Growth Monitoring"
-author: "Xingming Ma, Juanjuan Zhang, Tao Cheng"
+author: "Xinming Ma, Juanjuan Zhang, Tao Cheng"
 format: html
 ---
 
@@ -499,7 +499,7 @@ sensing.
 
 ## About the authors
 
-Xingming Ma (email: xinmingma@126.com) is a researcher at the College of Agronomy, Henan Agricultural University, Zhengzhou, China. 
+Xinming Ma (email: xinmingma@126.com) is a researcher at the College of Agronomy, Henan Agricultural University, Zhengzhou, China. 
 
 Juanjuan Zhang is a researcher at the College of Agronomy, Henan Agricultural University, Zhengzhou, China.
 
