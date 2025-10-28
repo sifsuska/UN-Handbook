@@ -1,10 +1,10 @@
 ---
 title: "Crop Statistics using Weighted Area Estimators"
-author: "Abdul Qadir, Sergii Skakun, Josef Wagner, Inbal Becker-Reshef"
+author: "Abdul Qadir, Josef Wagner, Sergii Skakun,  Inbal Becker-Reshef"
 format: html
 ---
 
-## Introduction
+## Introduction {#sec-introduction}
 
 Accurate and timely availability of agricultural production data is
 crucial for international market transparency and, therefore for ensuring
@@ -27,13 +27,13 @@ large-scale processing. Very often, crop area is estimated from a map using
 the pixel-counting estimator: multiplying pixel area by the total number of 
 pixels belonging to a class of interest. Although widely used, this estimator
 is intrinsically biased because it integrates classifier omission, commission,
-and edge pixel errors [@Chhikara1984, @Skakun2025]. In contrast, sample-based estimators of 
+and edge pixel errors [@Chhikara1984] [@Skakun2025]. In contrast, sample-based estimators of 
 area rely on a probabilistic reference data sample, where a map can be 
 used for stratification to estimate area and corresponding uncertainties [@Gallego2004].
 Recent studies have demonstrated the benefits of integrating these approaches
 to generate consistent crop area estimates at the national scale, for soybean
 in the United States [@Song2017], Argentina [@King2017], and South America [@Song2021]; 
-wheat in Pakistan [@Khan2021]; and sunflower in Ukraine [@Qadir2024a]. 
+wheat in Pakistan [@Khan2021a]; and sunflower in Ukraine [@Qadir2024a]. 
 This integration not only 
 enhances the reliability of agricultural statistics but also supports timely
 decision-making for food security and disaster response. However, obtaining 
@@ -43,8 +43,8 @@ infeasible due to armed conflicts, government restrictions, or logistical
 issues. When ground visits are prevented or too expensive, remote-sensing
 imagery interpretation is a viable alternative for reference data collection. 
 This approach has been successfully applied in conflict contexts in 
-Ukraine [@Qadir2024a, @Skakun2019]; 
-Ethiopia (Tigray region) [@Kerner2024]; Sudan [@Olsen2021]; and Syria [@Li2022] 
+Ukraine [@Qadir2024a] [@Skakun2019]; 
+Ethiopia (Tigray region) [@Kerner2024]; Sudan [@Olsen2021]; and Syria [@Li2022z] 
 but also in large-scale institutional surveys such as the Land Use and 
 Coverage Area Frame Survey where 200,000 sample units were annotated with
 remote sensing imagery interpretation in the 2022 edition [@Ballin2022].
@@ -68,14 +68,14 @@ ground access, remote sensing offered a viable alternative for tracking
 sunflower planted area to complement official statistics in Ukraine-controlled
 regions and to compensate for the absence of data in Russian-held regions.
 
-## Data
+## Data {#sec-data}
 
-### Remote Sensing datasets
+### Remote Sensing datasets {#sec-datasets}
 
 In this study, we utilized the C-band Sentinel-1 (S1) data in 
 Interferometric Wave (IW) mode in VV and VH mode which have a temporal revisit 
 of 12 days. The dataset selected was Ground Range Detected (S1_GRD) Level 1, 
-pre-processed in Google Earth Engine (GEE) using the S1 toolbox [18]. 
+pre-processed in Google Earth Engine (GEE) using the S1 toolbox [@Gorelick2017]. 
 The σ◦ values were converted to decibels (dB) via log scaling (10*log10σ◦). 
 We also utilized Sentinel-2 (S2) harmonized surface reflectance products 
 available on GEE (COPERNICUS/S2_SR_HARMONIZED). The Level-2 S2 dataset was 
@@ -83,18 +83,16 @@ pre-processed for atmospheric correction, and the scenes with cloud cover
 of >30% were filtered out using the image property of “CLOUDY_PIXEL_PER-CENTAGE”
 to avoid any potential cloud contamination.
 
-### Cropland mask
+### Cropland mask {#sec-mask}
 
 The European Space Agency (ESA) WorldCover 10 m 2020 product available on GEE 
-("ESA/WorldCover/v100") was utilized for masking non-cropland region [19]. 
+("ESA/WorldCover/v100") was utilized for masking non-cropland region [@VanTricht2023]. 
 This land cover map provides a global land cover map for 2020 at 
 10-m resolution based on Sentinel-1 and Sentinel-2 data. The WorldCover 
 product comes with 11 land cover classes with “Cropland” class (ID = 40) 
 used for masking non-cropland areas.
 
-
-
-## Methods
+## Methods {#sec-methods}
 
 When no ground-reference data can be collected, the first step towards 
 crop mapping and crop planted area estimation is identifying biophysical or 
@@ -125,7 +123,7 @@ uncertainty estimation.
 knitr::include_graphics("./images/crop_statistics_area/image1.png")
 ```
 
-### Understanding sunflower phenology using S1 sensor
+### Understanding sunflower phenology using S1 sensor {#sec-phenology}
 
 Sunflower exhibits several distinctive morphological and physiological traits, 
 characterized by broad leaves, yellow capitula, which facilitate its 
@@ -155,7 +153,7 @@ in Sentinel-1 descending orbit data.
 #| label: fig-2-crop-area
 #| out-width: 90%
 #| fig-cap: |
-#|  (a) Directional behavior as observed in the sunflower due to the large flower head facing east permanently in comparison to the maize crop (bottom) over Ukraine, for descending and ascending pass. (b) Temporal behavior of radar median backscattering (in dB) for VH, VV and VH/VV for both ascending and descending orbit from a sunflower field.
+#|  (a) Directional behavior as observed in the sunflower due to the large flower head facing east permanently in comparison to the maize crop (bottom) over Ukraine, for descending and ascending pass. (b) Temporal behavior of radar median backscattering (in dB) for VH, VV and VH/VV for both ascending and descending orbit from a sunflower field. The Beginning of Flowering (BoF) and End of Flowering (EoF) stages are indicated by green and red lines (adopted from [@Qadir2023] and [@Qadir2024]).
 #| fig-align: center
 knitr::include_graphics("./images/crop_statistics_area/image2.png")
 ```
@@ -199,14 +197,14 @@ remote sensing imagery interpretation with the corresponding
 knitr::include_graphics("./images/crop_statistics_area/image3.png")
 ```
 
-###	Sunflower mapping
+###	Sunflower mapping {#sec-sunflower}
 
-The sunflower mapping methodology follows [@Qadir2024a, @Qadir2024] 
+The sunflower mapping methodology follows [@Qadir2024a] [@Qadir2024] 
 and is based on the crop’s
 directional behavior. In the first step, a Random Forest (RF) model is 
 calibrated using S1-derived metrics and randomly selected sunflower, 
 non-sunflower cropland, and non-cropland photo-interpreted labels as described
-in Section 3.1. Non-cropland class of water, forest/vegetation, urban, and 
+in @sec-methods. Non-cropland class of water, forest/vegetation, urban, and 
 barren land was identified by integrating high-resolution Google Earth 
 imagery over the S1 and S2 images. Calibration incorporates 42 multi-temporal
 metrics derived from S1 ascending and descending orbit data, which are 
@@ -224,7 +222,7 @@ misclassification with non-cropland areas, other land cover types are masked
 using the land cover map. Isolated pixels are filtered, and the final sunflower
 map is projected to the Albers equal area projection for subsequent analyses.
 
-### Sample-based crop area and accuracy estimation using the sunflower map as a stratifier
+### Sample-based crop area and accuracy estimation {#sec-accuracy}
 
 Sample-based sunflower area and accuracy estimation follow the guidelines 
 by [@Olofsson2014] and use unbiased estimators for area and uncertainty estimation. The 
@@ -236,7 +234,7 @@ classes are used as strata to draw samples in a simple random manner, where
 is calculated using the equation provided by [@Skakun2025] for estimating area and 
 assessing the accuracy of sunflower maps and described in the 
 ["Map validation and use of maps for area estimation"](https://fao-eostat.github.io/UN-Handbook/th_validation.html) 
-chapter of this Handbook.Stratum weights and the corresponding number of sample 
+chapter of this Handbook. Stratum weights and the corresponding number of sample 
 units are presented in @tbl-sampling, per occupation status for 2023. The sample 
 allocation deviates from a classical Neyman or proportional allocation design 
 as the objective is to estimate precisely the sunflower area and reduce 
@@ -254,39 +252,17 @@ following [@Olofsson2014].
 
 |     Occupation status                      |     Stratum                   |     Wi       |     ni     |
 |--------------------------------------------|-------------------------------|--------------|------------|
-|     Ukrainian     Government controlled    |     Sunflower                 |     0.115    |     200    |
-|                                            |     Cropland Non-Sunflower    |     0.429    |     200    |
+|                                            |     Sunflower                 |     0.115    |     200    |
+|   Ukrainian     Government controlled      |     Cropland Non-Sunflower    |     0.429    |     200    |
 |                                            |     Non-Cropland              |     0.456    |     100    |
-|     Russian controlled                     |     Sunflower                 |     0.056    |     200    |
-|                                            |     Cropland Non-Sunflower    |     0.546    |     200    |
+|                                            |     Sunflower                 |     0.056    |     200    |
+|    Russian controlled                       |     Cropland Non-Sunflower    |     0.546    |     200    |
 |                                            |     Non-Cropland              |     0.398    |     100    |
 : Sampling design per occupation status {#tbl-sampling}
 
-## Random Forest model using S1 satellite data for sunflower mapping
+## Results {#sec-results}
 
-The sunflower mapping methodology follows [@Qadir2024] and is based on the
-crop's directional behavior. In the first step, we calibrated a Random
-Forest (RF) model using S1-derived metrics and photo-interpreted labels
-(Section 2). Calibration incorporated 42 multi-temporal metrics derived
-from S1 ascending and descending orbit data, which were processed
-separately to capture sunflower's directional behavior characteristics.
-
-The RF model was configured with 300 *trees* and default parameters for
-*variables per split*, *minimum leaf population*, and *bag fraction*. A
-two-phase classification strategy was implemented [@Qadir2024]. In the first
-stage, cropland was classified into six classes: sunflower,
-non-sunflower summer crops, winter crops, water, forest/vegetation,
-urban and barren. In the second stage, all non-sunflower and
-non-cropland classes were aggregated into a single class resulting in
-binary sunflower and non-sunflower classes. To minimize
-misclassification with non-cropland areas, we masked other land cover
-types using the land cover map. Isolated pixels were filtered, and the
-final sunflower map was projected to the Albers equal area projection
-for subsequent analyses.
-
-## Results
-
-Following the methodology presented in Section 3, 
+Following the methodology presented in @sec-phenology, 
 we estimated sunflower planted areas 
 based on a remote sensing-only framework, in Ukrainian and 
 Russian-controlled territories in the 2023 season. The uncertainties are 
@@ -308,7 +284,7 @@ bias of the pixel counting estimator, which would have integrated those
 classification errors into area estimates. Note that, lower map accuracy 
 does not compromise the unbiasedness of the estimator of area, it simply 
 results in higher variance (and therefore standard error) around area 
-estimates [5, 20]. For instance, in this use case, the coefficient of 
+estimates [@Skakun2025] [@Olofsson2014]. For instance, in this use case, the coefficient of 
 variation (standard error/area) of the area estimate in Government-controlled
 territories is 4.7%, while in Russian-held regions, where map accuracy is
 lower, it is 8.1%.
@@ -342,12 +318,12 @@ for sunflower identification (refer to Section 3.1). In this approach, the
 distinctive backscattering characteristics of sunflower observed by 
 S1 facilitated the collection of higher-quality reference data for 
 labelling compared to the classification-based map generation process, 
-in accordance with the good practice recommendations of [20]. 
+in accordance with the good practice recommendations of [@Olofsson2014]. 
 This approach is crop specific and should be applied cautiously to 
 other crop types.
 
 The proposed method has certain limitations, particularly in regions where
-only the S1 ascending orbit is available. [17] showed that in regions with
+only the S1 ascending orbit is available. [@Qadir2024] showed that in regions with
 only ascending orbit data, the model achieved lower accuracy compared to 
 regions with both or only descending orbit coverage. Additionally, this 
 approach relies on satellite acquisitions available till September or later 
