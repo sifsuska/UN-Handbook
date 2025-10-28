@@ -87,5 +87,6 @@ bibliography:
     - bibliography/deafrica.bib
     - bibliography/chile.bib
     - bibliography/ad-ppi.bib
+    - bibliography/finland.bib
 
 csl: ieee.csl
