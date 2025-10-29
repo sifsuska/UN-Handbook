@@ -573,5 +573,10 @@ The technologies and methodologies developed for field boundary delineation offe
 
 This holistic approach ensures that the developed methodologies and models evolve to meet the dynamic and increasingly complex needs of agricultural statistical production and national monitoring efforts, supporting sustainable agriculture and food security.
 
+## About the authors{-}
+
+Hugo Oliveira is a Computer Science professor at Universidade Federal de Viçosa (UFV). He holds a B.Sc. and M.Sc. degree from Universidade Federal da Paraíba (UFPB), and a Ph.D. from Universidade Federal de Minas Gerais (UFMG). His research areas include Machine/Deep Learning, Computer Vision, Few-Shot Learning, Meta-Learning, Self-Supervised Learning, Foundational Models for Computer Vision, Generative Models, and Open-Set Recognition. These computational methods are applied to imaging domains such as remote sensing, medical imaging, and natural images.
+
+
 
 ## References{-}
