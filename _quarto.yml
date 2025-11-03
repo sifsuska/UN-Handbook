@@ -61,6 +61,7 @@ book:
         - uav_field_parcels.qmd
         - uav_wheat_growth.qmd
         - uav_crop_growth.qmd
+        - uav_agriculture_cook_islands.qmd
     - part: disaster_response.qmd
       chapters:
         - dis_china_floods.qmd
@@ -88,5 +89,6 @@ bibliography:
     - bibliography/chile.bib
     - bibliography/ad-ppi.bib
     - bibliography/finland.bib
+    - bibliography/cook-islands.bib
 
 csl: ieee.csl
