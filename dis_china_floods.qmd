@@ -60,13 +60,13 @@ knitr::include_graphics("./images/ad_china_floods/image1.jpeg")
 ```
 
 
-This method utilizes Sentinel-1 Synthetic Aperture Rada (SAR) data. 
+This method utilizes Sentinel-1 Synthetic Aperture Radar (SAR) data. 
 The Sentinel-1 data preprocessing follows the framework
-summarized by Mullissa et al. (2021) for SAR backscatter data
+summarized by [@Mullissa2021] for SAR backscatter data
 preprocessing in GEE, including border noise removal, speckle filtering,
 and radiometric terrain normalization. Additionally, the land use and
 land cover dataset from the Dynamic World database released by Google
-(Brown et al., 2022) were utilized. Cropland areas were extracted from
+[@Brown2022] were utilized. Cropland areas were extracted from
 this dataset to create a cropland mask (0 for non-cropland, 1 for
 cropland).
 
@@ -120,8 +120,8 @@ reduce noise and calculating several indices to further highlight
 flooding information. Specifically, using the VV and VH polarization
 bands from the Sentinel-1 data, the ratio of VV to VH bands was
 calculated to enhance the contrast between different polarization
-channels (Amitrano et al., 2024; DeVries et al., 2020); the Sentinel-1
-Dual-Polarized Water Index (SDWI) (Ta et al., 2024) was computed to
+channels [@Amitrano2024] [@DeVries2020]; the Sentinel-1
+Dual-Polarized Water Index (SDWI) [Ta2024] was computed to
 effectively distinguish water bodies from other land cover types,
 thereby enhancing crop flood detection capability. The specific
 calculation equations are as follows:
@@ -148,7 +148,7 @@ include VV, VH, Ratio, and SDWI.
 
 ### Calculation of Anomaly Scores for Feature Change Rate
 
-Using the Isolation Forest algorithm (Liu et.al., 2008) from the
+Using the Isolation Forest algorithm [@Liu2008] from the
 Scikit-learn toolkit, each pixel in the feature change rate image was
 treated as a sample, and the normalized anomaly score for each pixel was
 calculated. The normalized anomaly score is expressed numerically in the
@@ -160,13 +160,13 @@ probability of being a flooded pixel.
 The Threshold Segmentation Method (TSM) was applied to the 
 anomaly score map to classify as flooded (1)
 or non-flooded (0). A comprehensive set of 16 TSMs was employed for this
-segmentation, including Otsu\'s (Otsu et al., 1975), Intermodes (Prewitt
-& Mendelsohn, 1966), Mean, Median, Concavity (Rosenfeld & De La Torre,
-1983), Minimum, Triangle (Zack et al., 1977), Percentile (Dhal et al.,
-2020), Huang\'s (Huang & Wang, 1995), Intermeans (Ridler et al., 1978)
-and ISODATA (Ball, 1965), MaxEntropy (Kapur et al., 1985)、Li\'s (Li &
-Lee, 1993)、Kittler\'s (Kittler & Illingworth, 1986)、Tsai\'s (Tsai,
-1985) and Zhen Zhou\'s method (Wang, 2016). For each TSM, a binary
+segmentation, including Otsu\'s [@Otsu1975], Intermodes [@Prewitt1966], 
+Mean, Median, Concavity [@Rosenfeld1983], 
+Minimum, Triangle [@Zack1977], Percentile [@Dhal2020], 
+Huang\'s [@Huang1995], Intermeans [@Ridler1978],
+ISODATA [@Ball1965], MaxEntropy [@Kapur1985], Li\'s [@Li1993],
+Kittler\'s [@Kittler1986], Tsai\'s [@Tsai1985] and 
+Zhen Zhou\'s method [@Wang2018]. For each TSM, a binary
 segmentation map was generated. These binary maps were then combined to
 create a new image. In this new image, when the value of a pixel was
 greater than or equal to 15 (i.e., at least 15 algorithms classified the
@@ -174,9 +174,9 @@ pixel as flooded), the pixel was labeled as a flooded pixel. The final
 flood extent derived from the TSM-based approach was denoted as R1.
 
 The Segment Anything Model (SAM) is a 
-deep learning-based segmentation model(Ke et al., 2023). The
+deep learning-based segmentation model [@Ke2023]. The
 Isolation Forest anomaly scores were first transformed into
-three-channel pseudo-RGB data to ensure compatibility with SAM\'s input
+three-channel pseudo-RGB data to ensure compatibility with SAM's input
 requirements. Prompt points were derived from the threshold segmentation
 result (R1). The processed pseudo-RGB data along with the selected
 prompt points were then fed into the SAM model for flood area detection.
@@ -349,7 +349,7 @@ model\'s adaptability to different scenes and data sources.
 
 Third, the single-channel anomaly scores can be losslessly converted
 into three-channel pseudo-RGB data, enabling direct input into standard
-CNN architectures (e.g., SAM\'s Vision Transformer encoder). For
+CNN architectures (e.g., SAM's Vision Transformer encoder). For
 example, in this study, the single channel data of anomaly score map was
 replicated to form three channel data, a format readily processed by
 deep learning models. The approach maintains full data fidelity while
@@ -379,13 +379,13 @@ spatial coherence, manifesting as numerous scattered misclassified
 pixels. In contrast, the deep learning-based SAM model can accurately
 identify the main flood areas and maintain good spatial continuity, but
 tends to over-smooth boundary details. This limitation likely stems from
-SAM\'s foundation as a general-purpose pre-trained model not
+SAM's foundation as a general-purpose pre-trained model not
 specifically optimized for remote sensing data. Moreover, its emphasis
 on global contextual information during high-level convolutional feature
 extraction may enhance large-scale semantic understanding at the
 potential cost of local edge precision. The innovative hybrid
-architecture of TSM-SAM retains SAM\'s powerful feature extraction
-capabilities for complex scenes while inheriting TSM\'s advantages in
+architecture of TSM-SAM retains SAM's powerful feature extraction
+capabilities for complex scenes while inheriting TSM's advantages in
 edge precision and computational efficiency, ultimately achieving the
 highest and most stable detection accuracy across all test cases. By
 combining the semantic understanding of deep learning with the
@@ -417,97 +417,17 @@ and robustness. The TSM-SAM framework demonstrates high potential for
 efficient, high-accuracy crop flood mapping, supporting rapid
 agricultural disaster response.
 
+## Code availability{-}
+
+The code for this chapter publicly available on a [GitHub repository]( https://github.com/RuiG9/TSM-SAM.git).
+
+## About the authors{-}
+
+Professor Xiufang Zhu is a doctoral supervisor specializing in agricultural and disaster remote sensing. Her research addresses critical needs in agricultural disaster monitoring by focusing on remote sensing-based investigation of disaster-affected entities, real-time monitoring using multi-source data, and developing assessment models for various stages and scenarios. She has led over 10 provincial/ministerial projects, including key programs under the National Key R&D Program and the NSFC. With 190+ publications, 4 monographs, 12 patents, 6 software copyrights, and multiple awards such as the Beijing Science and Technology Progress Award, she is highly accomplished researcher and was listed in the 2024 World's Top 2% Scientists.
+
+Guo Rui earned her Ph.D. in 2025 from Beijing Normal University's Faculty of Geographical Science. Her research specializes in agricultural remote sensing and the monitoring of natural disasters. Her doctoral work leveraged multi-source remote sensing data and deep learning techniques to develop methods for crop growth monitoring, as well as for the identification and temporal tracking of natural disaster impacts. Findings from this research have been presented in journals including Computers and Electronics in Agriculture.
+
 ## References {-}
 
-Amitrano, D., Di Martino, G., Di Simone, A., & Imperatore, P. (2024).
-Flood detection with SAR: A review of techniques and datasets. Remote
-Sensing, 16(4), 656. https://doi.org/10.3390/rs16040656.
 
-Ball, G. H. (1965). ISODATA, a novel method of data analysis and pattern
-classification. Stanford Research Institute, AD-699616.
 
-Brown, C. F., Brumby, S. P., Guzder-Williams, B., Birch, T., Hyde, S. B., Mazzariello,
-J., Czerwinski, W., Pasquarella, V. J., Haertel, R., Ilyushchenko, S.,
-Schwehr, K., Weisse, M., Stolle, F., Hanson, C., Guinan, O., Moore, R.,
-& Tait, A. M. (2022). Dynamic World, Near real-time global 10 m land use
-land cover mapping. Scientific Data, 9(1), 251.
-https://doi.org/10.1038/s41597-022-01307-4
-
-DeVries, B., Huang, C.,
-Armston, J., Huang, W., Jones, J. W., & Lang, M. W. (2020). Rapid and
-robust monitoring of flood events using Sentinel-1 and Landsat data on
-the Google Earth Engine. Remote Sensing of Environment, 240, 111664.
-https://doi.org/10.1016/j.rse.2020.111664
-
-Dhal, K. G., Das, A., Ray, S.,
-Gálvez, J., & Das, S. (2020). Nature-inspired optimization algorithms
-and their application in multi-thresholding image segmentation. Archives
-of Computational Methods in Engineering, 27(3), 855--888.
-https://doi.org/10.1007/s11831-019-09334-y
-
-Huang, L. K., & Wang, M.-J. J.
-(1995). Image thresholding by minimizing the measures of fuzziness.
-Pattern Recognition, 28(1), 41--51.
-https://doi.org/10.1016/0031-3203(94)E0043-K
-
-Kapur, J. N., Sahoo, P. K.,
-& Wong, A. K. (1985). A new method for gray-level picture thresholding
-using the entropy of the histogram. Computer Vision, Graphics, And Image
-Processing, 29(3), 273--285.
-https://doi.org/10.1016/0734-189X(85)90125-2
-
-Ke, L., Ye, M., Danelljan,
-M., Liu, Y., Tai, Y.-W., Tang, C.-K., & Yu, F. (2023). Segment Anything
-in High Quality. https://arxiv.org/abs/2306.01567
-
-Kittler, J., &
-Illingworth, J. (1986). Minimum error thresholding. Pattern Recognition,
-19(1), 41--47. https://doi.org/10.1016/0031-3203(86)90030-0
-
-Li, C. H., &
-Lee, C. (1993). Minimum cross entropy thresholding. Pattern Recognition,
-26(4), 617--625. https://doi.org/10.1016/0031-3203(93)90115-D
-
-Liu, F., Ting, K., Zhou, Z., & Giannotti, F. (2008). Isolation Forest, 2008
-Eighth IEEE International Conference On Data Mining. IEEE, 413-422.
-https://doi.org/10.1109/ICDM.2008.17
-
-Mullissa, A., Vollrath, A.,
-Odongo-Braun, C., Slagter, B., Balling, J., Gou, Y., Gorelick, N., &
-Reiche, J. (2021). Sentinel-1 SAR backscatter analysis ready data
-preparation in google earth engine. Remote Sensing, 13(10).
-https://doi.org/10.3390/rs13101954O
-
-Tsu, N. & others. (1975). A threshold
-selection method from gray-level histograms. Automatica, 11(285--296),
-23--27. https://doi.org/10.1109/TSMC.1979.4310076
-
-Prewitt, J. M., &
-Mendelsohn, M. L. (1966). The analysis of cell images. Annals of the New
-York Academy of Sciences, 128(3), 1035--1053.
-https://doi.org/10.1111/j.1749-6632.1965.tb11715.x
-
-Ridler, T. W., Calvard, S., & others. (1978). Picture thresholding using an iterative
-selection method. IEEE Trans. Syst. Man Cybern, 8(8), 630--632.
-https://doi.org/10.1109/TSMC.1978.4310039
-
-Rosenfeld, A., & De La Torre,
-P. (1983). Histogram concavity analysis as an aid in threshold
-selection. IEEE Transactions on Systems, Man, and Cybernetics,
-SMC-13(2), 231--235. https://doi.org/10.1109/TSMC.1983.6313118
-
-Ta, L., Yu, C., Li, Z., Hu, X., Song, C., Huang, W., & Zhou, M. (2024). Dynamic
-flood mapping by a normalized probabilistic classification method using
-satellite radar amplitude time series. Giscience & Remote Sensing,
-61(1), 2380125. https://doi.org/10.1080/15481603.2024.2380125
-
-Tsai, W. H. (1985). Moment-preserving thresolding: A new approach. Computer Vision,
-Graphics, And Image Processing, 29(3), 377--393.
-https://doi.org/10.1016/0734-189X(85)90133-1
-
-Wang, Z. (2016). Zhenzhou threshold selection.
-https://www.mathworks.com/matlabcentral/fileexchange/56371-zhenzhou-threshold-selection
-
-Zack, G. W., Rogers, W. E., & Latt, S. A. (1977). Automatic measurement of
-sister chromatid exchange frequency. Journal of Histochemistry &
-Cytochemistry, 25(7), 741--753. https://doi.org/10.1177/25.7.70454
