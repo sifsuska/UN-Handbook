@@ -91,5 +91,6 @@ bibliography:
     - bibliography/finland.bib
     - bibliography/cook-islands.bib
     - bibliography/zimbabwe.bib
+    - bibliography/world-cereal.bib
 
 csl: ieee.csl
