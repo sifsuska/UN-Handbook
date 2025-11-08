@@ -554,7 +554,7 @@ Table&nbsp;27.1: Cropping intensity strata characterization
 </figure>
 </div>
 </div>
-<p>SSUs were defined as squares of 10 x 10 meters cell size, which corresponds to the size of one single Sentinel-2 pixel. 25 PSUs were randomly selected from each stratum and in the second stage of sample allocation, 15 SSUs were randomly sampled in each PSU to estimate the proportion of crops. <a href="uav_agriculture_cook_islands.html#fig-1" class="quarto-xref">Figure&nbsp;<span>33.1</span></a> shows the distribution of PSUs across the country and the 5 strata.</p>
+<p>SSUs were defined as squares of 10 x 10 meters cell size, which corresponds to the size of one single Sentinel-2 pixel. 25 PSUs were randomly selected from each stratum and in the second stage of sample allocation, 15 SSUs were randomly sampled in each PSU to estimate the proportion of crops. <a href="ad_world_cereal.html#fig-1" class="quarto-xref">Figure&nbsp;<span>35.1</span></a> shows the distribution of PSUs across the country and the 5 strata.</p>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <div id="fig-1" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
@@ -568,7 +568,7 @@ Figure&nbsp;27.1: Distribution of PSU (black dots) across the country and strata
 </div>
 </div>
 </section><section id="statistical-survey-data" class="level3 unnumbered"><h3 class="unnumbered anchored" data-anchor-id="statistical-survey-data">Statistical survey data</h3>
-<p>The statistical survey was implemented during a 2 week-period in February-March 2024. It was conducted by 4 teams (each team being made of one driver and 2 enumerators). The navigation between the PSUs was facilitated by the Path Finder WebGis application and the Survey 123 application was used to collect georeferenced information for each SSU. The repartition of the classes in the collected dataset is shown in <a href="uav_agriculture_cook_islands.html#fig-2" class="quarto-xref">Figure&nbsp;<span>33.2</span></a>.</p>
+<p>The statistical survey was implemented during a 2 week-period in February-March 2024. It was conducted by 4 teams (each team being made of one driver and 2 enumerators). The navigation between the PSUs was facilitated by the Path Finder WebGis application and the Survey 123 application was used to collect georeferenced information for each SSU. The repartition of the classes in the collected dataset is shown in <a href="ad_world_cereal.html#fig-2" class="quarto-xref">Figure&nbsp;<span>35.2</span></a>.</p>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <div id="fig-2" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
@@ -581,7 +581,7 @@ Figure&nbsp;27.2: Land cover classes distribution observed in the statistical da
 </div>
 </div>
 </div>
-<p>A data cleaning step (similar to the one explained in Chapter <a href="https://fao-eostat.github.io/UN-Handbook/ct_zimbabwe.html">Crop Classification in Zimbabwe</a>) resulted in the removal of a significant number of SSUs that did not match the expected collection requirements. The number of SSUs available within PSUs after this quality control step is displayed in <a href="uav_agriculture_cook_islands.html#fig-3" class="quarto-xref">Figure&nbsp;<span>33.3</span></a>. This cleaning step, although necessary, resulted in the number of valid SSUs falling below 15 (out of 25) in half of the PSUs. This will have a significant impact on the error associated with the estimation of the crop proportion within PSUs and therefore on the acreage statistics computation, as shown later.</p>
+<p>A data cleaning step (similar to the one explained in Chapter <a href="https://fao-eostat.github.io/UN-Handbook/ct_zimbabwe.html">Crop Classification in Zimbabwe</a>) resulted in the removal of a significant number of SSUs that did not match the expected collection requirements. The number of SSUs available within PSUs after this quality control step is displayed in <a href="ad_world_cereal.html#fig-3" class="quarto-xref">Figure&nbsp;<span>35.3</span></a>. This cleaning step, although necessary, resulted in the number of valid SSUs falling below 15 (out of 25) in half of the PSUs. This will have a significant impact on the error associated with the estimation of the crop proportion within PSUs and therefore on the acreage statistics computation, as shown later.</p>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <div id="fig-3" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
@@ -615,7 +615,7 @@ Figure&nbsp;27.3: Frequency distribution of the number of valid SSUs within PSUs
 S_{\hat{y}}^2 = \frac{N -n}{N} \left( \frac{s_y^2(1 - r^2)}{n} + \frac{s_y^2(1 - r^2)(\bar{x} - \mu_x)^2}{(n-1)s_x^2} \right)   
 \]</span></p>
 <p>With <span class="math inline">\(N\)</span> the population size, <span class="math inline">\(n\)</span> the sample size, <span class="math inline">\(s_{y}^{2}\)</span> the variance of proportions in the sample in the statistical survey, <span class="math inline">\(s_{x}^{2}\)</span> the variance in the sample in the map <span class="citation" data-cites="Gallego1993"><a href="#ref-Gallego1993" role="doc-biblioref">[2]</a></span>.</p>
-<p>Acreage estimates for maize and their 95% confidence intervals for methods without and with EO data integrated are shown in <a href="#fig-4" class="quarto-xref">Figure&nbsp;<span>27.4</span></a>.</p>
+<p>Acreage estimates for maize and their 95% confidence intervals for methods without and with EO data integrated are shown in <a href="ad_world_cereal.html#fig-4" class="quarto-xref">Figure&nbsp;<span>35.4</span></a>.</p>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <div id="fig-4" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
@@ -629,7 +629,7 @@ Figure&nbsp;27.4: National scale area estimates for maize during the 2024 summer
 </div>
 </div>
 <p>The integration of EO as auxiliary variable through the regression estimator results in a slight decrease of the confidence interval around the estimated acreage compared to the survey inference. The decrease in magnitude is however lower than expected and this can be attributed to two main factors. First, estimating an area proportion within sampling units based on 15-25 points is a source of uncertainty. This option of point sampling within PSU was selected as the least time-consuming and costly approach. However, it has clear limitations compared to a “pure” area sampling frame which would rely on an exhaustive labelling of parcels within PSUs.</p>
-<p>Second, almost half of the PSUs had less than 15 labelled SSUs and were therefore discarded (<a href="uav_agriculture_cook_islands.html#fig-3" class="quarto-xref">Figure&nbsp;<span>33.3</span></a>). The proportion estimation was therefore based on only 58 PSUs, instead of the 125 initially foreseen in the sampling design. Since the variance of the regression estimator depends on the sample size, this removal of half the PSUs from the dataset limited the potential precision increase that could have been achieved using remote sensing.</p>
+<p>Second, almost half of the PSUs had less than 15 labelled SSUs and were therefore discarded (<a href="ad_world_cereal.html#fig-3" class="quarto-xref">Figure&nbsp;<span>35.3</span></a>). The proportion estimation was therefore based on only 58 PSUs, instead of the 125 initially foreseen in the sampling design. Since the variance of the regression estimator depends on the sample size, this removal of half the PSUs from the dataset limited the potential precision increase that could have been achieved using remote sensing.</p>
 </section><section id="lessons-learned" class="level2" data-number="27.4"><h2 data-number="27.4" class="anchored" data-anchor-id="lessons-learned">
 <span class="header-section-number">27.4</span> Lessons learned</h2>
 <p>This use case demonstrates how EO maps can be combined with a statistical survey to improve the acreage estimation. This was done for maize, which is the dominant summer crop in Zimbabwe. The obtained acreage figure is aligned with the estimation provided by AGRITEX, which is the Department of Agricultural, Technical and Extension Services, responsible for providing technical support and advice to farmers. Although unofficial, the AGRITEX estimation is one of the most reliable estimates available in the country.</p>
