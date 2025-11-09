@@ -23,23 +23,6 @@ These architectural decisions are implemented through **five custom software com
 
 ---
 
-### Table of Contents
-
-1. [Current State & Design Goals](#current-state--design-goals)
-2. [Design Requirements & Principles](#design-requirements--principles)
-3. [Architecture Overview](#architecture-overview)
-   - [Build-Time Flow: Automated CI/CD Pipeline](#build-time-flow-automated-cicd-pipeline)
-   - [Run-Time Flow: One-Click Reproducible Sessions](#run-time-flow-one-click-reproducible-sessions)
-   - [Cloud Data Access Pattern](#cloud-data-access-pattern)
-4. [Cloud Data Access Strategy](#cloud-data-access-strategy)
-5. [Onyxia Integration Strategy: The "Reproduce" Button](#onyxia-integration-strategy-the-reproduce-button)
-6. [Technical Implementation](#technical-implementation)
-7. [Systems Design](#systems-design)
-8. [Detailed Implementation](#detailed-implementation)
-9. [Implementation Roadmap](#implementation-roadmap)
-
----
-
 ### Current State & Design Goals
 
 #### Current State
@@ -326,14 +309,64 @@ When a handbook reader clicks the "Reproduce this analysis" button, the system o
 
 **Existing Platform Components**: The system relies on standard Kubernetes features (CSI Image Driver for volume mounting, IRSA for AWS credential injection) and Onyxia for user authentication and service orchestration.
 
-#### Cloud Data Access Pattern
+#### The Five Core Components
 
-The ability to access AWS cloud resources (like S3 buckets with STAC satellite imagery) is **not a separate component** but rather an **architectural capability** that emerges from the interaction of two existing components:
+This system is built from five custom software components that work together to enable reproducible analysis:
 
-- **Helm Chart (#4) requests access**: The chart creates a `ServiceAccount` and annotates it with an AWS IAM role ARN (using Kubernetes Workload Identity / IRSA). This is the "key" that unlocks cloud access.
-- **Docker Image (#2) uses access**: The compute image contains AWS SDKs (for R/Python) that automatically discover and use the credentials provided by IRSA.
+**Build-Time Components** (automated CI/CD):
 
-This design is **portable** (works on any Kubernetes cluster with OIDC federation) and **decoupled** (does not depend on Onyxia-specific injectors). See [Cloud Data Access Strategy](#cloud-data-access-strategy) for the complete dual-data architecture (local packaged data + cloud data sources) and detailed credential flow.
+- **Component #1: Portable CI Pipeline (Dagger)** - Orchestrates all build-time tasks: building compute images, packaging data artifacts, and generating metadata. Runs identically on developer laptops, GitHub Actions, or GitLab CI. (See [Section 5.1](#the-portable-ci-pipeline-dagger))
+
+- **Component #2: Curated Compute Images** - Pre-built Docker images containing R/Python environments, system libraries (GDAL, PROJ, GEOS), and all package dependencies from `renv.lock`. Available in `base` and `gpu` flavors. (See [Section 5.2](#curated-compute-images-docker))
+
+- **Component #3: OCI Data Artifacts** - Content-hashed, immutable data snapshots packaged as OCI images. Mounted directly as read-only volumes using the CSI Image Driver, enabling fast startup (5-15s) via node-level caching. (See [Section 5.3](#oci-data-artifacts-csi-driver))
+
+**Run-Time Components** (user-facing):
+
+- **Component #4: "Reproduce" Button (Quarto Extension)** - A Lua-based Quarto extension that reads chapter metadata and generates an Onyxia deep-link URL. The user's entrypoint to launching a reproducible session. (See [Section 6.1](#the-reproduce-button-quarto-extension))
+
+- **Component #5: "Chapter Session" (Helm Chart)** - An Onyxia-compatible Helm chart that deploys the Kubernetes session. Translates semantic tier names (`heavy`, `gpu`) into actual resource allocations, mounts data artifacts, and configures cloud credentials via IRSA. (See [Section 6.4](#the-chapter-session-helm-chart))
+
+**Cross-Cutting Capabilities**:
+
+- **Onyxia Deep Link Integration** - Bridges the button click to session deployment via pre-filled URL parameters. (See [Section 6.2](#onyxia-integration-the-deep-link))
+
+- **Cloud Data Access (IRSA)** - Provides automatic AWS credentials for accessing S3-hosted satellite imagery via Kubernetes Workload Identity. (See [Section 6.3](#cloud-data-access-irsa--xonyxiacontext))
+
+#### Decoupled Configuration Architecture
+
+This system uses a **decoupled configuration architecture** where the Quarto site (frontend) is unaware of infrastructure details.
+
+**Frontend (Quarto Site)**:
+- **Knows**: Semantic names (`tier: "heavy"`, `imageFlavor: "gpu"`)
+- **Doesn't know**: CPU counts, memory sizes, image repositories, version tags
+- **Generates**: Deep-link URLs with semantic parameters
+
+**Backend (Helm Chart)**:
+- **Knows**: Resource tier mappings, image repositories, version tags
+- **Translates**: Semantic names → Kubernetes resource specifications
+- **Maintains**: Single Source of Truth for infrastructure config in `templates/deployment.yaml`
+
+**Benefits**:
+
+1. **Decoupling**: Infrastructure changes don't require re-rendering the Quarto book
+2. **SSOT**: Resource tiers and image mappings defined once in Helm chart templates
+3. **Versioning**: Helm chart version controls infrastructure config changes
+4. **Testing**: Infrastructure team can update staging Helm chart independently
+5. **Maintainability**: Change tier from 10 CPU → 12 CPU in one place (Helm chart)
+6. **No Drift**: Frontend can never reference outdated resource values
+
+**Example Workflow**:
+
+When infrastructure needs to change the `heavy` tier from 10 CPU to 12 CPU:
+
+1. Infrastructure team updates `templates/deployment.yaml`:
+   ```yaml
+   "heavy" (dict "cpu" "12000m" "memory" "48Gi" "storage" "50Gi")
+   ```
+2. Deploy new Helm chart version (`v1.1.0`)
+3. No changes needed to Quarto site
+4. Next user clicks "Reproduce" button → gets 12 CPU automatically
 
 ---
 
@@ -1060,41 +1093,6 @@ Infrastructure team updates the Helm chart template's `$imageFlavors` dictionary
 -  No `root` access in user containers
 -  Immutable, auditable images
 -  Versioned (can roll back if needed)
-
-#### Configuration Architecture: Decoupled Design
-
-This system uses a **decoupled configuration architecture** where the Quarto site (frontend) is unaware of infrastructure details.
-
-**Frontend (Quarto Site)**:
-- **Knows**: Semantic names (`tier: "heavy"`, `imageFlavor: "gpu"`)
-- **Doesn't know**: CPU counts, memory sizes, image repositories, version tags
-- **Generates**: Deep-link URLs with semantic parameters
-
-**Backend (Helm Chart)**:
-- **Knows**: Resource tier mappings, image repositories, version tags
-- **Translates**: Semantic names → Kubernetes resource specifications
-- **Maintains**: Single Source of Truth for infrastructure config in `templates/deployment.yaml`
-
-**Benefits**:
-
-1. **Decoupling**: Infrastructure changes don't require re-rendering the Quarto book
-2. **SSOT**: Resource tiers and image mappings defined once in Helm chart templates
-3. **Versioning**: Helm chart version controls infrastructure config changes
-4. **Testing**: Infrastructure team can update staging Helm chart independently
-5. **Maintainability**: Change tier from 10 CPU → 12 CPU in one place (Helm chart)
-6. **No Drift**: Frontend can never reference outdated resource values
-
-**Example Workflow**:
-
-When infrastructure needs to change the `heavy` tier from 10 CPU to 12 CPU:
-
-1. Infrastructure team updates `templates/deployment.yaml`:
-   ```yaml
-   "heavy" (dict "cpu" "12000m" "memory" "48Gi" "storage" "50Gi")
-   ```
-2. Deploy new Helm chart version (`v1.1.0`)
-3. No changes needed to Quarto site
-4. Next user clicks "Reproduce" button → gets 12 CPU automatically
 
 #### Stateless Data Layer: CSI Image Driver
 

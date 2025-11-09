@@ -36,11 +36,11 @@ When a chapter author pushes changes to the repository, an automated CI/CD pipel
 
 **Key Components in Build-Time Flow**:
 
-1. **Portable CI Pipeline - Data Packaging (#3)**: A Dagger SDK function that automatically detects changes to chapter `data/` directories, builds content-hashed OCI data artifacts, pushes them to the container registry (GHCR), and auto-commits the new hash back to the `.qmd` file's YAML frontmatter. Triggered by simple one-line wrappers in GitHub Actions, GitLab CI, or run locally. (See Section 5.1 for implementation)
+1. **Portable CI Pipeline - Data Packaging (#3)**: A Dagger SDK function that automatically detects changes to chapter `data/` directories, builds content-hashed OCI data artifacts, pushes them to the container registry (GHCR), and auto-commits the new hash back to the `.qmd` file's YAML frontmatter. Triggered by simple one-line wrappers in GitHub Actions, GitLab CI, or run locally. (See [Portable CI/CD Pipeline](#component-1-portable-cicd-pipeline-dagger-sdk) for implementation)
 
-2. **Portable CI Pipeline - Image Build (#2)**: A Dagger SDK function that builds pre-built, immutable container images containing specific R/Python versions, all `renv`/`pip` packages, and system libraries (GDAL, PROJ). These images are rebuilt via Dagger when `renv.lock` or Dockerfiles change. (See Section 5.2 for image variants)
+2. **Portable CI Pipeline - Image Build (#2)**: A Dagger SDK function that builds pre-built, immutable container images containing specific R/Python versions, all `renv`/`pip` packages, and system libraries (GDAL, PROJ). These images are rebuilt via Dagger when `renv.lock` or Dockerfiles change. (See [Curated Compute Images](#component-2-curated-compute-images) for image variants)
 
-3. **Portable CI Pipeline - Metadata Generation (#5)**: A Dagger SDK function that scans all `.qmd` files and aggregates their `reproducible:` metadata into a centralized `chapters.json` manifest, which can be used for cluster optimizations like image pre-warming. (See Section 5.1 for implementation)
+3. **Portable CI Pipeline - Metadata Generation (#5)**: A Dagger SDK function that scans all `.qmd` files and aggregates their `reproducible:` metadata into a centralized `chapters.json` manifest, which can be used for cluster optimizations like image pre-warming. (See [Portable CI/CD Pipeline](#component-1-portable-cicd-pipeline-dagger-sdk) for implementation)
 
 #### Run-Time Flow: One-Click Reproducible Sessions
 
@@ -103,9 +103,9 @@ When a handbook reader clicks the "Reproduce this analysis" button, the system o
 
 **Key Components in Run-Time Flow**:
 
-1. **"Reproduce" Button Quarto Extension (#1)**: A Lua-based Quarto extension that reads `reproducible:` metadata from chapter YAML frontmatter and dynamically generates an Onyxia deep link URL, pre-filling all launch parameters (resource tier, image tag, data snapshot hash). (See Section 6.1)
+1. **"Reproduce" Button Quarto Extension (#1)**: A Lua-based Quarto extension that reads `reproducible:` metadata from chapter YAML frontmatter and dynamically generates an Onyxia deep link URL, pre-filling all launch parameters (resource tier, image tag, data snapshot hash). (See ["Reproduce" Button](#component-4-reproduce-button-quarto-extension))
 
-4. **"Chapter Session" Helm Chart (#4)**: An Onyxia-compatible Helm chart that defines the reproducible session in Kubernetes. It creates a `ServiceAccount` with IRSA annotations (for AWS cloud access), defines the `Deployment` (specifying which Compute Image to run), and configures a volume mount using the CSI Image Driver to attach the OCI data artifact as a read-only filesystem. (See Section 6.4 for chart structure)
+4. **"Chapter Session" Helm Chart (#4)**: An Onyxia-compatible Helm chart that defines the reproducible session in Kubernetes. It creates a `ServiceAccount` with IRSA annotations (for AWS cloud access), defines the `Deployment` (specifying which Compute Image to run), and configures a volume mount using the CSI Image Driver to attach the OCI data artifact as a read-only filesystem. (See ["Chapter Session" Helm Chart](#component-5-chapter-session-helm-chart) for chart structure)
 
 **Existing Platform Components**: The system relies on standard Kubernetes features (CSI Image Driver for volume mounting, IRSA for AWS credential injection) and Onyxia for user authentication and service orchestration.
 
@@ -115,23 +115,23 @@ This system is built from five custom software components that work together to 
 
 **Build-Time Components** (automated CI/CD):
 
-- **Component #1: Portable CI Pipeline (Dagger)** - Orchestrates all build-time tasks: building compute images, packaging data artifacts, and generating metadata. Runs identically on developer laptops, GitHub Actions, or GitLab CI. (See [Section 5.1](#the-portable-ci-pipeline-dagger))
+- **Component #1: Portable CI Pipeline (Dagger)** - Orchestrates all build-time tasks: building compute images, packaging data artifacts, and generating metadata. Runs identically on developer laptops, GitHub Actions, or GitLab CI. (See [Portable CI/CD Pipeline](#component-1-portable-cicd-pipeline-dagger-sdk))
 
-- **Component #2: Curated Compute Images** - Pre-built Docker images containing R/Python environments, system libraries (GDAL, PROJ, GEOS), and all package dependencies from `renv.lock`. Available in `base` and `gpu` flavors. (See [Section 5.2](#curated-compute-images-docker))
+- **Component #2: Curated Compute Images** - Pre-built Docker images containing R/Python environments, system libraries (GDAL, PROJ, GEOS), and all package dependencies from `renv.lock`. Available in `base` and `gpu` flavors (GPU support subject to funding). (See [Curated Compute Images](#component-2-curated-compute-images))
 
-- **Component #3: OCI Data Artifacts** - Content-hashed, immutable data snapshots packaged as OCI images. Mounted directly as read-only volumes using the CSI Image Driver, enabling fast startup (5-15s) via node-level caching. (See [Section 5.3](#oci-data-artifacts-csi-driver))
+- **Component #3: OCI Data Artifacts** - Content-hashed, immutable data snapshots packaged as OCI images. Mounted directly as read-only volumes using the CSI Image Driver, enabling fast startup (5-15s) via node-level caching. (See [OCI Data Artifacts](#component-3-oci-data-artifacts))
 
 **Run-Time Components** (user-facing):
 
-- **Component #4: "Reproduce" Button (Quarto Extension)** - A Lua-based Quarto extension that reads chapter metadata and generates an Onyxia deep-link URL. The user's entrypoint to launching a reproducible session. (See [Section 6.1](#the-reproduce-button-quarto-extension))
+- **Component #4: "Reproduce" Button (Quarto Extension)** - A Lua-based Quarto extension that reads chapter metadata and generates an Onyxia deep-link URL. The user's entrypoint to launching a reproducible session. (See ["Reproduce" Button](#component-4-reproduce-button-quarto-extension))
 
-- **Component #5: "Chapter Session" (Helm Chart)** - An Onyxia-compatible Helm chart that deploys the Kubernetes session. Translates semantic tier names (`heavy`, `gpu`) into actual resource allocations, mounts data artifacts, and configures cloud credentials via IRSA. (See [Section 6.4](#the-chapter-session-helm-chart))
+- **Component #5: "Chapter Session" (Helm Chart)** - An Onyxia-compatible Helm chart that deploys the Kubernetes session. Translates semantic tier names (`heavy`, `gpu`) into actual resource allocations, mounts data artifacts, and configures cloud credentials via IRSA. (See ["Chapter Session" Helm Chart](#component-5-chapter-session-helm-chart))
 
 **Cross-Cutting Capabilities**:
 
-- **Onyxia Deep Link Integration** - Bridges the button click to session deployment via pre-filled URL parameters. (See [Section 6.2](#onyxia-integration-the-deep-link))
+- **Onyxia Deep Link Integration** - Bridges the button click to session deployment via pre-filled URL parameters. (See [Onyxia Deep-Link Mechanism](#onyxia-deep-link-mechanism))
 
-- **Cloud Data Access (IRSA)** - Provides automatic AWS credentials for accessing S3-hosted satellite imagery via Kubernetes Workload Identity. (See [Section 6.3](#cloud-data-access-irsa--xonyxiacontext))
+- **Cloud Data Access (IRSA)** - Provides automatic AWS credentials for accessing S3-hosted satellite imagery via Kubernetes Workload Identity. (See [Cloud Data Access](#using-cloud-credentials-in-analysis-code))
 
 #### Decoupled Configuration Architecture
 

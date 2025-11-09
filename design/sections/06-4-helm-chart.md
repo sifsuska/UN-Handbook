@@ -25,7 +25,7 @@ handbook-catalog/
 
 Resource tiers are defined in the Helm chart templates, not in the Quarto site or author frontmatter. This ensures infrastructure changes don't require updates to the static handbook site.
 
-**Available Tiers**:
+**Available Tiers** (GPU tier subject to funding; see [GPU Support Availability](#gpu-support-availability)):
 
 - **`light`**: 2 CPU, 8GB RAM, 10GB storage - Theory chapters, small demonstrations
 - **`medium`**: 6 CPU, 24GB RAM, 20GB storage - Crop type mapping, Random Forest training, most case studies

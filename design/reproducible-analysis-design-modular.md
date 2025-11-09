@@ -1,24 +1,16 @@
 ## Reproducible Analysis System for UN Handbook - Design Document
 
-### Executive Summary
-
 {{< include design/sections/01-executive-summary.md >}}
 
 ---
-
-### Current State & Design Goals
 
 {{< include design/sections/02-current-state.md >}}
 
 ---
 
-### Architecture Overview
-
 {{< include design/sections/04-architecture-overview.md >}}
 
 ---
-
-### Component Deep-Dive: Build-Time (CI/CD)
 
 {{< include design/sections/05-00-component-build-time.md >}}
 
@@ -31,8 +23,6 @@
 {{< include design/sections/05-4-repository-structure.md >}}
 
 ---
-
-### Component Deep-Dive: Run-Time (User Session)
 
 {{< include design/sections/06-00-component-run-time.md >}}
 
@@ -52,12 +42,8 @@
 
 ---
 
-### Implementation Roadmap
-
 {{< include design/sections/07-implementation-roadmap.md >}}
 
 ---
-
-### Performance & Alternatives
 
 {{< include design/sections/08-performance-alternatives.md >}}

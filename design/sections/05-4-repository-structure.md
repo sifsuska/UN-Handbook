@@ -65,15 +65,15 @@ UN-Handbook/
 
 **Build-Time Components**:
 
-- `ci/pipeline.py` - Portable Dagger pipeline (Section 5.1)
-- `.docker/` - Compute image Dockerfiles (Section 5.2)
+- `ci/pipeline.py` - Portable Dagger pipeline (see [Portable CI/CD Pipeline](#component-1-portable-cicd-pipeline-dagger-sdk))
+- `.docker/` - Compute image Dockerfiles (see [Curated Compute Images](#component-2-curated-compute-images))
 - `.github/workflows/` - Platform-specific CI wrappers
 - `scripts/` - Metadata generation scripts
 
 **Run-Time Components**:
 
-- `_extensions/reproducible-button/` - Quarto extension for "Reproduce" buttons (Section 6.1)
-- `handbook-catalog/` - Onyxia Helm chart (Section 6.4)
+- `_extensions/reproducible-button/` - Quarto extension for "Reproduce" buttons (see ["Reproduce" Button](#component-4-reproduce-button-quarto-extension))
+- `handbook-catalog/` - Onyxia Helm chart (see ["Chapter Session" Helm Chart](#component-5-chapter-session-helm-chart))
 
 **Content**:
 

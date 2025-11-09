@@ -168,7 +168,7 @@ end
 
 #### Key Design Decisions
 
-**Semantic Configuration**: The extension only passes semantic names (`tier: "heavy"`, `imageFlavor: "gpu"`) to the Helm chart. The actual resource allocations and image repositories are defined server-side in the Helm chart templates (Section 6.4).
+**Semantic Configuration**: The extension only passes semantic names (`tier: "heavy"`, `imageFlavor: "gpu"`) to the Helm chart. The actual resource allocations and image repositories are defined server-side in the Helm chart templates (see ["Chapter Session" Helm Chart](#component-5-chapter-session-helm-chart)).
 
 **No Hard-Coded Infrastructure**: The Lua script contains no CPU values, memory amounts, or image tags. This ensures infrastructure changes don't require re-rendering the static handbook site.
 

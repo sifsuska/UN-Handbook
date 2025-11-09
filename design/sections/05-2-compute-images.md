@@ -160,7 +160,7 @@ dagger run python ./ci/pipeline.py build-image \
   --tag ghcr.io/fao-eostat/handbook-base-gpu:v1.0
 ```
 
-See Section 5.1 for complete Dagger implementation details.
+See [Portable CI/CD Pipeline](#component-1-portable-cicd-pipeline-dagger-sdk) for complete Dagger implementation details.
 
 #### Version Management
 

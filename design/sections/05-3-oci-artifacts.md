@@ -46,7 +46,7 @@ FROM scratch
 COPY data/ct_chile /data/ct_chile
 ```
 
-The Dagger pipeline (Section 5.1) automatically:
+The Dagger pipeline (see [Portable CI/CD Pipeline](#component-1-portable-cicd-pipeline-dagger-sdk)) automatically:
 
 1. Detects changed data directories via `git diff`
 2. Builds minimal `scratch` containers with chapter data
@@ -83,11 +83,11 @@ volumeMounts:
   readOnly: true
 ```
 
-The `chapter.ociImage` value is passed via the Onyxia deep-link (Section 6.2) and sourced from the chapter's YAML frontmatter:
+The `chapter.ociImage` value is passed via the Onyxia deep-link (see [Onyxia Deep-Link Mechanism](#onyxia-deep-link-mechanism)) and sourced from the chapter's YAML frontmatter:
 
 ```yaml
 reproducible:
   data-snapshot: "sha256-abcdef123"
 ```
 
-The Quarto extension (Section 6.1) automatically constructs the full OCI reference from this hash.
+The Quarto extension (see ["Reproduce" Button](#component-4-reproduce-button-quarto-extension)) automatically constructs the full OCI reference from this hash.

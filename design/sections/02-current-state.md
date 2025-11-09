@@ -49,6 +49,11 @@ The UN Handbook is a Quarto book with 48 chapters. **Only 2 chapters (4%) curren
 - **Resource allocation**: 10 CPU, 48GB RAM, 50GB storage (defined in Helm chart)
 - **Typical runtime**: 1-2 hours
 
+::: {.callout-important}
+### GPU Support Availability
+GPU-enabled sessions are subject to funding availability and cluster configuration. While the infrastructure design includes GPU support for deep learning workloads, actual GPU resource allocation on the UN Global Platform depends on budget and infrastructure capacity. GPU support is not part of the initial deployment.
+:::
+
 **GPU (Deep Learning)**:
 
 - Example: Colombia chapter (crop yield estimation)

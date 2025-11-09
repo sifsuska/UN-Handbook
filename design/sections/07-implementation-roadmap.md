@@ -1,7 +1,7 @@
 ## Implementation Roadmap
 
 #### Phase 1: Foundation
--  Build base/GPU Docker images with curated system dependencies
+-  Build base Docker images with curated system dependencies (GPU images contingent on funding)
 -  Configure EKS cluster for OIDC provider (IRSA)
 -  Create IAM role with S3 read permissions
 -  **Spike**: Validate CSI Image Driver installation and functionality
