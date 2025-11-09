@@ -19,6 +19,8 @@ This document outlines the design for a "reproducible analysis" feature that all
 -  Portable & Decoupled Auth: Use standard Kubernetes Workload Identity (IRSA) as the primary mechanism for AWS credentials. This makes the core Helm chart portable and not dependent on Onyxia-specific injectors.
 -  Curated & Isolated Environments: Start with a "base" Docker image, but the CI pipeline is designed to build chapter-specific compute images (from renv.lock) to prevent future dependency conflicts.
 
+These architectural decisions are implemented through **five custom software components** that operate in two distinct phases: a **Build-Time Flow** (automated CI/CD for authors) and a **Run-Time Flow** (one-click session launching for readers). See the [Architecture Overview](#architecture-overview) section for a detailed breakdown of how these components interact with existing platforms (Kubernetes, Onyxia, AWS) to enable reproducible analysis.
+
 ---
 
 ### Table of Contents
@@ -26,13 +28,15 @@ This document outlines the design for a "reproducible analysis" feature that all
 1. [Current State & Design Goals](#current-state--design-goals)
 2. [Design Requirements & Principles](#design-requirements--principles)
 3. [Architecture Overview](#architecture-overview)
-4. [High-Level User Workflow](#high-level-user-workflow)
-5. [Key Architectural Components](#key-architectural-components)
-6. [Data Packaging & Storage (CI-Driven)](#data-packaging--storage-ci-driven)
-7. [Zero-Config Cloud Access (AWS OIDC)](#zero-config-cloud-access-aws-oidc)
-8. [Technical Implementation](#technical-implementation)
+   - [Build-Time Flow: Automated CI/CD Pipeline](#build-time-flow-automated-cicd-pipeline)
+   - [Run-Time Flow: One-Click Reproducible Sessions](#run-time-flow-one-click-reproducible-sessions)
+   - [Cloud Data Access Pattern](#cloud-data-access-pattern)
+4. [Cloud Data Access Strategy](#cloud-data-access-strategy)
+5. [Onyxia Integration Strategy: The "Reproduce" Button](#onyxia-integration-strategy-the-reproduce-button)
+6. [Technical Implementation](#technical-implementation)
+7. [Systems Design](#systems-design)
+8. [Detailed Implementation](#detailed-implementation)
 9. [Implementation Roadmap](#implementation-roadmap)
-10. [Success Metrics](#success-metrics)
 
 ---
 
@@ -213,7 +217,122 @@ The UN Handbook is a Quarto book with 48 chapters. **Only 2 chapters (4%) curren
 
 ### Architecture Overview
 
-(See sections 2.3, 2.4, and 3.4 below for detailed technical implementation)
+This reproducible analysis system consists of **five custom software components** that integrate with existing platforms (Kubernetes, Onyxia, AWS, and container registries) to enable one-click reproducible chapter sessions. The architecture operates in two distinct phases: a **Build-Time Flow** (automated CI/CD for chapter authors) and a **Run-Time Flow** (one-click session launching for readers).
+
+#### Build-Time Flow: Automated CI/CD Pipeline
+
+When a chapter author pushes changes to the repository, an automated CI/CD pipeline ensures that all data and compute dependencies are versioned, built, and deployed as immutable OCI artifacts.
+
+```
+                    [Chapter Author]
+                          |
+                          v
+                    [git push]
+                     /        \
+                    /          \
+         (data/ct_chile/)   (renv.lock / Dockerfile)
+                  |                    |
+                  v                    v
+          [Data Packaging CI]    [Image Build CI]
+               (#3)                   (#2)
+                  |                    |
+                  v                    v
+          [OCI Data Artifact]    [Curated Compute Image]
+           (tag: sha256-abc...)   (tag: base:v1.1)
+                  |                    |
+                  +------[GHCR]--------+
+                  |
+                  v
+          [Auto-commit hash back]
+                  |
+                  v
+           (ct_chile.qmd:
+            data-snapshot: sha256-abc...)
+```
+
+**Key Components in Build-Time Flow**:
+
+1. **Data Packaging CI Pipeline (#3)**: Automatically detects changes to chapter `data/` directories, builds content-hashed OCI data artifacts, pushes them to the container registry (GHCR), and auto-commits the new hash back to the `.qmd` file's YAML frontmatter. (See [Technical Implementation](#technical-implementation) for details)
+
+2. **Curated Compute Docker Images (#2)**: Pre-built, immutable container images containing specific R/Python versions, all `renv`/`pip` packages, and system libraries (GDAL, PROJ). These images are rebuilt when `renv.lock` or Dockerfiles change. (See [Systems Design](#systems-design) for image variants)
+
+3. **Metadata Generation CI Pipeline (#5)**: A supporting process that scans all `.qmd` files and aggregates their `reproducible:` metadata into a centralized `chapters.json` manifest, which can be used for cluster optimizations like image pre-warming. (See [Technical Implementation](#technical-implementation))
+
+#### Run-Time Flow: One-Click Reproducible Sessions
+
+When a handbook reader clicks the "Reproduce this analysis" button, the system orchestrates a fully configured Kubernetes session with all code, data, and cloud credentials ready.
+
+```
+           [Handbook Reader]
+                  |
+                  v
+       [Clicks "Reproduce" button]
+                  |
+                  v
+       [Quarto Extension reads YAML]
+               (#1)
+                  |
+                  v
+       [Generates Onyxia deep link]
+          (pre-filled with params)
+                  |
+                  v
+       +---------[Onyxia]----------+
+       |   (Existing Platform)     |
+       |  - User Authentication    |
+       |  - UI for Launch Params   |
+       +---------------------------+
+                  |
+            [User clicks "Launch"]
+                  |
+                  v
+       [Onyxia calls Helm Chart]
+               (#4)
+                  |
+                  v
+       +--------[Kubernetes API]--------+
+       |    (Existing Platform)         |
+       +---------------------------------+
+              /              \
+             /                \
+            v                  v
+    [Pull Compute Image]  [CSI Image Driver]
+         (#2)              (Existing Cluster Component)
+    (base:v1.1)                  |
+                                 v
+                         [Mount Data Artifact]
+                            (sha256-abc...)
+                         as read-only volume
+            |                    |
+            +--------------------+
+                     |
+                     v
+              [Pod Running]
+         +--------------------+
+         | - JupyterLab       |
+         | - All code         |
+         | - Local data       |
+         | - AWS credentials  |
+         |   (via IRSA)       |
+         +--------------------+
+```
+
+**Key Components in Run-Time Flow**:
+
+1. **"Reproduce" Button Quarto Extension (#1)**: A Lua-based Quarto extension that reads `reproducible:` metadata from chapter YAML frontmatter and dynamically generates an Onyxia deep link URL, pre-filling all launch parameters (resource tier, image tag, data snapshot hash). (See [Onyxia Integration Strategy](#onyxia-integration-strategy-the-reproduce-button) and [Technical Implementation](#technical-implementation))
+
+4. **"Chapter Session" Helm Chart (#4)**: An Onyxia-compatible Helm chart that defines the reproducible session in Kubernetes. It creates a `ServiceAccount` with IRSA annotations (for AWS cloud access), defines the `Deployment` (specifying which Compute Image to run), and configures a volume mount using the CSI Image Driver to attach the OCI data artifact as a read-only filesystem. (See [Systems Design](#systems-design) for chart structure)
+
+**Existing Platform Components**: The system relies on standard Kubernetes features (CSI Image Driver for volume mounting, IRSA for AWS credential injection) and Onyxia for user authentication and service orchestration.
+
+#### Cloud Data Access Pattern
+
+The ability to access AWS cloud resources (like S3 buckets with STAC satellite imagery) is **not a separate component** but rather an **architectural capability** that emerges from the interaction of two existing components:
+
+- **Helm Chart (#4) requests access**: The chart creates a `ServiceAccount` and annotates it with an AWS IAM role ARN (using Kubernetes Workload Identity / IRSA). This is the "key" that unlocks cloud access.
+- **Docker Image (#2) uses access**: The compute image contains AWS SDKs (for R/Python) that automatically discover and use the credentials provided by IRSA.
+
+This design is **portable** (works on any Kubernetes cluster with OIDC federation) and **decoupled** (does not depend on Onyxia-specific injectors). See [Cloud Data Access Strategy](#cloud-data-access-strategy) for the complete dual-data architecture (local packaged data + cloud data sources) and detailed credential flow.
 
 ---
 
@@ -625,6 +744,67 @@ Common issues:
 - **Empty credentials**: Pod may have started before Onyxia STS call completed (rare)
 - **Expired credentials**: Credentials last 12 hours; restart pod for fresh credentials
 - **Wrong IAM policy**: Check AWS role has read access to required S3 buckets
+
+---
+
+### Onyxia Integration Strategy: The "Reproduce" Button
+
+This section details the integration pattern used to launch ephemeral analysis sessions from the static Quarto handbook. The solution is designed for simplicity and security, requiring no token management or backend services on the handbook side.
+
+#### The "Deep Link (UI)" Integration Method
+
+The "Reproduce this analysis" button uses Onyxia's **Deep Link** integration pattern. This method involves generating a specific URL that directs the user to the Onyxia launcher frontend. The Quarto site *does not* call the Onyxia API directly.
+
+**Key Characteristics:**
+
+  * **No Authentication Handled:** The static Quarto page is "unauthenticated." It does not handle OIDC tokens, API keys, or any user credentials.
+  * **Authentication Outsourced:** All authentication is handled by the Onyxia frontend (`datalab.officialstatistics.org`).
+  * **Form Pre-population:** The generated URL contains query parameters that pre-fill all the necessary Helm chart options.
+
+#### The User Authentication Flow
+
+This is the key clarification: the user's **browser session** with Onyxia handles authentication, not the Quarto page.
+
+1.  A user clicks the "Reproduce" button in the Quarto handbook.
+
+2.  The browser is directed to a URL like:
+
+    ```
+    https://datalab.officialstatistics.org/launcher/handbook/chapter-session?
+      autoLaunch=true&
+      name=chapter-ct-chile&
+      resources.limits.cpu=6000m&
+      resources.limits.memory=«24Gi»&
+      ...
+    ```
+
+3.  The Onyxia frontend receives this request. It immediately checks the user's browser for an existing, valid Onyxia session.
+
+      * **Scenario A: User is already logged in**
+
+        1.  Onyxia detects the active session.
+        2.  It reads the `autoLaunch=true` parameter.
+        3.  It bypasses the form and immediately triggers the `PUT /my-lab/app` API call *on the user's behalf*, automatically attaching the user's stored OIDC token.
+        4.  The user sees the launch splash screen.
+
+      * **Scenario B: User is logged out**
+
+        1.  Onyxia's frontend intercepts the request as "unauthenticated."
+        2.  It automatically redirects the user's browser to the Keycloak (OIDC) login page.
+        3.  The user authenticates.
+        4.  Keycloak redirects the user *back* to the original deep-link URL.
+        5.  The flow now picks up as **Scenario A**.
+
+#### Key URL Parameters for Developers
+
+The Quarto Lua extension (detailed in Section 8.1) is responsible for generating this URL. The key parameters are:
+
+| Parameter | Type | Description |
+| :--- | :--- | :--- |
+| `autoLaunch` | boolean | **`autoLaunch=true`** is critical. It skips the form and provides the "one-click" experience. |
+| `name` | string | A friendly name for the service (e.g., "chapter-ct-chile"). |
+| `[helm.path]`| string/number | Any other parameter is treated as a Helm value override (e.g., `resources.limits.cpu=4000m`). |
+| `[helm.path]` | encoded string | Helm values that are strings *must* be wrapped in `«...»` guillemets (e.g., `resources.limits.memory=«24Gi»`). |
 
 ---
 
