@@ -15,7 +15,7 @@ This document outlines the design for a "reproducible analysis" feature that all
 -  Onyxia-native Orchestration: Use Onyxia for UI, authentication, and service deployment.
 -  Stateless Data Layer: Use a CSI Image Driver to mount OCI data artifacts directly as read-only volumes.
 -  Implicit Performance: Startup speed (5-15s) is achieved via standard node-level container image caching, which is more robust than managed PVCs.
--  Automated Author Workflow: A fully CI-driven (GitHub Actions) pipeline builds content-hashed (immutable) data artifacts and auto-commits the new hash back to the chapter, ensuring true reproducibility.
+-  Automated Author Workflow: A fully CI-driven pipeline using Dagger SDK builds content-hashed (immutable) data artifacts and auto-commits the new hash back to the chapter, ensuring true reproducibility.
 -  Portable & Decoupled Auth: Use standard Kubernetes Workload Identity (IRSA) as the primary mechanism for AWS credentials. This makes the core Helm chart portable and not dependent on Onyxia-specific injectors.
 -  Curated & Isolated Environments: Start with a "base" Docker image, but the CI pipeline is designed to build chapter-specific compute images (from renv.lock) to prevent future dependency conflicts.
 
@@ -69,16 +69,16 @@ The UN Handbook is a Quarto book with 48 chapters. **Only 2 chapters (4%) curren
 
 - Educational examples with small datasets
 - Code snippets with `eval: false`
-- Resource needs: 2-4 CPU, 8GB RAM
-- Runtime: Minutes
+- **Resource allocation**: 2 CPU, 8GB RAM, 10GB storage (defined in Helm chart)
+- **Typical runtime**: Minutes
 
 **Medium (Crop Statistics)**:
 
 - Google Earth Engine data access
 - Sample-based area estimators
 - Statistical methods
-- Resource needs: 4-6 CPU, 16GB RAM
-- Runtime: 15-30 minutes
+- **Resource allocation**: 6 CPU, 24GB RAM, 20GB storage (defined in Helm chart)
+- **Typical runtime**: 15-30 minutes
 
 **Heavy (Crop Type Mapping)**:
 
@@ -88,18 +88,18 @@ The UN Handbook is a Quarto book with 48 chapters. **Only 2 chapters (4%) curren
   - Random Forest classification
   - Self-Organizing Maps
   - 22 RDS files (models, samples, classifications)
-- Resource needs: 6-10 CPU, 24-48GB RAM
-- Runtime: 1-2 hours
+- **Resource allocation**: 10 CPU, 48GB RAM, 50GB storage (defined in Helm chart)
+- **Typical runtime**: 1-2 hours
 
-**Very Heavy (Deep Learning)**:
+**GPU (Deep Learning)**:
 
 - Example: Colombia chapter (crop yield estimation)
   - Sentinel-1 SAR data processing
   - Deep learning with `luz` (PyTorch for R)
   - Requires GPU for reasonable performance
   - 23 cache entries
-- Resource needs: 8+ CPU, 32GB RAM, 1 GPU (8GB VRAM)
-- Runtime: 2-4 hours
+- **Resource allocation**: 8 CPU, 32GB RAM, 1 GPU, 50GB storage (defined in Helm chart)
+- **Typical runtime**: 2-4 hours
 
 #### Current Technology Stack
 
@@ -233,8 +233,8 @@ When a chapter author pushes changes to the repository, an automated CI/CD pipel
          (data/ct_chile/)   (renv.lock / Dockerfile)
                   |                    |
                   v                    v
-          [Data Packaging CI]    [Image Build CI]
-               (#3)                   (#2)
+     [Portable CI Pipeline (Dagger)]  [Portable CI Pipeline (Dagger)]
+          Data Packaging (#3)          Image Build (#2)
                   |                    |
                   v                    v
           [OCI Data Artifact]    [Curated Compute Image]
@@ -244,6 +244,7 @@ When a chapter author pushes changes to the repository, an automated CI/CD pipel
                   |
                   v
           [Auto-commit hash back]
+          (via Dagger pipeline)
                   |
                   v
            (ct_chile.qmd:
@@ -252,11 +253,11 @@ When a chapter author pushes changes to the repository, an automated CI/CD pipel
 
 **Key Components in Build-Time Flow**:
 
-1. **Data Packaging CI Pipeline (#3)**: Automatically detects changes to chapter `data/` directories, builds content-hashed OCI data artifacts, pushes them to the container registry (GHCR), and auto-commits the new hash back to the `.qmd` file's YAML frontmatter. (See [Technical Implementation](#technical-implementation) for details)
+1. **Portable CI Pipeline - Data Packaging (#3)**: A Dagger SDK function that automatically detects changes to chapter `data/` directories, builds content-hashed OCI data artifacts, pushes them to the container registry (GHCR), and auto-commits the new hash back to the `.qmd` file's YAML frontmatter. Triggered by simple one-line wrappers in GitHub Actions, GitLab CI, or run locally. (See [Systems Design](#systems-design) for implementation)
 
-2. **Curated Compute Docker Images (#2)**: Pre-built, immutable container images containing specific R/Python versions, all `renv`/`pip` packages, and system libraries (GDAL, PROJ). These images are rebuilt when `renv.lock` or Dockerfiles change. (See [Systems Design](#systems-design) for image variants)
+2. **Portable CI Pipeline - Image Build (#2)**: A Dagger SDK function that builds pre-built, immutable container images containing specific R/Python versions, all `renv`/`pip` packages, and system libraries (GDAL, PROJ). These images are rebuilt via Dagger when `renv.lock` or Dockerfiles change. (See [Systems Design](#systems-design) for image variants)
 
-3. **Metadata Generation CI Pipeline (#5)**: A supporting process that scans all `.qmd` files and aggregates their `reproducible:` metadata into a centralized `chapters.json` manifest, which can be used for cluster optimizations like image pre-warming. (See [Technical Implementation](#technical-implementation))
+3. **Portable CI Pipeline - Metadata Generation (#5)**: A Dagger SDK function that scans all `.qmd` files and aggregates their `reproducible:` metadata into a centralized `chapters.json` manifest, which can be used for cluster optimizations like image pre-warming. (See [Systems Design](#systems-design) for implementation)
 
 #### Run-Time Flow: One-Click Reproducible Sessions
 
@@ -906,29 +907,12 @@ local function build_onyxia_url(meta)
   local chapter_file = quarto.doc.input_file
   local chapter_name = chapter_file:match("([^/]+)%.qmd$")
 
+  -- Extract semantic values (no hard-coded infrastructure details)
   local tier = meta.reproducible.tier or "medium"
   local image_flavor = meta.reproducible["image-flavor"] or "base"
   local data_snapshot = meta.reproducible["data-snapshot"] or "v1.0.0"
   local storage_size = meta.reproducible["storage-size"] or "20Gi"
   local estimated_runtime = meta.reproducible["estimated-runtime"] or "Unknown"
-
-  -- Map resource tier to CPU/memory
-  local resource_tiers = {
-    light = { cpu = "2000m", memory = "8Gi" },
-    medium = { cpu = "6000m", memory = "24Gi" },
-    heavy = { cpu = "10000m", memory = "48Gi" },
-    gpu = { cpu = "8000m", memory = "32Gi" }
-  }
-  local resources = resource_tiers[tier]
-
-  -- Map image flavor to repository
-  local image_map = {
-    base = "ghcr.io/fao-eostat/handbook-base:v1.0",
-    gpu = "ghcr.io/fao-eostat/handbook-base-gpu:v1.0"
-  }
-  local image = image_map[image_flavor]
-  local image_repo = image:match("^(.+):") or image
-  local image_tag = image:match(":(.+)$") or "v1.0"
 
   -- Normalize version (dots to hyphens)
   local version_normalized = data_snapshot:gsub("%.", "-")
@@ -940,23 +924,14 @@ local function build_onyxia_url(meta)
     "autoLaunch=true",
     "name=" .. encode_helm_value("chapter-" .. chapter_name),
 
+    -- Pass semantic tier and flavor (Helm chart will interpret)
+    "tier=" .. encode_helm_value(tier),
+    "imageFlavor=" .. encode_helm_value(image_flavor),
+
     -- Chapter parameters
     "chapter.name=" .. encode_helm_value(chapter_name),
     "chapter.version=" .. encode_helm_value(version_normalized),
-    "chapter.storageSize=" .. encode_helm_value(storage_size),
-
-    -- Image selection
-    "image.repository=" .. encode_helm_value(image_repo),
-    "image.tag=" .. encode_helm_value(image_tag),
-
-    -- Resources
-    "resources.limits.cpu=" .. encode_helm_value(resources.cpu),
-    "resources.limits.memory=" .. encode_helm_value(resources.memory),
-    "resources.requests.cpu=" .. encode_helm_value(resources.cpu),
-    "resources.requests.memory=" .. encode_helm_value(resources.memory),
-
-    -- GPU flag
-    "gpu.enabled=" .. (tier == "gpu" and "true" or "false")
+    "chapter.storageSize=" .. encode_helm_value(storage_size)
   }
 
   local url = base_url .. "?" .. table.concat(params, "&")
@@ -992,38 +967,42 @@ end
 
 ### Systems Design
 
-#### Resource Tier Mapping
+#### Resource Tier Mapping (Helm Chart Configuration)
+
+Resource tiers are defined in the Helm chart templates, not in the Quarto site or author frontmatter. This ensures infrastructure changes don't require updates to the static handbook site.
+
+**Helm Chart Implementation** (`templates/deployment.yaml`):
 
 ```yaml
-resource_tiers:
-  light:
-    cpu: "2"
-    memory: "8Gi"
-    gpu: 0
-    storage: "10Gi"
-    use_cases: ["Theory chapters", "Small demonstrations"]
-
-  medium:
-    cpu: "6"
-    memory: "24Gi"
-    gpu: 0
-    storage: "20Gi"
-    use_cases: ["Crop type mapping", "Random Forest training", "Most case studies"]
-
-  heavy:
-    cpu: "10"
-    memory: "48Gi"
-    gpu: 0
-    storage: "50Gi"
-    use_cases: ["Large-scale classification", "SAR preprocessing"]
-
-  gpu:
-    cpu: "8"
-    memory: "32Gi"
-    gpu: 1  # NVIDIA with 8GB+ VRAM
-    storage: "50Gi"
-    use_cases: ["Deep learning (Colombia chapter)", "torch/luz models"]
+{{- $resourceTiers := dict
+      "light"  (dict "cpu" "2000m"  "memory" "8Gi"   "storage" "10Gi")
+      "medium" (dict "cpu" "6000m"  "memory" "24Gi"  "storage" "20Gi")
+      "heavy"  (dict "cpu" "10000m" "memory" "48Gi"  "storage" "50Gi")
+      "gpu"    (dict "cpu" "8000m"  "memory" "32Gi"  "storage" "50Gi")
+    -}}
+{{- $tier := .Values.tier | default "medium" -}}
+{{- $tierConfig := index $resourceTiers $tier -}}
 ```
+
+**Author Experience** (chapter frontmatter):
+
+Authors only specify semantic tier names:
+
+```yaml
+reproducible:
+  enabled: true
+  tier: heavy        # Just the name
+  image-flavor: gpu  # Just the flavor
+```
+
+The Helm chart translates these to actual resource allocations.
+
+**Available Tiers**:
+
+- **`light`**: 2 CPU, 8GB RAM, 10GB storage - Theory chapters, small demonstrations
+- **`medium`**: 6 CPU, 24GB RAM, 20GB storage - Crop type mapping, Random Forest training, most case studies
+- **`heavy`**: 10 CPU, 48GB RAM, 50GB storage - Large-scale classification, SAR preprocessing
+- **`gpu`**: 8 CPU, 32GB RAM, 1 GPU, 50GB storage - Deep learning (Colombia chapter), torch/luz models
 
 #### Curated Image Flavors (System Dependencies)
 
@@ -1036,25 +1015,34 @@ resource_tiers:
 
 **Solution**: Pre-built, immutable Docker images maintained by infrastructure team.
 
+**Helm Chart Implementation** (`templates/deployment.yaml`):
+
+```yaml
+{{- $imageFlavors := dict
+      "base" (dict "repo" "ghcr.io/fao-eostat/handbook-base"     "tag" "v1.0")
+      "gpu"  (dict "repo" "ghcr.io/fao-eostat/handbook-base-gpu" "tag" "v1.0")
+    -}}
+{{- $imageFlavor := .Values.imageFlavor | default "base" -}}
+{{- $imageConfig := index $imageFlavors $imageFlavor -}}
+```
+
 **Image Catalog**:
 
-| Image Flavor | Base | System Packages | Use Case |
-|--------------|------|-----------------|----------|
-| `base` | jupyter/r-notebook:r-4.5.1 | GDAL 3.6.2, PROJ 9.1.1, GEOS 3.11.1 | 95% of chapters |
-| `gpu` | nvidia/cuda:12.1-cudnn8 | Same as base + CUDA, cuDNN | Deep learning (Colombia) |
+| Image Flavor | Repository | Parent Base | System Packages | Use Case |
+|--------------|------------|-------------|-----------------|----------|
+| `base` | `ghcr.io/fao-eostat/handbook-base:v1.0` | jupyter/r-notebook:r-4.5.1 | GDAL 3.6.2, PROJ 9.1.1, GEOS 3.11.1 | 95% of chapters |
+| `gpu` | `ghcr.io/fao-eostat/handbook-base-gpu:v1.0` | nvidia/cuda:12.1-cudnn8 | Same as base + CUDA, cuDNN | Deep learning (Colombia) |
 
 **Author Experience**:
 ```yaml
 reproducible:
-  image-flavor: base  # or "gpu"
+  enabled: true
+  image-flavor: base  # or "gpu" - just the semantic name
 ```
 
-**Helm Chart Integration**:
-```yaml
-image:
-  repository: "ghcr.io/fao-eostat/handbook-base"  # or handbook-base-gpu
-  tag: "v1.0"
-```
+**Updating Image Versions**:
+
+Infrastructure team updates the Helm chart template's `$imageFlavors` dictionary and deploys new chart version. No changes needed to Quarto site or chapter files.
 
 **Adding New System Dependency** (governed process):
 
@@ -1072,6 +1060,41 @@ image:
 -  No `root` access in user containers
 -  Immutable, auditable images
 -  Versioned (can roll back if needed)
+
+#### Configuration Architecture: Decoupled Design
+
+This system uses a **decoupled configuration architecture** where the Quarto site (frontend) is unaware of infrastructure details.
+
+**Frontend (Quarto Site)**:
+- **Knows**: Semantic names (`tier: "heavy"`, `imageFlavor: "gpu"`)
+- **Doesn't know**: CPU counts, memory sizes, image repositories, version tags
+- **Generates**: Deep-link URLs with semantic parameters
+
+**Backend (Helm Chart)**:
+- **Knows**: Resource tier mappings, image repositories, version tags
+- **Translates**: Semantic names → Kubernetes resource specifications
+- **Maintains**: Single Source of Truth for infrastructure config in `templates/deployment.yaml`
+
+**Benefits**:
+
+1. **Decoupling**: Infrastructure changes don't require re-rendering the Quarto book
+2. **SSOT**: Resource tiers and image mappings defined once in Helm chart templates
+3. **Versioning**: Helm chart version controls infrastructure config changes
+4. **Testing**: Infrastructure team can update staging Helm chart independently
+5. **Maintainability**: Change tier from 10 CPU → 12 CPU in one place (Helm chart)
+6. **No Drift**: Frontend can never reference outdated resource values
+
+**Example Workflow**:
+
+When infrastructure needs to change the `heavy` tier from 10 CPU to 12 CPU:
+
+1. Infrastructure team updates `templates/deployment.yaml`:
+   ```yaml
+   "heavy" (dict "cpu" "12000m" "memory" "48Gi" "storage" "50Gi")
+   ```
+2. Deploy new Helm chart version (`v1.1.0`)
+3. No changes needed to Quarto site
+4. Next user clicks "Reproduce" button → gets 12 CPU automatically
 
 #### Stateless Data Layer: CSI Image Driver
 
@@ -1110,77 +1133,337 @@ When the pod starts:
 - **Content-addressed**: Each SHA256 hash guarantees exact reproducibility
 - **Garbage collection**: Standard Kubernetes image GC removes unused data
 
-#### CI-Driven Data Packaging with Content Hashing
+#### Portable CI/CD: The "Pipeline-as-Code" SDK (Dagger)
 
-**Zero-Friction Author Workflow**:
+**Problem**: The CI/CD logic for building compute images, hashing data, and auto-committing hashes is complex. While it could be implemented using GitHub Actions YAML, that approach is platform-specific and tightly coupled to a single CI system. This creates a significant barrier to adoption for organizations using GitLab, Bitbucket, or other platforms.
 
-Authors simply commit data files to the repository. A GitHub Actions workflow automatically:
+**Solution**: Abstract the entire build-time logic (Components #2, #3, and #5) into a portable "Pipeline-as-Code" SDK using the Dagger framework.
 
-1. **Detects changes** in `data/ct_chile/` or matching patterns
-2. **Calculates content hash** (SHA256) of all data files
-3. **Builds OCI artifact** with content-hashed tag: `ct_chile-sha256-abcdef123`
-4. **Pushes to registry** (GHCR)
-5. **Auto-commits hash** back to chapter's `.qmd` frontmatter:
-   ```yaml
-   reproducible:
-     data-snapshot: sha256-abcdef123
-   ```
+This SDK (implemented in `ci/pipeline.py`) uses the Dagger Python SDK to define pipeline functions. The CI platform's YAML file becomes a simple, one-line wrapper that just executes the Dagger pipeline.
 
-**CI Workflow** (`.github/workflows/package-chapter-data.yml`):
+**How It Works: The Transformation**
+
+This design turns complex, platform-specific CI configurations into simple, portable declarations.
+
+**After: GitHub Actions (Simple & Portable)**
 
 ```yaml
-name: Package Chapter Data
-on:
-  push:
-    paths:
-      - 'data/**'
-      - 'etc/*.rds'
-
+# .github/workflows/package-data.yml
 jobs:
-  package:
+  build-data:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-
-      - name: Detect changed chapters
-        id: changes
-        run: |
-          # Find which chapter data directories changed
-          CHANGED_CHAPTERS=$(git diff --name-only HEAD^ HEAD | grep '^data/' | cut -d/ -f2 | sort -u)
-          echo "chapters=$CHANGED_CHAPTERS" >> $GITHUB_OUTPUT
-
-      - name: Build and push OCI artifacts
-        run: |
-          for chapter in ${{ steps.changes.outputs.chapters }}; do
-            # Calculate content hash
-            HASH=$(find data/$chapter -type f -exec sha256sum {} \; | sort | sha256sum | cut -d' ' -f1 | cut -c1-12)
-
-            # Build OCI image from scratch
-            IMAGE="ghcr.io/${{ github.repository_owner }}/handbook-data:${chapter}-sha256-${HASH}"
-
-            docker build -t "$IMAGE" -f- data/$chapter <<EOF
-            FROM scratch
-            COPY . /data/$chapter/
-            LABEL org.opencontainers.image.title="$chapter"
-            LABEL org.opencontainers.image.revision="$HASH"
-            EOF
-
-            docker push "$IMAGE"
-
-            # Update chapter .qmd file
-            yq eval ".reproducible.data-snapshot = \"sha256-$HASH\"" -i ${chapter}.qmd
-          done
-
-      - name: Commit updated hashes
-        run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add *.qmd
-          git commit -m "chore: update data snapshots [skip ci]"
-          git push
+      - uses: dagger/setup-dagger@v1
+      - name: Build, Push, and Commit Data
+        run: dagger run python ./ci/pipeline.py package-data --registry-prefix "ghcr.io/fao-eostat/handbook-data"
+        env:
+          REGISTRY_USER: ${{ github.actor }}
+          REGISTRY_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GIT_COMMIT_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GIT_REPO_URL: "github.com/fao-eostat/un-handbook"
 ```
 
-**Result**: True immutability. The chapter always references an exact, content-addressed data snapshot.
+**After: GitLab CI (Nearly Identical)**
+
+```yaml
+# .gitlab-ci.yml
+build_data_artifacts:
+  image: registry.gitlab.com/dagger-io/dagger/dagger:latest
+  script:
+    - dagger run python ./ci/pipeline.py package-data --registry-prefix "registry.gitlab.com/my-org/handbook-data"
+  variables:
+    REGISTRY_USER: $CI_REGISTRY_USER
+    REGISTRY_TOKEN: $CI_REGISTRY_PASSWORD
+    GIT_COMMIT_TOKEN: $GITLAB_PUSH_TOKEN
+    GIT_REPO_URL: "gitlab.com/my-org/un-handbook"
+```
+
+**Dagger SDK Implementation** (`ci/pipeline.py`):
+
+The core logic moves into a Python script using the Dagger SDK. Dagger runs pipeline steps in isolated containers, providing automatic caching, parallelization, and portability.
+
+```python
+import dagger
+import anyio
+import sys
+import os
+import re
+
+# --- CLI Argument Parsing ---
+if len(sys.argv) < 2:
+    print("Usage: python pipeline.py <command>")
+    sys.exit(1)
+
+COMMAND = sys.argv[1]
+
+# --- Helper Functions ---
+
+def get_registry_auth(client: dagger.Client):
+    """Configures registry authentication from environment variables."""
+    user = os.environ.get("REGISTRY_USER")
+    token_secret = client.set_secret(
+        "REGISTRY_TOKEN",
+        os.environ.get("REGISTRY_TOKEN")
+    )
+    if not user or not token_secret:
+        raise ValueError("REGISTRY_USER and REGISTRY_TOKEN must be set")
+    return user, token_secret
+
+def get_git_commit_token(client: dagger.Client):
+    """Gets the Git token for committing back to the repo."""
+    token = os.environ.get("GIT_COMMIT_TOKEN")
+    if not token:
+        raise ValueError("GIT_COMMIT_TOKEN must be set for auto-commit")
+    return client.set_secret("GIT_COMMIT_TOKEN", token)
+
+def get_git_repo_url():
+    """Gets the Git repo URL from an env var."""
+    url = os.environ.get("GIT_REPO_URL")
+    if not url:
+        raise ValueError("GIT_REPO_URL env var must be set (e.g., github.com/fao-eostat/un-handbook)")
+    return url
+
+def get_git_commit_base(client: dagger.Client, base_image: str = "alpine/git:latest"):
+    """
+    Creates a base container pre-configured with Git
+    and credentials, ready to clone and commit.
+    """
+    git_token = get_git_commit_token(client)
+    git_repo_url = get_git_repo_url()
+
+    auth_url = f"https://oauth2:{git_token}@{git_repo_url}"
+
+    container = (
+        client.container()
+        .from_(base_image)
+        .with_secret_variable("GIT_TOKEN", git_token)
+        # Configure Git
+        .with_exec(["git", "config", "--global", "user.name", "github-actions[bot]"])
+        .with_exec(["git", "config", "--global", "user.email", "github-actions[bot]@users.noreply.github.com"])
+        # Clone repo using token
+        .with_exec(["git", "clone", auth_url, "/repo"])
+        .with_workdir("/repo")
+    )
+    return container
+
+# --- Dagger Pipeline Functions ---
+
+async def build_compute_image(client: dagger.Client, dockerfile: str, tag: str):
+    """
+    (Component #2) Builds and publishes a curated compute image.
+    e.g., python pipeline.py build-image --dockerfile .docker/base.Dockerfile --tag ghcr.io/fao-eostat/handbook-base:v1.0
+    """
+    print(f"Building compute image for {dockerfile}...")
+    user, token = get_registry_auth(client)
+
+    # Get source context
+    src = client.host().directory(".")
+
+    # Build and publish
+    image_ref = await (
+        client.container()
+        .build(context=src, dockerfile=dockerfile)
+        .with_registry_auth(
+            address=tag.split("/")[0],
+            username=user,
+            secret=token
+        )
+        .publish(address=tag)
+    )
+    print(f"Published compute image to: {image_ref}")
+
+async def package_data_artifacts(client: dagger.Client, registry_prefix: str):
+    """
+    (Component #3) Builds, content-hashes, publishes, and auto-commits
+    all changed chapter data artifacts.
+    """
+    print("Starting data packaging pipeline...")
+    user, token = get_registry_auth(client)
+    git_token = get_git_commit_token(client)
+
+    # 1. Get repository source and find changed chapters
+    src = client.host().directory(".")
+
+    # Use a container with git to find changed data dirs
+    # Note: Using HEAD~1 HEAD works for single commits.
+    # For multi-commit pushes, consider: git diff --name-only origin/main...HEAD
+    changed_chapters = await (
+        client.container()
+        .from_("alpine/git:latest")
+        .with_mounted_directory("/src", src)
+        .with_workdir("/src")
+        .with_exec(["sh", "-c", "git diff --name-only HEAD~1 HEAD | grep '^data/' | cut -d/ -f2 | sort -u"])
+        .stdout()
+    )
+
+    changed_chapters = changed_chapters.strip().split("\n")
+    if not changed_chapters or (len(changed_chapters) == 1 and changed_chapters[0] == ''):
+        print("No chapter data changes detected. Exiting.")
+        return
+
+    print(f"Detected changes in: {', '.join(changed_chapters)}")
+
+    # 2. Build, Hash, and Push artifacts
+    updated_files = {} # dict to store { "ct_chile.qmd": "sha256-abcdef..." }
+
+    for chapter in changed_chapters:
+        chapter_data_dir = f"data/{chapter}"
+        print(f"Processing data for: {chapter}")
+
+        # Build 'scratch' artifact
+        artifact = (
+            client.container()
+            .from_("scratch")
+            .with_directory(f"/data/{chapter}", src.directory(chapter_data_dir))
+        )
+
+        # Get Dagger's automatic content-based digest (the hash)
+        digest = await artifact.digest() # e.g., "sha256:abc..."
+        hash_suffix = f"sha256-{digest.split(':')[-1][:12]}" # "sha256-abcdef123"
+
+        # Push the artifact
+        image_tag = f"{registry_prefix}:{chapter}-{hash_suffix}"
+        image_ref = await (
+            artifact
+            .with_registry_auth(
+                address=registry_prefix,
+                username=user,
+                secret=token
+            )
+            .publish(address=image_tag)
+        )
+        print(f"Pushed data artifact: {image_ref}")
+
+        # Store for commit
+        updated_files[f"{chapter}.qmd"] = hash_suffix
+
+    # 3. Auto-commit hashes back to repo
+    # Get the base git container
+    commit_container = get_git_commit_base(client)
+
+    # Add python dependencies
+    commit_container = (
+        commit_container
+        .with_exec(["apk", "add", "py3-pip", "python3"])
+        .with_exec(["pip", "install", "pyyaml"])
+    )
+
+    # Python script to update YAML (more robust than 'yq' or 'sed')
+    py_script = """
+import yaml, sys, os
+file_path = sys.argv[1]
+new_hash = sys.argv[2]
+if not os.path.exists(file_path):
+    print(f"Warning: {file_path} not found, skipping.")
+    sys.exit(0)
+with open(file_path, 'r') as f:
+    content = f.read()
+parts = content.split('---')
+if len(parts) < 3:
+    print(f"No YAML frontmatter in {file_path}")
+    sys.exit(1)
+data = yaml.safe_load(parts[1])
+if 'reproducible' not in data:
+    data['reproducible'] = {}
+data['reproducible']['data-snapshot'] = new_hash
+parts[1] = yaml.dump(data)
+with open(file_path, 'w') as f:
+    f.write('---'.join(parts))
+"""
+
+    commit_container = commit_container.with_new_file("/src/update_yaml.py", py_script)
+
+    # Run update for each changed file
+    commit_message = "chore: update data snapshots [skip ci]\\n\\n"
+    for file_name, hash_value in updated_files.items():
+        commit_container = commit_container.with_exec([
+            "python", "/src/update_yaml.py", file_name, hash_value
+        ])
+        commit_container = commit_container.with_exec(["git", "add", file_name])
+        commit_message += f"- Updates {file_name} to {hash_value}\\n"
+
+    # Commit and Push
+    commit_container = commit_container.with_exec(["git", "commit", "-m", commit_message])
+    commit_container = commit_container.with_exec(["git", "push"])
+
+    # Run the final container
+    await commit_container.sync()
+    print("Successfully committed updated data snapshot hashes.")
+
+async def generate_metadata(client: dagger.Client):
+    """
+    (Component #5) Scans all .qmd files and commits an updated chapters.json.
+    """
+    print("Starting metadata generation pipeline...")
+
+    # 1. Get the base git container, using an R-based image
+    commit_container = get_git_commit_base(client, base_image="r-base:4.5.1")
+
+    # 2. Add R dependencies
+    commit_container = (
+        commit_container
+        .with_exec(["apt-get", "update"])
+        .with_exec(["apt-get", "install", "-y", "libgit2-dev"]) # for R 'git2r' if needed
+        # Install R packages
+        .with_exec(["Rscript", "-e", "install.packages(c('yaml', 'jsonlite', 'purrr'), repos='https://cloud.r-project.org')"])
+    )
+
+    # 3. Run the R script, commit, and push
+    final_container = (
+        commit_container
+        # Run the R script from the repo and redirect output
+        # Assumes scan-all-chapters.R is in a 'scripts' dir
+        .with_exec(["Rscript", "scripts/scan-all-chapters.R"], redirect_stdout="chapters.json")
+        # Commit the result
+        .with_exec(["git", "add", "chapters.json"])
+        .with_exec(["git", "commit", "-m", "chore: update chapter metadata [skip ci]"])
+        .with_exec(["git", "push"])
+    )
+
+    # Run the final container
+    await final_container.sync()
+    print("Successfully generated and committed chapters.json.")
+
+# --- Main Execution ---
+
+async def run_pipeline():
+    async with dagger.Connection() as client:
+        if COMMAND == "build-image":
+            dockerfile = sys.argv[2].split("=")[1]
+            tag = sys.argv[3].split("=")[1]
+            await build_compute_image(client, dockerfile, tag)
+
+        elif COMMAND == "package-data":
+            registry_prefix = sys.argv[2].split("=")[1]
+            await package_data_artifacts(client, registry_prefix)
+
+        elif COMMAND == "generate-metadata":
+            await generate_metadata(client)
+
+        else:
+            print(f"Unknown command: {COMMAND}")
+            sys.exit(1)
+
+if __name__ == "__main__":
+    anyio.run(run_pipeline)
+```
+
+**Key Benefits of this Dagger-based Design**:
+
+1. **Extreme Portability**: The logic runs identically on GitHub-hosted runners, GitLab instances, or a developer's laptop. The only requirement is the Dagger engine.
+
+2. **Local Testing**: Developers can run the exact production CI pipeline on their local machine by executing `dagger run python ./ci/pipeline.py package-data ...`. This is impossible with traditional CI.
+
+3. **Automatic Caching**: Dagger automatically caches every step of the pipeline. If the `data/ct_chile` directory hasn't changed, `artifact.digest()` will be instant, and the build will be skipped.
+
+4. **Simplified CI**: The CI YAML files are reduced to simple, declarative "runners," making them easy to read and manage. All complex logic is in a single, version-controlled, and testable Python script.
+
+5. **Robust Hashing**: We no longer rely on `find | sha256sum` shell scripting. Dagger's `artifact.digest()` calculates a reproducible, content-addressed digest of the OCI artifact layer, which is a more robust and correct form of content-hashing.
+
+6. **Zero-Friction Author Workflow**: Authors simply commit data files to the repository. The Dagger pipeline automatically handles all five steps: detecting changes, calculating content hash, building OCI artifacts, pushing to registry, and auto-committing hashes back to chapter frontmatter.
+
+**Result**: True immutability. The chapter always references an exact, content-addressed data snapshot, and the entire build pipeline is portable across any CI platform.
 
 ---
 
@@ -1201,12 +1484,16 @@ UN-Handbook/
 │   │   ├── values.yaml
 │   │   ├── values.schema.json
 │   │   └── templates/
-│   │       ├── serviceaccount.yaml  # NEW: For IRSA
+│   │       ├── serviceaccount.yaml  # For IRSA
 │   │       ├── deployment.yaml
 │   │       ├── service.yaml
 │   │       └── ingress.yaml
 │   ├── index.yaml                 # Helm repo index
 │   └── chapter-session-1.0.0.tgz
+│
+├── ci/                            # NEW: Portable Dagger pipeline logic
+│   ├── __init__.py
+│   └── pipeline.py                # Dagger SDK script (Components #2, #3, #5)
 │
 ├── .docker/
 │   ├── base.Dockerfile            # R + renv + GDAL
@@ -1215,9 +1502,9 @@ UN-Handbook/
 │
 ├── .github/
 │   └── workflows/
-│       ├── build-images.yml       # CI: Build compute images
-│       ├── package-chapter-data.yml  # CI: Build data artifacts (auto-commits hash)
-│       └── generate-metadata.yml  # CI: Scan chapter metadata
+│       ├── build-images.yml       # SIMPLIFIED: One-line 'dagger run' wrapper
+│       ├── package-data.yml       # SIMPLIFIED: One-line 'dagger run' wrapper
+│       └── generate-metadata.yml  # SIMPLIFIED: One-line 'dagger run' wrapper
 │
 ├── requirements.txt               # Python deps (Indonesia chapter)
 │
@@ -1376,30 +1663,25 @@ icon: https://jupyter.org/assets/homepage/main-logo.svg
 
 **values.yaml**:
 ```yaml
+# Semantic tier selection (passed from Quarto button)
+tier: "medium"
+imageFlavor: "base"
+
 # Chapter information (passed via Onyxia deep-link)
 chapter:
   name: "ct_chile"
-  dataSnapshot: "sha256-abcdef123"  # Content hash from CI
+  version: "v1.0.0"
+  storageSize: "20Gi"
 
-# Image selection (base or GPU)
-image:
-  repository: "ghcr.io/fao-eostat/handbook-base"
-  tag: "v1.0"
-  pullPolicy: IfNotPresent
-
-# Resource allocation (tier-based)
+# Legacy/override: Direct resource specification (optional)
+# If empty, resources are derived from tier in deployment template
 resources:
   requests:
-    cpu: "2000m"
-    memory: "8Gi"
+    cpu: ""
+    memory: ""
   limits:
-    cpu: "6000m"
-    memory: "24Gi"
-
-# GPU support
-gpu:
-  enabled: false
-  count: 1
+    cpu: ""
+    memory: ""
 
 # ServiceAccount for IRSA (Workload Identity)
 serviceAccount:
@@ -1469,6 +1751,29 @@ metadata:
 
 **templates/deployment.yaml**:
 ```yaml
+{{- /* Define resource tier mappings (SSOT for infrastructure) */}}
+{{- $resourceTiers := dict
+      "light"  (dict "cpu" "2000m"  "memory" "8Gi"   "storage" "10Gi")
+      "medium" (dict "cpu" "6000m"  "memory" "24Gi"  "storage" "20Gi")
+      "heavy"  (dict "cpu" "10000m" "memory" "48Gi"  "storage" "50Gi")
+      "gpu"    (dict "cpu" "8000m"  "memory" "32Gi"  "storage" "50Gi")
+    -}}
+{{- $tier := .Values.tier | default "medium" -}}
+{{- $tierConfig := index $resourceTiers $tier -}}
+
+{{- /* Define image flavor mappings (SSOT for images) */}}
+{{- $imageFlavors := dict
+      "base" (dict "repo" "ghcr.io/fao-eostat/handbook-base"     "tag" "v1.0")
+      "gpu"  (dict "repo" "ghcr.io/fao-eostat/handbook-base-gpu" "tag" "v1.0")
+    -}}
+{{- $imageFlavor := .Values.imageFlavor | default "base" -}}
+{{- $imageConfig := index $imageFlavors $imageFlavor -}}
+
+{{- /* Allow override via explicit resources */}}
+{{- $cpu := .Values.resources.limits.cpu | default $tierConfig.cpu -}}
+{{- $memory := .Values.resources.limits.memory | default $tierConfig.memory -}}
+{{- $storage := .Values.chapter.storageSize | default $tierConfig.storage -}}
+
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -1484,6 +1789,7 @@ spec:
       labels:
         {{- include "chapter-session.selectorLabels" . | nindent 8 }}
         chapter: {{ .Values.chapter.name }}
+        tier: {{ $tier }}
     spec:
       serviceAccountName: {{ include "chapter-session.serviceAccountName" . }}
       securityContext:
@@ -1492,8 +1798,8 @@ spec:
         fsGroup: 100
       containers:
       - name: jupyterlab
-        image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
-        imagePullPolicy: {{ .Values.image.pullPolicy }}
+        image: "{{ $imageConfig.repo }}:{{ $imageConfig.tag }}"
+        imagePullPolicy: IfNotPresent
         command:
           - jupyter
           - lab
@@ -1535,13 +1841,13 @@ spec:
         {{- end }}
         resources:
           requests:
-            cpu: {{ .Values.resources.requests.cpu }}
-            memory: {{ .Values.resources.requests.memory }}
+            cpu: {{ $cpu }}
+            memory: {{ $memory }}
           limits:
-            cpu: {{ .Values.resources.limits.cpu }}
-            memory: {{ .Values.resources.limits.memory }}
-            {{- if .Values.gpu.enabled }}
-            nvidia.com/gpu: {{ .Values.gpu.count }}
+            cpu: {{ $cpu }}
+            memory: {{ $memory }}
+            {{- if eq $tier "gpu" }}
+            nvidia.com/gpu: 1
             {{- end }}
         volumeMounts:
         - name: chapter-data
@@ -1566,7 +1872,7 @@ spec:
         csi:
           driver: csi-image.k8s.io
           volumeAttributes:
-            image: "ghcr.io/fao-eostat/handbook-data:{{ .Values.chapter.name }}-{{ .Values.chapter.dataSnapshot }}"
+            image: "ghcr.io/fao-eostat/handbook-data:{{ .Values.chapter.name }}-{{ .Values.chapter.version }}"
           readOnly: true
       - name: dshm
         emptyDir:
@@ -1645,59 +1951,11 @@ git commit -m "Add handbook chapter session chart"
 git push
 ```
 
-#### CI/CD: Auto-generate Chapter Metadata
-
-**GitHub Actions Workflow** (`.github/workflows/generate-metadata.yml`):
-
-```yaml
-name: Generate Chapter Metadata
-
-on:
-  push:
-    branches:
-      - main
-    paths:
-      - '*.qmd'
-      - 'chapters/*.qmd'
-  workflow_dispatch:
-
-jobs:
-  generate-metadata:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
-
-      - name: Setup R
-        uses: r-lib/actions/setup-r@v2
-        with:
-          r-version: '4.5.1'
-
-      - name: Install dependencies
-        run: |
-          Rscript -e "install.packages(c('yaml', 'jsonlite', 'purrr'))"
-
-      - name: Scan all chapters
-        run: |
-          Rscript scripts/scan-all-chapters.R > chapters.json
-          cat chapters.json
-
-      - name: Update pre-warming job
-        run: |
-          # Extract chapters and generate YAML array for pre-warming job
-          # This is an example - adapt to your needs
-          cat chapters.json | jq -r 'to_entries[] | "\(.key):\(.value.version):\(.value.storage_size)"' > chapters.txt
-
-      - name: Commit changes
-        run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add chapters.json
-          git diff --quiet && git diff --staged --quiet || \
-            (git commit -m "chore: update chapter metadata" && git push)
-```
+#### Supporting Script: Chapter Metadata Extraction
 
 **R Script** (`scripts/scan-all-chapters.R`):
+
+This script is executed by the Dagger `generate_metadata()` pipeline function (Component #5) to scan all chapter `.qmd` files and extract reproducible metadata.
 
 ```r
 #!/usr/bin/env Rscript
@@ -1776,12 +2034,17 @@ cat(toJSON(chapters, pretty = TRUE, auto_unbox = TRUE))
 -  Create IAM role with S3 read permissions
 -  **Spike**: Validate CSI Image Driver installation and functionality
 
-#### Phase 2: CI-Driven Data Packaging
-- Build automated GitHub Actions workflow for data packaging
-- Implement content-hash calculation (SHA256)
-- Configure auto-commit of hashes back to `.qmd` files
-- Test OCI artifact builds and pushes to GHCR
+#### Phase 2: Portable CI/CD with Dagger
+- Implement Dagger SDK pipeline in Python (`ci/pipeline.py`)
+- Build `package_data_artifacts()` function with content-hash calculation (SHA256)
+- Build `build_compute_image()` function for Docker image builds
+- Build `generate_metadata()` function for chapter metadata scanning
+- Create thin GitHub Actions wrappers (`.github/workflows/*.yml`)
+- Configure auto-commit of hashes back to `.qmd` files within Dagger pipeline
+- Test OCI artifact builds and pushes to GHCR via Dagger
+- Validate pipeline portability (local execution, GitHub Actions, GitLab CI)
 - Validate immutable, content-addressed artifacts
+- Document pipeline development and local testing workflow
 
 #### Phase 3: Helm Chart & Integration
 - Develop Onyxia Helm chart with ServiceAccount for IRSA
