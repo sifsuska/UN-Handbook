@@ -1,10 +1,10 @@
-### Onyxia Deep-Link Mechanism
+##### Onyxia Deep-Link Mechanism
 
-#### Overview
+###### Overview
 
 Onyxia provides a "deep-link" URL format that allows pre-populating Helm chart values via URL query parameters. This eliminates manual configuration and enables one-click session launches.
 
-#### URL Structure
+###### URL Structure
 
 **Format**:
 ```
@@ -23,7 +23,7 @@ https://datalab.officialstatistics.org/launcher/handbook/chapter-session
   &chapter.storageSize=«20Gi»
 ```
 
-#### Parameter Encoding
+###### Parameter Encoding
 
 Onyxia uses a special encoding scheme for Helm values in URLs:
 
@@ -33,7 +33,7 @@ Onyxia uses a special encoding scheme for Helm values in URLs:
 
 The Quarto extension's `encode_helm_value()` function (Section 6.1) handles this encoding automatically.
 
-#### Parameter Mapping to Helm Values
+###### Parameter Mapping to Helm Values
 
 URL parameters map directly to Helm chart `values.yaml` structure using dot notation:
 
@@ -45,7 +45,7 @@ URL parameters map directly to Helm chart `values.yaml` structure using dot nota
 | `chapter.version=«v1-2-3»` | `.Values.chapter.version` | `"v1-2-3"` |
 | `chapter.storageSize=«20Gi»` | `.Values.chapter.storageSize` | `"20Gi"` |
 
-#### Auto-Launch Behavior
+###### Auto-Launch Behavior
 
 When `autoLaunch=true` is included in the URL:
 
@@ -57,7 +57,7 @@ When `autoLaunch=true` is included in the URL:
 
 Without `autoLaunch`, users would see a pre-filled form but need to click "Launch" manually.
 
-#### Catalog and Chart Selection
+###### Catalog and Chart Selection
 
 The URL path identifies which Helm chart to deploy:
 
@@ -85,7 +85,7 @@ catalogs:
     type: helm
 ```
 
-#### Integration with Helm Chart
+###### Integration with Helm Chart
 
 The Helm chart's `values.schema.json` can specify which fields should be overwritable via deep-links:
 
@@ -115,7 +115,7 @@ The Helm chart's `values.schema.json` can specify which fields should be overwri
 
 Setting `"overwriteDefaultWith": null` indicates the value should come from the deep-link URL rather than platform defaults or `region.customValues`.
 
-#### Security Considerations
+###### Security Considerations
 
 Deep-link parameters are validated against the chart's `values.schema.json`:
 

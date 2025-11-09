@@ -1,8 +1,8 @@
-### Fallback Mechanism: xOnyxiaContext (Optional)
+##### Fallback Mechanism: xOnyxiaContext (Optional)
 
 For backward compatibility or non-IRSA clusters, Onyxia can inject credentials via `xOnyxiaContext`. The Helm chart supports both mechanisms, with AWS SDK automatically preferring IRSA when available.
 
-#### How xOnyxiaContext Works (Legacy/Fallback Path)
+###### How xOnyxiaContext Works (Legacy/Fallback Path)
 
 ```yaml
 # Automatically injected by Onyxia
@@ -57,7 +57,7 @@ env:
   value: {{ .Values.onyxia.s3.AWS_DEFAULT_REGION | default "us-west-2" }}
 ```
 
-#### Credential Flow Architecture
+###### Credential Flow Architecture
 
 The system uses **Workload Identity (IRSA)** as the primary mechanism, with xOnyxiaContext as an optional fallback:
 
@@ -76,7 +76,7 @@ Fallback Flow: xOnyxiaContext (Optional)
 
 **Result**: The Helm chart is portable across any Kubernetes cluster with OIDC federation configured.
 
-#### Credential Lifecycle
+###### Credential Lifecycle
 
 - **AWS credentials**: 12 hours (sufficient for most analyses)
 - **OIDC access token**: ~15 minutes (injected at pod creation as static snapshot)
@@ -85,7 +85,7 @@ Fallback Flow: xOnyxiaContext (Optional)
 - **Token refresh**: Onyxia frontend handles refresh, but running pods receive static snapshots
 - **Workaround**: Restart pod for fresh credentials if session exceeds 12 hours
 
-#### Benefits for Reproducible Analysis
+###### Benefits for Reproducible Analysis
 
 1. **No Manual Credential Management**
    - Chapter authors never handle AWS keys

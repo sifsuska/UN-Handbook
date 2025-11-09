@@ -1,12 +1,12 @@
-### Component #5: "Chapter Session" Helm Chart
+##### Component #5: "Chapter Session" Helm Chart
 
 **Component #5: Kubernetes Session Orchestration**
 
-#### Overview
+###### Overview
 
 The "Chapter Session" Helm chart deploys reproducible analysis environments in Kubernetes. It translates semantic configuration (tier names, image flavors) into actual infrastructure resources, mounts data artifacts, and configures cloud credentials.
 
-#### Chart Structure
+###### Chart Structure
 
 ```
 handbook-catalog/
@@ -21,7 +21,7 @@ handbook-catalog/
 │       └── ingress.yaml
 ```
 
-#### Resource Tier Mapping
+###### Resource Tier Mapping
 
 Resource tiers are defined in the Helm chart templates, not in the Quarto site or author frontmatter. This ensures infrastructure changes don't require updates to the static handbook site.
 
@@ -45,7 +45,7 @@ reproducible:
 
 The Helm chart translates these to actual resource allocations.
 
-#### Chart Metadata
+###### Chart Metadata
 
 **File**: `Chart.yaml`
 
@@ -69,7 +69,7 @@ maintainers:
 icon: https://jupyter.org/assets/homepage/main-logo.svg
 ```
 
-#### Default Values
+###### Default Values
 
 **File**: `values.yaml`
 
@@ -143,7 +143,7 @@ onyxia:
     AWS_SESSION_TOKEN: ""
 ```
 
-#### Template: ServiceAccount (IRSA)
+###### Template: ServiceAccount (IRSA)
 
 **File**: `templates/serviceaccount.yaml`
 
@@ -165,7 +165,7 @@ metadata:
 
 The `serviceAccount.annotations` field is populated by Onyxia's `region.customValues` with the IRSA role ARN (see Section 6.3.1).
 
-#### Template: Deployment
+###### Template: Deployment
 
 **File**: `templates/deployment.yaml`
 
@@ -313,7 +313,7 @@ spec:
 4. **Hybrid Credentials**: IRSA preferred, xOnyxiaContext fallback (Section 6.3.2)
 5. **GPU Support**: Conditional resource limits and tolerations for GPU tier
 
-#### Template: Service
+###### Template: Service
 
 **File**: `templates/service.yaml`
 
@@ -334,7 +334,7 @@ spec:
     {{- include "chapter-session.selectorLabels" . | nindent 4 }}
 ```
 
-#### Template: Ingress
+###### Template: Ingress
 
 **File**: `templates/ingress.yaml`
 
@@ -376,7 +376,7 @@ spec:
 - **TLS**: Automatic HTTPS via cert-manager and Let's Encrypt
 - **Dynamic Hostname**: Onyxia injects random subdomain for session isolation
 
-#### Packaging for Onyxia Catalog
+###### Packaging for Onyxia Catalog
 
 ```bash
 # Package the chart
@@ -402,7 +402,7 @@ catalogs:
     type: helm
 ```
 
-#### Design Benefits
+###### Design Benefits
 
 1. **Single Source of Truth**: All infrastructure configuration (tiers, images) defined in Helm templates
 2. **Decoupled Updates**: Infrastructure changes don't require re-rendering Quarto book

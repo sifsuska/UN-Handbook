@@ -1,6 +1,6 @@
-### Repository Structure
+##### Repository Structure
 
-#### Complete Repository Layout
+###### Complete Repository Layout
 
 ```
 UN-Handbook/
@@ -61,7 +61,7 @@ UN-Handbook/
     └── ...
 ```
 
-#### Key Directory Purposes
+###### Key Directory Purposes
 
 **Build-Time Components**:
 
@@ -86,7 +86,7 @@ UN-Handbook/
 - `requirements.txt` - Python dependencies for specific chapters
 - `.Rprofile` + `renv/` - renv infrastructure
 
-#### CI Workflow Examples
+###### CI Workflow Examples
 
 **Build Images** (`.github/workflows/build-images.yml`):
 
@@ -165,7 +165,7 @@ jobs:
           GIT_REPO_URL: github.com/fao-eostat/un-handbook
 ```
 
-#### Portability Note
+###### Portability Note
 
 All CI workflows are simple wrappers around the Dagger pipeline. The same `ci/pipeline.py` script runs identically on:
 

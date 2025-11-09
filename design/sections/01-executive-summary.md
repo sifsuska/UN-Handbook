@@ -1,4 +1,4 @@
-## Executive Summary
+#### Executive Summary
 
 This document outlines the design for a "reproducible analysis" feature that allows readers to launch select chapters of the UN Handbook into a one-click, pre-configured Kubernetes environment.
 

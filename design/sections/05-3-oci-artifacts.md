@@ -1,15 +1,15 @@
-### Component #3: OCI Data Artifacts with CSI Image Driver
+##### Component #3: OCI Data Artifacts with CSI Image Driver
 
 **Content-Addressed Data Packaging**
 
-#### Why CSI Image Driver?
+###### Why CSI Image Driver?
 
 - **Stateless**: No PVC management, cleanup jobs, or golden PVC coordination
 - **Implicit Performance**: Node-level caching provides 5-15s startup automatically
 - **Simpler**: Kubernetes treats data images like compute images
 - **Immutable**: Each content hash is a unique, reproducible artifact
 
-#### How It Works
+###### How It Works
 
 The CSI (Container Storage Interface) Image Driver allows Kubernetes to mount OCI (Docker/container) images directly as volumes. Instead of managing PVCs and DataVolumes, we simply reference the data image in the pod spec:
 
@@ -30,14 +30,14 @@ When the pod starts:
 3. The container sees the data at `/home/jovyan/handbook-chapter/`
 4. Node-level caching means subsequent launches are instant (<15s)
 
-#### Benefits
+###### Benefits
 
 - **No state management**: No PVCs to create, clone, or clean up
 - **Automatic caching**: Kubernetes image cache handles performance
 - **Content-addressed**: Each SHA256 hash guarantees exact reproducibility
 - **Garbage collection**: Standard Kubernetes image GC removes unused data
 
-#### Data Artifact Structure
+###### Data Artifact Structure
 
 Each chapter's data directory is packaged as a minimal OCI artifact:
 
@@ -54,7 +54,7 @@ The Dagger pipeline (see [Portable CI/CD Pipeline](#component-1-portable-cicd-pi
 4. Pushes to registry with tag: `ct_chile-sha256-abcdef123`
 5. Auto-commits the hash back to chapter frontmatter
 
-#### Content-Addressed Naming
+###### Content-Addressed Naming
 
 **Example tag format**: `ghcr.io/fao-eostat/handbook-data:ct_chile-sha256-abcdef123`
 
@@ -64,7 +64,7 @@ The Dagger pipeline (see [Portable CI/CD Pipeline](#component-1-portable-cicd-pi
 
 The hash is calculated from the exact content of the data directory. Identical data always produces identical hashes, guaranteeing bit-for-bit reproducibility.
 
-#### Implementation in Helm Chart
+###### Implementation in Helm Chart
 
 **File**: `handbook-catalog/chapter-session/templates/deployment.yaml`
 

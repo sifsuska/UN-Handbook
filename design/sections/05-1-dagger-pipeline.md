@@ -1,8 +1,8 @@
-### Component #1: Portable CI/CD Pipeline (Dagger SDK)
+##### Component #1: Portable CI/CD Pipeline (Dagger SDK)
 
 **Build-Time Automation for Compute Images, Data Artifacts, and Metadata Generation**
 
-#### The Portability Challenge
+###### The Portability Challenge
 
 **Problem**: The CI/CD logic for building compute images, hashing data, and auto-committing hashes is complex. While it could be implemented using GitHub Actions YAML, that approach is platform-specific and tightly coupled to a single CI system. This creates a significant barrier to adoption for organizations using GitLab, Bitbucket, or other platforms.
 
@@ -10,7 +10,7 @@
 
 This SDK (implemented in `ci/pipeline.py`) uses the Dagger Python SDK to define pipeline functions. The CI platform's YAML file becomes a simple, one-line wrapper that just executes the Dagger pipeline.
 
-#### How It Works: The Transformation
+###### How It Works: The Transformation
 
 This design turns complex, platform-specific CI configurations into simple, portable declarations.
 
@@ -48,7 +48,7 @@ build_data_artifacts:
     GIT_REPO_URL: "gitlab.com/my-org/un-handbook"
 ```
 
-#### Dagger SDK Implementation
+###### Dagger SDK Implementation
 
 The core logic moves into a Python script using the Dagger SDK. Dagger runs pipeline steps in isolated containers, providing automatic caching, parallelization, and portability.
 
@@ -320,7 +320,7 @@ if __name__ == "__main__":
     anyio.run(run_pipeline)
 ```
 
-#### R Script for Metadata Scanning
+###### R Script for Metadata Scanning
 
 This script is executed by the Dagger `generate_metadata()` pipeline function (Component #5) to scan all chapter `.qmd` files and extract reproducible metadata.
 
@@ -393,7 +393,7 @@ chapters <- qmd_files %>%
 cat(toJSON(chapters, pretty = TRUE, auto_unbox = TRUE))
 ```
 
-#### Key Benefits
+###### Key Benefits
 
 1. **Extreme Portability**: The logic runs identically on GitHub-hosted runners, GitLab instances, or a developer's laptop. The only requirement is the Dagger engine.
 

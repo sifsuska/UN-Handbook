@@ -6,9 +6,6 @@ set -euo pipefail
 
 SECTIONS_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/sections" && pwd)"
 
-echo "# Reproducible Analysis System for UN Handbook - Design Document"
-echo ""
-
 # Process all markdown files in sorted order
 for section_file in $(ls "${SECTIONS_DIR}"/*.md | sort); do
     cat "$section_file"

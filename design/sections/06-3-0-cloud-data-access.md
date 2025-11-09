@@ -1,6 +1,6 @@
-### Cloud Data Access Strategy
+##### Cloud Data Access Strategy
 
-#### Overview: The Dual-Data Architecture
+###### Overview: The Dual-Data Architecture
 
 The reproducible analysis system provides seamless access to **two complementary data sources**:
 

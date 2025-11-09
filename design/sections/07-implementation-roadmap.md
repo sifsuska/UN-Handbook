@@ -1,12 +1,12 @@
-## Implementation Roadmap
+#### Implementation Roadmap
 
-#### Phase 1: Foundation
+###### Phase 1: Foundation
 -  Build base Docker images with curated system dependencies (GPU images contingent on funding)
 -  Configure EKS cluster for OIDC provider (IRSA)
 -  Create IAM role with S3 read permissions
 -  **Spike**: Validate CSI Image Driver installation and functionality
 
-#### Phase 2: Portable CI/CD with Dagger
+###### Phase 2: Portable CI/CD with Dagger
 - Implement Dagger SDK pipeline in Python (`ci/pipeline.py`)
 - Build `package_data_artifacts()` function with content-hash calculation (SHA256)
 - Build `build_compute_image()` function for Docker image builds
@@ -18,20 +18,20 @@
 - Validate immutable, content-addressed artifacts
 - Document pipeline development and local testing workflow
 
-#### Phase 3: Helm Chart & Integration
+###### Phase 3: Helm Chart & Integration
 - Develop Onyxia Helm chart with ServiceAccount for IRSA
 - Implement CSI image volume mounting
 - Configure `region.customValues` in Onyxia for IRSA role ARN
 - Build Quarto extension for "Reproduce" button generation
 - Test hybrid credential approach (IRSA primary, xOnyxiaContext fallback)
 
-#### Phase 4: Long-Term Dependency Management
+###### Phase 4: Long-Term Dependency Management
 - Extend CI pipeline to detect `renv.lock` changes
 - Build chapter-specific compute images automatically
 - Implement versioning strategy for compute images
 - Handle dependency conflicts across chapters
 
-#### Phase 5: Production Launch
+###### Phase 5: Production Launch
 - Rollout to production environment
 - Conduct load testing (concurrent users)
 - Establish monitoring and alerting

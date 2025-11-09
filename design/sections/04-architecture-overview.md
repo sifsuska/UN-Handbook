@@ -1,8 +1,8 @@
-## Architecture Overview
+#### Architecture Overview
 
 This reproducible analysis system consists of **five custom software components** that integrate with existing platforms (Kubernetes, Onyxia, AWS, and container registries) to enable one-click reproducible chapter sessions. The architecture operates in two distinct phases: a **Build-Time Flow** (automated CI/CD for chapter authors) and a **Run-Time Flow** (one-click session launching for readers).
 
-#### Build-Time Flow: Automated CI/CD Pipeline
+##### Build-Time Flow: Automated CI/CD Pipeline
 
 When a chapter author pushes changes to the repository, an automated CI/CD pipeline ensures that all data and compute dependencies are versioned, built, and deployed as immutable OCI artifacts.
 
@@ -42,7 +42,7 @@ When a chapter author pushes changes to the repository, an automated CI/CD pipel
 
 3. **Portable CI Pipeline - Metadata Generation (#5)**: A Dagger SDK function that scans all `.qmd` files and aggregates their `reproducible:` metadata into a centralized `chapters.json` manifest, which can be used for cluster optimizations like image pre-warming. (See [Portable CI/CD Pipeline](#component-1-portable-cicd-pipeline-dagger-sdk) for implementation)
 
-#### Run-Time Flow: One-Click Reproducible Sessions
+##### Run-Time Flow: One-Click Reproducible Sessions
 
 When a handbook reader clicks the "Reproduce this analysis" button, the system orchestrates a fully configured Kubernetes session with all code, data, and cloud credentials ready.
 
@@ -109,7 +109,7 @@ When a handbook reader clicks the "Reproduce this analysis" button, the system o
 
 **Existing Platform Components**: The system relies on standard Kubernetes features (CSI Image Driver for volume mounting, IRSA for AWS credential injection) and Onyxia for user authentication and service orchestration.
 
-#### The Five Core Components
+##### The Five Core Components
 
 This system is built from five custom software components that work together to enable reproducible analysis:
 
@@ -133,7 +133,7 @@ This system is built from five custom software components that work together to 
 
 - **Cloud Data Access (IRSA)** - Provides automatic AWS credentials for accessing S3-hosted satellite imagery via Kubernetes Workload Identity. (See [Cloud Data Access](#using-cloud-credentials-in-analysis-code))
 
-#### Decoupled Configuration Architecture
+##### Decoupled Configuration Architecture
 
 This system uses a **decoupled configuration architecture** where the Quarto site (frontend) is unaware of infrastructure details.
 

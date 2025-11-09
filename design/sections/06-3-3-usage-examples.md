@@ -1,6 +1,6 @@
-### Using Cloud Credentials in Analysis Code
+##### Using Cloud Credentials in Analysis Code
 
-#### R Example: Accessing Sentinel-2 via STAC
+###### R Example: Accessing Sentinel-2 via STAC
 
 ```r
 # Chapter code (e.g., ct_chile.qmd)
@@ -35,7 +35,7 @@ cube <- sits_cube(
 # Access works seamlessly - AWS SDK uses env vars
 ```
 
-#### Python Example: Accessing Landsat via Arrow
+###### Python Example: Accessing Landsat via Arrow
 
 ```python
 # For chapters using reticulate
@@ -56,7 +56,7 @@ dataset = pq.ParquetDataset(
 )
 ```
 
-#### Complete Analysis Workflow
+###### Complete Analysis Workflow
 
 This example demonstrates how to combine both local packaged data (from CSI-mounted OCI artifacts) and live cloud data (via AWS credentials):
 
@@ -119,7 +119,7 @@ accuracy <- sits_accuracy(classification, training_samples)
 # - AWS access: Automatic via IRSA (no secrets in code)
 ```
 
-#### Data Access Patterns
+###### Data Access Patterns
 
 | Data Type | Source | Access Method | Reproducibility Guarantee |
 |-----------|--------|---------------|---------------------------|
@@ -130,7 +130,7 @@ accuracy <- sits_accuracy(classification, training_samples)
 | Cloud-optimized GeoTIFF | AWS S3 | `terra`/`rasterio` + AWS credentials | S3 URI in code |
 | Parquet datasets | AWS S3 | `arrow`/`pyarrow` + AWS credentials | S3 URI in code |
 
-#### Key Takeaways
+###### Key Takeaways
 
 1. **Zero-Configuration Cloud Access**: R and Python libraries automatically detect AWS credentials from environment variables set by IRSA or xOnyxiaContext
 

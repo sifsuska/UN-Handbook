@@ -1,6 +1,6 @@
-## Performance & Alternatives
+#### Performance & Alternatives
 
-#### Performance Comparison: CSI Image Driver vs. PVC Cloning
+###### Performance Comparison: CSI Image Driver vs. PVC Cloning
 
 | Metric | Old Approach (PVC Cloning) | New Approach (CSI Image Driver) | Improvement |
 |--------|----------------------------|----------------------------------|-------------|
@@ -21,11 +21,11 @@
 
 ---
 
-#### Rejected Alternatives & Design Rationale
+###### Rejected Alternatives & Design Rationale
 
 This section documents alternatives considered during the design process and explains why they were rejected in favor of the current architecture.
 
-##### Alternative 1: KubeVirt DataVolumes
+####### Alternative 1: KubeVirt DataVolumes
 
 **What it is**: KubeVirt's Containerized Data Importer (CDI) provides DataVolumes that can import OCI images into PVCs at pod creation time.
 
@@ -46,7 +46,7 @@ This section documents alternatives considered during the design process and exp
 
 ---
 
-##### Alternative 2: Manually Managed PVCs per Chapter
+####### Alternative 2: Manually Managed PVCs per Chapter
 
 **What it is**: Infrastructure team manually creates one PVC per chapter, mounting it read-only into user sessions.
 
@@ -67,7 +67,7 @@ This section documents alternatives considered during the design process and exp
 
 ---
 
-##### Alternative 3: Kubeflow Notebooks
+####### Alternative 3: Kubeflow Notebooks
 
 **What it is**: Kubeflow's notebook server custom resources with built-in JupyterHub integration.
 
@@ -88,7 +88,7 @@ This section documents alternatives considered during the design process and exp
 
 ---
 
-##### Alternative 4: Git LFS for Data Versioning
+####### Alternative 4: Git LFS for Data Versioning
 
 **What it is**: Store chapter data in Git using Git Large File Storage (LFS), clone repositories at session startup.
 
@@ -109,7 +109,7 @@ This section documents alternatives considered during the design process and exp
 
 ---
 
-##### Alternative 5: Platform-Specific CI (GitHub Actions Only)
+####### Alternative 5: Platform-Specific CI (GitHub Actions Only)
 
 **What it is**: Implement all build-time logic (image builds, data hashing, auto-commits) directly in GitHub Actions YAML.
 
@@ -130,7 +130,7 @@ This section documents alternatives considered during the design process and exp
 
 ---
 
-#### Design Rationale Summary
+###### Design Rationale Summary
 
 The final architecture (CSI Image Driver + Dagger + Onyxia + IRSA) was chosen based on these core principles:
 

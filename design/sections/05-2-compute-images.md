@@ -1,8 +1,8 @@
-### Component #2: Curated Compute Images
+##### Component #2: Curated Compute Images
 
 **Pre-built System Dependency Images**
 
-#### The System Dependency Challenge
+###### The System Dependency Challenge
 
 **Problem**: System libraries (GDAL, PROJ, GEOS) cannot be managed by `renv`. Allowing runtime `apt-get install`:
 
@@ -12,14 +12,14 @@
 
 **Solution**: Pre-built, immutable Docker images maintained by infrastructure team.
 
-#### Image Catalog
+###### Image Catalog
 
 | Image Flavor | Repository | Parent Base | System Packages | Use Case |
 |--------------|------------|-------------|-----------------|----------|
 | `base` | `ghcr.io/fao-eostat/handbook-base:v1.0` | jupyter/r-notebook:r-4.5.1 | GDAL 3.6.2, PROJ 9.1.1, GEOS 3.11.1 | 95% of chapters |
 | `gpu` | `ghcr.io/fao-eostat/handbook-base-gpu:v1.0` | nvidia/cuda:12.1-cudnn8 | Same as base + CUDA, cuDNN | Deep learning (Colombia) |
 
-#### Helm Chart Implementation
+###### Helm Chart Implementation
 
 The Helm chart uses a server-side dictionary to map semantic flavor names to actual image repositories:
 
@@ -34,7 +34,7 @@ The Helm chart uses a server-side dictionary to map semantic flavor names to act
 {{- $imageConfig := index $imageFlavors $imageFlavor -}}
 ```
 
-#### Author Experience
+###### Author Experience
 
 Authors specify the semantic flavor name in chapter frontmatter - no need to know registry paths or image tags:
 
@@ -44,9 +44,9 @@ reproducible:
   image-flavor: base  # or "gpu"
 ```
 
-#### Image Implementations
+###### Image Implementations
 
-#### Base Image
+###### Base Image
 
 **Dockerfile** (`.docker/base.Dockerfile`):
 
@@ -105,7 +105,7 @@ geopandas>=0.13.0
 rasterio>=1.3.0
 ```
 
-#### GPU Image
+###### GPU Image
 
 **Dockerfile** (`.docker/gpu.Dockerfile`):
 
@@ -145,7 +145,7 @@ LABEL org.opencontainers.image.version="v1.0-gpu" \
       handbook.requires-gpu="true"
 ```
 
-#### Build Process
+###### Build Process
 
 Images are built by the Dagger pipeline (Component #2):
 
@@ -162,7 +162,7 @@ dagger run python ./ci/pipeline.py build-image \
 
 See [Portable CI/CD Pipeline](#component-1-portable-cicd-pipeline-dagger-sdk) for complete Dagger implementation details.
 
-#### Version Management
+###### Version Management
 
 **Updating Image Versions**:
 
@@ -177,7 +177,7 @@ Infrastructure team updates the Helm chart template's `$imageFlavors` dictionary
 5. Update Helm chart values or Quarto extension
 6. Deploy via new handbook render
 
-#### Security Benefits
+###### Security Benefits
 
 - All system packages installed at build time in trusted CI
 - No `root` access in user containers

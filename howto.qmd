@@ -15,9 +15,12 @@ This handbook provides comprehensive guidance on remote sensing for agricultural
 The reproducible analysis system described below is currently under development and not yet implemented. This documentation describes the planned functionality.
 :::
 
-Select chapters in this handbook will include a **"Reproduce this analysis"** button that launches a one-click, pre-configured JupyterLab environment where you can run the analysis yourself.
+This handbook features a **"Reproduce this analysis"** system that all chapter authors can enable. When enabled, a button is added to the chapter that launches a one-click, pre-configured JupyterLab environment where you can run the analysis yourself.
 
-**Scope:** This system is designed for chapters with local data dependencies (pre-computed models, training samples, cached results). Currently, 2 chapters are ready (ct_chile, ct_digital_earth_africa), with 2-5 additional chapters planned. Most chapters (84%) are cloud-only or theoretical and use live satellite data via STAC catalogs without requiring reproducible containers.
+**Scope:** This system provides a reproducible environment for two main purposes:
+
+- **Packaging Complex Chapters**: For the 2-7 chapters with local data dependencies (pre-computed models, training samples), the system packages this data into the environment for true reproducibility.
+- **Supporting All Chapters**: For the majority of the handbook (84%), the system provides a zero-setup environment with all dependencies and cloud credentials ready, allowing you to instantly run live STAC queries and code examples without any local setup.
 
 ### For Readers: One-Click Reproducibility
 
@@ -50,6 +53,11 @@ Chapters are configured with appropriate computational resources:
 - **Heavy** (10 CPU, 48GB RAM): Large-scale classification, SAR preprocessing
 - **GPU** (8 CPU, 32GB RAM, 1 GPU): Deep learning models (e.g., Colombia yield estimation)
 
+::: {.callout-important}
+## GPU Support Availability
+GPU-enabled sessions are subject to funding availability and cluster configuration. While the infrastructure design includes GPU support for deep learning workloads, actual GPU resource allocation on the UN Global Platform depends on budget and infrastructure capacity. **GPU support is not part of the initial deployment.**
+:::
+
 ### Technical Architecture
 
 The reproducible analysis system uses:
@@ -67,7 +75,12 @@ If you're contributing to this handbook, the reproducible analysis workflow is d
 
 **Who Should Use This?**
 
-Enable reproducible mode if your chapter has files in `data/<your_chapter>/` directory (pre-computed models, training samples, cached results). If your chapter only accesses cloud data via STAC catalogs, you don't need this system—AWS credentials are provided automatically for all chapters.
+You should enable the "Reproduce this analysis" button for your chapter if you want readers to be able to run your code in a pre-configured environment. This applies to two cases:
+
+- **Chapters with Local Data**: If your chapter has files in `data/<your_chapter>/` (models, samples, etc.), this is essential. The system will package this data for your readers.
+- **Cloud-Only / Theoretical Chapters**: This is highly recommended. The system will provide readers a zero-setup environment with all R/Python packages and live cloud credentials (for STAC, etc.) ready to go.
+
+The "Simple Workflow" below applies mostly to case #1 (packaging local data). For cloud-only chapters, you simply need to add `reproducible: enabled: true` to your frontmatter.
 
 **Data Organization Patterns:**
 
@@ -124,5 +137,5 @@ reproducible:
 
 The complete technical design document is available below for infrastructure teams and advanced contributors.
 
-{{< include design/reproducible-analysis-design.md >}}
+{{< include design/reproducible-analysis-design-modular.md >}}
 :::

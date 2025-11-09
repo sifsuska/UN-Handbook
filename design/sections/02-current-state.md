@@ -1,6 +1,6 @@
-## Current State & Design Goals
+#### Current State & Design Goals
 
-#### Current State
+##### Current State
 
 The UN Handbook is a Quarto book with 48 chapters. **Only 2 chapters (4%) currently have local data dependencies** that would benefit from reproducible containers (ct_chile, ct_digital_earth_africa). Most chapters (84%) are cloud-only or theoretical, accessing satellite imagery directly via STAC catalogs. The few chapters with local data use it for pre-computed models, training samples, and cached results to avoid expensive recomputation. Chapters use R (with renv), some Python, and access both local cached data (RDS files, models) and remote cloud data (STAC catalogs).
 
@@ -19,9 +19,9 @@ The UN Handbook is a Quarto book with 48 chapters. **Only 2 chapters (4%) curren
 - Part 6: Disaster Response (1 chapter) - Flood monitoring
 - Part 7: Additional Topics (2 chapters) - World Cereal, learning resources
 
-#### Computational Characteristics
+##### Computational Characteristics
 
-##### Analysis Types by Computational Load
+###### Analysis Types by Computational Load
 
 **Light (Theory Chapters)**:
 
@@ -50,7 +50,7 @@ The UN Handbook is a Quarto book with 48 chapters. **Only 2 chapters (4%) curren
 - **Typical runtime**: 1-2 hours
 
 ::: {.callout-important}
-### GPU Support Availability
+###### GPU Support Availability
 GPU-enabled sessions are subject to funding availability and cluster configuration. While the infrastructure design includes GPU support for deep learning workloads, actual GPU resource allocation on the UN Global Platform depends on budget and infrastructure capacity. GPU support is not part of the initial deployment.
 :::
 
@@ -64,9 +64,9 @@ GPU-enabled sessions are subject to funding availability and cluster configurati
 - **Resource allocation**: 8 CPU, 32GB RAM, 1 GPU, 50GB storage (defined in Helm chart)
 - **Typical runtime**: 2-4 hours
 
-#### Current Technology Stack
+##### Current Technology Stack
 
-##### R Environment
+###### R Environment
 - **R Version**: 4.5.1
 - **Package Manager**: `renv` with lock file (7,383 lines, ~427KB)
 - **Key Packages**:
@@ -77,11 +77,11 @@ GPU-enabled sessions are subject to funding availability and cluster configurati
   - Visualization: `ggplot2`, `tmap`, `leaflet`
   - Python Integration: `reticulate` (for Indonesia chapter)
 
-##### Python Environment
+###### Python Environment
 - **Status**: One chapter (Indonesia) uses Python via `reticulate`
 - **Solution**: Create `requirements.txt` for reproducibility
 
-##### Data Sources
+###### Data Sources
 
 **Cloud Platforms (Remote Access)**:
 
@@ -116,7 +116,7 @@ GPU-enabled sessions are subject to funding availability and cluster configurati
 - Hybrid: Some chapters combine local cached results with live cloud data access
 - Reality: Only 2 chapters currently use local data for reproducible containers
 
-#### Current Reproducibility Status
+##### Current Reproducibility Status
 
 **Strengths**:
 
@@ -140,9 +140,9 @@ GPU-enabled sessions are subject to funding availability and cluster configurati
 
 ---
 
-### Design Requirements & Principles
+##### Design Requirements & Principles
 
-#### Key Decisions
+###### Key Decisions
 
 1. **Resource Allocation**: Dynamic (auto-scale per chapter based on metadata)
 2. **Data Strategy**: Pre-packaged, content-hashed, and immutable OCI artifacts for local data; automatic OIDC-based credentials for live cloud data.
@@ -151,7 +151,7 @@ GPU-enabled sessions are subject to funding availability and cluster configurati
 5. **Platform Integration**: Orchestrated by Onyxia, but with a portable core
 6. **Cloud Access**: Automatic, temporary AWS credentials via standard Kubernetes Workload Identity (IRSA)
 
-#### Design Principles
+###### Design Principles
 
 **For Handbook Readers ("User Magic")**:
 

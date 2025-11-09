@@ -1,12 +1,12 @@
-### Component #4: "Reproduce" Button (Quarto Extension)
+##### Component #4: "Reproduce" Button (Quarto Extension)
 
 **User's Entrypoint to Reproducible Sessions**
 
-#### Overview
+###### Overview
 
 The "Reproduce" button is a Lua-based Quarto extension that reads chapter metadata and generates an Onyxia deep-link URL. It serves as the user's primary entrypoint for launching reproducible analysis sessions directly from handbook chapters.
 
-#### Extension Structure
+###### Extension Structure
 
 ```
 _extensions/reproducible-button/
@@ -15,7 +15,7 @@ _extensions/reproducible-button/
 └── reproduce-button.js (optional UI enhancements)
 ```
 
-#### Author Usage
+###### Author Usage
 
 **Minimal Usage (Recommended)**:
 
@@ -55,7 +55,7 @@ reproducible:
 # Chapter content...
 ```
 
-#### Rendered Output
+###### Rendered Output
 
 ```html
 <div class="reproducible-banner">
@@ -72,7 +72,7 @@ reproducible:
 </div>
 ```
 
-#### Implementation
+###### Implementation
 
 **File**: `_extensions/reproducible-button/reproduce-button.lua`
 
@@ -166,7 +166,7 @@ function Meta(meta)
 end
 ```
 
-#### Key Design Decisions
+###### Key Design Decisions
 
 **Semantic Configuration**: The extension only passes semantic names (`tier: "heavy"`, `imageFlavor: "gpu"`) to the Helm chart. The actual resource allocations and image repositories are defined server-side in the Helm chart templates (see ["Chapter Session" Helm Chart](#component-5-chapter-session-helm-chart)).
 
