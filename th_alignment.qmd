@@ -477,4 +477,9 @@ broader lesson: the road to EO-enabled agricultural statistics begins
 not with satellite imagery, but with the design and quality of in-situ
 data collection.
 
+## About the authors{-}
+
+Luis Ambrosio Flores (luis.ambrosio@upm.es) is  professor of Statistics. Expert in agricultural and environmental statistics, econometric modeling, climate impact assessment, and EU biodiversity frameworks. Led 30 research projects and served as consultant (ESA, FAO, EU). Key projects: SEN4Stat - Sentinels for Agricultural Statistics;  Global Strategy (GS)-Improving Agricultural & Rural Statistics; Econometric models for assessing climate change impact on agriculture and environment (Spanish Ministry of Science and Technology). Author of 50 publications with 404 citations on Google Scholar.
+
+
 ## References{-}

@@ -148,3 +148,7 @@ Predicting crop yield is a complex and evolving process. While technology and da
 ## Data and code availability {-}
 
 The implementation of the solution presented in this chapter is available on GitHub at <https://github.com/lukefi/cropyield>
+
+## About the author {-}
+
+Maria Yli-Heikkilä is a research scientist at the Natural Resources Institute Finland. Since 2018 she has been working extensively on applying machine learning and satellite remote sensing technologies for agricultural monitoring. She holds an M.Sc. (Tech.) in Industrial Engineering and Management (2003), an MA in Humanities (2013), and a PhD in remote sensing and data science (2025) from the University of Helsinki. Her research interests lie in food security and knowledge discovery through data fusion. 

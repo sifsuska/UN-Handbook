@@ -499,3 +499,8 @@ Sentinel-2 products are openly available from cloud providers such as [Copernicu
 ## Final remarks
 
 Multi-source satellite remote sensing facilitates coordinated global observation through orbital synergy, while the integration of optical imagery and SAR datasets enables multisensor data collection across heterogeneous meteorological regimes. This synergistic complementarity between spectral resolution and all-weather capability holds significant implications for enhancing the spatiotemporal continuity and operational robustness of agricultural statistical monitoring systems.
+
+## About the author{-}
+
+Professor Pan Yaozhong is a distinguished scholar and leading figure in the field of remote sensing in China. He is the Director of the Institute of Remote Sensing Science and Engineering at Beijing Normal University. He has long been dedicated to teaching and research on the applications of remote sensing technology across critical national sectors, including agriculture, statistics, environment, disaster mitigation, and financial insurance. His work has yielded a series of significant theoretical and practical achievements. As a member of several national-level expert committees, he provides vital academic support and strategic advice for the development of remote sensing science and technology, policy-making, and the implementation of major national projects in China. He has led over 20 national key research programs and projects. First Prize, Beijing Science and Technology Award (Ranked 1st). Author of more than 200 SCI-indexed papers in renowned international journals. 
+

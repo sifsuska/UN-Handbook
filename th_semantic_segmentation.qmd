@@ -1,7 +1,0 @@
----
-title: "Semantic Segmentation for Remote Sensing in Agriculture"
-author: "Ian Nunes, Hugo Oliveira, Edemir Andrade, Octavio Costa de Oliveira"
-format: html
----
-
-## 
