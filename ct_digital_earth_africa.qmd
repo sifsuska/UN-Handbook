@@ -2,6 +2,13 @@
 title: "Agricultural Mapping with Digital Earth Africa"
 author: "Michael Wellington, Lisa Rebelo"
 format: html
+
+reproducible:
+    enabled: true
+
+reproducible-local:
+    enabled: true
+    repository-url: "https://github.com/FAO-EOSTAT/un-handbook-ct-deafrica"
 ---
 
 ```{r}
@@ -12,6 +19,8 @@ library(sits)
 library(sf)
 library(sits)
 library(FNN)
+library(kohonen)
+library(randomForest)
 library(randomForestExplainer)
 ```
 
@@ -81,12 +90,16 @@ The analytical component of the chapter begins with loading packages required fo
 #| warning: FALSE
 library(sits)           # satellite image time series package
 library(sf)             # simple features package for spatial data
+library(caret)          # Cross validation
 library(arrow)          # back-end C++ integration
 library(rstac)          # load spatial data with STAC 
 library(stars)          # spatiotemporal arrays, raster and vector data 
 library(terra)          # spatial data analysis
 library(tmap)           # thematic maps
 library(tidyverse)      # collection of data management packages
+library(kohonen)        # self-organized maps
+library(randomForest)   # random forest
+library(randomForestExplainer) # random forest visualization
 ```
 
 ## Digital Earth Africa Geomedians (GeoMADs)

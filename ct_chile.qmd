@@ -4,7 +4,15 @@ author:
   - "Estefanía Pizarro Arias"
   - "Alexis Gamboa Maldonado"
   - "Jonathan Paredes Baez"
+
 format: html
+
+reproducible:
+    enabled: true
+
+reproducible-local:
+    enabled: true
+    repository-url: "https://github.com/FAO-EOSTAT/un-handbook-ct-chile"
 ---
 
 ## Introduction
@@ -151,8 +159,6 @@ Finally, random sampling of points proportional to the area of the polygons resu
 knitr::include_graphics("./images/ct_chile/ground_data_distribution.png")
 ```
 
-
-
 ### Generation of land use and land cover maps using time series of satellite images
 
 @Simoes2021 developed an open-source R package called `sits`, which enables the analysis of time series of satellite images for land use and land cover classification. This analysis is performed through machine learning and follows an approach they have termed *"time first–space later."* The main contribution of this package is that it provides a complete workflow for soil classification using large Earth Observation datasets. Users can create data cubes from cloud-based image providers, retrieve time series from these cubes, and improve the quality of training data. Moreover, various machine learning and deep learning methods are supported. Additionally, spatial smoothing methods remove outliers from classifications [@Camara2024b], and best-practice accuracy techniques ensure realistic assessments [@Olofsson2013; @Olofsson2014].
@@ -182,11 +188,15 @@ knitr::include_graphics("./images/ct_chile/sits_workflow.png")
 #| echo: TRUE
 #| eval: TRUE
 #| output: FALSE
-# load packages "tibble", "sf" and "sits"
+# load packages
 library(tibble)
 library(sits)
 library(sf)
 library(terra)
+library(kohonen)
+library(gdalcubes)
+library(randomForest)
+library(randomForestExplainer)
 
 # set dir if it does not exist
 dir_19HBA <- "data/ct_chile"
@@ -237,8 +247,7 @@ cl_tbl_eng <- cl_tbl_eng |>
 sits_colors_set(cl_tbl_eng)
 ```
 
-In this example, we replicated the land use and land cover classification results developed for the entire study area but focused on a specific region to ensure the reproducibility of the process. To illustrate the workflow, we selected a small region covering tile 19HBA, which contains a high concentration of agricultural land (@fig-map). The classification covers the period from May 2020 to May 2021, aligned with the agricultural calendar, and uses a temporal resolution of 16 days throughout the analysis. It is important to note that the workflow includes stochastic processes, such as model training or sampling steps, which may lead to slight variations in results across different runs, even when using the same input data and parameters. 
-
+In this example, we replicated the land use and land cover classification results developed for the entire study area but focused on a specific region to ensure the reproducibility of the process. To illustrate the workflow, we selected a small region covering tile 19HBA, which contains a high concentration of agricultural land (@fig-map). The classification covers the period from May 2020 to May 2021, aligned with the agricultural calendar, and uses a temporal resolution of 16 days throughout the analysis. It is important to note that the workflow includes stochastic processes, such as model training or sampling steps, which may lead to slight variations in results across different runs, even when using the same input data and parameters.
 
 ## Study area data
 

@@ -2,6 +2,13 @@
 title: "Integrating UAV Imagery into Agricultural Statistics in the Cook Islands"
 author: "Takaaki Masaki, Anthony D. Burgard, Anna Christine Durante and Pamela Lapitan"
 format: html
+
+reproducible:
+    enabled: true
+
+reproducible-local:
+    enabled: true
+    repository-url: "https://github.com/FAO-EOSTAT/un-handbook-uav-agr-cook-island"
 ---
 
 ## Introduction

@@ -2,6 +2,10 @@
 title: "Automated Monitoring of Crop Growth Index using UAV"
 author: "Xiaohe Gu, Baoyuan Zhang"
 format: html
+
+reproducible-local:
+    enabled: true
+    repository-url: "https://github.com/FAO-EOSTAT/un-handbook-uav-crop-growth"
 ---
 
 ## Introduction

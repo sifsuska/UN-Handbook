@@ -2,6 +2,10 @@
 title: "Semantic Segmentation for Automatic Field Boundary Delineation"
 author: "Ian Nunes, Hugo Oliveira, Edemir Andrade, Octavio Costa de Oliveira"
 format: html
+
+reproducible-local:
+    enabled: true
+    repository-url: "https://github.com/FAO-EOSTAT/un-handbook-th-parcelextract"
 ---
 
 ## Introduction

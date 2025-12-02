@@ -2,6 +2,13 @@
 title: "Rice Phenology Mapping in Colombia"
 author: "Freddy Martinez"
 format: html
+
+reproducible:
+    enabled: true
+
+reproducible-local:
+    enabled: true
+    repository-url: "https://github.com/FAO-EOSTAT/un-handbook-cy-colombia"
 ---
 
 ## Introduction
