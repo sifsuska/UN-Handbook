@@ -516,7 +516,35 @@ div.csl-indent {
   </ul><div class="toc-actions"><ul><li><a href="https://github.com/FAO-EOSTAT/UN-Handbook/edit/quarto/ct_chile.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/FAO-EOSTAT/UN-Handbook/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./crop_type_mapping.html">Use Cases in Crop Type Mapping</a></li><li class="breadcrumb-item"><a href="./ct_chile.html"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Crop classification and land use mapping in Chile</span></a></li></ol></nav><div class="quarto-title">
+<main class="content" id="quarto-document-content"><div class="reproducible-notice full" style="border-left: 3px solid rgb(255, 86, 44); background: #fafafa; padding: 12px 16px; margin: 20px 0 30px 0; font-size: 0.95rem; color: rgb(44, 50, 63);">
+  <div style="margin-bottom: 6px;">
+    <strong>Reproducible Environment Available</strong>
+  </div>
+  <div style="display: flex; align-items: center; gap: 12px; flex-wrap: wrap;">
+    <a href="https://datalab.officialstatistics.org/launcher/handbook/chapter-session?autoLaunch=true&amp;name=%C2%ABchapter-ct_chile%C2%BB&amp;tier=%C2%ABmedium%C2%BB&amp;imageFlavor=%C2%ABbase%C2%BB&amp;chapter.name=%C2%ABct_chile%C2%BB&amp;chapter.version=%C2%ABlatest%C2%BB&amp;chapter.storageSize=%C2%AB20Gi%C2%BB" target="_blank" style="background: rgb(255, 86, 44); color: white; padding: 6px 14px; text-decoration: none; border-radius: 3px; font-size: 0.9rem; font-weight: 500; display: inline-block;">
+      Launch Environment
+    </a>
+    <span style="color: #666; font-size: 0.85rem;">
+      Medium (6 CPU, 24GB RAM) • Est. runtime: Unknown • Auto-expires: 2h
+    </span>
+  </div>
+</div>
+        <div class="reproducible-local-notice full" style="border-left: 3px solid #6c757d; background: #fafafa; padding: 12px 16px; margin: 20px 0 30px 0; font-size: 0.95rem; color: rgb(44, 50, 63);">
+          <div style="margin-bottom: 6px;">
+            <strong>Files for local reproduction</strong>
+          </div>
+          <div style="margin-bottom: 8px; color: #666; font-size: 0.9rem;">
+            If you prefer, you can get the chapter files and reproduce in your own environment.
+          </div>
+          <div style="display: flex; align-items: center; gap: 12px; flex-wrap: wrap;">
+            <a href="https://github.com/FAO-EOSTAT/un-handbook-ct-chile" target="_blank" style="background: #6c757d; color: white; padding: 6px 14px; text-decoration: none; border-radius: 3px; font-size: 0.9rem; font-weight: 500; display: inline-block;">
+              View Repository
+            </a>
+          </div>
+        </div>
+    
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./crop_type_mapping.html">Use Cases in Crop Type Mapping</a></li><li class="breadcrumb-item"><a href="./ct_chile.html"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Crop classification and land use mapping in Chile</span></a></li></ol></nav><div class="quarto-title">
 <h1 class="title">
 <span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Crop classification and land use mapping in Chile</span>
 </h1>
@@ -693,11 +721,15 @@ Figure&nbsp;19.5: SITS API workflow for LULC classification (Source: adapted fro
 </div>
 </section></section></section><section id="configuration-to-run-the-example-in-this-chapter" class="level2 unnumbered"><h2 class="unnumbered anchored" data-anchor-id="configuration-to-run-the-example-in-this-chapter">Configuration to run the example in this chapter</h2>
 <div class="cell">
-<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># load packages "tibble", "sf" and "sits"</span></span>
+<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># load packages</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tibble.tidyverse.org/">tibble</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/e-sensing/sits/">sits</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://r-spatial.github.io/sf/">sf</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://rspatial.org/">terra</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va">kohonen</span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/appelmar/gdalcubes">gdalcubes</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://www.stat.berkeley.edu/~breiman/RandomForests/">randomForest</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/ModelOriented/randomForestExplainer">randomForestExplainer</a></span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># set dir if it does not exist</span></span>
 <span><span class="va">dir_19HBA</span> <span class="op">&lt;-</span> <span class="st">"data/ct_chile"</span></span>
@@ -747,7 +779,7 @@ Figure&nbsp;19.5: SITS API workflow for LULC classification (Source: adapted fro
 <span><span class="co"># Load the color table into `sits`</span></span>
 <span><span class="fu"><a href="https://rdrr.io/pkg/sits/man/sits_colors_set.html">sits_colors_set</a></span><span class="op">(</span><span class="va">cl_tbl_eng</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>In this example, we replicated the land use and land cover classification results developed for the entire study area but focused on a specific region to ensure the reproducibility of the process. To illustrate the workflow, we selected a small region covering tile 19HBA, which contains a high concentration of agricultural land (<a href="#fig-map" class="quarto-xref">Figure&nbsp;<span>19.1</span></a>). The classification covers the period from May 2020 to May 2021, aligned with the agricultural calendar, and uses a temporal resolution of 16 days throughout the analysis. It is important to note that the workflow includes stochastic processes, such as model training or sampling steps, which may lead to slight variations in results across different runs, even when using the same input data and parameters.&nbsp;</p>
+<p>In this example, we replicated the land use and land cover classification results developed for the entire study area but focused on a specific region to ensure the reproducibility of the process. To illustrate the workflow, we selected a small region covering tile 19HBA, which contains a high concentration of agricultural land (<a href="#fig-map" class="quarto-xref">Figure&nbsp;<span>19.1</span></a>). The classification covers the period from May 2020 to May 2021, aligned with the agricultural calendar, and uses a temporal resolution of 16 days throughout the analysis. It is important to note that the workflow includes stochastic processes, such as model training or sampling steps, which may lead to slight variations in results across different runs, even when using the same input data and parameters.</p>
 </section><section id="study-area-data" class="level2" data-number="19.3"><h2 data-number="19.3" class="anchored" data-anchor-id="study-area-data">
 <span class="header-section-number">19.3</span> Study area data</h2>
 <p>We begin by loading the spatial datasets for this study. The first file contains the ground-sampled points used as reference data, and the second defines the ROI that frames our analysis. Both are read with <code>sf</code> to retain their geometry and attributes for later spatial operations.</p>
