@@ -2,7 +2,15 @@
 title: "Quality control of training sets for agricultural statistics"
 author: "Gilberto Camara"
 format: html
+
+reproducible:
+    enabled: true
+
+reproducible-local:
+    enabled: true
+    repository-url: "https://github.com/FAO-EOSTAT/un-handbook-th-quality"
 ---
+
 ### Configurations to run this chapter{-}
 
 ```{r}

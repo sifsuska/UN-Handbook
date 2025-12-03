@@ -2,6 +2,13 @@
 title: "Spatial map uncertainty estimation"
 author: "Gilberto Camara"
 format: html
+
+reproducible:
+    enabled: true
+
+reproducible-local:
+    enabled: true
+    repository-url: "https://github.com/FAO-EOSTAT/un-handbook-th-uncertainty"
 ---
 
 ### Configurations to run this chapter{-}
@@ -18,7 +25,7 @@ torch::install_torch()
 library(sits)
 library(sitsdata)
 # set tempdir if it does not exist 
-tempdir_r <- "~/UN-Handbook/tempdir/R/uncertainty"
+tempdir_r <- "./tempdir/R/uncertainty"
 dir.create(tempdir_r, showWarnings = FALSE, recursive = TRUE)
 ```
 

@@ -2,6 +2,13 @@
 title: "Map validation and use of maps for area estimation"
 author: "Gilberto Camara, Lorenzo De Simone"
 format: html
+
+reproducible:
+    enabled: true
+
+reproducible-local:
+    enabled: true
+    repository-url: "https://github.com/FAO-EOSTAT/un-handbook-th-validation"
 ---
 
 ### Configurations to run this chapter {-}

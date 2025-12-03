@@ -2,6 +2,13 @@
 title: "Earth observation big data sources"
 author: "Gilberto Camara"
 format: html
+
+reproducible:
+    enabled: true
+
+reproducible-local:
+    enabled: true
+    repository-url: "https://github.com/FAO-EOSTAT/un-handbook-th-datasources"
 ---
 
 ### Configurations to run the chapter{-}

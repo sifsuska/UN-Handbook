@@ -2,6 +2,13 @@
 title: "Earth observation data cubes"
 author: "Gilberto Camara"
 format: html
+
+reproducible:
+    enabled: true
+
+reproducible-local:
+    enabled: true
+    repository-url: "https://github.com/FAO-EOSTAT/un-handbook-th-datacubes"
 --- 
 
 ### Configurations to run the chapter{-}

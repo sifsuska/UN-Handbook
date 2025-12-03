@@ -1,6 +1,13 @@
 ---
 title: "Machine learning algorithms for image time series"
 format: html
+
+reproducible:
+    enabled: true
+
+reproducible-local:
+    enabled: true
+    repository-url: "https://github.com/FAO-EOSTAT/un-handbook-th-ml"
 --- 
 
 ### Configurations to run this chapter{-}
