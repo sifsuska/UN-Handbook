@@ -531,7 +531,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section><section id="ard-image-collections" class="level2" data-number="2.1"><h2 data-number="2.1" class="anchored" data-anchor-id="ard-image-collections">
 <span class="header-section-number">2.1</span> ARD Image Collections</h2>
 <p>Analysis Ready Data (CEOS-ARD) are satellite data that have been processed to meet the <a href="https://ceos.org/ard/">ARD standards</a> defined by the Committee on Earth Observation Satellites (CEOS). ARD data simplify and accelerate the analysis of Earth observation data by providing consistent and high-quality data that are standardized across different sensors and platforms. ARD images processing includes geometric corrections, radiometric corrections, and sometimes atmospheric corrections. Images are georeferenced, meaning they are accurately aligned with a coordinate system. Optical ARD images include cloud and shadow masking information. These masks indicate which pixels affected by clouds or cloud shadows. For optical sensors, CEOS-ARD images have to be converted to surface reflectance values, which represent the fraction of light that is reflected by the surface. This makes the data more comparable across different times and locations. For SAR images, CEOS-ARD specification require images to undergo Radiometric Terrain Correction (RTC) and are provided in the GammaNought (<span class="math inline">\(\gamma_0\)</span>) backscatter values. This value which mitigates the variations from diverse observation geometries and is recommended for most land applications.</p>
-<p>ARD images are available from various satellite platforms, including Landsat, Sentinel, and commercial satellites. This provides a wide range of spatial, spectral, and temporal resolutions to suit different applications. They are organised as a collection of files, where each pixel contains a single value for each spectral band for a given date. These collections are available in cloud services such as Brazil Data Cube, Digital Earth Africa, and Microsoft’s Planetary Computer. In general, the timelines of the images of an ARD collection are different. Images still contain cloudy or missing pixels; bands for the images in the collection may have different resolutions. <a href="#fig-ard-datacubes">Figure&nbsp;<span>2.1</span></a> shows an example of the Landsat ARD image collection.</p>
+<p>ARD images are available from various satellite platforms, including Landsat, Sentinel, and commercial satellites. This provides a wide range of spatial, spectral, and temporal resolutions to suit different applications. They are organised as a collection of files, where each pixel contains a single value for each spectral band for a given date. These collections are available in cloud services such as Brazil Data Cube, Digital Earth Africa, and Microsoft’s Planetary Computer. In general, the timelines of the images of an ARD collection are different. Images still contain cloudy or missing pixels; bands for the images in the collection may have different resolutions. <a href="#fig-ard-datacubes">Figure&nbsp;<span class="quarto-unresolved-ref">fig-ard-datacubes</span></a> shows an example of the Landsat ARD image collection.</p>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <div id="fig-ard-datacubes" class="quarto-figure quarto-figure-center anchored">
@@ -547,7 +547,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>This chapter describes how to access these collections and transform ARD images into regular data cubes. A data cube is a set of images organized in tiles of a grid system (e.g., MGRS). Each tile contains single-band images in a unique zone of the coordinate system (e.g, tile 20LMR in MGRS grid) covering the period between start_date and end_date. All tiles share the same set of regular temporal intervals and the same spectral bands and indices. All images have the same spatial resolution.</p>
 </section><section id="tiling-systems-used-by-ard-collections" class="level2" data-number="2.3"><h2 data-number="2.3" class="anchored" data-anchor-id="tiling-systems-used-by-ard-collections">
 <span class="header-section-number">2.3</span> Tiling Systems Used by ARD Collections</h2>
-<p>ARD image collections are organized in spatial partitions. Sentinel-2/2A images follow the Military Grid Reference System (MGRS) tiling system, which divides the world into 60 UTM zones of 8 degrees of longitude. Each zone has blocks of 6 degrees of latitude. Blocks are split into tiles of 110 <span class="math inline">\(\times\)</span> 110 km<span class="math inline">\(^2\)</span> with a 10 km overlap. Figure <a href="#fig-mgrs-datacubes">Figure&nbsp;<span>2.2</span></a> shows the MGRS tiling system for a part of the Northeastern coast of Brazil, contained in UTM zone 24, block M.</p>
+<p>ARD image collections are organized in spatial partitions. Sentinel-2/2A images follow the Military Grid Reference System (MGRS) tiling system, which divides the world into 60 UTM zones of 8 degrees of longitude. Each zone has blocks of 6 degrees of latitude. Blocks are split into tiles of 110 <span class="math inline">\(\times\)</span> 110 km<span class="math inline">\(^2\)</span> with a 10 km overlap. Figure <a href="#fig-mgrs-datacubes">Figure&nbsp;<span class="quarto-unresolved-ref">fig-mgrs-datacubes</span></a> shows the MGRS tiling system for a part of the Northeastern coast of Brazil, contained in UTM zone 24, block M.</p>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <div id="fig-mgrs-datacubes" class="quarto-figure quarto-figure-center anchored">
@@ -580,12 +580,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span class="header-section-number">2.5</span> Accessing ARD Image Collections in Cloud Providers</h2>
 <p><a href="https://www.kaggle.com/esensing/creating-data-cubes-in-sits" target="_blank"><img src="https://kaggle.com/static/images/open-in-kaggle.svg"></a></p>
 <p>We now present the use of the <code>sits</code> R package to obtain information on ARD image collection from cloud providers, using the <a href="https://stacspec.org/en">SpatioTemporal Asset Catalogue</a> (STAC) protocol, a specification of geospatial information which many large image collection providers have adopted. A ‘spatiotemporal asset’ is any file that represents information about the Earth captured in a specific space and time. To access STAC endpoints, <code>sits</code> uses the <a href="http://github.com/brazil-data-cube/rstac">rstac</a> R package.</p>
-<p>The function <code><a href="https://e-sensing.github.io/sits/reference/sits_cube.html">sits_cube()</a></code> supports access to image collections in cloud services; it has the following parameters:</p>
+<p>The function <code><a href="https://rdrr.io/pkg/sits/man/sits_cube.html">sits_cube()</a></code> supports access to image collections in cloud services; it has the following parameters:</p>
 <ul>
 <li>
 <code>source</code>: Name of the provider.</li>
 <li>
-<code>collection</code>: A collection available in the provider and supported by <code>sits</code>. To find out which collections are supported by <code>sits</code>, see <code><a href="https://e-sensing.github.io/sits/reference/sits_list_collections.html">sits_list_collections()</a></code>.</li>
+<code>collection</code>: A collection available in the provider and supported by <code>sits</code>. To find out which collections are supported by <code>sits</code>, see <code><a href="https://rdrr.io/pkg/sits/man/sits_list_collections.html">sits_list_collections()</a></code>.</li>
 <li>
 <code>platform</code>: Optional parameter specifying the platform in collections with multiple satellites.</li>
 <li>
@@ -601,13 +601,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>
 <code>end_date</code>: The final date for the temporal interval containing the time series of images.</li>
 </ul>
-<p>The result of <code><a href="https://e-sensing.github.io/sits/reference/sits_cube.html">sits_cube()</a></code> is a tibble with a description of the selected images required for further processing. It does not contain the actual data, but only pointers to the images. The attributes of individual image files can be assessed by listing the <code>file_info</code> column of the tibble.</p>
+<p>The result of <code><a href="https://rdrr.io/pkg/sits/man/sits_cube.html">sits_cube()</a></code> is a tibble with a description of the selected images required for further processing. It does not contain the actual data, but only pointers to the images. The attributes of individual image files can be assessed by listing the <code>file_info</code> column of the tibble.</p>
 </section><section id="amazon-web-services" class="level2" data-number="2.6"><h2 data-number="2.6" class="anchored" data-anchor-id="amazon-web-services">
 <span class="header-section-number">2.6</span> Amazon Web Services</h2>
 <p>Amazon Web Services (AWS) holds two kinds of collections: <em>open-data</em> and <em>requester-pays</em>. Open data collections can be accessed without cost. Requester-pays collections require payment from an AWS account. Currently, <code>sits</code> supports collection <code>SENTINEL-2-L2A</code> which is open data. The bands in 10 m resolution are B02, B03, B04, and B08. The 20 m bands are B05, B06, B07, B8A, B11, and B12. Bands B01 and B09 are available at 60 m resolution. A CLOUD band is also available. The example below shows how to access one tile of the open data <code>SENTINEL-2-L2A</code> collection. The <code>tiles</code> parameter allows selecting the desired area according to the MGRS reference system.</p>
 <div class="cell">
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Create a data cube covering an area in Brazil</span></span>
-<span><span class="va">s2_23MMU_cube</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://e-sensing.github.io/sits/reference/sits_cube.html">sits_cube</a></span><span class="op">(</span></span>
+<span><span class="va">s2_23MMU_cube</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/sits/man/sits_cube.html">sits_cube</a></span><span class="op">(</span></span>
 <span>    source <span class="op">=</span> <span class="st">"AWS"</span>,</span>
 <span>    collection <span class="op">=</span> <span class="st">"SENTINEL-2-L2A"</span>,</span>
 <span>    tiles <span class="op">=</span> <span class="st">"23MMU"</span>,</span>
@@ -638,7 +638,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>The SENTINEL-2/2A ARD images available in MPC have the same bands and resolutions as those available in AWS (see above). The example below shows how to access the <code>SENTINEL-2-L2A</code> collection.</p>
 <div class="cell">
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Create a data cube covering an area in the Brazilian Amazon</span></span>
-<span><span class="va">s2_20LKP_cube_MPC</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://e-sensing.github.io/sits/reference/sits_cube.html">sits_cube</a></span><span class="op">(</span></span>
+<span><span class="va">s2_20LKP_cube_MPC</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/sits/man/sits_cube.html">sits_cube</a></span><span class="op">(</span></span>
 <span>      source <span class="op">=</span> <span class="st">"MPC"</span>,</span>
 <span>      collection <span class="op">=</span> <span class="st">"SENTINEL-2-L2A"</span>,</span>
 <span>      tiles <span class="op">=</span> <span class="st">"20LKP"</span>,</span>
@@ -667,7 +667,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span><span class="va">roi</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span>lon_min <span class="op">=</span> <span class="op">-</span><span class="fl">43.5526</span>, lat_min <span class="op">=</span> <span class="op">-</span><span class="fl">2.9644</span>, </span>
 <span>         lon_max <span class="op">=</span> <span class="op">-</span><span class="fl">42.5124</span>, lat_max <span class="op">=</span> <span class="op">-</span><span class="fl">2.1671</span><span class="op">)</span></span>
 <span><span class="co"># Select the cube</span></span>
-<span><span class="va">s2_L8_cube_MPC</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://e-sensing.github.io/sits/reference/sits_cube.html">sits_cube</a></span><span class="op">(</span></span>
+<span><span class="va">s2_L8_cube_MPC</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/sits/man/sits_cube.html">sits_cube</a></span><span class="op">(</span></span>
 <span>        source <span class="op">=</span> <span class="st">"MPC"</span>,</span>
 <span>        collection <span class="op">=</span> <span class="st">"LANDSAT-C2-L2"</span>,</span>
 <span>        bands <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"BLUE"</span>, <span class="st">"RED"</span>, <span class="st">"GREEN"</span>, <span class="st">"NIR08"</span>, <span class="st">"SWIR16"</span>, <span class="st">"CLOUD"</span><span class="op">)</span>,</span>
@@ -693,7 +693,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Access to Sentinel-1 GRD images can be done either by MGRS tiles (<code>tiles</code>) or by region of interest (<code>roi</code>). We recommend using the MGRS tiling system for specifying the area of interest, since when these images are regularized, they will be re-projected into MGRS tiles. By default, only images in descending orbit are selected.</p>
 <p>The following example shows how to create a data cube of S1 GRD images over a region in Mato Grosso Brazil that is an area of the Amazon forest that has been deforested. The resulting cube will not follow any specific projection and its coordinates will be stated as EPSG 4326 (latitude/longitude). Its geometry is derived from the SAR slant-range perspective; thus, it will appear included in relation to the Earth’s longitude.</p>
 <div class="cell">
-<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">cube_s1_grd</span> <span class="op">&lt;-</span>  <span class="fu"><a href="https://e-sensing.github.io/sits/reference/sits_cube.html">sits_cube</a></span><span class="op">(</span></span>
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">cube_s1_grd</span> <span class="op">&lt;-</span>  <span class="fu"><a href="https://rdrr.io/pkg/sits/man/sits_cube.html">sits_cube</a></span><span class="op">(</span></span>
 <span>  source <span class="op">=</span> <span class="st">"MPC"</span>,</span>
 <span>  collection <span class="op">=</span> <span class="st">"SENTINEL-1-GRD"</span>,</span>
 <span>  bands <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"VV"</span><span class="op">)</span>,</span>
@@ -718,7 +718,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>An RTC SAR image has undergone corrections for both geometric distortions and radiometric distortions caused by the terrain. The purpose of RTC processing is to enhance the interpretability and usability of SAR images for various applications by providing a more accurate representation of the Earth’s surface. The radar backscatter values are normalized to account for these variations, ensuring that the image accurately represents the reflectivity of the surface features.</p>
 <p>The terrain correction addresses geometric distortions caused by the side-looking geometry of SAR imaging, such as foreshortening, layover, and shadowing. It uses a Digital Elevation Model (DEM) to model the terrain and re-project the SAR image from the slant range (radar line-of-sight) to the ground range (true geographic coordinates). This process aligns the SAR image with the actual topography, providing a more accurate spatial representation.</p>
 <div class="cell">
-<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">cube_s1_rtc</span> <span class="op">&lt;-</span>  <span class="fu"><a href="https://e-sensing.github.io/sits/reference/sits_cube.html">sits_cube</a></span><span class="op">(</span></span>
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">cube_s1_rtc</span> <span class="op">&lt;-</span>  <span class="fu"><a href="https://rdrr.io/pkg/sits/man/sits_cube.html">sits_cube</a></span><span class="op">(</span></span>
 <span>  source <span class="op">=</span> <span class="st">"MPC"</span>,</span>
 <span>  collection <span class="op">=</span> <span class="st">"SENTINEL-1-RTC"</span>,</span>
 <span>  bands <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"VV"</span>, <span class="st">"VH"</span><span class="op">)</span>,</span>
@@ -743,7 +743,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>The Copernicus digital elevation model 30-meter global dataset (COP-DEM-GLO-30) is a high-resolution topographic data product provided by the European Space Agency (ESA) under the Copernicus Program. The vertical accuracy of the Copernicus DEM 30-meter dataset is typically within a few meters, but this can vary depending on the region and the original data sources. The primary data source for the Copernicus DEM is data from the TanDEM-X mission, designed by the German Aerospace Center (DLR). TanDEM-X provides high-resolution radar data through interferometric synthetic aperture radar (InSAR) techniques.</p>
 <p>The Copernicus DEM 30 meter is organized in a 1<span class="math inline">\(^\circ\)</span> by 1<span class="math inline">\(^\circ\)</span> grid. In <code>sits</code>, access to COP-DEM-GLO-30 images can be done either by MGRS tiles (<code>tiles</code>) or by region of interest (<code>roi</code>). In both case, the cube is retrieved based on the parts of the grid that intersect the region of interest or the chosen tiles.</p>
 <div class="cell">
-<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">cube_dem_30</span> <span class="op">&lt;-</span>  <span class="fu"><a href="https://e-sensing.github.io/sits/reference/sits_cube.html">sits_cube</a></span><span class="op">(</span></span>
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">cube_dem_30</span> <span class="op">&lt;-</span>  <span class="fu"><a href="https://rdrr.io/pkg/sits/man/sits_cube.html">sits_cube</a></span><span class="op">(</span></span>
 <span>  source <span class="op">=</span> <span class="st">"MPC"</span>,</span>
 <span>  collection <span class="op">=</span> <span class="st">"COP-DEM-GLO-30"</span>,</span>
 <span>  tiles <span class="op">=</span> <span class="st">"20LMR"</span>,</span>
@@ -778,7 +778,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>CDSE hosts a global collection of Sentinel-2 Level-2A images, which are processed according to the <a href="https://ceos.org/ard/">CEOS Analysis-Ready Data</a> specifications. One example is provided below, where we present a Sentinel-2 image of the Lena river delta in Siberia in summertime.</p>
 <div class="cell">
 <div class="sourceCode" id="cb9"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># obtain a collection of images of a tile covering part of Lena delta</span></span>
-<span><span class="va">lena_cube</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://e-sensing.github.io/sits/reference/sits_cube.html">sits_cube</a></span><span class="op">(</span></span>
+<span><span class="va">lena_cube</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/sits/man/sits_cube.html">sits_cube</a></span><span class="op">(</span></span>
 <span>    source <span class="op">=</span> <span class="st">"CDSE"</span>,</span>
 <span>    collection <span class="op">=</span> <span class="st">"SENTINEL-2-L2A"</span>,</span>
 <span>    bands <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"B02"</span>, <span class="st">"B04"</span>, <span class="st">"B8A"</span>, <span class="st">"B11"</span>, <span class="st">"B12"</span><span class="op">)</span>,</span>
@@ -804,7 +804,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>For more details, please refer to the <a href="https://sentinels.copernicus.eu/web/sentinel/sentinel-1-ard-normalised-radar-backscatter-nrb-product">S1-NRB product website</a>. Global coverage is expected to grow as ESA expands the S1-RTC archive. The following example shows an S1-RTC image for the Rift valley in Ethiopia.</p>
 <div class="cell">
 <div class="sourceCode" id="cb10"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># retrieve a S1-RTC cube and plot</span></span>
-<span><span class="va">s1_cube</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://e-sensing.github.io/sits/reference/sits_cube.html">sits_cube</a></span><span class="op">(</span></span>
+<span><span class="va">s1_cube</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/sits/man/sits_cube.html">sits_cube</a></span><span class="op">(</span></span>
 <span>    source <span class="op">=</span> <span class="st">"CDSE"</span>,</span>
 <span>    collection <span class="op">=</span> <span class="st">"SENTINEL-1-RTC"</span>,</span>
 <span>    bands <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"VV"</span>, <span class="st">"VH"</span><span class="op">)</span>,</span>
@@ -841,7 +841,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </ul>
 <p>Access to DEAFRICA Sentinel-2 images can be done wither using <code>tiles</code> or <code>roi</code> parameter. In this example, the requested <code>roi</code> produces a cube that contains one MGRS tiles (“35LPH”) covering an area of Madagascar that includes the Betsiboka Estuary.</p>
 <div class="cell">
-<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">dea_s2_cube</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://e-sensing.github.io/sits/reference/sits_cube.html">sits_cube</a></span><span class="op">(</span></span>
+<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">dea_s2_cube</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/sits/man/sits_cube.html">sits_cube</a></span><span class="op">(</span></span>
 <span>    source <span class="op">=</span> <span class="st">"DEAFRICA"</span>,</span>
 <span>    collection <span class="op">=</span> <span class="st">"SENTINEL-2-L2A"</span>,</span>
 <span>    roi <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span></span>
@@ -864,7 +864,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <p>The next example retrieves a set of ARD Landsat-9 data, covering the Serengeti plain in Tanzania.</p>
 <div class="cell">
-<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">dea_l9_cube</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://e-sensing.github.io/sits/reference/sits_cube.html">sits_cube</a></span><span class="op">(</span></span>
+<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">dea_l9_cube</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/sits/man/sits_cube.html">sits_cube</a></span><span class="op">(</span></span>
 <span>    source <span class="op">=</span> <span class="st">"DEAFRICA"</span>,</span>
 <span>    collection <span class="op">=</span> <span class="st">"LS9-SR"</span>,</span>
 <span>    roi <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span></span>
@@ -888,7 +888,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <p>The following example shows how to retrieve a subset of the ALOS-PALSAR mosaic for year 2020, for an area near the border between Congo and Rwanda.</p>
 <div class="cell">
-<div class="sourceCode" id="cb13"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">dea_alos_cube</span> <span class="op">=</span> <span class="fu"><a href="https://e-sensing.github.io/sits/reference/sits_cube.html">sits_cube</a></span><span class="op">(</span></span>
+<div class="sourceCode" id="cb13"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">dea_alos_cube</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/sits/man/sits_cube.html">sits_cube</a></span><span class="op">(</span></span>
 <span>    source <span class="op">=</span> <span class="st">"DEAFRICA"</span>,</span>
 <span>    collection <span class="op">=</span> <span class="st">"ALOS-PALSAR-MOSAIC"</span>,</span>
 <span>    roi <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span></span>
@@ -940,7 +940,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span>         lon_max <span class="op">=</span> <span class="op">-</span><span class="fl">45.0840</span>, lat_max <span class="op">=</span> <span class="op">-</span><span class="fl">23.6178</span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># create a cube from the HLSS30 collection</span></span>
-<span><span class="va">hls_cube_s2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://e-sensing.github.io/sits/reference/sits_cube.html">sits_cube</a></span><span class="op">(</span></span>
+<span><span class="va">hls_cube_s2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/sits/man/sits_cube.html">sits_cube</a></span><span class="op">(</span></span>
 <span>  source <span class="op">=</span> <span class="st">"HLS"</span>,</span>
 <span>  collection <span class="op">=</span> <span class="st">"HLSS30"</span>,</span>
 <span>  roi <span class="op">=</span> <span class="va">roi</span>,</span>
@@ -962,18 +962,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </section><section id="eo-products-from-terrascope" class="level2" data-number="2.11"><h2 data-number="2.11" class="anchored" data-anchor-id="eo-products-from-terrascope">
 <span class="header-section-number">2.11</span> EO Products from TERRASCOPE</h2>
-<p>Terrascope is online platform for accessing open-source satellite images. This service, operated by VITO, offers a range of Earth observation data and processing services that are accessible free of charge. Currently, <code>sits</code> supports the World Cover 2021 maps, produced by VITO with support form the European Commission and ESA. The following code shows how to access the World Cover 2021 convering tile “22LBL”. The first step is to use <code><a href="https://e-sensing.github.io/sits/reference/sits_mgrs_to_roi.html">sits_mgrs_to_roi()</a></code> to get the region of interest expressed as a bounding box; this box is then entered as the <code>roi</code> parameter in the <code><a href="https://e-sensing.github.io/sits/reference/sits_cube.html">sits_cube()</a></code> function. Since the World Cover data is available as a 3<span class="math inline">\(^\circ\)</span> by 3<span class="math inline">\(^\circ\)</span> grid, it is necessary to use <code><a href="https://e-sensing.github.io/sits/reference/sits_cube_copy.html">sits_cube_copy()</a></code> to extract the exact MGRS tile.</p>
+<p>Terrascope is online platform for accessing open-source satellite images. This service, operated by VITO, offers a range of Earth observation data and processing services that are accessible free of charge. Currently, <code>sits</code> supports the World Cover 2021 maps, produced by VITO with support form the European Commission and ESA. The following code shows how to access the World Cover 2021 convering tile “22LBL”. The first step is to use <code><a href="https://rdrr.io/pkg/sits/man/sits_mgrs_to_roi.html">sits_mgrs_to_roi()</a></code> to get the region of interest expressed as a bounding box; this box is then entered as the <code>roi</code> parameter in the <code><a href="https://rdrr.io/pkg/sits/man/sits_cube.html">sits_cube()</a></code> function. Since the World Cover data is available as a 3<span class="math inline">\(^\circ\)</span> by 3<span class="math inline">\(^\circ\)</span> grid, it is necessary to use <code><a href="https://rdrr.io/pkg/sits/man/sits_cube_copy.html">sits_cube_copy()</a></code> to extract the exact MGRS tile.</p>
 <div class="cell">
 <div class="sourceCode" id="cb17"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># get roi for an MGRS tile</span></span>
-<span><span class="va">bbox_22LBL</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://e-sensing.github.io/sits/reference/sits_mgrs_to_roi.html">sits_mgrs_to_roi</a></span><span class="op">(</span><span class="st">"22LBL"</span><span class="op">)</span></span>
+<span><span class="va">bbox_22LBL</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/sits/man/sits_mgrs_to_roi.html">sits_mgrs_to_roi</a></span><span class="op">(</span><span class="st">"22LBL"</span><span class="op">)</span></span>
 <span><span class="co"># retrieve the world cover map for the chosen roi</span></span>
-<span><span class="va">world_cover_2021</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://e-sensing.github.io/sits/reference/sits_cube.html">sits_cube</a></span><span class="op">(</span></span>
+<span><span class="va">world_cover_2021</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/sits/man/sits_cube.html">sits_cube</a></span><span class="op">(</span></span>
 <span>  source <span class="op">=</span> <span class="st">"TERRASCOPE"</span>,</span>
 <span>  collection <span class="op">=</span> <span class="st">"WORLD-COVER-2021"</span>,</span>
 <span>  roi <span class="op">=</span> <span class="va">bbox_22LBL</span></span>
 <span><span class="op">)</span></span>
 <span><span class="co"># cut the 3 x 3 degree grid to match the MGRS tile 22LBL</span></span>
-<span><span class="va">world_cover_2021_20LBL</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://e-sensing.github.io/sits/reference/sits_cube_copy.html">sits_cube_copy</a></span><span class="op">(</span></span>
+<span><span class="va">world_cover_2021_20LBL</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/sits/man/sits_cube_copy.html">sits_cube_copy</a></span><span class="op">(</span></span>
 <span>  cube <span class="op">=</span> <span class="va">world_cover_2021</span>,</span>
 <span>  roi <span class="op">=</span> <span class="va">bbox_22LBL</span>,</span>
 <span>  multicores <span class="op">=</span> <span class="fl">6</span>,</span>

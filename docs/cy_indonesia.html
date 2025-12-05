@@ -497,7 +497,7 @@ div.csl-indent {
 <p>Satellite imagery presents a more efficient alternative for estimating crop phenology without ground verification, allowing for accurate and cost-effective harvest area estimation. Machine learning models can classify growth stages using satellite data, and Sentinel-1, a radar-based satellite, is particularly effective for agricultural monitoring in cloud-prone regions like Indonesia <span class="citation" data-cites="Muradi2024"><a href="#ref-Muradi2024" role="doc-biblioref">[2]</a></span>. Furthermore, Satellite Imagery Time Series (SITS) data enables deeper pattern recognition and temporal analysis compared to traditional cross-sectional approaches <span class="citation" data-cites="Simoes2021"><a href="#ref-Simoes2021" role="doc-biblioref">[3]</a></span>.</p>
 </section><section id="data" class="level2" data-number="19.2"><h2 data-number="19.2" class="anchored" data-anchor-id="data">
 <span class="header-section-number">19.2</span> Data</h2>
-<p>In this research, Statistics Indonesia-BPS collaborate with the National Research and Innovation Agencies-BRIN for acquiring the Sentinel 1. BRIN give the access of Analysis Ready Data (ARD) data of the Sentinel 1 in 12 days intervals and acquired since 2023 until 2024. The data is further composed into time series data and filtered to the aligned ASF sampling plot, as shown in <a href="#fig-integration-indonesia">Figure&nbsp;<span>19.1</span></a>.</p>
+<p>In this research, Statistics Indonesia-BPS collaborate with the National Research and Innovation Agencies-BRIN for acquiring the Sentinel 1. BRIN give the access of Analysis Ready Data (ARD) data of the Sentinel 1 in 12 days intervals and acquired since 2023 until 2024. The data is further composed into time series data and filtered to the aligned ASF sampling plot, as shown in <a href="#fig-integration-indonesia">Figure&nbsp;<span class="quarto-unresolved-ref">fig-integration-indonesia</span></a>.</p>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <div id="fig-integration-indonesia" class="quarto-figure quarto-figure-center anchored">
@@ -506,7 +506,7 @@ div.csl-indent {
 </div>
 </div>
 </div>
-<p>The ASF sampling plots is a segment with size 300 x 300 meter and divided into 9 subsegments, each has size 100x100 meter. Each sampling plots is monitorized on last week in everymonth by surveyor. They collect the in-situ paddy phenological phase in centroid of the grid. <a href="#fig-phenophase-indonesia">Figure&nbsp;<span>19.2</span></a> represents the paddy phase monitorized monthly.</p>
+<p>The ASF sampling plots is a segment with size 300 x 300 meter and divided into 9 subsegments, each has size 100x100 meter. Each sampling plots is monitorized on last week in everymonth by surveyor. They collect the in-situ paddy phenological phase in centroid of the grid. <a href="#fig-phenophase-indonesia">Figure&nbsp;<span class="quarto-unresolved-ref">fig-phenophase-indonesia</span></a> represents the paddy phase monitorized monthly.</p>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <div id="fig-phenophase-indonesia" class="quarto-figure quarto-figure-center anchored">
@@ -515,7 +515,7 @@ div.csl-indent {
 </div>
 </div>
 </div>
-<p>However, in this study, those classes are modified into several classes detailing the sub-paddy phase compared to the original ASF classes. The following <a href="#tbl-classes-indonesia">Table&nbsp;<span>19.1</span></a> present the differences of the classes used in the study.</p>
+<p>However, in this study, those classes are modified into several classes detailing the sub-paddy phase compared to the original ASF classes. The following <a href="#tbl-classes-indonesia">Table&nbsp;<span class="quarto-unresolved-ref">tbl-classes-indonesia</span></a> present the differences of the classes used in the study.</p>
 <div id="tbl-classes-indonesia" class="anchored">
 <table class="table">
 <caption>Table&nbsp;19.1: Mapping of ASF Labels and Study Labels</caption>
@@ -589,7 +589,7 @@ div.csl-indent {
 </tbody>
 </table>
 </div>
-<p>In addition to the Sentinel 1 data, several data are also leveraged for enhancing the quality, such as the elevation for capturing the different pattern of plantation in different elevation level. In details, <a href="#tbl-variables-indonesia">Table&nbsp;<span>19.2</span></a> present all of the data used in modelling.</p>
+<p>In addition to the Sentinel 1 data, several data are also leveraged for enhancing the quality, such as the elevation for capturing the different pattern of plantation in different elevation level. In details, <a href="#tbl-variables-indonesia">Table&nbsp;<span class="quarto-unresolved-ref">tbl-variables-indonesia</span></a> present all of the data used in modelling.</p>
 <div id="tbl-variables-indonesia" class="anchored">
 <table class="table">
 <caption>Table&nbsp;19.2: Details of variable</caption>
@@ -703,7 +703,7 @@ div.csl-indent {
 </div>
 </section><section id="results" class="level2" data-number="19.3"><h2 data-number="19.3" class="anchored" data-anchor-id="results">
 <span class="header-section-number">19.3</span> Results</h2>
-<p>To produce the model for delivering the paddy phenological classification, several procedures are conducted sequentially as depicted in <a href="#fig-workflow-indonesia">Figure&nbsp;<span>19.3</span></a>.</p>
+<p>To produce the model for delivering the paddy phenological classification, several procedures are conducted sequentially as depicted in <a href="#fig-workflow-indonesia">Figure&nbsp;<span class="quarto-unresolved-ref">fig-workflow-indonesia</span></a>.</p>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <div id="fig-workflow-indonesia" class="quarto-figure quarto-figure-center anchored">
@@ -780,7 +780,7 @@ div.csl-indent {
 </div>
 </div>
 </div>
-<p>The <a href="#fig-somcomparison-indonesia">Figure&nbsp;<span>19.5</span></a> compares the data before (left) and after (right) SOM filtering. <strong>It shows that the filtering process reduces the dataset</strong>, likely by removing noisy data. <strong>Class 6 appears to be the most affected</strong>, with only around 102 rows remaining after the SOM filtering.</p>
+<p>The <a href="#fig-somcomparison-indonesia">Figure&nbsp;<span class="quarto-unresolved-ref">fig-somcomparison-indonesia</span></a> compares the data before (left) and after (right) SOM filtering. <strong>It shows that the filtering process reduces the dataset</strong>, likely by removing noisy data. <strong>Class 6 appears to be the most affected</strong>, with only around 102 rows remaining after the SOM filtering.</p>
 <p><strong>Resampling Approach</strong></p>
 <p>To address class imbalance in Satellite Image Time Series (SITS), we employed an adaptive resampling strategy based on class size.</p>
 <p><strong>For minority classes (&lt;1000 samples), we applied Borderline-SMOTE</strong> to generate synthetic samples near class boundaries, improving model sensitivity in ambiguous regions. This was repeated until each class reached 1000 samples, ensuring balanced representation. Borderline-SMOTE was chosen over standard SMOTE for its effectiveness in handling class overlap common in SITS-based remote sensing data.</p>
@@ -850,7 +850,7 @@ div.csl-indent {
 </div>
 </div>
 </div>
-<p>The <a href="#fig-resamplingresampling-indonesia">Figure&nbsp;<span>19.6</span></a> compares class distributions <strong>before and after applying the adaptive resampling strategy</strong>. In the original (<em>Before Resampling</em>) distribution, <strong>substantial class imbalance is evident—with classes 5 and 7 heavily overrepresented, and classes 0, 6, and 8 severely underrepresented</strong>. After resampling, <strong>minority classes (especially class 0 and class 8) show significant increases, while class 6 is slightly improved</strong>, reflecting the impact of Borderline-SMOTE for classes with fewer than 1000 samples. At the same time, <strong>overrepresented classes (5 and 7) are reduced but not fully equalized</strong>, indicating that Neighbourhood Cleaning Rule (NCL) has effectively filtered out noisy or borderline instances without distorting the overall class structure.</p>
+<p>The <a href="#fig-resamplingresampling-indonesia">Figure&nbsp;<span class="quarto-unresolved-ref">fig-resamplingresampling-indonesia</span></a> compares class distributions <strong>before and after applying the adaptive resampling strategy</strong>. In the original (<em>Before Resampling</em>) distribution, <strong>substantial class imbalance is evident—with classes 5 and 7 heavily overrepresented, and classes 0, 6, and 8 severely underrepresented</strong>. After resampling, <strong>minority classes (especially class 0 and class 8) show significant increases, while class 6 is slightly improved</strong>, reflecting the impact of Borderline-SMOTE for classes with fewer than 1000 samples. At the same time, <strong>overrepresented classes (5 and 7) are reduced but not fully equalized</strong>, indicating that Neighbourhood Cleaning Rule (NCL) has effectively filtered out noisy or borderline instances without distorting the overall class structure.</p>
 </section><section id="model-development" class="level3" data-number="19.3.2"><h3 data-number="19.3.2" class="anchored" data-anchor-id="model-development">
 <span class="header-section-number">19.3.2</span> Model Development</h3>
 <p>After the preprocessing steps are conducted, the next step is produce the model for classification. In this study, <strong>XGBoost is selected as the classification algorithm.</strong> XGBoost (Extreme Gradient Boosting) is a scalable, high-performance gradient boosting framework based on decision trees, designed to optimize both speed and predictive accuracy <span class="citation" data-cites="Chen2016"><a href="#ref-Chen2016" role="doc-biblioref">[5]</a></span>. It builds an ensemble of trees in a sequential manner, where each new tree corrects the errors of the previous ones, and leverages advanced regularization techniques (L1 and L2), shrinkage, and sparsity-aware algorithms to prevent overfitting. Compared to traditional methods such as Random Forest, which builds multiple independent trees in parallel, XGBoost typically achieves superior performance with fewer trees and lower computational cost, especially on high-dimensional, noisy, or imbalanced data.</p>
@@ -870,7 +870,7 @@ div.csl-indent {
 <span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>    callbacks<span class="op">=</span>[early_stop]</span>
 <span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>Based on the trials, <strong>the best hyperparameters</strong> are shown in <a href="#tbl-bestparams-indonesia">Table&nbsp;<span>19.3</span></a>:</p>
+<p>Based on the trials, <strong>the best hyperparameters</strong> are shown in <a href="#tbl-bestparams-indonesia">Table&nbsp;<span class="quarto-unresolved-ref">tbl-bestparams-indonesia</span></a>:</p>
 <div id="tbl-bestparams-indonesia" class="anchored">
 <table class="table">
 <caption>Table&nbsp;19.3: Table 3. Best Parameter</caption>
