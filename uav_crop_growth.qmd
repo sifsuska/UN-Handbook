@@ -322,9 +322,5 @@ management.
 
 The code for this work is available in [Github](https://github.com/Songbeibeibei/CGI)
 
-## About the authors
-
-Xiaohe Gu (email: guxh@nercita.org.cn) is an Associate Research Fellow at the National Engineering Research Center for Information Technology in Agriculture, Beijing, China. 
-He obtained in PhD in Cartography and GIS from the School of Resources, Beijing Normal University in 2008. His research interests include Spatial Analysis, Remote Sensing for Agriculture, Land-Use Management, and Satellite Image Analysis.
 
 ## References{-}

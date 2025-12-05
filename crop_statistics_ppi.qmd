@@ -1,5 +1,5 @@
 ---
-title: "Prediction-Powered Inference (PPI) for Agricultural Decision-Making"
+title: "Prediction-Powered Inference for Agricultural Decision-Making"
 author: "Sherrie Wang, Dan Kluger"
 format: html
 ---

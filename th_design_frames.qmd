@@ -78,7 +78,7 @@ can also be used as training and validation data for EO‑based crop
 classification models. This synergy allows survey data and EO models to
 improve together over successive agricultural seasons.
 
-## Matching in situ survey data to remote sensing analysis needs
+## Matching In-situ Survey Data to Remote Sensing Analysis Needs
 
 Data collections done by NSOs can potentially become the main source of training data for EO applications for agricultural statistics. However, while national surveys often adopt GPS technology, satellite imagery remains largely unused by NSOs. To change this status quo, the Global Strategy to Improve Agricultural and Rural Statistics compiled various use cases in its Handbook on Remote Sensing for Agricultural Statistics, highlighting the missing links between EO-driven surveys and most common NSO surveys [@Delince2017]. Experience shows that sampling design, response design, and quality control of NSO surveys must follow well-documented requirements to obtain statistically sound results when using EO data.
 
@@ -108,7 +108,7 @@ EO-related quality assurance of the in situ datasets developed in the FAO EOStat
 
 : Assessment framework to qualify the compatibility of an in situ survey design to leverage EO satellite data for agriculture statistics
 
-## EO-based quality control of in situ surveys
+## EO-based Quality Control of In-situ Surveys
 
 An integral aspect of the statistical survey process is its quality control procedure. Nationwide surveys require heavy logistics involving hundreds of enumerators dispersed across the country. In many countries, digital encoding devices have integrated GPS receivers and communication support, making near real-time quality checks feasible. In Senegal, the Direction de l'Analyse, de la Prévision et des Statistiques Agricoles (DAPSA) employs near real-time quality control to oversee national data collection, enabling the field campaign to incorporate repetition requests and corrections as needed.
 
@@ -134,7 +134,7 @@ Achieving the quality required for EO utilization imposes demands on the trainin
     \end{tabular}
 \end{table}
 
-## Technical suitability of in situ data
+## Technical Suitability of In-situ Data
 
 The first three criteria of the EO-based quality control concern the technical suitability of in situ data for EO applications. Typically, surveyors record GPS coordinates for household localization, crop observation placement, or field area measurement. Requirements for geospatial analysis include ensuring the topological soundness of spatial features, which involves verifying polygon closure, identifying duplicate points, and resolving polygon overlaps (@fig-design-frames-senegal).
 
@@ -148,7 +148,7 @@ The first three criteria of the EO-based quality control concern the technical s
 knitr::include_graphics("./images/th_design_frames/QC_polygon_Senegal.png")
 ```
 
-## Measuring spatial precision of field plot boundaries
+## Measuring Spatial Precision of Field Plot Boundaries
 
 The last three criteria of the EO-based quality control rely on satellite imagery analysis. The spatial precision of field plot boundaries requires visual image interpretation of high spatial resolution imagery that aligns with the survey timeframe. This type of control usually involves overlaying the plotted polygons onto frequent data, such as monthly cloud-free surface reflectance base maps. @fig-design-frames-ethiopia shows a good-quality sample that aligns well with a cultivated field, whereas the second sample area covers multiple fields and some trees. The ideal situation is to use high-resolution images to visually check samples and plot boundaries and then classify the areas with lower spatial resolutions. A possible situation is to use 4.8-meter Planet monthly reflectance maps for sample quality control and 10-meter Sentinel-2 images for classification.
 
@@ -164,7 +164,7 @@ From an EO perspective, assessing sample quality requires time series from satel
 knitr::include_graphics("./images//th_design_frames/QC_circle profile_Ethiopia.png")
 ```
 
-## Using NDVI temporal profiles to assess crop phenology
+## Using NDVI Temporal Profiles to Assess Crop Phenology
 
 The last EO-based requirement is the most difficult to address. We assume that crops of the same type, grown in the same agro-climatic zone, have similar planting and growing cycles. Analysing NDVI profiles across all crop samples strengthens crop label confidence. Atypical growth patterns (e.g., varied planting/cycle length or lack of growth) indicate potential mislabeling or mislocated samples. These samples need more scrutiny before they can be deemed usable.
 

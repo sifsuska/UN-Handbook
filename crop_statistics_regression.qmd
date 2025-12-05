@@ -1,5 +1,5 @@
 ---
-title: "Survey – Maize acreage estimation in Zimbabwe"
+title: "Crop Statistics using Survey Calibrated Mapping"
 author: "Sophie Bontemps, Boris Nörgaard, Lorenzo de Simone"
 format: html
 ---

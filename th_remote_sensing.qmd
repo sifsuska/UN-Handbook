@@ -1,5 +1,5 @@
 ---
-title: "Remote sensing images: optical, SAR"
+title: "An Overview of Remote Sensing Satellites for Agricultural Applications"
 author: "Pan Yaozhong"
 format: html
 ---
@@ -8,7 +8,7 @@ format: html
 
 This chapter provides a general introduction to remote sensing imagery. The authors discuss different types of remote sensing satellites  (optical, SAR,  hyperspectral) and include examples of satellite constellations (e.g, Landsat,  Copernicus, CHEOS). The chapter describes the main characteristics of various Earth observation satellites. For a description of how to access satellites from the Copernicus and Landsat programmes, please refer to chapter on [Earth Observation Data Sources](https://fao-eostat.github.io/UN-Handbook/th_data_sources.html).
 
-## Introduction of remote sensing imagery
+## Introduction to Remote Sensing Imagery
 
 Remote sensing imagery refers to data collected by sensors mounted on satellite platforms, used to observe and analyze the Earth's surface and its atmosphere from a distance. These images capture information about various phenomena and play an important role in the study of the surface of the Earth. These images are usually comprised of multiple bands and important for the study of agriculture statistics, land cover/land use and other different tasks. In agriculture statistics, remote sensing applications are based on the interaction of electromagnetic radiation with soil or plant material. The advantage of remote sensing in agriculture is its ability to provide detailed information about crop characteristics. For example, spectral, textural, phenological features can be used to create a map showing plant distribution. Indicators such as Normalized Difference Vegetation Index (NDVI), Leaf Area Index (LAI), biomass, crop density can be used to assess vegetation growth.
 
@@ -60,7 +60,7 @@ Radar satellites emit its own microwave signals and analyze the returning echoes
 knitr::include_graphics("./images/th_remote_sensing/image_optical_sar.jpeg")
 ```
 
-## Chinese Earth observation satellites
+## The Chinese Earth Observation Satellite Program
 
 Gaofen (GF, "High Resolution") is a series of civilian Earth observation satellites developed and launched for the China High-resolution Earth Observation System (CHEOS), a state-sponsored programme aimed to develop a near-real time, all-weather, global surveillance network consisting of satellite, near-space (stratosphere) airships, and aerial observation platforms. Among these satellites, Gaofen 1 (GF-1), Gaofen 2 (GF-2), Gaofen 4 (GF-4), Gaofen 5 (GF-5), Gaofen 6 (GF-6), Gaofen 7 (GF-7) are optical satellites. They all play an important role in remote sensing for agriculture statistics.
 
@@ -388,7 +388,7 @@ purchased on the website of [China Center For Resources Satellite Data and Appli
 knitr::include_graphics("./images/th_remote_sensing/image_gf3.jpeg")
 ```
 
-## Landsat programme
+## The Landsat Programme
 
 The Landsat program consists of a series of Earth-observing satellite missions jointly managed by National Aeronautics and Space Administration (NASA) and the U.S. Geological Survey (USGS). Landsat-9
 is the latest satellite in the Landsat series. It was launched in September 27, 2021. Landsat-9 carries two science instruments including the Operational Land Imager2(OLI-2) and Thermal Infrared Sensor2(TIRS-2) and enables informed decision support for many key areas.
@@ -434,11 +434,11 @@ knitr::include_graphics("./images/th_remote_sensing/image_landsat.jpeg")
 
 Landsat imagery can be downloaded for free from the [USGS Earth Explorer](https://earthexplorer.usgs.gov) or from cloud providers such as [Microsoft Planetary Computer](https://planetarycomputer.microsoft.com/). Please refer to the chapter [Earth observation big data sources](https://fao-eostat.github.io/UN-Handbook/th_data_sources.html) for a description of how to access remote sensing data in cloud collections.
 
-## Copernicus Programme
+## The Copernicus Program
 
-The Copernicus Programme is headed by the European Commission in partnership with the European Space Agency (ESA) that implements a constellation of satellites called Sentinels. These satellites include all-weather radar images from Sentinel-1A and 1B, high-resolution optical images from Sentinel-2A and 2B, ocean and land data suitable for environmental and climate monitoring from Sentinel-3, as well as air quality data from Sentinel-5P. 
+The Copernicus Program is headed by the European Commission in partnership with the European Space Agency (ESA) that implements a constellation of satellites called Sentinels. These satellites include all-weather radar images from Sentinel-1A and 1B, high-resolution optical images from Sentinel-2A and 2B, ocean and land data suitable for environmental and climate monitoring from Sentinel-3, as well as air quality data from Sentinel-5P. 
 
-### Sentinel-1 mission
+### Sentinel-1
 
 The Sentinel-1 mission, operated by the European Space Agency (ESA), consists of a constellation of C-band Synthetic Aperture Radar (SAR) satellites designed to provide continuous, all-weather, day-and-night Earth observation capabilities. Operating at a central frequency of approximately 5.405 GHz, corresponding to a wavelength of 5.6 cm, the system offers multiple polarization configurations, including single-polarization modes (HH or VV) and dual-polarization modes (HH+HV or VV+VH). These options allow for flexibility in addressing diverse application requirements, ranging from high-resolution terrestrial monitoring to large-area maritime surveillance.
 
@@ -460,7 +460,7 @@ In summary, the Sentinel-1 mission offers a set of operational modes that balanc
 
 Sentinel-1 products are openly available from cloud providers such as [Copernicus Data Space Ecosystem](https://dataspace.copernicus.eu/) and [Microsoft Planetary Computer](https://planetarycomputer.microsoft.com/). Please refer to the chapter [Earth observation big data sources](https://fao-eostat.github.io/UN-Handbook/th_data_sources.html) for a description of how to access remote sensing data in cloud collections.
 
-### Sentinel-2 mission
+### Sentinel-2
 
 The Sentinel-2 mission, developed under the European Union’s Copernicus Programme and operated by the European Space Agency (ESA), consists of a constellation of polar-orbiting satellites, Sentinel-2A (launched in June 2015), Sentinel-2B (launched in March 2017), and Sentinel-2C (launched in September 2024). The Sentinel-2 satellites are equipped with the MultiSpectral Instrument (MSI), a push-broom imaging sensor that acquires data in 13 discrete spectral bands spanning the visible, near-infrared (NIR), and shortwave infrared (SWIR) regions of the electromagnetic spectrum. The MSI is designed to provide high spatial resolution (10 m, 20 m, or 60 m depending on the spectral band) over a swath width of 290 km, enabling systematic coverage of terrestrial and coastal ecosystems.
 
@@ -496,11 +496,8 @@ knitr::include_graphics("./images/th_remote_sensing/image_s2_rondonia.png")
 
 Sentinel-2 products are openly available from cloud providers such as [Copernicus Data Space Ecosystem](https://dataspace.copernicus.eu/), [Amazon Web Services](https://aws.amazon.com/earth/) and [Microsoft Planetary Computer](https://planetarycomputer.microsoft.com/). Please refer to the chapter [Earth observation big data sources](https://fao-eostat.github.io/UN-Handbook/th_data_sources.html) for a description of how to access remote sensing data in cloud collections.
 
-## Final remarks
+## Final Remarks
 
 Multi-source satellite remote sensing facilitates coordinated global observation through orbital synergy, while the integration of optical imagery and SAR datasets enables multisensor data collection across heterogeneous meteorological regimes. This synergistic complementarity between spectral resolution and all-weather capability holds significant implications for enhancing the spatiotemporal continuity and operational robustness of agricultural statistical monitoring systems.
 
-## About the author{-}
-
-Professor Pan Yaozhong is a distinguished scholar and leading figure in the field of remote sensing in China. He is the Director of the Institute of Remote Sensing Science and Engineering at Beijing Normal University. He has long been dedicated to teaching and research on the applications of remote sensing technology across critical national sectors, including agriculture, statistics, environment, disaster mitigation, and financial insurance. His work has yielded a series of significant theoretical and practical achievements. As a member of several national-level expert committees, he provides vital academic support and strategic advice for the development of remote sensing science and technology, policy-making, and the implementation of major national projects in China. He has led over 20 national key research programs and projects. First Prize, Beijing Science and Technology Award (Ranked 1st). Author of more than 200 SCI-indexed papers in renowned international journals. 
 

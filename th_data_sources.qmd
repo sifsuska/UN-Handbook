@@ -1,8 +1,7 @@
 ---
-title: "Earth observation big data sources"
+title: "Big Earth Observation Data Cloud Services"
 author: "Gilberto Camara"
 format: html
-
 reproducible:
     enabled: true
 
@@ -11,7 +10,7 @@ reproducible-local:
     repository-url: "https://github.com/FAO-EOSTAT/un-handbook-th-datasources"
 ---
 
-### Configurations to run the chapter{-}
+### Configuration {-}
 
 ```{r}
 #| echo: true
@@ -46,7 +45,7 @@ knitr::include_graphics("./images/th_data_sources/usgs_ard_tile.png")
 
 
 
-## Cloud platforms providing ARD data
+## Cloud Platforms Providing ARD Data
 
 Machine learning and deep learning (ML/DL) classification algorithms require the input data to be consistent. The dimensionality of the data used for training the model has to be the same as that of the data to be classified. There should be no gaps and no missing values. Thus, to use ML/DL algorithms for remote sensing data, ARD image collections should be converted to regular data cubes.
 
@@ -54,7 +53,7 @@ There are a large number of cloud platforms providing open data organized as Ana
 
 This chapter describes how to access these collections and transform ARD images into regular data cubes. A data cube is a set of images organized in tiles of a grid system (e.g., MGRS). Each tile contains single-band images in a unique zone of the coordinate system (e.g, tile 20LMR in MGRS grid) covering the period between start_date and end_date. All tiles share the same set of regular temporal intervals and the same spectral bands and indices. All images have the same spatial resolution.
 
-## Tiling systems used by ARD collections
+## Tiling Systems Used by ARD Collections
 
 ARD image collections are organized in spatial partitions. Sentinel-2/2A images follow the Military Grid Reference System (MGRS) tiling system, which divides the world into 60 UTM zones of 8 degrees of longitude. Each zone has blocks of 6 degrees of latitude. Blocks are split into tiles of 110 $\times$ 110 km$^2$ with a 10 km overlap. Figure @fig-mgrs-datacubes shows the MGRS tiling system for a part of the Northeastern coast of Brazil, contained in UTM zone 24, block M. 
 
@@ -80,7 +79,7 @@ The Landsat-4/5/7/8/9 satellites use the Worldwide Reference System (WRS-2), whi
 knitr::include_graphics("./images/th_data_sources/landsat_wrs_grid.png")
 ```
 
-## Major global or large regional cloud provides
+## Major Global and Large Regional Cloud Providers
 
 The following ARD image cloud providers provide global or large regional data:
 
@@ -93,7 +92,7 @@ The following ARD image cloud providers provide global or large regional data:
 - Microsoft Planetary Computer (MPC): Open data collections of Sentinel-1 GRD, Sentinel-1 RTC, Sentinel-2/2A,  Landsat-4/5/7/8/9 images for the Earth's land areas. Also supported are Copernicus DEM-30 and MOD13Q1, MOD10A1 and MOD09A1 products, and the Harmonized Landsat-Sentinel collections (HLSL30 and HLSS30).
 
 
-## Accessing ARD image collections in cloud providers
+## Accessing ARD Image Collections in Cloud Providers
 
 <a href="https://www.kaggle.com/esensing/creating-data-cubes-in-sits" target="_blank"><img src="https://kaggle.com/static/images/open-in-kaggle.svg"/></a>
 
@@ -153,7 +152,7 @@ knitr::include_graphics("./images/th_data_sources/aws_s2.png")
 
 The `sits` package supports access to open data collection from Microsoft's Planetary Computer (MPC), including `SENTINEL-1-GRD`, `SENTINEL-1-RTC`, `SENTINEL-2-L2A`, `LANDSAT-C2-L2`, `COP-DEM-GLO-30` (Copernicus Global DEM at 30 meter resolution) and `MOD13Q1-6.1`(version 6.1 of the MODIS MOD13Q1 product). Access to the non-open data collection  is available for users that have registration in MPC. 
 
-### SENTINEL-2/2A images in MPC
+### SENTINEL-2/2A Images
 
 The SENTINEL-2/2A ARD images available in MPC have the same bands and resolutions as those available in AWS (see above). The example below shows how to access the `SENTINEL-2-L2A` collection. 
 
@@ -185,7 +184,7 @@ plot(s2_20LKP_cube_MPC, red = "B11", blue = "B02", green = "B8A",
 knitr::include_graphics("./images/th_data_sources/mpc_s2.png")
 ```
 
-### LANDSAT-C2-L2 images in MPC
+### LANDSAT-C2-L2 Images
 
 The `LANDSAT-C2-L2` collection provides access to data from Landsat-4/5/7/8/9 satellites. Images from these satellites have been intercalibrated to ensure data consistency. For compatibility between the different Landsat sensors, the band names are BLUE, GREEN, RED,  NIR08,  SWIR16, and SWIR22. All images have 30 m resolution. For this collection,  tile search is not supported; the `roi` parameter should be used. The example below shows how to retrieve data from a region of interest covering the city of Brasilia in Brazil. 
 
@@ -218,7 +217,7 @@ plot(s2_L8_cube_MPC)
 knitr::include_graphics("./images/th_data_sources/mpc_l8.png")
 ```
 
-### SENTINEL-1-GRD images in MPC
+### SENTINEL-1-GRD images
 
 Sentinel-1 GRD products consist of focused SAR data that has been detected, multi-looked and projected to ground range using the WGS84 Earth ellipsoid model. GRD images are subject for variations in the radar signal's intensity due to topographic effects, antenna pattern, range spreading loss, and other radiometric distortions. The most common types of distortions include foreshortening, layover and shadowing. 
 
@@ -255,7 +254,7 @@ knitr::include_graphics("./images/th_data_sources/mpc3.png")
 As explained earlier in this chapter, in areas with areas with large elevation differences, Sentinel-1 GRD images will have geometric distortions. For this reason, whenever possible, we recommend the use of RTC (radiometrically terrain corrected) images as described in the next session. 
 
 
-### SENTINEL-1-RTC images in MPC
+### SENTINEL-1-RTC Images
 
 An RTC SAR image has undergone corrections for both geometric distortions and radiometric distortions caused by the terrain. The purpose of RTC processing is to enhance the interpretability and usability of SAR images for various applications by providing a more accurate representation of the Earth's surface. The radar backscatter values are normalized to account for these variations, ensuring that the image accurately represents the reflectivity of the surface features.
 
@@ -290,7 +289,7 @@ knitr::include_graphics("./images/th_data_sources/mpcrtcol.png")
 
 The above image is from the central region of Colombia, a country with large variations in altitude due to the Andes mountains. Users are invited to compare this images with the one from the `SENTINEL-1-GRD` collection and see the significant geometrical distortions of the GRD image compared with the RTC one.
 
-### Copernicus DEM 30 meter images in MPC
+### Copernicus Digital Elevation Model
 
 The Copernicus digital elevation model 30-meter global dataset (COP-DEM-GLO-30) is a high-resolution topographic data product provided by the European Space Agency (ESA) under the Copernicus Program. The vertical accuracy of the Copernicus DEM 30-meter dataset is typically within a few meters, but this can vary depending on the region and the original data sources. The primary data source for the Copernicus DEM is data from the TanDEM-X mission, designed by the German Aerospace Center (DLR). TanDEM-X provides high-resolution radar data through interferometric synthetic aperture radar (InSAR) techniques.
 
@@ -339,7 +338,7 @@ Sys.setenv(
 
 After including these lines in your .Rprofile, restart `R` for the changes to take effect. By following these steps, users will have access to the Copernicus Data Space Ecosystem. 
 
-### SENTINEL-2/2A images in CDSE
+### SENTINEL-2/2A Images
 
 CDSE hosts a global collection of Sentinel-2 Level-2A images, which are processed according to the [CEOS Analysis-Ready Data](https://ceos.org/ard/) specifications. One example is provided below, where we present a Sentinel-2 image of the Lena river delta in Siberia in summertime.
 
@@ -369,7 +368,7 @@ plot(lena_cube, date = "2023-07-06", red = "B12", green = "B8A", blue = "B04")
 knitr::include_graphics("./images/th_data_sources/s2_lena_delta.png")
 ```
 
-### SENTINEL-1-RTC images in CDSE
+### SENTINEL-1-RTC Images
 
 An important product under development at CDSE are the radiometric terrain corrected (RTC) Sentinel-1 images. in CDSE, this product is referred to as normalized terrain backscater (NRB). The S1-NRB product contains radiometrically terrain corrected (RTC) gamma nought backscatter (γ0) processed from Single Look Complex (SLC) Level-1A data. Each acquired polarization is stored in an individual binary image file. 
 
@@ -573,7 +572,7 @@ plot(hls_cube_s2, red = "RED", green = "GREEN", blue = "BLUE", date = "2020-06-2
 knitr::include_graphics("./images/th_data_sources/hls_ilhabela_s2.png") 
 ```
 
-## EO products from TERRASCOPE
+## EO Products from TERRASCOPE
 
 Terrascope is online platform for accessing open-source satellite images. This service, operated by VITO, offers a range of Earth observation data and processing services that are accessible free of charge. Currently, `sits` supports the World Cover 2021 maps, produced by VITO with support form the European Commission and ESA. The following code shows how to access the World Cover 2021 convering tile "22LBL". The first step is to use `sits_mgrs_to_roi()` to get the region of interest expressed as a bounding box; this box is then entered as the `roi` parameter in the `sits_cube()` function. Since the World Cover data is available as a 3$^\circ$ by 3$^\circ$ grid, it is necessary to use `sits_cube_copy()` to extract the exact MGRS tile.
 

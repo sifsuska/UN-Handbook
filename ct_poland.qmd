@@ -31,7 +31,7 @@ The classification was carried out separately for each orbit based on the follow
 knitr::include_graphics("./images/ct_poland/crop_class_workflow.png")
 ```
 
-## Data acquisition and pre-processing Satellite Data
+## Satellite Data Acquisition and Pre-processing
 
 As part of the crop classification task, satellite data from the Copernicus Sentinel missions were used. Procedures for the automatic downloading of satellite imagery were developed to support this process. Images can be retrieved directly from the Copernicus Data Space Ecosystem website. The downloading procedure requires specifying the time range of image acquisition, the area of interest, and the type of sensor. The product type is automatically matched to the selected sensor to ensure compatibility with the classifier's requirements. Sentinel-1 radar images are downloaded in the SLC (Single Look Complex) format, while Sentinel-2 optical images are obtained in the S2MSI2A format, corresponding to Level-2A processing. 
 
@@ -43,7 +43,7 @@ A set of C-band, dual polarization (VH + VV) mode, Single Look Complex (SLC) Sen
 
 The Sentinel-2 dataset was acquired for the study area, focusing on agricultural land cover. The data consists of multispectral images containing 13 spectral channels with a spatial resolution of 10-60 m. The images cover multiple dates throughout the growing season, allowing extraction of temporal profiles and vegetation indices. These features were crucial for distinguishing crop types and served as input for machine learning-based classification.
 
-## Reference data
+## Reference Data
 
 The reference data can include administrative data or in situ collections. Nevertheless, the quantity of point per given class is required for the sufficient level of the estimate accuracy. Tests were carried out on how the statistics of individual crops change depending on the size of the sample. It was considered that in the case of using in-situ  data, the minimum sample per class should be not less than 50 points within one flight path of the S-1 satellite (for about 4-5 scenes). If agricultural declarations from the Agriculture Restructurisation and Modernisation Agency (ARMA) database are used as input, the sample will be balanced in numbers and no less than 800 points will be taken for training and testing classifications. The large size of the ARMA sample is due to its uncertainty. 
 
@@ -53,7 +53,7 @@ The study involves the identification and description of selected crops directly
 
 Development of vector data for object classification (training and control samples) based on information from administrative sources available in Statistics Poland, the Integrated Management and Control System (IACS) and the Database of Topographic Objects (BDOT). In the course of the work, the source data were analysed and the geometry of the spatial division units necessary to present the results were identified. For the presentation of project data, the use of vector data of administrative boundaries obtained from the National Register of Boundaries and the area of territorial division units of the country (PRG) at the level of municipalities was established. These data have been obtained annually from the Head Office of Geodesy and Cartography (GUGiK) since 2002. In addition, geocoding was performed, which ensures the presence of identifiers of space division units in the designed databases. 
 
-## Multi-temporal image processing of Sentinel-1 and Sentinel-2
+## Multi-temporal Image processing of Sentinel-1 and Sentinel-2
 
 We developed procedures for the use of SAR polarimetric data, including the calculation of the T2 coherence matrix and H/α polarimetric decomposition parameters. After gernerating the A procedure has been created for mosaicking the output layers. Following the implementation of all processing steps, six input layers were generated for each acquisition date and each flight strip, forming the basis for calculating indicators. Subsequently, a series of indicators were created that describe phenological changes in crops using the difference between polarimetric parameters and changes over time in individual parameters. 
 
@@ -86,9 +86,9 @@ knitr::include_graphics("./images/ct_poland/segmentation.png")
 
 In the final step, mean values for the six basic parameters for each segment were calculated for all acquisition dates. This data was stored as records in the main database serving as a foundation for subsequent analyses. Since  the records are not georeferenced, they allow for faster access and processing. Each entry remains connected to its corresponding segment on the map through a unique identification (ID) number, ensuring consistent referencing between the dataset and spatial layers.
 
-## Crop classification algorithms 
+## Crop Classification Algorithms 
 
-### Development of the phenological database
+### Development of the Phenological Database
 
 At the beginning, segments that correspond to the reference dataset extracted from farmers’ declarations were selected from the main database. Phenological crop growth descriptors were then calculated using the basic parameters derived from Sentinel-1 images and stored in the main database. The calculation of phenological indices was based on the assumption that, as crops grow, signal power, signal polarization and the scatter mechanism change. Thus the extraction of multi-temporal indices enhances differences among crops and increases classification accuracy. The following phenological indices were proposed and used:
 
@@ -120,7 +120,7 @@ for $t$ between $min(t_{local})$ and $max(t_{local})$,  where: P is a value of o
 The final database contained mean values for all basic parameters and phenological indices in segments that corresponded to the reference dataset extracted from farmers declarations.
 
 
-### Iterative random forest fitting
+### Iterative Random Forest Fitting
 
 Due to the large number of combinations of multi-temporal indices, each segment can be described by thousands of parameters. These parameters are not equally important for the classification, and some may degrade it by introducing noise. Therefore, iterative classifier fitting was applied to select the optimal parameters for classification. Each iteration is as follows:
 
@@ -136,7 +136,7 @@ The results of all iterations were stored in a validation database, which contai
 
 Validation of the classification results is carried out using in-situ  data (the part of data that was not used to train the system), data from farmers' declarations submitted to the Agriculture Restructurisation and Modernisation Agency system and data from ARMA on-the-spot inspections. The matrix of errors and accuracy of underestimation and overestimation of individual crops is calculated. Confusion matrices are produced separately for all classifications using 20% of parcels from reference datasets. Overall accuracy (OA) and kappa are calculated. User’s (UA) and producer’s (PA) accuracies, as well as the F1 score are calculated to assess omission, commission and mean errors within classes, respectively. To test the effect of mosaicking on the classification, we perform a map-to-map comparison of records in the farmer’s declarations database and the per-orbit classification before and after mosaicking.
 
-## Crop map publishing
+## Crop Map Publishing
 
 Area statistics are created based on the resulting classification raster. The areas are added up to all administrative levels of the country (voivodeships, districts, communes). The identification number of individual units allows for the integration of this data with the Statistics Poland reporting system. The results of the classification are published on the Statistics Poland [geostatistical portal](https://portal.geo.stat.gov.pl/).  The classification is performed for two dates July/August and October of the given year. In the first date the preliminary results on limited
 timeseries are provided and the final estimate embraces the whole
@@ -226,13 +226,7 @@ improvement of the crop classification system is the objective of the
 EUROSTAT funded project Modernization of agricultural statistics which
 is being accomplished by Statistics Poland. The reference paper for this work has been published in a leading journal [@Wozniak2022].
 
-## About the authors{-}
 
-Artur Łączyński, consultant in Department of Agriculture and Environment in Statistics Poland, former director of Agriculture Department (2010-2023), works in agriculture, statistics, modern methods of data collection, methodology of surveys, and particularly use of satellite data in agricultural statistics. From 2018 to 2025, he was responsible for establishing in Poland the system for satellite identification and monitoring of crops for the purposes of agricultural statistics, which permanently delivers essential information on area and yielding. He has been an international expert of European Commission, FAO, ILO, World Bank in several countries such as Azerbaijan, Croatia, Israel, Jordan, Kazakhstan, and Moldova.
-
-Natalia Kotulak is a consultant at the Statistical Office in Olsztyn, part of Poland’s Central Statistical Office. She specializes in applying satellite remote sensing and geospatial analysis to agriculture, sustainable development, and environmental monitoring presented her research at conferences on the use of remote sensing in public statistics. A graduate in Geodesy and Cartography from the University of Warmia and Mazury in Olsztyn, she has co-authored scientific publications on radar-based land displacement.
-
-Przemysław Slesiński is a geodesy and remote-sensing specialist with a Master’s in Geodesy and Satellite Navigation. Since 2011 he has been Chief Specialist at the Statistical Office in Olsztyn, developing spatial databases, performing network analyses, and processing satellite data for agricultural statistics. He also serves as IT technician and UAV operator at the University of Warmia and Mazury. Skills: GIS (ArcGIS, QGIS, SNAP), object-based classification, SAR processing and machine learning; co-author of multiple EO publications.
 
 ## References{-}
 

@@ -12,7 +12,7 @@ Consider how experts use Earth observation data. Their input are images with res
 
 In what follows, we present the prevailing consensus on classification systems: FAO's Land Cover Classification System (LCCS)\cite[@Herold2006a]. We argue that LCCS does not meet the challenges posed by big data. To support our views, we consider concepts used on image time series analysis; we show these concepys are related to event recognition and are not representable in LCCS. To improve the theory behind big data, we introduce elements of a phenology based approach for land classification.
 
-## Classification systems for Earth observation data: current status
+## Classification Systems for Earth observation Data
 
 The act of classification raises philosophical questions dating as far back as Aristotle. We use an a priori conception of reality to classify the world; what we observe has to fit our categories. Words in our language describe elements of the external reality. However, geographical terms such as `mountain' and `river' are imprecise and context-dependent[@Smith2001, @Smith2003, @Mark2003]. These ambiguities have motivated research on geospatial semantics [@Smith1998, @Fonseca2002, @Kuhn2005].  However, building such complete ontologies is hard. Janowicz et al. [@Janowicz2012] recognize that "geographical concepts are situated and context-dependent, can be described from different, equally valid, points of view, and ontological commitments are arbitrary to a large extent".  Work on classification systems has shifted. Rather than using a single ontology, the current consensus argues for domain ontologies based on a common foundational ontology. These domain ontologies are means of making concepts of specific disciplines explicit and better communicating them [@Smith2007, @Buttigieg2013]. 
 
@@ -41,13 +41,13 @@ LCCS is a landmark initiative; it provides a basis for a common understanding of
 
 For example, the UNFCCC Reduction of Emissions by Deforestation and Degradation initiative (REDD+) requires representing and measuring forest dynamics [@Corbera2011]. Static and rigid definitions of "forest" used by LCCS cannot represent concepts such as `forest degradation' [@Putz2010]. Forest degradation happens when a natural forest loses part of its biodiversity and its tree cover. It is not a stable state but an intermediary situation that can lead to different medium-term outcomes. One can restore a degraded forest; degradation may continue and lead to complete loss of forest cover. Whatever the case, LCCS lacks explicit temporal information to capture forest degradation and thus support initiatives such as REDD+. Therefore, LCCS is thus not fit for many critical applications of EO data.
 
-## Elements of a phenology-based classification schemas
+## Elements of a Phenology-based Classification Schema
 
 To represent change in geographical space, GIScience authors distinguish between continuants and occurrents [@Grenon2004, @Galton2004, @Galton2008, @Worboys2005]. Continuants refer to entities that "endure through time even while undergoing different sorts of changes" [@Grenon2004]. The Amazon Forest and the city of Brasilia are continuants. Occurrents happen in a well-defined period and may have different stages during this time. Cutting down a forest area, cultivating a crop in a season, and building a road are occurrents. Objects are associated to continuants and events to occurrents.  
  
 Atemporal classification systems such as LCCS refer only to properties of continuants. One can state facts such as "this area has 30\% forest cover" using LCCS, but cannot assert that "this area lost 70\% of its forest in the last two years". To convey change, classification systems for big data need to include occurrents. In what follows, we discuss concepts used in the analysis of satellite image time series. These time series are extracted from organized collections of Earth observation data covering a geographical area in regular temporal intervals. 
 
-## The key role of time series
+## The Key Role of Time Series
 
 Since remote sensing satellites revisit the same place, we can calibrate their images so that measures of the same place at different times are comparable (Figure \ref{fig:sits_a}). These observations can be organized so that each measure from the sensor maps to a three-dimensional array in space-time. From a data analysis perspective, each pixel location $(x, y)$ at consecutive times, $t_1,...,t_m$, makes up a satellite image time series (SITS), such as the one in Figure \ref{fig:sits_b}. From these time series, we can extract land-use and land-cover change information. In Figure \ref{fig:sits_b}, after the forest was cut in 2002, the area was used for cattle raising (pasture) for three years, during 2002 to 2008, then turned into cropland.
 
@@ -71,7 +71,7 @@ knitr::include_graphics("./images/th_lucc/sits_a.png")
 knitr::include_graphics("./images/th_lucc/sits_b.png")
 ```
 
-References{-}
+## References{-}
 
 
 

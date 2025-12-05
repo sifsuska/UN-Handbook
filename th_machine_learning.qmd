@@ -1,7 +1,6 @@
 ---
 title: "Machine learning algorithms for image time series"
 format: html
-
 reproducible:
     enabled: true
 
@@ -10,7 +9,7 @@ reproducible-local:
     repository-url: "https://github.com/FAO-EOSTAT/un-handbook-th-ml"
 --- 
 
-### Configurations to run this chapter{-}
+### Configurations {-}
 
 ```{r}
 #| echo: true
@@ -26,11 +25,11 @@ tempdir_r <- "~/sitsbook/tempdir/R/cl_machinelearning"
 dir.create(tempdir_r, showWarnings = FALSE)
 ```
 
-## Data used in this chapter
+## Data Used in This Chapter
 
 The following examples show how to train machine learning methods and apply them to classify a single time series. We use the set `samples_matogrosso_mod13q1`, containing time series samples from the Brazilian Mato Grosso state obtained from the MODIS MOD13Q1 product. It has 1,892 samples and nine classes (`Cerrado`, `Forest`, `Pasture`, `Soy_Corn`, `Soy_Cotton`, `Soy_Fallow`, `Soy_Millet`). Each time series covers 12 months (23 data points) with six bands (NDVI, EVI, BLUE, RED, NIR, MIR). The samples are arranged along an agricultural year, starting in September and ending in August. The dataset was used in the paper "Big Earth observation time series analysis for monitoring Brazilian agriculture" [@Picoli2018], and is available in the R package `sitsdata`.
 
-## Common interface to machine learning and deep learning models
+## Common Interface to Machine Learning and Deep Learning Models
 
 The `sits_train()` function provides a standard interface to all machine learning models. This function takes two mandatory parameters: the training data (`samples`) and the ML algorithm (`ml_method`). After the model is estimated, it can classify individual time series or data cubes with `sits_classify()`. In what follows, we show how to apply each method to classify a single time series. Then, in Chapter [Image classification in data cubes](https://e-sensing.github.io/sitsbook/cl_rasterclassification.html), we discuss how to classify data cubes.
 
@@ -102,7 +101,7 @@ The result shows that the area started as a forest in 2000, was deforested from 
 
 Random Forest is robust to outliers and can deal with irrelevant inputs [@Hastie2009]. The method tends to overemphasize some variables because its performance tends to stabilize after part of the trees is grown [@Hastie2009]. In cases where abrupt change occurs, such as deforestation mapping, Random Forest (if properly trained) will emphasize the temporal instances and bands that capture such quick change. Before using Random Forest, it is recommended that users balance their training samples as explained in ["Reducing imbalances in training samples"](https://e-sensing.github.io/sitsbook/cl_rasterclassification.html)
 
-## Extreme gradient boosting
+## Extreme Gradient Boosting
 
 XGBoost (eXtreme Gradient Boosting) [@Chen2016] is an implementation of gradient boosted decision trees designed for speed and performance.  It is an ensemble learning method, meaning it combines the predictions from multiple models to produce a final prediction. XGBoost builds trees one at a time, where each new tree helps to correct errors made by previously trained tree. Each tree builds a new model to correct the errors made by previous models. Using gradient descent, the algorithm iteratively adjusts the predictions of each tree by focusing on instances where previous trees made errors. Models are added sequentially until no further improvements can be made. 
 
@@ -153,7 +152,7 @@ plot(point_class_xgb, bands = c("NDVI", "EVI"))
 knitr::include_graphics("./images/th_machine_learning/mlxgbplot.png") 
 ```
 
-## Deep learning using multilayer perceptron
+## Deep Learning using Multilayer Perceptrons
 
 To support deep learning methods, `sits` uses the `torch` R package, which takes the Facebook `torch` C++ library as a back-end. Machine learning algorithms that use the R `torch` package are similar to those developed using `PyTorch`. The simplest deep learning method is multilayer perceptron (MLP), which are feedforward artificial neural networks. An MLP consists of three kinds of nodes: an input layer, a set of hidden layers, and an output layer. The input layer has the same dimension as the number of features in the dataset. The hidden layers attempt to approximate the best classification function. The output layer decides which class should be assigned to the input. In an MLP, all inputs are treated equally at first; based on iterative matching of training and test data, the backpropagation technique feeds information back to the initial layers to identify the most suitable combination of inputs that produces the best output.
 

@@ -579,11 +579,6 @@ data-driven insights with local expertise, reporting and decision
 support strengthen the resilience of agricultural systems in the face of
 recurring disasters.
 
-## About the author{-}
-
-Zhi Gao is a Professor, Doctoral Supervisor of the School of Remote Sensing and Information Engineering and the Deputy Dean of the College of Elite Engineers at Wuhan University. He has served as a Researcher and Principal Investigator (PI) at the National University of Singapore. Professor Gao was selected for the National High-Level Overseas Talent Program, Distinguished Professor under the Chutian Scholars Program of Hubei Province. His research primarily focuses on remote sensing image interpretation, detection and diagnosis of surface anomalies.
-
-
 ## References{-}
 
 Abbasi, S., et al. (2025). Assessment of agricultural drought severity

@@ -139,8 +139,4 @@ One avenue for investigation is the use of 1D Convolutional Neural Networks (1D-
 
 The reproducible code for this work is available in a [Github repository](https://github.com/abxda/geocrop_analysis_mx). Please follow the steps indicated in the repository to execute this example.
 
-## About the author{-}
-
-Dr. Abel Alejandro Coronado Iruegas is the Deputy Director of Research in Data Science at Mexico's National Institute of Statistics and Geography (INEGI). As a national expert in satellite imagery and large-scale Earth Observation (EO) data, he leads remote sensing initiatives to contribute to the improvement of the country's agricultural statistics. His scientific expertise spans data science, machine learning, and spatial data integration, fields in which he has authored several publications.
-
 ## References{-}

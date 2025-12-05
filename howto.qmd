@@ -1,17 +1,14 @@
----
-title: "How to use this handbook"
-author: "Sean Lovell, Gilberto Camara, Lorenzo de Simone"
-format: html
----
+# How to Use the Handbook {-}
+Sean Lovell, Felipe Carlos
 
-## Overview
+## Overview {-}
 
 This handbook provides comprehensive guidance on remote sensing for agricultural statistics, combining theory with practical, reproducible case studies. Each chapter can be read independently or as part of a structured learning path.
 
-## Reproducible Analysis System
+## Reproducible Analysis System {-}
 
-::: {.callout-note}
-## Under Development
+::: {.callout-note} 
+## Under Development {-}
 The reproducible analysis system described below is currently under development and not yet implemented. This documentation describes the planned functionality.
 :::
 
@@ -22,7 +19,7 @@ This handbook features a **"Reproduce this analysis"** system that all chapter a
 - **Packaging Complex Chapters**: For the 2-7 chapters with local data dependencies (pre-computed models, training samples), the system packages this data into the environment for true reproducibility.
 - **Supporting All Chapters**: For the majority of the handbook (84%), the system provides a zero-setup environment with all dependencies and cloud credentials ready, allowing you to instantly run live STAC queries and code examples without any local setup.
 
-### For Readers: One-Click Reproducibility
+### For Readers: One-Click Reproducibility {-}
 
 When you click the "Reproduce this analysis" button:
 
@@ -54,11 +51,11 @@ Chapters are configured with appropriate computational resources:
 - **GPU** (8 CPU, 32GB RAM, 1 GPU): Deep learning models (e.g., Colombia yield estimation)
 
 ::: {.callout-important}
-## GPU Support Availability
+## GPU Support Availability {-}
 GPU-enabled sessions are subject to funding availability and cluster configuration. While the infrastructure design includes GPU support for deep learning workloads, actual GPU resource allocation on the UN Global Platform depends on budget and infrastructure capacity. **GPU support is not part of the initial deployment.**
 :::
 
-### Technical Architecture
+### Technical Architecture {-}
 
 The reproducible analysis system uses:
 
@@ -69,7 +66,7 @@ The reproducible analysis system uses:
 - **Portable Authentication**: Standard Kubernetes Workload Identity (IRSA) for AWS credentials
 - **Curated Environments**: Pre-built Docker images with R 4.5.1, GDAL 3.6.2, PROJ 9.1.1, and geospatial packages
 
-### For Chapter Authors
+### For Chapter Authors {-}
 
 If you're contributing to this handbook, the reproducible analysis workflow is designed to be zero-friction.
 
@@ -133,7 +130,7 @@ reproducible:
 ---
 
 ::: {.callout-tip collapse="true"}
-## Technical Design Document
+## Technical Design Document {-}
 
 The complete technical design document is available below for infrastructure teams and advanced contributors.
 

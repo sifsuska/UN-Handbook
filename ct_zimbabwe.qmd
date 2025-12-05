@@ -311,12 +311,4 @@ prototype framework for a national crop monitoring system in Zimbabwe,
 offering a replicable model for other countries modernizing their
 agricultural statistics.
 
-## About the authors{-}
-
-Boris Norgaard is a PhD student in the Geomatics Lab at UCLouvain (Belgium). As part of the ESA Sen4Stat project, his doctoral work focuses on integrating Earth Observation data into agricultural statistics, with a particular emphasis on improving area estimation methods. He has collaborated with the Food and Agriculture Organization (FAO) and the World Bank in several countries on initiatives to design area sampling frame surveys for crop area estimation and to collect Earth Observation compatible ground data.
-
-Nelson Mupfugami is an statistician with the Zimbabwe National Statistics Agency (ZIMSTAT). He has more than 15 years of experience in production of official statistics within the National Statistics System. Currently, he is the manager responsible  for Agriculture and Environment Statistics and has contributed significantly  in the production of agriculture statistics in various fora. Nelson Mupfugami is a holder of Masters in Statistics and Operations Research from the National University of Science and Technology (NUST), Zimbabwe as well as Masters in Demography and Population Studies (Great Zimbabwe University).
-
-Phibion Chiwara is the Remote Sensing and GIS Specialist with the Food and Agriculture Organization of the United Nations (FAO) in the Zimbabwe Country Office. Over the past two years, he has been an active contributor to the global award-winning FAO-EOSTAT project, where he has led in-situ data collection, automated quality control of field data, and time-series analysis of satellite imagery for crop type and land cover mapping in Zimbabwe. Phibion is an Erasmus Mundus scholar and holds a double master’s degree in Geo-information Science and Earth Observation for Environmental Modelling and Management from the University of Southampton and Lund University.
-
 ## References{-}

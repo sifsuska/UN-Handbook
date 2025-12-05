@@ -284,6 +284,4 @@ agricultural, land, ecological, and other domains.
 
 The code for the model and experiment is available in [Github](https://github.com/BNU-RS/UHR-CFP).
 
-## About the author
 
-Jinshui Zhang (email: zhangjs@bnu.edu.cn) is a researcher at the Institute of Remote Sensing Science and Engineering，Faculty of Geographical Science，Beijing Normal University，Beijing，China. His research interests are Remote Sensing, Spatial Statistics, Satellite Image Analysis and Geospatial Science. 

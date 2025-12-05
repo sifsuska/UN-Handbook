@@ -350,15 +350,5 @@ is built, the reference data collection process with remote sensing imagery
 interpretation offers a low-cost, scalable, transparent and reliable alternative
 to ground surveys for crop planted area estimation.
 
-## About the authors{-}
-
-Dr. Abdul Qadir is currently a Postdoctoral Associate in the Department of Geographical Sciences (GEOG) at the University of Maryland, working with NASA Harvest. He completed his Ph.D. in December 2023, where his research focused on applying Synthetic Aperture Radar (SAR) remote sensing for agricultural monitoring. His current research involves developing innovative methods to leverage Earth observation data for advancing agricultural monitoring and sustainability. His research has been supported by NASA, ISRO, and JAXA. He has received several prestigious awards, including the NASA FINESST Fellowship and the Robert N. Colwell Memorial Award from ASPRS.  
-
-Dr. Sergii Skakun is an Associate Professor with a joint appointment at the Department of Geographical Sciences and the College of Information (INFO). He received a PhD in Computer Science from the National Academy of Sciences of Ukraine in 2005. His current research focus is to advance methods, models, and emerging technologies in the area of data science for heterogeneous remote sensing data fusion, processing, and analysis, as well as their applications to Earth System Science and areas of societal benefit. Within the Committee on Earth Observation Satellites (CEOS), he is co-leading a Cloud Masking Inter-comparison Exercise. He is currently an Associate Editor for the journal Remote Sensing of Environment.
-
-Josef Wagner is a PhD student at University of Strasbourg (France), and part of the NASA Harvest research consortium. His research is focused on building operational approaches for in-season crop mapping and sample-based planted area estimation in conflict-zones. He has been strongly involved in the collective NASA Harvest effort to monitor and track winter crop planted areas in Ukraine, both in Government- and Russian-held territories. He will graduate in November 2025.
-
-Dr. Inbal Becker-Reshef is the founding and Co-Director of NASA Harvest, NASA's Global program on food supply and agriculture, and a Research Professor in the Department of Geographical Sciences at the University of Maryland, a Fellow at University of Strasbourg's Institute for Advanced Studies, and Managing Director for Microsoft's AI for Good Lab. She leads multidisciplinary research and initiatives focused on advancing agricultural monitoring, sustainability and food security at local to global scales, with an emphasis on co-development with partners across the public and private sectors. Her contributions have been recognized with several awards, including the NASA Exceptional Public Service Medal, US APEC Science Prize for Innovation, Research, and Education (ASPIRE), and the Arrell Food Prize.
-
 ## References {-}
 

@@ -4,4 +4,13 @@ author: "Gilberto Camara, Lorenzo de Simone"
 format: html
 ---
 
-## 
+## Outline
+
+The "Additional Topics" section of the UN Handbook (Chapters 35–36) addresses the two critical enablers that sustain the technical methods described in earlier chapters: global infrastructure and human capacity building.
+
+While the previous sections focus on how to process data, this section focuses on where to get standardized global products (so you don't always have to process from scratch) and how to train the workforce to do it.
+
+Chapter 32, ["WorldCereal - A Global Effort for Crop Mapping"](https://fao-eostat.github.io/UN-Handbook/ad_world_cereal.html) introduces WorldCereal, a flagship project funded by the European Space Agency (ESA). It represents a paradigm shift from "project-based" mapping to a sustainable, open-source global system. The core objective of World Cereal is to create a dynamic, open-source system capable of generating seasonal, global-scale crop and irrigation maps at 10m resolution (using Sentinel-2 and Landsat data). It provides ready-to-use global base layers, including temporary crop extent, crop type maps (specifically maize and cereals), and active irrigation maps. Unlike static land cover maps, WorldCereal is time-aware. It generates maps specific to the growing season (e.g., "Winter 2024" vs. "Summer 2024"), which is essential for agricultural statistics. National Statistical Offices (NSOs) can upload their local in-situ training data to the WorldCereal cloud platform. The system then uses its pre-built algorithms to train a custom model specifically for that region, eliminating the need for NSOs to build complex coding pipelines from scratch. Instead of developing their own processing chains, they can use WorldCereal as a backbone to generate national statistics, ensuring consistency and reducing IT costs.
+
+
+Chapter 35, ["Personalised Learning Program for Training in the Use of Earth Observation for Agricultural Statistics"](https://fao-eostat.github.io/UN-Handbook/ad_learning.html) outlines a competency framework and a personalised learning path for learning how to use remote sensing for agricultural statistics. The work was developed by request of the UN Task Team on Remote Sensing for Agricultural Statistics and of FAO. The program distinguishes between different roles, such as Decision Makers (who need to understand the value/cost), Statisticians (who need to understand accuracy/bias), and Technical Analysts (who need to write Python/R code). The goal of the learning program is to move countries from ad-hoc training (one-off workshops) to institutional capacity, ensuring that NSOs can maintain and update their agricultural monitoring systems independently over the long term.

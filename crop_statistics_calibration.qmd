@@ -1,5 +1,5 @@
 ---
-title: "Estimating crop statistics for list frame data"
+title: "Estimating Crop statistics for List Frame Data"
 author: "Luis Ambrosio Flores"
 format: html
 ---

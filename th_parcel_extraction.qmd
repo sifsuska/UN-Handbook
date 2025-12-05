@@ -577,14 +577,6 @@ The technologies and methodologies developed for field boundary delineation offe
 
 This holistic approach ensures that the developed methodologies and models evolve to meet the dynamic and increasingly complex needs of agricultural statistical production and national monitoring efforts, supporting sustainable agriculture and food security.
 
-## About the authors{-}
 
-Hugo Oliveira is a Computer Science professor at Universidade Federal de Viçosa (UFV). He holds a B.Sc. and M.Sc. degree from Universidade Federal da Paraíba (UFPB), and a Ph.D. from Universidade Federal de Minas Gerais (UFMG). His research areas include Machine/Deep Learning, Computer Vision, Few-Shot Learning, Meta-Learning, Self-Supervised Learning, Foundational Models for Computer Vision, Generative Models, and Open-Set Recognition. These computational methods are applied to imaging domains such as remote sensing, medical imaging, and natural images.
-
-Ian Monteiro Nunes is a Data Scientist and Researcher with a technical background in Data Processing, a B.Sc. in Computer Engineering, an M.Sc., and a Ph.D. in Computer Science from PUC-Rio, specializing in semantic segmentation of remote sensing images. He serves as Leader in Data Intelligence and Innovation for Agricultural Statistics at IBGE, where he coordinates the methodological modernization of the Official Agricultural Statistics. He develops AI-based solutions for crop mapping, field operation optimization, and multimodal data analysis.
-
-Octavio Costa de Oliveira is an Agricultural Engineer from the Federal Rural University of Rio de Janeiro (UFRRJ, 1988), with a master's degree (1994) and PhD (2000) in Agronomy, specialized in Soil Sciences (UFRRJ). Since 2002, has been a Technologist in Geographic and Statistics Information at the Brazilian Institute of Geography and Statistics (IBGE). Worked in the planning of the Agricultural Censuses (2006, 2017 and 2027). Head of the Livestock division at IBGE (2006-2015) and Coordinator of Agricultural Statistics (2016-2025).
-
-Edemir Ferreira de Andrade Junior has PhD in Computer Science (UFMG, 2023), with a Master’s (2016) and a Bachelor’s in Computational Mathematics (2014). Experienced in visual pattern recognition, deep learning, and machine learning, he currently works as a data science consultant focused on statistical and geoscientific applications, while pursuing research in computer vision. With a solid background as a technical lead in computer vision R&D projects and publications in international conferences, he combines academic rigor with practical expertise to develop innovative AI solutions. His goal is to advance research and applied technologies in computer vision, bridging the gap between scientific knowledge and real-world impact.
 
 ## References{-}

@@ -497,12 +497,4 @@ ensure a higher accuracy. Our results provide a reference for the
 nondestructive and rapid acquisition of winter wheat LAI by UAV remote
 sensing.
 
-## About the authors
-
-Xinming Ma (email: xinmingma@126.com) is a researcher at the College of Agronomy, Henan Agricultural University, Zhengzhou, China. 
-
-Juanjuan Zhang is a researcher at the College of Agronomy, Henan Agricultural University, Zhengzhou, China.
-
-Tao Cheng is a researcher at College of Information and Management, Henan Agricultural University, Zhengzhou, China.
-
-## Reference
+## References {-]

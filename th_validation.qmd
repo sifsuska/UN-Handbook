@@ -1,5 +1,5 @@
 ---
-title: "Map validation and use of maps for area estimation"
+title: "Map Validation and Use of Maps for Area Estimation"
 author: "Gilberto Camara, Lorenzo De Simone"
 format: html
 
@@ -11,7 +11,7 @@ reproducible-local:
     repository-url: "https://github.com/FAO-EOSTAT/un-handbook-th-validation"
 ---
 
-### Configurations to run this chapter {-}
+### Configuration {-}
 
 ```{r}
 #| echo: true
@@ -33,7 +33,7 @@ Statistically robust and transparent approaches for assessing accuracy are essen
 
 Crucially, Olofsson et al. argue that area estimation should be based on the reference data, not solely on the classified map. This is because map-derived area estimates are often biased due to classification errors. By weighting the confusion matrix according to the sampling design, one can produce unbiased estimates of the area occupied by each land cover class, along with corresponding standard errors and confidence intervals. This correction is particularly important in studies where accurate area estimation informs policy or decision-making processes.
 
-## Example data set
+## Example Data Set
 
 Our study area is the state of Rondonia (RO) in the Brazilian Amazon, which has a total area of \SI{237576}{\kilo\metre\squared}. According to official Brazilian government statistics, as of 2021, there are \SI{125752.41}{\kilo\metre\squared} of tropical forests in RO, which corresponds to 53% of the state's total area. Significant human occupation started in 1970, led by settlement projects promoted by then Brazil's military government [@Alves2003]. Small and large-scale cattle ranching occupies most deforested areas. Deforestation in Rondonia is highly fragmented, partly due to the original occupation by small settlers. Such fragmentation poses considerable challenges for automated methods to distinguish between clear-cut and highly degraded areas. While visual interpreters rely upon experience and field knowledge, researchers must carefully train automated methods to achieve the same distinction.
 
@@ -93,7 +93,7 @@ plot(rondonia_2022_class)
 knitr::include_graphics("./images/th_validation/valromosaic.png") 
 ```
 
-## Sampling design
+## Sampling Design
 
 A key recommendation is the use of probability-based sampling designs—such as stratified random sampling—for the selection of reference data. This approach guarantees that each sample unit has a known, non-zero probability of selection, enabling the derivation of statistically valid and unbiased estimates. Moreover, stratified sampling is particularly effective in improving the precision of area estimates, especially when class distributions are imbalanced.
 
@@ -166,7 +166,7 @@ ro_sampling_design
 ```
 
 
-## Stratified random sampling
+## Stratified Random Sampling
 
 The next step is to chose one of the options for sampling design to generate a set of points for stratified sampling. These points can then be used for accuracy assessment. This is achieved by function `sits_stratified_sampling()` which takes the following parameters:
 
@@ -216,7 +216,7 @@ Using the SHP file, users can visualize the points in a standard GIS such as QGI
 
 After all sampling points are labelled in QGIS (or similar), users should produce a CSV file, a SHP file, a data frame, or an `sf` object, with at least three columns: `latitude`, `longitude` and `label`. See the next section for an example on how to use this data set for accuracay assessment.
 
-## Accuracy assessment of classified images
+## Accuracy Assessment of Classified Images
 
 To measure the accuracy of classified images, `sits_accuracy()` uses an area-weighted technique, following the best practices proposed by Olofsson et al. [@Olofsson2013]. The need for area-weighted estimates arises because the land classes are not evenly distributed in space. In some applications (e.g., deforestation) where the interest lies in assessing how much of the image has changed, the area mapped as deforested is likely to be a small fraction of the total area. If users disregard the relative importance of small areas where change is taking place, the overall accuracy estimate will be inflated and unrealistic. For this reason, Olofsson et al. argue that "mapped areas should be adjusted to eliminate bias attributable to map classification error, and these error-adjusted area estimates should be accompanied by confidence intervals to quantify the sampling variability of the estimated area" [@Olofsson2013].
 

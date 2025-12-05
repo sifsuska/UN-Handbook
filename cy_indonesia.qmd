@@ -514,8 +514,5 @@ In this study, we presented a complete workflow for analyzing paddy phenological
 
 The results demonstrate that a modernized approach to monitoring paddy phenology—integrating remote sensing and machine learning—can be effectively implemented to enhance accuracy and reliability in capturing crop growth dynamics.
 
-## About the Author{-}
-
-Achmad Fauzi Bagus Firmansyah (Fauzi), a Data Scientist and Analyst at Statistics Indonesia (BPS). Since 2017, I have been engaged in machine learning projects focused on developing, implementing, and evaluating algorithms for statistical indicators. In recent years, I have collaborated with international organizations, including FAO and UNESCAP. One of my key achievements is the application of satellite imagery and machine learning for paddy-phase classification, contributing significantly to agricultural official statistics.
 
 ## References{-}

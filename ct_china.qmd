@@ -332,14 +332,4 @@ library versions.
 The code is also available in [Google Earth Engine (GEE)](https://code.earthengine.google.com/eb4f07a4d990934a55022941e722ec3f). 
 Due to GEE memory limitations, only part of Colusa County is shown.
 
-## About the authors{-}
-
-Professor Jingfeng Huang (email: hjf@zju.edu.cn), Zhejiang University, China is dedicated to teaching, research, and applications in agricultural remote sensing.  His  team has published nearly 400 papers in prominent academic journals. He has authored a series of scientific monographs on agricultural remote sensing and information technology,
-
-Yifeng Lou is a researcher at Zhejiang University, China, who
-primarily focuses on remote sensing-based estimation and dynamic
-monitoring of paddy rice planting area, providing data support for food
-security.
-
-
 ## References{-}

@@ -3,7 +3,7 @@ title: "Alignment of field data collection to EO statistical requirements"
 author: 
   - "Lorenzo De Simone"
   - "Sophie Bontemps"
-  - "Pierre DeFourny"
+  - "Pierre Defourny"
   - "Luis Ambrosio"
   - "James Thomas"
 format: html
@@ -45,11 +45,11 @@ facilitates the integration of EO with statistical estimators for crop
 area, while directing the reader to the dedicated chapter by Ambrosio et
 al. (this volume) for a full methodological treatment.
 
-## FAO in-situ quality framework
+## FAO In-situ Data Quality Framework
 
-FAO and Université catholique of Louvain in Belgium (UCLouvain) have been testing and experimenting data quality framework for the collection of in situ data that would ensure fitness for use with EO applications, in particular to combine the national surveys with crop type maps with the finality to improve crop statistics.
+FAO and Université Catholique of Louvain in Belgium (UCLouvain) have been testing and experimenting data quality framework for the collection of in situ data that would ensure fitness for use with EO applications, in particular to combine the national surveys with crop type maps with the finality to improve crop statistics.
 
-Finally in 2025 the experience gained after several field experiments culminated in the publishing of a first in-situ quality framework for assessing the compatibility of field data collected through Surveys and Census operations with EO applications (De Simone et al., 2025).
+In 2025 the experience gained after several field experiments culminated in the publishing of a first in-situ quality framework for assessing the compatibility of field data collected through Surveys and Census operations with EO applications [@DeSimone2025].
 
 The framework includes two pillars:
 
@@ -156,7 +156,7 @@ knitr::include_graphics("images/th_alignment/image3.png")
 
 To summarize, georeferenced information is available at crop-level, as points (parcels boundaries are not available by-default), for a selection of parcels. Information is collected at the right timing to allow crop identification and additional information.
 
-### Quality control of AAS data
+### Quality Control of AAS Data
 
 The quality of the 16,861 records as GPS points inside the AAS database was assessed through multiple stages.
 
@@ -178,7 +178,7 @@ During this step, it was observed that most points labelled as "rice" were locat
 
 At this stage, 12,056 polygons out of the 16,861 initial records remain.
 
-### Quality control of GPS traces
+### Quality Control of GPS Traces
 
 The raw GPS traces were converted into usable polygon shapefiles. This process involved removing irrelevant data, correcting naming inconsistencies, and cleaning line artifacts caused by enumerator movement between fields (@fig-senegal-4).
 
@@ -231,7 +231,7 @@ knitr::include_graphics("./images/th_alignment/image8.png")
 
 These crop data are expected to be the most useful ones because (i) they are polygons, thus including several pixels belonging to the same crop and (ii) the parcels boundaries have been checked manually. Nevertheless, these data don’t contain enough samples in all the crop types and they are not spread over the whole country.
 
-### Crop mapping based on AAS 2018
+### Crop Mapping Based on AAS 2018
 
 Before running a classification using satellite imagery, additional non-crop information was collected by visual interpretation of very high spatial resolution Google Earth and Planet imagery. This information is not collected by regular agricultural surveys, which essence focuses on crop areas, but it is needed to train classification algorithms.
 
@@ -255,9 +255,9 @@ knitr::include_graphics("./images/th_alignment/image9.png")
 
 The rigorous preprocessing and quality assessment of the AAS and GPS traces data played a pivotal role in achieving this result. However, the AAS protocol in place was not optimal to allow reaching higher mapping accuracy: GPS information is mainly recorded as points, minor crops are under-represented and contextual information was missing (e.g. field heterogeneity, mixed cropping).
 
-## Development and testing of an adjusted AAS protocol in 2021 in the Nioro department
+## Development and Testing of an Adjusted AAS Protocol
 
-### General description
+### General Description
 
 Building on the lessons from the 2018 AAS, FAO supported a pilot activity in Nioro du Rip district between 2021–2022 to align the agricultural survey protocol with EO requirements. The proposed adjustments primarily targeted the georeferencing of the collected data by (1) transitioning from points to polygons and (2) testing area measurement using a tablet instead of a GPS, in order to simplify protocol implementation and reduce naming errors. It also added contextual and labelling information about crops in the questionnaire.
 
@@ -265,7 +265,7 @@ The pilot protocol discussed with the DAPSA consisted in recording parcels bound
 
 Simultaneously, the DAPSA and UCLouvain carried out rapid quality control of the data each day in order to adjust the survey in real time if necessary.
 
-### Parcel boundaries with GPS and ODK
+### Parcel Boundaries with GPS and ODK
 
 A total of 357 Garmin GPS traces were successfully recorded during the field campaign, compared to the 396 plots listed in the AAS database. The discrepancy was explained by two main issues:
 
@@ -286,7 +286,7 @@ Taking the GPS traces as reference, the quality of the field boundaries collecte
 ![(c)](./images/th_alignment/image12.png)
 :::
 
-### Comparative analysis of the survey data
+### Comparative Analysis of Survey Data
 
 The data collected in the field by the tablet in manual mode were compared to the GPS data. @fig-senegal-9 relates the regression line of the tablet dataset to the reference line. The value of the slope is 0.99, close to the value of the reference slope. The position of the regression line and the bias of 0.27 indicates that the tablet data generally underestimated the reference data. This bias is confirmed by a visual analysis of the data.
 
@@ -318,11 +318,11 @@ Statistically and visually, the tablet dataset is less accurate than the one rec
 knitr::include_graphics("./images/th_alignment/image14.png")
 ```
 
-### Additional non-crop class data
+### Additional Non-crop Class Data
 
 As part of the pilot, enumerators were instructed to collect data on non-crop land cover classes (e.g., fallow, built-up, water) through the ODK application. However, only a limited number of non-crop polygons were recorded. Several key classes were missing. To fill this gap, additional non-crop features were manually delineated using very high-resolution satellite imagery. In total, 50 non-crop polygons were available for model calibration.
 
-## Crop Classification and area indicators
+## Crop Classification and Area Indicators
 
 ### Sen4Stat solution
 
@@ -342,7 +342,7 @@ knitr::include_graphics("./images/th_alignment/image15.png")
 
 The system has been tested and demonstrated in various countries around the world, thus addressing a wide diversity of both cropping systems and agricultural data collection protocols. It is available for download on the Sen4Stat website ([esa-sen4stat.org](https://www.esa-sen4stat.org/)).
 
-### Nioro crop type map 2021
+### Nioro Crop Type Map 2021
 
 The crop type map was generated at the end of the season from May 1, 2021, to December 31, 2021, using Sentinel-2 time series. The training dataset used contains the 50 non-crop polygons and the 247 crop polygons obtained after joining and cleaning the ODK and GPS dataset (@fig-senegal-12 – calibration polygons). The distribution of observations is very uneven for the different crops and insufficient for maize. 
 
@@ -387,7 +387,7 @@ The confusion matrix (@fig-senegal-14) indicates an overall accuracy of 97.1% fo
 knitr::include_graphics("./images/th_alignment/image18.png")
 ```
 
-### Crop area indicator
+### Crop Area Indicator
 
 Crop area statistics were derived from the crop type map to support EO-based agricultural estimations at the municipality level. @fig-senegal-15 (a) shows an estimation of the areas per crop using only the remote sensing data per municipality in the Nioro du Rip department while the bottom illustration gives an estimation of the area cultivated in each municipality by the same remote sensing approach. The surface areas per crop were calculated by counting classified pixels and applying bias correction using the confusion matrix. 
 
@@ -408,7 +408,7 @@ knitr::include_graphics("./images/th_alignment/image20.png")
 knitr::include_graphics("./images/th_alignment/image21.png")
 ```
 
-### Acreage estimation by integrating survey and EO data
+### Acreage Estimation by Integrating Survey and EO Data
 
 Producing statistics by counting those pixels classified as a given crop type does not provide unbiased area estimates. Maps are subject to omission and commission errors, which are linked to the ability of the classification method to distinguish between classes. Regression estimators and calibration estimators have been widely used to correct such biases [@Gallego1993] [@Olofsson2014] [@Khan2018] [@Tyukavina2025]. They are traditional ways to combine accurate, possibly unbiased, information, observed on a sample with less accurate, biased information, known for the whole population or for a larger sample. Said differently, maps are used to improve an estimator that has been computed from a ground survey on a sample in preserving as much as possible the properties of the ground survey estimators (unbiasedness) and reducing the variance [@Gallego2004].
 
@@ -470,16 +470,8 @@ alignment of agricultural surveys with geospatial requirements.
 The institutional uptake of the adjusted protocol by DAPSA --- now
 extended to six districts --- underscores the operational value of
 investing in survey quality. By embedding diagnostic frameworks,
-piloting revised protocols, and integrating them into national practice,
-Senegal has laid the groundwork for a sustainable, statistically
-defensible use of EO in agriculture. This case thus illustrates a
-broader lesson: the road to EO-enabled agricultural statistics begins
-not with satellite imagery, but with the design and quality of in-situ
-data collection.
+piloting revised protocols, and integrating them into national practice, Senegal has laid the groundwork for a sustainable, statistically defensible use of EO in agriculture. This case thus illustrates a broader lesson: the road to EO-enabled agricultural statistics begins not with satellite imagery, but with the design and quality of in-situ data collection.
 
-## About the authors{-}
-
-Luis Ambrosio Flores (luis.ambrosio@upm.es) is  professor of Statistics. Expert in agricultural and environmental statistics, econometric modeling, climate impact assessment, and EU biodiversity frameworks. Led 30 research projects and served as consultant (ESA, FAO, EU). Key projects: SEN4Stat - Sentinels for Agricultural Statistics;  Global Strategy (GS)-Improving Agricultural & Rural Statistics; Econometric models for assessing climate change impact on agriculture and environment (Spanish Ministry of Science and Technology). Author of 50 publications with 404 citations on Google Scholar.
 
 
 ## References{-}

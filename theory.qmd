@@ -4,6 +4,33 @@ author: "Gilberto Camara"
 format: html
 ---
 
-## Outline
+## Contents
 
-This is the introduction to the foundations of the book.
+The theoretical part of the **UN Handbook on Remote Sensing for Agricultural Statistics**, provides a comprehensive technical and methodological framework for integrating Earth Observation (EO) data into official agricultural statistics. The main emphasis of the sections is on techniques that use image time series for analysis satellite images. It describes how to build the infrastructure for extracting time series from images using data cubes, and how to use machine learning and deep learning algorithms for classifying time series. Most examples are based on open-source R package `sits` (Satellite Image Time Series) and on the [on-line book](https://e-sensing.github.io/sitsbook/) associated to the software.
+
+Chapter 1, ["An Overview of Remote Sensing Satellites for Agricultural Applications"](https://fao-eostat.github.io/UN-Handbook/th_remote_sensing.html), describes satellites available for remote sensing applications in agriculture, with an emphasis on the US Landat program, the EU Copernicus initiative, and China's High-resolution Earth Observation System (CHEOS). The textdistinguishes between optical imagery (passive sensors measuring reflected sunlight, e.g., Sentinel-2, Landsat) which is crucial for monitoring vegetation health (NDVI, phenology), and SAR (Synthetic Aperture Radar) (active sensors, e.g., Sentinel-1) which can penetrate clouds and is vital for monitoring agriculture in tropical or cloudy regions. It discusses resolutions (spatial, temporal, spectral) relevant to crop monitoring.
+
+Chapter 2, ["Big Earth Observation Data Cloud Services"](https://fao-eostat.github.io/UN-Handbook/th_data_sources.html) focuses on the "Big Data" revolution in EO. It details the open-access data policies (e.g., Copernicus, USGS) that have made continuous monitoring possible. It likely describes major cloud platforms (e.g., CDSE, Microsoft Planetary Computer) that allow access and processing of petabytes of data without local download, a critical enabler for National Statistical Offices (NSOs).
+
+Chapter 3, ["Earth Observation Data Cubes"](https://fao-eostat.github.io/UN-Handbook/th_data_cubes.html), describes the shift from file-based image processing to data cubes. A data cube organizes sensor data into a multi-dimensional array (space, time, bands) to facilitate time series analysis. This structure allows algorithms to look at the trajectory of a pixel to identify crop cycles, rather than analyzing single images. 
+
+Chapter 4, ["Land Cover and Land Crop Classification Schemas"](https://fao-eostat.github.io/UN-Handbook/th_lucc.html) addresses the semantic challenge of defining appropriate taxonomies for using remote sensing for agricultural statistics. It covers standard taxonomies such as FAO's Land Cover Classification System (LCCS) and discusses the challenges of matching the land use classes extracted from satellite images to the categories reported in agricultural censuses.
+
+Chapter 5, ["Quality Control of Training Sets for Agricultural Statistics"](https://fao-eostat.github.io/UN-Handbook/th_quality_control.html) discusses how to measure and improve improved training data (ground truth) using in machine learning algorithms for image classification. This chapter discusses methods to detect and remove outliers and errors in in-situ data (e.g., GPS location errors, mislabeled crops) before they are fed into machine learning models, ensuring the classifier is not confused by bad data.
+
+Chapter 6, ["Machine Learning Algorithms for Image Time Series"](https://fao-eostat.github.io/UN-Handbook/th_machine_learning.html) explores the specific algorithms used to classify crop types based on their temporal growth profiles . It covers machine learning (e.g., Random Forest, SVM) and deep Learning methods suited for sequential data, such as Temporal Convolution Neural Networks (CNNs) and Transformers.
+
+
+Chapter 7, ["Spatial Map Uncertainty Estimation"](https://fao-eostat.github.io/UN-Handbook/th_uncertainty.html) shows how to estimate the machine learning model's confidence on the classification results. Instead of just producing a categorical map, modern methods produce probability maps showing the likelihood of each pixel belonging to a class. This chapter explains how to estimate and map this uncertainty spatially, identifying areas where the model is less confident.
+
+Chapter 8, ["Map Validation and Use of Maps for Area Estimation"](https://fao-eostat.github.io/UN-Handbook/th_validation.html) centres on how to obtain an unbiased statistical area estimate from classified maps. The text explains how to use the confusion matrix and reference samples to calculate unbiased area estimates with confidence intervals.
+
+Chapter 9, ["Remote Sensing in the Design of Sampling Frames"](https://fao-eostat.github.io/UN-Handbook/th_design_frames.html) explains how to use EO data to build or improve area sampling frames. It covers using satellite imagery to stratify a region (e.g., into "intensive agriculture," "pasture," "non-ag"), which optimizes the sample design, reduces variance, and lowers the cost of ground surveys by focusing effort where it is needed most.
+
+Chapter 10, ["Alignment of field data collection to EO statistical requirements"](https://fao-eostat.github.io/UN-Handbook/th_alignment.html) provides guidelines for collecting ground data that is "EO-ready." It addresses issues such the timing of surveys (matching satellite overpasses), the size of plots vs. pixel resolution, and the spatial accuracy required. It aims to harmonize the work of field enumerators with the needs of remote sensing analysts.
+
+Chapter 11, ["Semantic Segmentation for Automatic Field Boundary Delineation"](https://fao-eostat.github.io/UN-Handbook/th_parcel_extraction.html) moves beyond pixel-based classification to object-based analysis. It focuses on using Deep Learning (with architectures like self-supervised learning) to automatically detect and delineate the boundaries of agricultural fields. This is crucial for creating object-based sampling frames and for supporting agricultural census.
+
+
+
+

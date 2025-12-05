@@ -421,11 +421,7 @@ agricultural disaster response.
 
 The code for this chapter publicly available on a [GitHub repository]( https://github.com/RuiG9/TSM-SAM.git).
 
-## About the authors{-}
 
-Professor Xiufang Zhu is a doctoral supervisor specializing in agricultural and disaster remote sensing. Her research addresses critical needs in agricultural disaster monitoring by focusing on remote sensing-based investigation of disaster-affected entities, real-time monitoring using multi-source data, and developing assessment models for various stages and scenarios. She has led over 10 provincial/ministerial projects, including key programs under the National Key R&D Program and the NSFC. With 190+ publications, 4 monographs, 12 patents, 6 software copyrights, and multiple awards such as the Beijing Science and Technology Progress Award, she is highly accomplished researcher and was listed in the 2024 World's Top 2% Scientists.
-
-Guo Rui earned her Ph.D. in 2025 from Beijing Normal University's Faculty of Geographical Science. Her research specializes in agricultural remote sensing and the monitoring of natural disasters. Her doctoral work leveraged multi-source remote sensing data and deep learning techniques to develop methods for crop growth monitoring, as well as for the identification and temporal tracking of natural disaster impacts. Findings from this research have been presented in journals including Computers and Electronics in Agriculture.
 
 ## References {-}
 

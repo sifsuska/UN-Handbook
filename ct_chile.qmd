@@ -6,9 +6,8 @@ author:
   - "Jonathan Paredes Baez"
 
 format: html
-
 reproducible:
-    enabled: true
+  enabled: true
 
 reproducible-local:
     enabled: true
@@ -1325,12 +1324,5 @@ This work also confirms that quality control and training data balancing procedu
 
 The results reaffirm the importance of integrating new remote sensing methodologies in the production of agricultural statistics and offer new insights, from the value of phenological curves for discriminating crops to the importance of topographic data in complex landscapes. Looking ahead, scaling up this approach nationwide will strengthen the precision and reliability of agricultural area delimitation. This requires expanding predictor variables and, when feasible, exploring deep learning techniques to further enhance future versions.
 
-## About the authors{-}
-
-Estefanía Pizarro Arias, Agronomic Engineer with an MSc in Agricultural Sciences. She specializes in remote sensing, applied geomatics, and data science, with experience in integrating satellite image time series, accuracy assessment, and area estimation for land-use/land-cover maps. She currently serves as a Methodology Analyst at Chile’s National Institute of Statistics, where she promotes the adoption of remote sensing across National Statistical Offices, aligning standards and building capacity for its use in official statistics. 
-
-Alexis Gamboa Maldonado, Geographer PUC and holder of a Diploma in Data Science for Public Policy UAI. He has extensive experience as a geospatial analyst and technical coordinator in remote sensing projects for public and private institutions, both nationally and internationally. Currently, he works as Methodological Analyst at the National Institute of Statistics of Chile, supporting the development of a national LCLU map with emphasis on agricultural areas, data integration, and methodological innovation.  
-
-Jonathan Paredes Báez is a statistician with over 20 years of experience in survey methodology, sampling design, and national statistics. He is Coordinator of the Section of Frame and Sample Studies in the Department of Statistical Methodologies and Innovation at the National Statistics Institute of Chile. His work includes integrating remote sensing data into sampling frames and leading process automation. He also holds postgraduate diplomas in Big Data & Machine Learning, Data Analysis, and Business Agility. 
 
 ## References{-}

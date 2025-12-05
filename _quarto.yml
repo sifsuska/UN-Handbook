@@ -2,6 +2,9 @@ project:
   type: book
   output-dir: docs
 
+filters:
+  - cslovell/reproducible
+  - handbook/reproducible-local
 
 book:
   title: "UN Handbook on Remote Sensing for Agricultural Statistics"
@@ -22,6 +25,7 @@ book:
     - index.qmd
     - howto.qmd
     - introduction.qmd
+    - about.qmd
     - part: theory.qmd
       chapters: 
         - th_remote_sensing.qmd
@@ -94,7 +98,4 @@ bibliography:
     - bibliography/world-cereal.bib
 
 csl: ieee.csl
-
-filters:
-  - cslovell/reproducible
-  - handbook/reproducible-local
+  
