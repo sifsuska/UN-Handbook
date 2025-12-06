@@ -1,5 +1,5 @@
 ---
-title: "Crop classification and land use mapping in Chile"
+title: "Crop Classification and Land Use Mapping in Chile"
 author: 
   - "Estefanía Pizarro Arias"
   - "Alexis Gamboa Maldonado"
@@ -133,7 +133,7 @@ The following steps summarize the applied process:
 
 4.  **Labeled data generation**
 
-    -   **Digitization of representative polygons:** Training data generation is carried out through the manual digitization of polygons over high-resolution imagery, assigning labels corresponding to the Level 3 hierarchical classes defined in the classification scheme. This practice, widely used in remote sensing, enables adequate representation of spatial variability and helps reduce noise associated with individual pixels [@Elmes2020a].
+    -   **Digitization of representative polygons:** Training data generation is carried out through the manual digitization of polygons over high-resolution imagery, assigning labels corresponding to the Level 3 hierarchical classes defined in the classification scheme. This practice, widely used in remote sensing, enables adequate representation of spatial variability and helps reduce noise associated with individual pixels [@Elmes2020].
 
     <!-- -->
 
@@ -561,7 +561,7 @@ These temporal and spectral variations suggest that classification algorithms ca
 
 #### Self-organized maps for sample quality control {.unnumbered}
 
-Since the data sources used were not originally designed for Land Use and Land Cover (LULC) mapping, it is essential to ensure the quality of training samples before using them in classification models. High-quality samples are critical for achieving accurate results with remote sensing and machine learning techniques, regardless of the algorithm applied [@Santos2021; @deSimone2025]. Both the quantity and quality of training data significantly influence model performance. Well-labeled and representative datasets tend to yield better outcomes, while noisy or misclassified samples can degrade classification accuracy. Therefore, implementing preprocessing methods to detect and remove low-quality or mislabeled samples is a key step in improving model reliability and reducing classification errors [@Simoes2021; @Santos2021].
+Since the data sources used were not originally designed for Land Use and Land Cover (LULC) mapping, it is essential to ensure the quality of training samples before using them in classification models. High-quality samples are critical for achieving accurate results with remote sensing and machine learning techniques, regardless of the algorithm applied [@Santos2021; @DeSimone2025]. Both the quantity and quality of training data significantly influence model performance. Well-labeled and representative datasets tend to yield better outcomes, while noisy or misclassified samples can degrade classification accuracy. Therefore, implementing preprocessing methods to detect and remove low-quality or mislabeled samples is a key step in improving model reliability and reducing classification errors [@Simoes2021; @Santos2021].
 
 The `sits` package provides a clustering technique based on Self-Organizing Maps (SOM) as an alternative to hierarchical clustering methods for quality control of training samples. SOM is a dimensionality reduction technique that projects high-dimensional data onto a two-dimensional map while preserving the topological relationships between data patterns. This property facilitates the visualization and assessment of the internal consistency of the samples, helping to identify outliers, mislabeled classes, or regions with high spectral-temporal heterogeneity that could negatively impact the performance of the classification model.
 
@@ -569,7 +569,7 @@ For model parsimony, only a subset of bands from the time series is selected, th
 
 ##### Creating the SOM map {.unnumbered}
 
-To perform the quality assessment based on SOM, the first step is to run `sits_som_map()`. The grid size is defined by the sample size, according the suggestions by @Vesanto2000, as implemented in @Santos2021 and @deSimone2025.
+To perform the quality assessment based on SOM, the first step is to run `sits_som_map()`. The grid size is defined by the sample size, according the suggestions by @Vesanto2000, as implemented in @Santos2021 and @DeSimone2025.
 
 For the implementation of the other parameters see the ["Self-Organized maps for sample quality control"](https://e-sensing.github.io/sitsbook/ts_som.html) chapter in `sitsbook` and @Santos2021.
 
@@ -1251,7 +1251,7 @@ Our experience confirms that Chile's mountainous geography benefits from this ap
 
 ### Analysis of the quality of training data {.unnumbered}
 
-One of the main methodological challenges addressed was the handling of potentially noisy or atypical training data. Using Self-Organizing Maps (SOM), it was possible to identify internal dissimilarities within a subset of samples [@Santos2021], indicating the presence of noise. Although the sits package allows for the automatic filtering of such observations, we opted to retain them to avoid exacerbating class imbalance, which could have resulted in the complete loss of a minority class. Recent studies warn that severely imbalanced training sets can bias model learning [@Johnson2019; @Mujahid2024]. For this reason, we adopted an alternative approach inspired by @deSimone2025, replacing filtering with a combined statistical balancing strategy: oversampling of minority classes using SMOTE and undersampling of dominant classes using SOM, a technique that reduces sampling variance and bias while preserving the intrinsic statistical structure of the original dataset [@May2010; @RuizMoreno2023].
+One of the main methodological challenges addressed was the handling of potentially noisy or atypical training data. Using Self-Organizing Maps (SOM), it was possible to identify internal dissimilarities within a subset of samples [@Santos2021], indicating the presence of noise. Although the sits package allows for the automatic filtering of such observations, we opted to retain them to avoid exacerbating class imbalance, which could have resulted in the complete loss of a minority class. Recent studies warn that severely imbalanced training sets can bias model learning [@Johnson2019; @Mujahid2024]. For this reason, we adopted an alternative approach inspired by @DeSimone2025, replacing filtering with a combined statistical balancing strategy: oversampling of minority classes using SMOTE and undersampling of dominant classes using SOM, a technique that reduces sampling variance and bias while preserving the intrinsic statistical structure of the original dataset [@May2010; @RuizMoreno2023].
 
 This strategy enabled the retention of all classes, generating synthetic examples where necessary without discarding valuable information. Upon re-evaluating internal consistency through cluster analysis, several cover types showed notable improvements: snow, wetlands, and water bodies achieved cluster purities between 97% and 100%, while complex agricultural and forest classes, such as successive crops, native forest, or harvested plantations, exceeded 83% purity. These results suggest that balancing contributed to a more consolidated spectral-temporal representation of these categories. However, some dominant classes experienced slight decreases in purity, likely due to the increased diversity introduced by oversampling or even the potential injection of synthetic noise [@Douzas2019]. This was the case for perennial fruit crops, overlapping with closely related classes such as forest plantations and deciduous forests. These residual confusions highlight the persistent difficulty of separating phenologically or structurally similar classes while also offering clear insight into which categories could benefit from additional discriminative variables, such as SAR bands or textural metrics [@Xu2024]. In the future, we propose evaluating more sophisticated techniques such as Geometric SMOTE, which could allow for the generation of more coherent synthetic samples and further improvement in training consistency [@Douzas2019; @Douzas2019a].
 

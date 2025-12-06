@@ -1,5 +1,5 @@
 ---
-title: "Early-season crop yield mapping in Finland"
+title: "Early-season Crop Yield Mapping in Finland"
 author: "Maria Yli-Heikkilä, Lauri Jauhiainen"
 format: html
 ---

@@ -1,5 +1,5 @@
 ---
-title: "Land cover and crop classification schemas"
+title: "Land Cover and Crop Classification Schemas"
 author: "Gilberto Camara, Lorenzo DeSimone"
 format: html
 ---

@@ -23,9 +23,9 @@ book:
   repo-actions: [edit, issue]
   chapters:
     - index.qmd
-    - howto.qmd
     - introduction.qmd
     - about.qmd
+    - howto.qmd
     - part: theory.qmd
       chapters: 
         - th_remote_sensing.qmd

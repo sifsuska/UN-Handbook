@@ -1,5 +1,5 @@
 ---
-title: "Crop classification in Mexico"
+title: "Crop Classification in Mexico"
 author: "Abel Coronado"
 format: html
 ---

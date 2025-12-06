@@ -1,5 +1,5 @@
 ---
-title: "Extraction of crop statistics from crop type and crop yield maps"
+title: "Extraction of Crop Statistics from Crop Type Maps"
 author: "Lorenzo de Simone"
 format: html
 ---

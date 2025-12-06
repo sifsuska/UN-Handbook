@@ -1,5 +1,5 @@
 ---
-title: "Mapping crop phenology in Indonesia"
+title: "Mapping Crop Phenology in Indonesia"
 author: "Achmad Fauzi Bagus Firmansyah"
 format: html
 ---

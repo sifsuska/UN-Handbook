@@ -1,5 +1,5 @@
 ---
-title: "Crop monitoring with Sentinel-1 and Sentinel-2 images in Poland"
+title: "Crop Monitoring with Sentinel-1 and Sentinel-2 Images in Poland"
 author: "Artur Łączyński, Przemysław Slesiński, Natalia Kotulak, Tomasz Milewski"
 format: html
 ---

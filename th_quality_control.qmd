@@ -1,5 +1,5 @@
 ---
-title: "Quality control of training sets for agricultural statistics"
+title: "Quality Control of Training Data"
 author: "Gilberto Camara"
 format: html
 reproducible:

@@ -1,5 +1,5 @@
 ---
-title: "Alignment of field data collection to EO statistical requirements"
+title: "Alignment of Field Data Collection to EO Statistical Requirements"
 author: 
   - "Lorenzo De Simone"
   - "Sophie Bontemps"

@@ -1,5 +1,5 @@
 ---
-title: "Machine learning algorithms for image time series"
+title: "Machine Learning Algorithms for Image Time Series Classification"
 format: html
 reproducible:
     enabled: true
