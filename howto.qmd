@@ -136,3 +136,116 @@ The complete technical design document is available below for infrastructure tea
 
 {{< include design/reproducible-analysis-design-modular.md >}}
 :::
+
+## Local Execution {-}
+
+In addition to the `Reproducible Analysis System`, users can execute chapters locally using dedicated repositories that contain all content required to reproduce the results. These standalone repositories are self-contained and designed for local execution, providing full control over the computational environment and enabling offline or custom workflow execution.
+
+### For Readers: Accessing Local Repositories {-}
+
+Chapters that support local execution include a "Files for local reproduction" section with a "View repository" button. When you click this button:
+
+1. Repository Access: You will be taken to the dedicated GitHub repository of that chapter
+2. Complete Codebase: All analysis code and configuration files are available
+3. Clone and Setup: You can [clone](https://git-scm.com/docs/git-clone) the repository to your local machine and follow the setup instructions
+4. Full Control: Execute the analysis on your own hardware with complete control over the environment
+
+**What You Get:**
+
+Each local execution repository follows a standardized structure that ensures reproducibility and ease of use. The repository includes:
+
+- **Dockerfile**: Defines the complete system environment, including operating system dependencies, R / Python versions, and geospatial libraries (e.g., `GDAL`, `PROJ`), ensuring consistent execution across different host systems
+
+- **Dependency management**: R dependencies are managed with [renv](https://rstudio.github.io/renv/articles/renv.html). For Python dependencies, the [uv](https://docs.astral.sh/uv/) tool is used. Both tools provide package version pinning, supporting reproducibility of the results.
+
+- **Analysis content**: Available in multiple formats including Quarto documents (`.qmd`), Jupyter notebooks (`.ipynb`), or standalone scripts (e.g.,, `.R` or `.py`)
+
+- **Utility scripts**: Located in `auxiliary/download.R`, these scripts automate the download and organization of datasets required to run the chapter. These datasets are always stored in long-term preservation platforms (e.g., [Zenodo](https://zenodo.org/) or [GEO Knowledge Hub](gkhub.earthobservations.org/))
+
+- **Comprehensive README**: Detailed setup instructions, execution workflows, and chapter-specific requirements
+
+- **License**: The licensing details for the analysis content. For example, code may be licensed under the GNU General Public License (GPL), while data may use a Creative Commons (CC) license.
+
+Local execution can be performed using two complementary approaches: Docker-based execution or native environment setup. Each method has distinct advantages and requirements.
+
+### Docker-based Execution {-}
+
+Docker-based execution is recommended and provides the most reliable and reproducible environment. This approach eliminates environment configuration issues and ensures identical execution across different operating systems, as all dependencies are encapsulated within the container.
+
+Pre-built Docker images are available on Docker Hub for each chapter. These images contain all system dependencies and R/Python packages pre-installed, ready for immediate use. Users can pull these images directly, or build them locally from the provided `Dockerfile` if customization is needed.
+
+::: {.callout-note}
+## Architecture Compatibility {-}
+
+Docker images are available only for amd64 (`x86_64`) systems, as they are based on [rocker/ml-verse](https://rocker-project.org/images/versioned/cuda.html).
+
+Users on ARM-based systems (such as Apple Silicon Macs) will need to use the native environment setup approach or build custom images compatible with their architecture.
+:::
+
+The Docker containers use RStudio or Jupyter Lab, providing a web-based interface accessible through the browser. The workflow involves:
+
+1. Pulling or building the chapter-specific Docker image
+2. Starting a container with the repository mounted as a volume
+3. Accessing web interface via `http://localhost:8787` (Rstudio) or `http://localhost:8888` (Jupyter Lab)
+4. Executing the analysis (e.g., `.qmd` or `.ipynb` files)
+
+Detailed instructions on how to configure the Docker image are available in the local reproduction repositories.
+
+### Native Environment Setup {-}
+
+As an alternative approach for the Docker-based execution, users can configure the environment directly on the host system without Docker. This approach offers more flexibility and may be preferred for advanced users who want to integrate the analysis into existing workflows or expand the analysis for a different case.
+
+Setting up a native environment requires the following steps, which vary depending on whether the chapter uses R, Python, or both:
+
+**Common steps for all environments:**
+
+1. Install geospatial libraries: Install system-level geospatial libraries, including `GDAL`, `PROJ`, `GEOS`, and other dependencies required for data processing
+2. Configure environment variables: Set up any required environment variables (such as API keys for cloud data access) or credentials according to the specific requirements of the chapter
+
+**For R-based environments:**
+
+1. Install R: Install R (version specified in the `README`) on your system
+2. Restore R packages: Install R packages using `renv` according to the version specified in the `renv.lock` file.
+
+**For Python-based environments:**
+
+1. Install Python: Install Python (version specified in the `README`) on your system
+2. Install Python packages: Install Python packages using `uv` according to the version specified in the `pyproject.toml` file.
+
+While this approach offers more flexibility, it requires careful attention to version compatibility and system-specific configuration.
+
+### For Chapter Authors {-}
+
+If you are contributing to this handbook and have created a standalone repository for local execution, you can enable the "Files for local reproduction" section in your chapter.
+
+**Who Should Use This?**
+
+You should enable local execution for your chapter if you have created a dedicated repository containing all the code, configuration files, and documentation needed for readers to run the analysis locally.
+
+**Minimal Configuration:**
+
+Add the following code block in the YAML frontmatter of your chapter:
+
+```yaml
+---
+title: "Your Chapter Title"
+reproducible-local:
+  enabled: true
+  repository-url: "https://github.com/FAO-EOSTAT/un-handbook-<chapter-name>"
+---
+```
+
+Once you add the `reproducible-local` configuration to your chapter's frontmatter, the "Files for local reproduction" section with a "View repository" button will automatically appear in the rendered chapter.
+
+**Repository Requirements:**
+
+Your local execution repository should include:
+
+- Dockerfile with system dependencies
+- Dependency management ([renv](https://rstudio.github.io/renv) for R, [uv](https://docs.astral.sh/uv) for Python)
+- Comprehensive `README` file with setup and execution instructions
+- Analysis content in Quarto (`.qmd`), Jupyter notebook (`.ipynb`), or executable script (e.g., `.R` or `.py`) format
+- A `LICENSE` file, acknowledging and referencing the chapter author(s) in order to properly attribute their contributions
+- Utility scripts for data download (typically `auxiliary/download.R`). Datasets must be hosted on a long-term preservation repository such as [Zenodo](https://zenodo.org/) or [GEO Knowledge Hub](gkhub.earthobservations.org/)
+
+As soon as your repository is ready, you must send it to the [FAO-EOSTAT organization](https://github.com/FAO-EOSTAT) on GitHub. This ensures long-term availability and maintenance, since all repositories are managed by FAO-EOSTAT.

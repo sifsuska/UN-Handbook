@@ -2,10 +2,10 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.361">
+<meta name="generator" content="quarto-1.7.33">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 <meta name="author" content="Gilberto Camara, Lorenzo de Simone, Ronald Jansen">
-<title>UN Handbook on Remote Sensing for Agricultural Statistics - 20&nbsp; Rice Phenology Mapping in Colombia</title>
+<title>20&nbsp; Rice Phenology Mapping in Colombia – UN Handbook on Remote Sensing for Agricultural Statistics</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -19,6 +19,7 @@ ul.task-list li input[type="checkbox"] {
   vertical-align: middle;
 }
 /* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
 pre > code.sourceCode { white-space: pre; position: relative; }
 pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
@@ -56,6 +57,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 div.csl-bib-body { }
 div.csl-entry {
   clear: both;
+  margin-bottom: 0em;
 }
 .hanging-indent div.csl-entry {
   margin-left:2em;
@@ -82,21 +84,28 @@ div.csl-indent {
 <meta name="quarto:offset" content="./">
 <link href="./cy_poland.html" rel="next">
 <link href="./cy_indonesia.html" rel="prev">
-<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-ea385d0e468b0dd5ea5bf0780b1290d9.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light"><script id="quarto-search-options" type="application/json">{
+<link href="site_libs/bootstrap/bootstrap-931bd9de4a2e97c797357f31cd37fa94.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light"><script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
   "collapse-after": 3,
   "panel-placement": "start",
   "type": "textbox",
-  "limit": 20,
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -105,29 +114,55 @@ div.csl-indent {
     "search-more-match-text": "more match in this document",
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
     "search-detached-cancel-button-title": "Cancel",
     "search-submit-button-title": "Submit",
     "search-label": "Search"
   }
-}</script><script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+}</script><script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script><script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 </head>
-<body class="nav-sidebar floating">
+<body class="nav-sidebar floating quarto-light">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top"><nav class="quarto-secondary-nav"><div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./crop_yield_estimation.html">Crop Yield Estimation</a></li><li class="breadcrumb-item"><a href="./cy_colombia.html"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Rice Phenology Mapping in Colombia</span></a></li></ol></nav>
-      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
-      </a>
-      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./crop_yield_estimation.html">Crop Yield Estimation</a></li><li class="breadcrumb-item"><a href="./cy_colombia.html"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Rice Phenology Mapping in Colombia</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
       </button>
     </div>
   </nav></header><!-- content --><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto"><div class="pt-lg-2 mt-2 text-left sidebar-header">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto"><div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="./">UN Handbook on Remote Sensing for Agricultural Statistics</a> 
         <div class="sidebar-tools-main">
@@ -175,7 +210,7 @@ div.csl-indent {
       <div class="sidebar-item-container"> 
             <a href="./theory.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Foundations</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -201,7 +236,7 @@ div.csl-indent {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./th_lucc.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Land Cover and Crop Classification Schemas</span></span></a>
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Land Cover and Crop Classification Schemas for Agricultural Statistics</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -252,7 +287,7 @@ div.csl-indent {
       <div class="sidebar-item-container"> 
             <a href="./crop_type_mapping.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Use Cases in Crop Type Mapping</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -299,7 +334,7 @@ div.csl-indent {
       <div class="sidebar-item-container"> 
             <a href="./crop_yield_estimation.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Crop Yield Estimation</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -340,7 +375,7 @@ div.csl-indent {
       <div class="sidebar-item-container"> 
             <a href="./crop_statistics.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Extraction of Crop Statistics from Crop Type Maps</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -375,7 +410,7 @@ div.csl-indent {
       <div class="sidebar-item-container"> 
             <a href="./uav_agriculture.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">UAV applications in agricultural statistics</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -410,7 +445,7 @@ div.csl-indent {
       <div class="sidebar-item-container"> 
             <a href="./disaster_response.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Remote Sensing for Agricultural Disaster Response</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -427,7 +462,7 @@ div.csl-indent {
       <div class="sidebar-item-container"> 
             <a href="./additional.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Additional Topics</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -448,7 +483,7 @@ div.csl-indent {
 </li>
     </ul>
 </div>
-</nav><div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+</nav><div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">Table of contents</h2>
@@ -486,7 +521,7 @@ div.csl-indent {
   <li><a href="#conclusions" id="toc-conclusions" class="nav-link" data-scroll-target="#conclusions"><span class="header-section-number">20.7</span> Conclusions</a></li>
   <li><a href="#acknowledgements" id="toc-acknowledgements" class="nav-link" data-scroll-target="#acknowledgements">Acknowledgements</a></li>
   <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
-  </ul><div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/FAO-EOSTAT/UN-Handbook/edit/quarto/cy_colombia.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/FAO-EOSTAT/UN-Handbook/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
+  </ul><div class="toc-actions"><ul><li><a href="https://github.com/FAO-EOSTAT/UN-Handbook/edit/quarto/cy_colombia.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/FAO-EOSTAT/UN-Handbook/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content"><div class="reproducible-notice full" style="border-left: 3px solid rgb(255, 86, 44); background: #fafafa; padding: 12px 16px; margin: 20px 0 30px 0; font-size: 0.95rem; color: rgb(44, 50, 63);">
@@ -517,7 +552,7 @@ div.csl-indent {
         </div>
     
 
-<header id="title-block-header" class="quarto-title-block default"><div class="quarto-title">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./crop_yield_estimation.html">Crop Yield Estimation</a></li><li class="breadcrumb-item"><a href="./cy_colombia.html"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Rice Phenology Mapping in Colombia</span></a></li></ol></nav><div class="quarto-title">
 <h1 class="title">
 <span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Rice Phenology Mapping in Colombia</span>
 </h1>
@@ -539,6 +574,7 @@ div.csl-indent {
   </div>
   
 
+
 </header><section id="introduction" class="level2" data-number="20.1"><h2 data-number="20.1" class="anchored" data-anchor-id="introduction">
 <span class="header-section-number">20.1</span> Introduction</h2>
 <p>Rice is a staple crop central to food security and national economies, including Colombia’s. Monitoring its spatial–temporal dynamics—particularly phenological stages—enables early production estimates and informs research, environmental assessments, and competitiveness analyses <span class="citation" data-cites="Dong_Xiao_rev Dong2016"><a href="#ref-Dong_Xiao_rev" role="doc-biblioref">[1]</a>, <a href="#ref-Dong2016" role="doc-biblioref">[2]</a></span>. Timely crop information also supports decisions on imports, price regulation, and sectoral policies, while phenology underpins agronomic management, crop identification, yield estimation, and input optimization <span class="citation" data-cites="ZHENG2016131 Waldini2021"><a href="#ref-ZHENG2016131" role="doc-biblioref">[3]</a>, <a href="#ref-Waldini2021" role="doc-biblioref">[4]</a></span>.</p>
@@ -548,17 +584,21 @@ div.csl-indent {
 <span class="header-section-number">20.2</span> Dual-polarimetric radar vegetation index (DpRVI)</h2>
 <p>The Dual-polarimetric Radar Vegetation Index (DpRVI) is an innovative vegetation index designed for monitoring crop growth using dual-polarization SAR data, such as that provided by the Sentinel-1 mission <span class="citation" data-cites="mandal2020dual"><a href="#ref-mandal2020dual" role="doc-biblioref">[9]</a></span>. It was developed to robustly and sensitively characterize vegetation dynamics, outperforming traditional backscatter-based approaches. Unlike other indices, DpRVI is normalized between 0 and 1, making it easier to interpret, particularly for users without radar expertise <span class="citation" data-cites="mandal2021radar"><a href="#ref-mandal2021radar" role="doc-biblioref">[10]</a></span>.</p>
 <p>The DpRVI’s effectiveness stems from its fundamental design as a composite metric that captures both polarimetric complexity (degree of polarization, m) and scattering mechanism dominance (β = λ₁/Span) <span class="citation" data-cites="mandal2020dual"><a href="#ref-mandal2020dual" role="doc-biblioref">[9]</a></span>. Unlike conventional backscatter ratios (σ°VH/σ°VV) or simple polarimetric parameters, DpRVI encodes the complete second-order statistical characterization of the scattering process through the covariance matrix eigenvalue decomposition <span class="citation" data-cites="mandal2021radar"><a href="#ref-mandal2021radar" role="doc-biblioref">[10]</a></span>.</p>
-<p>As illustrated in <a href="#fig-DpRVI">Figure&nbsp;<span class="quarto-unresolved-ref">fig-DpRVI</span></a>, the preprocessing workflow for Sentinel-1 Single Look Complex (SLC) data follows the approach in <span class="citation" data-cites="mandal2019sentinel"><a href="#ref-mandal2019sentinel" role="doc-biblioref">[11]</a></span>. Images were initially split into three subswaths to facilitate processing. Precise orbit files were then applied, followed by radiometric calibration, keeping outputs in complex format as required to form polarimetric matrices <span class="citation" data-cites="mandal2020dual"><a href="#ref-mandal2020dual" role="doc-biblioref">[9]</a></span>. The DpRVI index was generated using the SNAP software (version 11.0) from the European Space Agency (ESA), which provides advanced support for polarimetric processing and dual-polarization index computation from Sentinel-1 SLC data.</p>
-<div class="cell" data-layout-align="center" data-hash="cy_colombia_cache/html/fig-DpRVI_ad918552713dc38828f3b8c5590ad88a">
+<p>As illustrated in <a href="#fig-DpRVI" class="quarto-xref">Figure&nbsp;<span>20.1</span></a>, the preprocessing workflow for Sentinel-1 Single Look Complex (SLC) data follows the approach in <span class="citation" data-cites="mandal2019sentinel"><a href="#ref-mandal2019sentinel" role="doc-biblioref">[11]</a></span>. Images were initially split into three subswaths to facilitate processing. Precise orbit files were then applied, followed by radiometric calibration, keeping outputs in complex format as required to form polarimetric matrices <span class="citation" data-cites="mandal2020dual"><a href="#ref-mandal2020dual" role="doc-biblioref">[9]</a></span>. The DpRVI index was generated using the SNAP software (version 11.0) from the European Space Agency (ESA), which provides advanced support for polarimetric processing and dual-polarization index computation from Sentinel-1 SLC data.</p>
+<div class="cell" data-layout-align="center">
 <div class="cell-output-display">
-<div id="fig-DpRVI" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure"><p><img src="images/cy_colombia/dprvi.png" class="img-fluid figure-img" style="width:100.0%"></p>
-<figcaption class="figure-caption">Figure&nbsp;20.1: Process diagram for generating the DpRVI index</figcaption></figure>
+<div id="fig-DpRVI" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure"><div aria-describedby="fig-DpRVI-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="images/cy_colombia/dprvi.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-DpRVI-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;20.1: Process diagram for generating the DpRVI index
+</figcaption></figure>
 </div>
 </div>
 </div>
 <p>Following <span class="citation" data-cites="mandal2019sentinel"><a href="#ref-mandal2019sentinel" role="doc-biblioref">[11]</a></span>, images were co-registered with sub-pixel accuracy using the Sentinel-1 Back-Geocoding operator and the SRTM 1Sec Grid as DEM. Subswaths were then recombined using TOPS Deburst and Merge. A multilooking step (4×1, range×azimuth) produced square ground-range pixels. Polarimetric matrix elements were derived—limited to the <span class="math inline">\(2\times2\)</span> covariance matrix <span class="math inline">\([\mathbf{C2}]\)</span> from dual-polarization data—and despeckled using the Refined Lee filter with a <span class="math inline">\(5\times5\)</span> window <span class="citation" data-cites="mandal2019sentinel"><a href="#ref-mandal2019sentinel" role="doc-biblioref">[11]</a></span>. The complex-valued representation enables computing <span class="math inline">\(C_{11}\)</span>, <span class="math inline">\(C_{22}\)</span>, <span class="math inline">\(\Re(C_{12})\)</span>, and <span class="math inline">\(\Im(C_{12})\)</span>, which are required for DpRVI estimation <span class="citation" data-cites="mandal2020dual"><a href="#ref-mandal2020dual" role="doc-biblioref">[9]</a></span>.</p>
-<p>The covariance matrix <span class="math inline">\(\mathbf{C2}\)</span> (<a href="#eq-1">Equation&nbsp;<span class="quarto-unresolved-ref">eq-1</span></a>), is essential for DpRVI and captures second-order statistics of the VV and VH radar channels <span class="citation" data-cites="mandal2021radar"><a href="#ref-mandal2021radar" role="doc-biblioref">[10]</a></span>:</p>
+<p>The covariance matrix <span class="math inline">\(\mathbf{C2}\)</span> (<a href="#eq-1" class="quarto-xref">Equation&nbsp;<span>20.1</span></a>), is essential for DpRVI and captures second-order statistics of the VV and VH radar channels <span class="citation" data-cites="mandal2021radar"><a href="#ref-mandal2021radar" role="doc-biblioref">[10]</a></span>:</p>
 <p><span id="eq-1"><span class="math display">\[
 \mathbf{C2} =
 \begin{bmatrix}
@@ -592,10 +632,12 @@ C_{21} &amp; C_{22}
 <p>DpRVI exhibits a clear monotonic increase during vegetative development and aligns with annotated phenological transitions in cereal crops <span class="citation" data-cites="mandal2020dual"><a href="#ref-mandal2020dual" role="doc-biblioref">[9]</a></span>. Compared with simple backscatter ratios (<span class="math inline">\(\sigma^\circ_{VH}/\sigma^\circ_{VV}\)</span>) and Radar Vegetation Index (RVI), DpRVI provides a more stable and interpretable temporal trajectory from dual-pol data <span class="citation" data-cites="mandal2020dual"><a href="#ref-mandal2020dual" role="doc-biblioref">[9]</a></span>. Reported correlations with canopy descriptors such as Plant Area Index (PAI), vegetation water content (VWC), and dry biomass support its sensitivity to structural changes <span class="citation" data-cites="mandal2020dual mandal2021radar"><a href="#ref-mandal2020dual" role="doc-biblioref">[9]</a>, <a href="#ref-mandal2021radar" role="doc-biblioref">[10]</a></span>. Finally, terrain correction was applied using UTM Zone 18N. All outputs were standardized to 14×14 m resolution and clipped to each study area. The final product was a multitemporal DpRVI database.</p>
 </section><section id="rice-crop-phenology" class="level2" data-number="20.3"><h2 data-number="20.3" class="anchored" data-anchor-id="rice-crop-phenology">
 <span class="header-section-number">20.3</span> Rice crop phenology</h2>
-<p>Rice phenology refers to the sequence of growth and development stages that the plant undergoes from sowing to harvest. Understanding these stages is essential for managing agronomic practices such as irrigation, fertilization, and harvesting. <a href="#tbl-phenology">Table&nbsp;<span class="quarto-unresolved-ref">tbl-phenology</span></a> presents the principal phenological stages of rice as defined by the BBCH scale <span class="citation" data-cites="meier1997growth"><a href="#ref-meier1997growth" role="doc-biblioref">[12]</a></span>:</p>
-<div id="tbl-phenology" class="anchored">
-<table class="table">
-<caption>Table&nbsp;20.1: Phenological growth stages of rice</caption>
+<p>Rice phenology refers to the sequence of growth and development stages that the plant undergoes from sowing to harvest. Understanding these stages is essential for managing agronomic practices such as irrigation, fertilization, and harvesting. <a href="#tbl-phenology" class="quarto-xref">Table&nbsp;<span>20.1</span></a> presents the principal phenological stages of rice as defined by the BBCH scale <span class="citation" data-cites="meier1997growth"><a href="#ref-meier1997growth" role="doc-biblioref">[12]</a></span>:</p>
+<div id="tbl-phenology" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure"><figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-phenology-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;20.1: Phenological growth stages of rice
+</figcaption><div aria-describedby="tbl-phenology-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top table">
 <colgroup>
 <col style="width: 26%">
 <col style="width: 73%">
@@ -648,6 +690,8 @@ C_{21} &amp; C_{22}
 </tbody>
 </table>
 </div>
+</figure>
+</div>
 <section id="dprvi-across-rice-stages" class="level3" data-number="20.3.1"><h3 data-number="20.3.1" class="anchored" data-anchor-id="dprvi-across-rice-stages">
 <span class="header-section-number">20.3.1</span> DpRVI across rice stages</h3>
 <p>By analogy with cereals reported in <span class="citation" data-cites="mandal2020dual"><a href="#ref-mandal2020dual" role="doc-biblioref">[9]</a></span>, DpRVI is expected to rise from land preparation and early leaf development (low structural complexity) through tillering and stem elongation, reflecting increasing canopy volume scattering. Around booting to heading, DpRVI typically remains high as the canopy reaches maximum structural complexity, while late‑season senescence may slightly reduce polarization purity and alter scattering balance. This qualitative behavior guides stage interpretation but should be validated with local field observations.</p>
@@ -655,7 +699,7 @@ C_{21} &amp; C_{22}
 <span class="header-section-number">20.4</span> Workflow</h2>
 <section id="data-cube-creation" class="level3" data-number="20.4.1"><h3 data-number="20.4.1" class="anchored" data-anchor-id="data-cube-creation">
 <span class="header-section-number">20.4.1</span> Data cube creation</h3>
-<p>For this work, Sentinel-1 SLC images covering the municipality of Nunchía (Casanare, Colombia)—where rainfed rice is predominant—were used (see <a href="#fig-dprvi-cube">Figure&nbsp;<span class="quarto-unresolved-ref">fig-dprvi-cube</span></a>). The Dual‑polarimetric Radar Vegetation Index (DpRVI) was computed from these images.</p>
+<p>For this work, Sentinel-1 SLC images covering the municipality of Nunchía (Casanare, Colombia)—where rainfed rice is predominant—were used (see <a href="#fig-dprvi-cube" class="quarto-xref">Figure&nbsp;<span>20.2</span></a>). The Dual‑polarimetric Radar Vegetation Index (DpRVI) was computed from these images.</p>
 <p>In line with sits, analyses rely on regular Earth observation data cubes that ensure consistent dimensionality for machine learning: seamless spatial coverage, regular temporal cadence, and no gaps. When ARD collections are irregular in time or space, they must be converted to regular cubes prior to classification; national implementations such as Brazil Data Cube provide regular cubes by default <span class="citation" data-cites="Simoes2021 Ferreira2020 data4030092 SITSBOOK"><a href="#ref-Simoes2021" role="doc-biblioref">[13]</a>–<a href="#ref-SITSBOOK" role="doc-biblioref">[16]</a></span>. Unlike single‑tile cube definitions, sits supports cubes spanning multiple tiles, removing tiling restrictions during analysis <span class="citation" data-cites="data4030092 SITSBOOK"><a href="#ref-data4030092" role="doc-biblioref">[15]</a>, <a href="#ref-SITSBOOK" role="doc-biblioref">[16]</a></span>.</p>
 <p>Note: Although DpRVI is derived from Sentinel‑1 SLC data via the <span class="math inline">\(\mathbf{C2}\)</span> workflow described above <span class="citation" data-cites="mandal2019sentinel mandal2020dual"><a href="#ref-mandal2020dual" role="doc-biblioref">[9]</a>, <a href="#ref-mandal2019sentinel" role="doc-biblioref">[11]</a></span>, in practice precomputed DpRVI rasters are loaded into a <code>sits</code> cube for analysis. This separation keeps heavy polarimetric processing in SNAP and downstream time‑series analytics in R.</p>
 <p>A local data cube was created using the <code>sits</code> package in R <span class="citation" data-cites="Simoes2021"><a href="#ref-Simoes2021" role="doc-biblioref">[13]</a></span> to enable time-series analysis and support crop monitoring and classification workflows. The <code>sits</code> package follows a time-first, space-later paradigm: it classifies per-pixel time series to produce probability cubes, and then applies spatial smoothing to improve map consistency. It also provides tools for training-sample quality control and class noise reduction <span class="citation" data-cites="Santos2021a"><a href="#ref-Santos2021a" role="doc-biblioref">[17]</a></span>, and interoperates with on-demand EO data cube processing backends such as gdalcubes <span class="citation" data-cites="data4030092"><a href="#ref-data4030092" role="doc-biblioref">[15]</a></span> and national implementations <span class="citation" data-cites="Ferreira2020"><a href="#ref-Ferreira2020" role="doc-biblioref">[14]</a></span>. The implementation follows these steps:</p>
@@ -678,12 +722,12 @@ C_{21} &amp; C_{22}
 <ol start="2" type="1">
 <li>Next, create the DpRVI data cube:</li>
 </ol>
-<div class="cell" data-hash="cy_colombia_cache/html/create-dprvi-cube_d01919bfe02d5847fb7863f4a7c587d2">
+<div class="cell">
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Define the directory containing DpRVI images</span></span>
 <span><span class="va">dir_imgs</span> <span class="op">&lt;-</span> <span class="st">"data/cy_colombia/dprvi_reg/"</span></span>
 <span></span>
 <span><span class="co"># Create the data cube with sits</span></span>
-<span><span class="va">cube_dprvi</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/sits/man/sits_cube.html">sits_cube</a></span><span class="op">(</span></span>
+<span><span class="va">cube_dprvi</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://e-sensing.github.io/sits/reference/sits_cube.html">sits_cube</a></span><span class="op">(</span></span>
 <span>  source <span class="op">=</span> <span class="st">"MPC"</span>,</span>
 <span>  collection <span class="op">=</span> <span class="st">"SENTINEL-1-GRD"</span>,</span>
 <span>  bands <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"DPRVI"</span><span class="op">)</span>,</span>
@@ -691,9 +735,9 @@ C_{21} &amp; C_{22}
 <span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>This data cube contains DpRVI images with a temporal resolution of 12 days and is organized chronologically from January 04 to July 03, 2025. The timeline of the data cube can be visualized as follows:</p>
-<div class="cell" data-caption="Timeline of DpRVI data cube acquisitions" data-hash="cy_colombia_cache/html/caption-dprvi-timeline_f95264fce72eb13a529325c77dadd64b">
+<div class="cell" data-caption="Timeline of DpRVI data cube acquisitions">
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Visualize the temporal distribution of images</span></span>
-<span><span class="fu"><a href="https://rdrr.io/pkg/sits/man/sits_timeline.html">sits_timeline</a></span><span class="op">(</span><span class="va">cube_dprvi</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span><span class="fu"><a href="https://e-sensing.github.io/sits/reference/sits_timeline.html">sits_timeline</a></span><span class="op">(</span><span class="va">cube_dprvi</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell" data-caption="Timeline of DpRVI data cube acquisitions">
 <div class="cell-output cell-output-stdout">
@@ -703,18 +747,22 @@ C_{21} &amp; C_{22}
 [16] "2025-07-03"</code></pre>
 </div>
 </div>
-<p><a href="#fig-dprvi-cube">Figure&nbsp;<span class="quarto-unresolved-ref">fig-dprvi-cube</span></a> shows an RGB composite of the last three acquisitions, illustrating temporal variation in DpRVI across rice areas. This view helps identify growth patterns and spatial heterogeneity in vegetation conditions.</p>
-<div class="cell" data-layout-align="center" data-hash="cy_colombia_cache/html/unnamed-chunk-2_47440d72b8d044512bed799909da7f7a">
+<p><a href="#fig-dprvi-cube" class="quarto-xref">Figure&nbsp;<span>20.2</span></a> shows an RGB composite of the last three acquisitions, illustrating temporal variation in DpRVI across rice areas. This view helps identify growth patterns and spatial heterogeneity in vegetation conditions.</p>
+<div class="cell" data-layout-align="center">
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Plot RGB composite visualization of DpRVI data cube</span></span>
 <span><span class="co"># using the three most recent acquisition dates</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">cube_dprvi</span>, band <span class="op">=</span> <span class="st">"DPRVI"</span>, palette <span class="op">=</span> <span class="st">"Greys"</span>, scale <span class="op">=</span> <span class="fl">1.0</span>,</span>
 <span>     dates <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"2025-07-03"</span>, <span class="st">"2025-06-21"</span>, <span class="st">"2025-06-09"</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell" data-layout-align="center" data-hash="cy_colombia_cache/html/fig-dprvi-cube_f7a0c463c5de4a44753ec1e980b7e7e3">
+<div class="cell" data-layout-align="center">
 <div class="cell-output-display">
-<div id="fig-dprvi-cube" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure"><p><img src="images/cy_colombia/fig-dprvi-cube.png" class="img-fluid figure-img" style="width:100.0%"></p>
-<figcaption class="figure-caption">Figure&nbsp;20.2: DpRVI cube RGB visualization using three acquisition dates</figcaption></figure>
+<div id="fig-dprvi-cube" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure"><div aria-describedby="fig-dprvi-cube-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="images/cy_colombia/fig-dprvi-cube.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-dprvi-cube-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;20.2: DpRVI cube RGB visualization using three acquisition dates
+</figcaption></figure>
 </div>
 </div>
 </div>
@@ -727,8 +775,8 @@ C_{21} &amp; C_{22}
 <li>Average crop cycle: Approximately 120 days</li>
 </ul>
 <p>A stratified random sampling approach was implemented to ensure: 1. Representative coverage of different rice phenological stages 2. Adequate sampling of dominant land cover types</p>
-<p>Phenological stages were classified using the standardized BBCH scale <span class="citation" data-cites="meier1997growth"><a href="#ref-meier1997growth" role="doc-biblioref">[12]</a></span> (see <a href="#tbl-phenology">Table&nbsp;<span class="quarto-unresolved-ref">tbl-phenology</span></a>).</p>
-<p>Data were collected using QField mobile application, which provided Standardized data entry interface, precise georeferencing capabilities and field validation tools. The collected data were stored in a GeoPackage (GPKG) format, containing spatial information, associated attributes for each sampling point, and generated polygons representing observation areas. <a href="#fig-field-data">Figure&nbsp;<span class="quarto-unresolved-ref">fig-field-data</span></a> presents the spatial distribution of the collected field data. The visualization includes training and validation polygons, color-coded by phenological class or land cover category.</p>
+<p>Phenological stages were classified using the standardized BBCH scale <span class="citation" data-cites="meier1997growth"><a href="#ref-meier1997growth" role="doc-biblioref">[12]</a></span> (see <a href="#tbl-phenology" class="quarto-xref">Table&nbsp;<span>20.1</span></a>).</p>
+<p>Data were collected using QField mobile application, which provided Standardized data entry interface, precise georeferencing capabilities and field validation tools. The collected data were stored in a GeoPackage (GPKG) format, containing spatial information, associated attributes for each sampling point, and generated polygons representing observation areas. <a href="#fig-field-data" class="quarto-xref">Figure&nbsp;<span>20.3</span></a> presents the spatial distribution of the collected field data. The visualization includes training and validation polygons, color-coded by phenological class or land cover category.</p>
 <div class="cell">
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Define path to field data</span></span>
 <span><span class="va">field_data</span> <span class="op">&lt;-</span> <span class="st">"data/cy_colombia/samples/data.gpkg"</span></span>
@@ -748,11 +796,15 @@ C_{21} &amp; C_{22}
 <span>  <span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_brewer.html">scale_fill_brewer</a></span><span class="op">(</span>palette <span class="op">=</span> <span class="st">"Set1"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell" data-layout-align="center" data-hash="cy_colombia_cache/html/fig-field-data_49cdd0e626da211e4e177bd586f0200a">
+<div class="cell" data-layout-align="center">
 <div class="cell-output-display">
-<div id="fig-field-data" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure"><p><img src="images/cy_colombia/fig-field-data.png" class="img-fluid figure-img" style="width:100.0%"></p>
-<figcaption class="figure-caption">Figure&nbsp;20.3: Spatial distribution of field data samples colored by class</figcaption></figure>
+<div id="fig-field-data" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure"><div aria-describedby="fig-field-data-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="images/cy_colombia/fig-field-data.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-field-data-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;20.3: Spatial distribution of field data samples colored by class
+</figcaption></figure>
 </div>
 </div>
 </div>
@@ -770,7 +822,7 @@ C_{21} &amp; C_{22}
 <span><span class="co"># - n_sam_pol: number of samples per polygon for training</span></span>
 <span><span class="co"># - label_attr: attribute containing class labels</span></span>
 <span></span>
-<span><span class="va">training</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/sits/man/sits_get_data.html">sits_get_data</a></span><span class="op">(</span></span>
+<span><span class="va">training</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://e-sensing.github.io/sits/reference/sits_get_data.html">sits_get_data</a></span><span class="op">(</span></span>
 <span>  cube <span class="op">=</span> <span class="va">cube_dprvi</span>,</span>
 <span>  samples <span class="op">=</span> <span class="va">data_train</span>,</span>
 <span>  bands <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"DPRVI"</span><span class="op">)</span>,</span>
@@ -779,26 +831,30 @@ C_{21} &amp; C_{22}
 <span>  label_attr <span class="op">=</span> <span class="st">"class"</span></span>
 <span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p><a href="#fig-dprvi-multitemporal">Figure&nbsp;<span class="quarto-unresolved-ref">fig-dprvi-multitemporal</span></a> presents temporal DpRVI signatures revealing three biophysically distinct behavioral categories essential for automated discrimination. Perennial vegetation covers exhibit stable, high-value profiles: forest maintains consistent values (~0.60 ± 0.02) with minimal seasonal variation, reflecting persistent volume scattering from mature canopy structure where randomly distributed scattering elements generate high depolarization. The slight decline toward July (~0.49) indicates seasonal changes in foliar moisture content, affecting dielectric properties and consequently the degree of polarization of radar waves.</p>
+<p><a href="#fig-dprvi-multitemporal" class="quarto-xref">Figure&nbsp;<span>20.4</span></a> presents temporal DpRVI signatures revealing three biophysically distinct behavioral categories essential for automated discrimination. Perennial vegetation covers exhibit stable, high-value profiles: forest maintains consistent values (~0.60 ± 0.02) with minimal seasonal variation, reflecting persistent volume scattering from mature canopy structure where randomly distributed scattering elements generate high depolarization. The slight decline toward July (~0.49) indicates seasonal changes in foliar moisture content, affecting dielectric properties and consequently the degree of polarization of radar waves.</p>
 <p>In contrast, grasslands show slightly higher values (~0.63 ± 0.03) with gradual increase through the observation period. This behavior results from a less complex canopy structure but with sufficient aerial biomass to generate significant depolarization. The temporal increase observed reflects vegetative growth during the rainy season, increasing the anisotropy of the scattering medium and enhancing volume scattering contributions.</p>
 <p>Phenological interpretation uses the fact that rice stages exhibit characteristic dynamic patterns aligned with crop development cycles. All stages initiate with elevated DpRVI values (~0.50–0.60) before March, attributed to pre-existing vegetation or crop residues, followed by sharp declines to minimum values (~0.30–0.40) between April and May, corresponding to soil preparation and early sowing phases when surface scattering dominates over bare soils. The high degree of polarization during this phase reflects the absence of depolarizing elements. Subsequent DpRVI recovery (May–July) documents the transition toward volume scattering as rice canopy architecture develops, with each phenological stage showing distinct recovery trajectories that enable machine learning discrimination.</p>
 <p>These temporally-offset recovery patterns provide the biophysical foundation for machine learning discrimination: <em>Germination</em> shows modest increase (Δ=+0.09 from April–May minimum), reflecting initial emergence with limited structural complexity. <em>Leaf development</em> exhibits steeper recovery (Δ=+0.11), consistent with rapid leaf area expansion that increases volume scattering components. <em>Stem elongation</em> demonstrates pronounced increases (Δ=+0.15–0.17) reflecting advanced canopy development where multiple scattering layers generate complex depolarization patterns.</p>
 <p><em>Tillering</em> exhibits the most complex polarimetric behavior with similar recovery magnitude but intermediate structural characteristics that overlap with adjacent phenological stages, explaining subsequent classification challenges. The emergence of secondary stems creates intermediate scattering complexity between single-stem (leaf development) and mature multi-layered canopies (stem elongation), generating overlapping degree of polarization values that complicate automated discrimination.</p>
-<div class="cell" data-layout-align="center" data-hash="cy_colombia_cache/html/unnamed-chunk-4_dcb3e3ae56bae21216909e982b4af5b1">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode" id="cb9"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Plot the temporal patterns of DpRVI values for each class</span></span>
 <span><span class="co"># This creates a multi-panel time series visualization showing</span></span>
 <span><span class="co"># how DpRVI values change over time for different land cover types</span></span>
 <span><span class="co"># and rice phenological stages</span></span>
 <span></span>
 <span><span class="va">training</span> <span class="op">|&gt;</span></span>
-<span>  <span class="fu"><a href="https://rdrr.io/pkg/sits/man/sits_patterns.html">sits_patterns</a></span><span class="op">(</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu"><a href="https://e-sensing.github.io/sits/reference/sits_patterns.html">sits_patterns</a></span><span class="op">(</span><span class="op">)</span> <span class="op">|&gt;</span></span>
 <span>  <span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell" data-layout-align="center" data-hash="cy_colombia_cache/html/fig-dprvi-multitemporal_81db21abb07c1885c4a39d454ddbd424">
+<div class="cell" data-layout-align="center">
 <div class="cell-output-display">
-<div id="fig-dprvi-multitemporal" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure"><p><img src="images/cy_colombia/fig-dprvi-multitemporal.png" class="img-fluid figure-img" style="width:100.0%"></p>
-<figcaption class="figure-caption">Figure&nbsp;20.4: Spatial distribution of field data samples colored by class</figcaption></figure>
+<div id="fig-dprvi-multitemporal" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure"><div aria-describedby="fig-dprvi-multitemporal-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="images/cy_colombia/fig-dprvi-multitemporal.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-dprvi-multitemporal-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;20.4: Spatial distribution of field data samples colored by class
+</figcaption></figure>
 </div>
 </div>
 </div>
@@ -814,43 +870,51 @@ C_{21} &amp; C_{22}
 <span><span class="co"># - distance: distance metric used for clustering ("dtw" = Dynamic Time Warping)</span></span>
 <span><span class="co"># - rlen: number of training iterations (20 iterations)</span></span>
 <span></span>
-<span><span class="va">som_cluster</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/sits/man/sits_som_map.html">sits_som_map</a></span><span class="op">(</span><span class="va">training</span>,</span>
+<span><span class="va">som_cluster</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://e-sensing.github.io/sits/reference/sits_som_map.html">sits_som_map</a></span><span class="op">(</span><span class="va">training</span>,</span>
 <span>  alpha <span class="op">=</span> <span class="fl">1.0</span>,</span>
 <span>  distance <span class="op">=</span> <span class="st">"dtw"</span>,</span>
 <span>  rlen <span class="op">=</span> <span class="fl">20</span></span>
 <span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p><a href="#fig-som-plot">Figure&nbsp;<span class="quarto-unresolved-ref">fig-som-plot</span></a> shows that natural land covers, such as forest and pasture, tend to cluster in specific areas of the SOM grid, reflecting their more homogeneous temporal profiles. In contrast, the phenological stages of rice cultivation are more dispersed throughout the map, due to the rapid and dynamic changes in rice growth. However, some early phenological stages including germination, leaf development, tillering, and stem elongation often appear in adjacent regions of the SOM grid, indicating that growth stages which are temporally close may also share similar temporal growth patterns.</p>
-<div class="cell" data-layout-align="center" data-hash="cy_colombia_cache/html/unnamed-chunk-5_382e03c3fdc10dfe89d6d4a9a139c122">
+<p><a href="#fig-som-plot" class="quarto-xref">Figure&nbsp;<span>20.5</span></a> shows that natural land covers, such as forest and pasture, tend to cluster in specific areas of the SOM grid, reflecting their more homogeneous temporal profiles. In contrast, the phenological stages of rice cultivation are more dispersed throughout the map, due to the rapid and dynamic changes in rice growth. However, some early phenological stages including germination, leaf development, tillering, and stem elongation often appear in adjacent regions of the SOM grid, indicating that growth stages which are temporally close may also share similar temporal growth patterns.</p>
+<div class="cell" data-layout-align="center">
 <div class="sourceCode" id="cb11"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Plot the SOM clusters</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">som_cluster</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell" data-layout-align="center" data-hash="cy_colombia_cache/html/fig-som-plot_98c1e69e6477905ca8f4f142f4f859a5">
+<div class="cell" data-layout-align="center">
 <div class="cell-output-display">
-<div id="fig-som-plot" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure"><p><img src="images/cy_colombia/fig-som-plot.png" class="img-fluid figure-img" style="width:100.0%"></p>
-<figcaption class="figure-caption">Figure&nbsp;20.5: Spatial distribution of field data samples colored by class</figcaption></figure>
+<div id="fig-som-plot" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure"><div aria-describedby="fig-som-plot-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="images/cy_colombia/fig-som-plot.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-som-plot-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;20.5: Spatial distribution of field data samples colored by class
+</figcaption></figure>
 </div>
 </div>
 </div>
-<p><a href="#fig-evaluate-clusters">Figure&nbsp;<span class="quarto-unresolved-ref">fig-evaluate-clusters</span></a> illustrates a stacked bar chart showing the distribution of classes within each cluster generated by the model. Each row represents a class, and the colored bars within each row display how the elements of that class are distributed across the different clusters. The ideal goal is for each bar to exhibit a single predominant color, indicating that a class maps almost exclusively to a single cluster.</p>
+<p><a href="#fig-evaluate-clusters" class="quarto-xref">Figure&nbsp;<span>20.6</span></a> illustrates a stacked bar chart showing the distribution of classes within each cluster generated by the model. Each row represents a class, and the colored bars within each row display how the elements of that class are distributed across the different clusters. The ideal goal is for each bar to exhibit a single predominant color, indicating that a class maps almost exclusively to a single cluster.</p>
 <p>The forest class showed the highest purity, with 97% of its samples assigned to a single dominant cluster, and only slight confusion with other classes. Similarly, grass had 91% of its samples correctly grouped, although a 5% overlap with forest was observed and a small fraction was erroneously placed as germination. For the stem elongation class, 80% of the samples were correctly assigned, but 14% of the tillering samples were also located in this cluster.</p>
 <p>In the case of germination, 76% of the samples were correctly located, although there was 13% from leaf development and 9% from tillering. The confusion with leaf development is reasonable due to their immediate sequence in the crop cycle and the similarity in their temporal DpRVI behaviors. Leaf development presented 74% correct assignments, with errors mainly associated with the presence of tillering (14%) and germination (7%).</p>
 <p>Finally, tillering was the class with the highest level of confusion, with 67% of the samples correctly located. Mixtures were observed with 18% of leaf development and 11% of stem elongation. These confusions are expected given that consecutive phenological stages present similar structural characteristics, which is reflected in similar responses of the DpRVI index due to their radar polarization degree patterns.</p>
-<div class="cell" data-layout-align="center" data-hash="cy_colombia_cache/html/unnamed-chunk-6_25b70f583d45693443b9681aeef13d55">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode" id="cb12"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Evaluate the quality and confusion of SOM clusters</span></span>
 <span><span class="co"># This function assesses how well the SOM clustering performed by analyzing</span></span>
 <span><span class="co"># the distribution of classes within each cluster and identifying potential</span></span>
 <span><span class="co"># misclassifications or overlapping patterns between different classes</span></span>
-<span><span class="va">evaluate_clusters</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/sits/man/sits_som_evaluate_cluster.html">sits_som_evaluate_cluster</a></span><span class="op">(</span><span class="va">som_cluster</span><span class="op">)</span></span>
+<span><span class="va">evaluate_clusters</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://e-sensing.github.io/sits/reference/sits_som_evaluate_cluster.html">sits_som_evaluate_cluster</a></span><span class="op">(</span><span class="va">som_cluster</span><span class="op">)</span></span>
 <span><span class="co"># plot the SOM cluster evaluation</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">evaluate_clusters</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell" data-layout-align="center" data-hash="cy_colombia_cache/html/fig-evaluate-clusters_dc5cf05cf9d26bd5de9f7c09a774621c">
+<div class="cell" data-layout-align="center">
 <div class="cell-output-display">
-<div id="fig-evaluate-clusters" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure"><p><img src="images/cy_colombia/fig-evaluate-clusters.png" class="img-fluid figure-img" style="width:100.0%"></p>
-<figcaption class="figure-caption">Figure&nbsp;20.6: Confusion of SOM clusters</figcaption></figure>
+<div id="fig-evaluate-clusters" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure"><div aria-describedby="fig-evaluate-clusters-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="images/cy_colombia/fig-evaluate-clusters.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-evaluate-clusters-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;20.6: Confusion of SOM clusters
+</figcaption></figure>
 </div>
 </div>
 </div>
@@ -871,9 +935,9 @@ C_{21} &amp; C_{22}
 <li>To analyze (<code>analyze</code>): High prior but low posterior probability, indicating inconsistency with neighbors.</li>
 </ul>
 <p>It is recommended to remove noisy samples to improve dataset quality, reducing errors in subsequent models. Clean samples are retained, while <code>analyze</code> samples should be manually reviewed.</p>
-<p>The <code><a href="https://rdrr.io/pkg/sits/man/sits_som_clean_samples.html">sits_som_clean_samples()</a></code> function uses <code>prior_threshold</code> and <code>posterior_threshold</code> thresholds (both with a default value of 60%). Now, noisy samples are removed to improve the quality of the training dataset. <a href="#tbl-som-cleaned">Table&nbsp;<span class="quarto-unresolved-ref">tbl-som-cleaned</span></a> presents a summary of the samples by label or class after the cleaning process based on SOM evaluation. Forest and grass are the classes with the highest number of samples. Together, they represent almost half of the dataset (0.21 + 0.21 = 0.42 or 42%). This indicates that they are the most frequent categories in the cleaned dataset.</p>
+<p>The <code><a href="https://e-sensing.github.io/sits/reference/sits_som_clean_samples.html">sits_som_clean_samples()</a></code> function uses <code>prior_threshold</code> and <code>posterior_threshold</code> thresholds (both with a default value of 60%). Now, noisy samples are removed to improve the quality of the training dataset. <a href="#tbl-som-cleaned" class="quarto-xref">Table&nbsp;<span>20.2</span></a> presents a summary of the samples by label or class after the cleaning process based on SOM evaluation. Forest and grass are the classes with the highest number of samples. Together, they represent almost half of the dataset (0.21 + 0.21 = 0.42 or 42%). This indicates that they are the most frequent categories in the cleaned dataset.</p>
 <p>Germination and leaf development have moderate representation, with proportions ranging between 0.17 and 0.11. Stem elongation is also in this middle range, with a proportion of 0.14. Tillering is the class with the smallest number of samples, representing only 0.09 or 9% of the total. This makes it a minority or imbalanced class compared to the others.</p>
-<div class="cell" data-tbl-cap="Summary of cleaned samples by class" data-hash="cy_colombia_cache/html/unnamed-chunk-7_d4c6a15a0e17fb89bf96a5a902501a4c">
+<div class="cell" data-tbl-cap="Summary of cleaned samples by class">
 <div class="sourceCode" id="cb13"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Load cleaned samples using SOM evaluation</span></span>
 <span><span class="co"># This function retains only 'clean' and 'analyze'</span></span>
 <span><span class="co"># samples from the SOM clustering,</span></span>
@@ -885,7 +949,7 @@ C_{21} &amp; C_{22}
 <span><span class="co"># threshold considering neighbors (60%)</span></span>
 <span><span class="co"># - keep: categories of samples to retain ("clean", "analyze")</span></span>
 <span></span>
-<span><span class="va">new_samples</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/sits/man/sits_som_clean_samples.html">sits_som_clean_samples</a></span><span class="op">(</span>som_map <span class="op">=</span> <span class="va">som_cluster</span>,</span>
+<span><span class="va">new_samples</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://e-sensing.github.io/sits/reference/sits_som_clean_samples.html">sits_som_clean_samples</a></span><span class="op">(</span>som_map <span class="op">=</span> <span class="va">som_cluster</span>,</span>
 <span>  prior_threshold <span class="op">=</span> <span class="fl">0.6</span>,</span>
 <span>  posterior_threshold <span class="op">=</span> <span class="fl">0.6</span>,</span>
 <span>  keep <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"clean"</span>, <span class="st">"analyze"</span><span class="op">)</span></span>
@@ -896,9 +960,11 @@ C_{21} &amp; C_{22}
 <span><span class="co"># after quality control filtering</span></span>
 <span><span class="fu"><a href="https://rdrr.io/pkg/knitr/man/kable.html">kable</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">new_samples</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="tbl-som-cleaned" class="anchored">
-<table class="table">
-<caption>Table&nbsp;20.2: Summary of cleaned samples by class</caption>
+<div id="tbl-som-cleaned" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure"><figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-som-cleaned-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;20.2: Summary of cleaned samples by class
+</figcaption><div aria-describedby="tbl-som-cleaned-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top table">
 <thead><tr class="header">
 <th style="text-align: left;">label</th>
 <th style="text-align: right;">count</th>
@@ -938,32 +1004,38 @@ C_{21} &amp; C_{22}
 </tbody>
 </table>
 </div>
+</figure>
+</div>
 </section><section id="random-forest-classification" class="level3" data-number="20.4.6"><h3 data-number="20.4.6" class="anchored" data-anchor-id="random-forest-classification">
 <span class="header-section-number">20.4.6</span> Random Forest classification</h3>
 <p>Random Forest (RF) is a powerful machine learning algorithm that is widely used for classification tasks, including remote sensing applications <span class="citation" data-cites="RODRIGUEZGALIANO201293"><a href="#ref-RODRIGUEZGALIANO201293" role="doc-biblioref">[18]</a></span>. It operates by constructing multiple decision trees during training and outputs the mode of the classes (classification) or mean prediction (regression) of the individual trees <span class="citation" data-cites="breiman2001random"><a href="#ref-breiman2001random" role="doc-biblioref">[19]</a></span>. RF is particularly effective in handling high dimensional data and can capture complex relationships between features <span class="citation" data-cites="James2013"><a href="#ref-James2013" role="doc-biblioref">[20]</a></span>.</p>
 <p>The Random Forest model was trained using the cleaned samples, which were previously validated through SOM evaluation. The model was configured with 500 trees, a common choice that balances performance and computational efficiency.</p>
-<div class="cell" data-layout-align="center" data-hash="cy_colombia_cache/html/unnamed-chunk-8_db43175e8bca3756bb86fb4cb239e135">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode" id="cb14"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/Random.html">set.seed</a></span><span class="op">(</span><span class="fl">123</span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># Train the Random Forest model with cleaned samples</span></span>
 <span><span class="co"># Parameters:</span></span>
 <span><span class="co"># - samples: cleaned training samples from SOM evaluation</span></span>
 <span><span class="co"># - ml_method: Random Forest algorithm with 500 trees</span></span>
-<span><span class="va">probs_cube</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/sits/man/sits_train.html">sits_train</a></span><span class="op">(</span>samples <span class="op">=</span> <span class="va">new_samples</span>,</span>
-<span>                         ml_method <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/sits/man/sits_rfor.html">sits_rfor</a></span><span class="op">(</span>num_trees <span class="op">=</span> <span class="fl">500</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="va">rfor_model</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://e-sensing.github.io/sits/reference/sits_train.html">sits_train</a></span><span class="op">(</span>samples <span class="op">=</span> <span class="va">new_samples</span>,</span>
+<span>                         ml_method <span class="op">=</span> <span class="fu"><a href="https://e-sensing.github.io/sits/reference/sits_rfor.html">sits_rfor</a></span><span class="op">(</span>num_trees <span class="op">=</span> <span class="fl">500</span><span class="op">)</span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># Plot the feature importance from the trained Random Forest model</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">probs_cube</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">rfor_model</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell" data-layout-align="center" data-hash="cy_colombia_cache/html/fig-importance-cleaned_0217c78ea82ff7e234bccec81c184c72">
+<div class="cell" data-layout-align="center">
 <div class="cell-output-display">
-<div id="fig-importance-cleaned" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure"><p><img src="images/cy_colombia/fig-importance-cleaned.png" class="img-fluid figure-img" style="width:100.0%"></p>
-<figcaption class="figure-caption">Figure&nbsp;20.7: Random Forest importance of discriminatory variables</figcaption></figure>
+<div id="fig-importance-cleaned" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure"><div aria-describedby="fig-importance-cleaned-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="images/cy_colombia/fig-importance-cleaned.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-importance-cleaned-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;20.7: Random Forest importance of discriminatory variables
+</figcaption></figure>
 </div>
 </div>
 </div>
-<p>Variable importance analysis reveals a temporally coherent hierarchy aligned with critical agricultural management periods (<a href="#fig-importance-cleaned">Figure&nbsp;<span class="quarto-unresolved-ref">fig-importance-cleaned</span></a>). The most influential variables cluster around two key polarimetric discrimination windows that maximize separability between land cover classes based on distinct scattering mechanisms.</p>
+<p>Variable importance analysis reveals a temporally coherent hierarchy aligned with critical agricultural management periods (<a href="#fig-importance-cleaned" class="quarto-xref">Figure&nbsp;<span>20.7</span></a>). The most influential variables cluster around two key polarimetric discrimination windows that maximize separability between land cover classes based on distinct scattering mechanisms.</p>
 <p>Early-season critical period (March): DPRVI8 (March 29, depth=2.42) and DPRVI6 (March 5, depth=2.47) represent the optimal polarimetric discrimination window when land preparation activities create maximum contrast between prepared agricultural fields and natural vegetation covers. During this period, recently disturbed soils exhibit low DpRVI values (~0.3–0.4) due to surface scattering dominance, while established vegetation maintains high DpRVI values (~0.6) from volume scattering, generating clear polarimetric separability essential for subsequent classification accuracy.</p>
 <p>Mid-season development window (May–June): Secondary-importance variables DPRVI15 (June 21), DPRVI13 (May 28), and DPRVI12 (May 16) all cluster at depth ~2.64–2.66, capturing the rapid structural transitions during active crop development. These dates correspond to maximum phenological differentiation when tillering, stem elongation, and leaf development stages exhibit distinct canopy architecture patterns detectable through polarimetric radar signatures and varying degrees of polarization.</p>
 <p>Temporal specificity validation: The concentration of variable importance during agriculturally meaningful periods (rather than arbitrary calendar dates) provides strong evidence that the Random Forest model identifies genuine biophysical patterns rather than spurious correlations.</p>
@@ -984,10 +1056,10 @@ C_{21} &amp; C_{22}
 <span><span class="co"># create a list to store the results</span></span>
 <span><span class="va">results</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span><span class="op">)</span></span>
 <span></span>
-<span><span class="va">acc_rfor</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/sits/man/sits_kfold_validate.html">sits_kfold_validate</a></span><span class="op">(</span><span class="va">new_samples</span>,</span>
+<span><span class="va">acc_rfor</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://e-sensing.github.io/sits/reference/sits_kfold_validate.html">sits_kfold_validate</a></span><span class="op">(</span><span class="va">new_samples</span>,</span>
 <span>  folds <span class="op">=</span> <span class="fl">10</span>,</span>
 <span>  multicores <span class="op">=</span> <span class="fl">1</span>,</span>
-<span>  ml_method <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/sits/man/sits_rfor.html">sits_rfor</a></span><span class="op">(</span><span class="op">)</span></span>
+<span>  ml_method <span class="op">=</span> <span class="fu"><a href="https://e-sensing.github.io/sits/reference/sits_rfor.html">sits_rfor</a></span><span class="op">(</span><span class="op">)</span></span>
 <span><span class="op">)</span></span>
 <span><span class="va">acc_rfor</span><span class="op">$</span><span class="va">name</span> <span class="op">&lt;-</span> <span class="st">"Random Forest"</span></span>
 <span></span>
@@ -1011,7 +1083,7 @@ C_{21} &amp; C_{22}
 <li>Probability-based diagnostics: not used in this work; probability outputs were employed to produce probability cubes and for Bayesian smoothing prior to labeling <span class="citation" data-cites="Simoes2021 Santos2021a"><a href="#ref-Simoes2021" role="doc-biblioref">[13]</a>, <a href="#ref-Santos2021a" role="doc-biblioref">[17]</a></span>.</li>
 </ul>
 <p>The following metrics are reported using macro-averaging across classes, alongside per-class values where relevant <span class="citation" data-cites="SOKOLOVA2009427"><a href="#ref-SOKOLOVA2009427" role="doc-biblioref">[22]</a></span>:</p>
-<table class="table">
+<table class="caption-top table">
 <colgroup>
 <col style="width: 13%">
 <col style="width: 60%">
@@ -1054,7 +1126,7 @@ C_{21} &amp; C_{22}
 </table>
 <p>Where TP, FP, FN are computed from the confusion matrix, N is the total number of validation samples. Macro-averaging computes the unweighted mean across classes to balance class imbalance <span class="citation" data-cites="SOKOLOVA2009427"><a href="#ref-SOKOLOVA2009427" role="doc-biblioref">[22]</a></span>.</p>
 <p>Performance is summarized with a confusion matrix, cross‑tabulating predictions and references to quantify errors and biases <span class="citation" data-cites="SOKOLOVA2009427"><a href="#ref-SOKOLOVA2009427" role="doc-biblioref">[22]</a></span>.</p>
-<div class="cell" data-hash="cy_colombia_cache/html/unnamed-chunk-9_fbbfb6bf13e699d7d0f1da7bb2d5b137">
+<div class="cell">
 <div class="sourceCode" id="cb16"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Confusion matrix visualization function</span></span>
 <span><span class="co"># Generates visualization from validation results</span></span>
 <span><span class="va">create_confusion_matrix_plot</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">result</span>, <span class="va">model_name</span><span class="op">)</span> <span class="op">{</span></span>
@@ -1120,15 +1192,19 @@ C_{21} &amp; C_{22}
 <span><span class="co"># plot the confusion matrix</span></span>
 <span><span class="fu">create_confusion_matrix_plot</span><span class="op">(</span><span class="va">results</span><span class="op">[[</span><span class="st">"Random Forest"</span><span class="op">]</span><span class="op">]</span>, <span class="st">"Random Forest"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell" data-layout-align="center" data-hash="cy_colombia_cache/html/fig-confusion-matrix-function_1b857ac6d99d154954443f054b1c5276">
+<div class="cell" data-layout-align="center">
 <div class="cell-output-display">
-<div id="fig-confusion-matrix-function" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure"><p><img src="images/cy_colombia/fig-confusion-matrix-function.png" class="img-fluid figure-img" style="width:100.0%"></p>
-<figcaption class="figure-caption">Figure&nbsp;20.8: Confusion matrix for different crop stages mapped by DPRVI index.</figcaption></figure>
+<div id="fig-confusion-matrix-function" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure"><div aria-describedby="fig-confusion-matrix-function-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="images/cy_colombia/fig-confusion-matrix-function.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-confusion-matrix-function-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;20.8: Confusion matrix for different crop stages mapped by DPRVI index.
+</figcaption></figure>
 </div>
 </div>
 </div>
-<p><a href="#fig-confusion-matrix-function">Figure&nbsp;<span class="quarto-unresolved-ref">fig-confusion-matrix-function</span></a> reveals biophysically interpretable error patterns that validate model behavior rather than indicate systematic failures. Classification errors concentrate exclusively between adjacent phenological stages, with no confusions observed between rice crops and permanent vegetation covers (forest/grass), confirming robust discrimination between agricultural and natural land uses based on distinct polarimetric signatures.</p>
+<p><a href="#fig-confusion-matrix-function" class="quarto-xref">Figure&nbsp;<span>20.8</span></a> reveals biophysically interpretable error patterns that validate model behavior rather than indicate systematic failures. Classification errors concentrate exclusively between adjacent phenological stages, with no confusions observed between rice crops and permanent vegetation covers (forest/grass), confirming robust discrimination between agricultural and natural land uses based on distinct polarimetric signatures.</p>
 <p>Permanent covers demonstrate near-perfect performance: Forest achieves exceptional accuracy (94/98 samples, 96% correct) with only one tillering sample misclassified, while grass shows similar excellence (92/94 samples, 98% correct). The perfect separation between forest–grass and rice stages validates that DpRVI effectively discriminates between stable volume-scattering patterns (permanent covers) and dynamic agricultural signatures.</p>
 <p>Phenological confusion patterns follow biological logic: The most critical finding is that all crop stage confusions occur between adjacent phases, reflecting gradual rather than discrete structural transitions. Tillering demonstrates highest confusion (27/38 samples correctly classified, 71% accuracy) with primary errors involving adjacent growth stages: 8 samples confused with stem elongation and 3 with leaf development.</p>
 <p>Polarimetric explanation: The bidirectional confusion between tillering and stem elongation (8 tillering→stem elongation, 2 stem elongation→tillering) indicates overlapping canopy architecture during transition periods. During tillering, increasing tiller density generates volume-scattering patterns similar to early stem elongation, where degree of polarization values overlap (~0.4–0.6) between stages, creating polarimetric ambiguity.</p>
@@ -1151,9 +1227,11 @@ C_{21} &amp; C_{22}
 <span><span class="co"># Visualize the overall statistics as table</span></span>
 <span><span class="fu"><a href="https://rdrr.io/pkg/knitr/man/kable.html">kable</a></span><span class="op">(</span><span class="va">overall_long</span>, digits <span class="op">=</span> <span class="fl">2</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="tbl-overall-statistic" class="anchored">
-<table class="table">
-<caption>Table&nbsp;20.3: Overall statistics for the Random Forest model</caption>
+<div id="tbl-overall-statistic" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure"><figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-overall-statistic-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;20.3: Overall statistics for the Random Forest model
+</figcaption><div aria-describedby="tbl-overall-statistic-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top table">
 <thead><tr class="header">
 <th>Metric</th>
 <th>Value</th>
@@ -1190,12 +1268,14 @@ C_{21} &amp; C_{22}
 </tbody>
 </table>
 </div>
-<p><a href="#tbl-overall-statistic">Table&nbsp;<span class="quarto-unresolved-ref">tbl-overall-statistic</span></a> presents the global performance metrics of the model, which has an overall accuracy of 91.90%, meaning that in almost 92% of cases, the model correctly classified the samples. This is a very high value, indicating excellent performance. Cohen’s Kappa coefficient is a more robust metric than accuracy, as it takes into account the possibility that the accuracy is due to chance. A value of 90.08% is considered very strong. It indicates that the model not only performs well, but its performance is significantly better than random classification.</p>
+</figure>
+</div>
+<p><a href="#tbl-overall-statistic" class="quarto-xref">Table&nbsp;<span>20.3</span></a> presents the global performance metrics of the model, which has an overall accuracy of 91.90%, meaning that in almost 92% of cases, the model correctly classified the samples. This is a very high value, indicating excellent performance. Cohen’s Kappa coefficient is a more robust metric than accuracy, as it takes into account the possibility that the accuracy is due to chance. A value of 90.08% is considered very strong. It indicates that the model not only performs well, but its performance is significantly better than random classification.</p>
 <p>At the aggregate level, macro‑averaged Precision, Recall, and F1 corroborate this global performance, with consistently high values across classes. The remaining variability aligns with class structure: permanent covers yield very stable scores, while transitional crop stages show expected reductions due to phenological overlap.</p>
 <p>The exceptional classification performance achieved in this work (91.90% overall accuracy, κ=90.08%) establishes DpRVI as a strong alternative to conventional radar vegetation indices for tropical crop monitoring, demonstrating robustness under conditions of high atmospheric moisture, variable precipitation, and diverse soil conditions.</p>
 <p>The AccuracyLower and AccuracyUpper (88.91 and 94.29) represent the 95% confidence interval for the model’s accuracy, indicating that the true accuracy lies between 88.91% and 94.29%. The AccuracyNull (21.76) is the accuracy that would be obtained if the model simply predicted the most frequent class in the dataset, meaning the most common class represents approximately 22% of the data. The model’s accuracy (91.90%) is much higher than this null accuracy, confirming that the model is learning useful patterns.</p>
 <p>The AccuracyPValue (0.00) is the p-value of the hypothesis test that compares the model’s accuracy with the null accuracy. A value of 0.00 (p &lt; 0.05) means that the difference between the model’s accuracy and the null accuracy is statistically significant. In simple terms, the model is genuinely better than guessing. The model has excellent and statistically significant performance for the classification task, with high accuracy and a strong Kappa coefficient.</p>
-<p><a href="#fig-metrics-by-class">Figure&nbsp;<span class="quarto-unresolved-ref">fig-metrics-by-class</span></a> provides class-wise Precision, Recall (Sensitivity), F1, Specificity, and Balanced Accuracy, highlighting how performance varies by structural stability and phenological transitions:</p>
+<p><a href="#fig-metrics-by-class" class="quarto-xref">Figure&nbsp;<span>20.9</span></a> provides class-wise Precision, Recall (Sensitivity), F1, Specificity, and Balanced Accuracy, highlighting how performance varies by structural stability and phenological transitions:</p>
 <ul>
 <li>Permanent covers (Forest, Grass): F1 ≈ 0.98, Sensitivity ≈ 1.00, Precision ≈ 0.96–0.97, consistent with stable volume‑scattering and minimal confusion with crops.</li>
 <li>Germination: F1 ≈ 0.89 with Precision ≈ 0.86; clear separation from permanent covers and early‑season soil conditions.</li>
@@ -1296,11 +1376,15 @@ C_{21} &amp; C_{22}
 <span><span class="op">}</span></span>
 <span><span class="fu">create_metrics_by_class_plot</span><span class="op">(</span><span class="va">results</span><span class="op">[[</span><span class="st">"Random Forest"</span><span class="op">]</span><span class="op">]</span>, <span class="st">"Random Forest"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell" data-layout-align="center" data-hash="cy_colombia_cache/html/fig-metrics-by-class_ed9b38ef51ae39e2f9c467320e19ba96">
+<div class="cell" data-layout-align="center">
 <div class="cell-output-display">
-<div id="fig-metrics-by-class" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure"><p><img src="images/cy_colombia/fig-metrics-by-class.png" class="img-fluid figure-img" style="width:100.0%"></p>
-<figcaption class="figure-caption">Figure&nbsp;20.9: Metrics by class (Precision, Recall, F1, Specificity, Balanced Accuracy)</figcaption></figure>
+<div id="fig-metrics-by-class" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure"><div aria-describedby="fig-metrics-by-class-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="images/cy_colombia/fig-metrics-by-class.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-metrics-by-class-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;20.9: Metrics by class (Precision, Recall, F1, Specificity, Balanced Accuracy)
+</figcaption></figure>
 </div>
 </div>
 </div>
@@ -1316,9 +1400,9 @@ C_{21} &amp; C_{22}
 <span>  <span class="fu"><a href="https://rdrr.io/r/base/files2.html">dir.create</a></span><span class="op">(</span><span class="va">output_dir</span>, recursive <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
 <span><span class="op">}</span></span>
 <span></span>
-<span><span class="va">rf_classify</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/sits/man/sits_classify.html">sits_classify</a></span><span class="op">(</span></span>
+<span><span class="va">rf_classify</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://e-sensing.github.io/sits/reference/sits_classify.html">sits_classify</a></span><span class="op">(</span></span>
 <span>  data <span class="op">=</span> <span class="va">cube_dprvi</span>,</span>
-<span>  ml_model <span class="op">=</span> <span class="va">probs_cube</span>,</span>
+<span>  ml_model <span class="op">=</span> <span class="va">rfor_model</span>,</span>
 <span>  output_dir <span class="op">=</span> <span class="va">output_dir</span>,</span>
 <span>  version <span class="op">=</span> <span class="st">"rf-raster"</span>,</span>
 <span>  multicores <span class="op">=</span> <span class="fl">4</span>,</span>
@@ -1332,7 +1416,7 @@ C_{21} &amp; C_{22}
 <div class="cell">
 <div class="sourceCode" id="cb20"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Calculate the local logit variance for the classification</span></span>
 <span><span class="co"># TODO</span></span>
-<span><span class="va">var_cube</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/sits/man/sits_variance.html">sits_variance</a></span><span class="op">(</span></span>
+<span><span class="va">var_cube</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://e-sensing.github.io/sits/reference/sits_variance.html">sits_variance</a></span><span class="op">(</span></span>
 <span>  cube <span class="op">=</span> <span class="va">rf_classify</span>,</span>
 <span>  window_size <span class="op">=</span> <span class="fl">7</span>,</span>
 <span>  neigh_fraction <span class="op">=</span> <span class="fl">0.5</span>,</span>
@@ -1346,15 +1430,19 @@ C_{21} &amp; C_{22}
 <span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">var_cube</span>, labels <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"forest"</span>, <span class="st">"grass"</span><span class="op">)</span>, palette <span class="op">=</span> <span class="st">"Spectral"</span>,</span>
 <span>     rev <span class="op">=</span> <span class="cn">TRUE</span>, legend_position <span class="op">=</span> <span class="st">"outside"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell" data-layout-align="center" data-hash="cy_colombia_cache/html/fig-variance-forest-grass_7b08abab9e9a9e23ce5550c85eb7a4df">
+<div class="cell" data-layout-align="center">
 <div class="cell-output-display">
-<div id="fig-variance-forest-grass" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure"><p><img src="images/cy_colombia/fig-variance-forest-grass.png" class="img-fluid figure-img" style="width:100.0%"></p>
-<figcaption class="figure-caption">Figure&nbsp;20.10: Variance of forest and grass classes</figcaption></figure>
+<div id="fig-variance-forest-grass" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure"><div aria-describedby="fig-variance-forest-grass-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="images/cy_colombia/fig-variance-forest-grass.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-variance-forest-grass-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;20.10: Variance of forest and grass classes
+</figcaption></figure>
 </div>
 </div>
 </div>
-<p><a href="#fig-variance-forest-grass">Figure&nbsp;<span class="quarto-unresolved-ref">fig-variance-forest-grass</span></a> shows that the forest and grass classes exhibit relatively homogeneous variance throughout the study area, characterized by the predominance of low values distributed continuously across the territory. This spatial distribution is consistent with the territorial occupation of these covers in the region, where forest and pasture are distributed as extensive and relatively homogeneous areas.</p>
+<p><a href="#fig-variance-forest-grass" class="quarto-xref">Figure&nbsp;<span>20.10</span></a> shows that the forest and grass classes exhibit relatively homogeneous variance throughout the study area, characterized by the predominance of low values distributed continuously across the territory. This spatial distribution is consistent with the territorial occupation of these covers in the region, where forest and pasture are distributed as extensive and relatively homogeneous areas.</p>
 <p>The observed pattern can be attributed to two main factors: the inherent noise characteristic of SAR data, which introduces random variability in the signal, and the nature of transitions between these dominant covers. The absence of marked variance gradients suggests that the boundaries between forest and pasture are not spectrally abrupt in terms of the DpRVI index response, which may indicate gradual transition zones. These covers exhibit temporal stability, remaining constant during the analysis period.</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode" id="cb22"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Plot the variance of the classification for the phenological stages of rice</span></span>
@@ -1362,29 +1450,35 @@ C_{21} &amp; C_{22}
 <span>                          <span class="st">"tillering"</span>, <span class="st">"stem elongation"</span><span class="op">)</span>,</span>
 <span>     palette <span class="op">=</span> <span class="st">"Spectral"</span>, rev <span class="op">=</span> <span class="cn">TRUE</span>, legend_position <span class="op">=</span> <span class="st">"outside"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell" data-layout-align="center" data-hash="cy_colombia_cache/html/fig-variance-phenology_125e8641e7fdbbe52974ddef4c33dd67">
+<div class="cell" data-layout-align="center">
 <div class="cell-output-display">
-<div id="fig-variance-phenology" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure"><p><img src="images/cy_colombia/fig-variance-phenology.png" class="img-fluid figure-img" style="width:100.0%"></p>
-<figcaption class="figure-caption">Figure&nbsp;20.11: Variance of the phenological stages of rice.</figcaption></figure>
+<div id="fig-variance-phenology" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure"><div aria-describedby="fig-variance-phenology-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="images/cy_colombia/fig-variance-phenology.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-variance-phenology-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;20.11: Variance of the phenological stages of rice.
+</figcaption></figure>
 </div>
 </div>
 </div>
-<p><a href="#fig-variance-phenology">Figure&nbsp;<span class="quarto-unresolved-ref">fig-variance-phenology</span></a> reveals an interesting spatial pattern where, despite the characteristic noise of SAR images, regions of lowest variance are identified that spatially correspond to rice cultivation areas in the lower right portion of the images. These zones of lower variability present defined edges of higher variance toward the boundaries of agricultural plots, suggesting spatial coherence within some of the cultivated parcels. The spatial distribution of variance in rice phenological stages evidences that agricultural management practices, such as uniform land preparation, synchronized sowing, and integrated crop management, generate spatially coherent patterns that facilitate crop differentiation.</p>
-<div>
+<p><a href="#fig-variance-phenology" class="quarto-xref">Figure&nbsp;<span>20.11</span></a> reveals an interesting spatial pattern where, despite the characteristic noise of SAR images, regions of lowest variance are identified that spatially correspond to rice cultivation areas in the lower right portion of the images. These zones of lower variability present defined edges of higher variance toward the boundaries of agricultural plots, suggesting spatial coherence within some of the cultivated parcels. The spatial distribution of variance in rice phenological stages evidences that agricultural management practices, such as uniform land preparation, synchronized sowing, and integrated crop management, generate spatially coherent patterns that facilitate crop differentiation.</p>
+<div id="tbl-variance" class="cell quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure"><figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-variance-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;20.4: Summary of the logit variance
+</figcaption><div aria-describedby="tbl-variance-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="sourceCode" id="cb23"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># print variance values</span></span>
 <span><span class="va">variances</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">var_cube</span><span class="op">)</span></span>
 <span><span class="co"># print variances</span></span>
 <span><span class="fu"><a href="https://rdrr.io/pkg/knitr/man/kable.html">kable</a></span><span class="op">(</span><span class="va">variances</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div id="tbl-variance" class="cell tbl-parent quarto-layout-panel anchored" data-tbl-cap="Summary of the logit variance">
-<div class="panel-caption table-caption">
-<p><strong>?(caption)</strong></p>
 </div>
+</figure>
 </div>
-</div>
-<div id="tbl-variance" class="anchored">
-<table class="table">
-<caption>Table&nbsp;20.4: Summary of the logit variance</caption>
+<div id="tbl-variance" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure"><figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-variance-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;20.5: Summary of the logit variance
+</figcaption><div aria-describedby="tbl-variance-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top table">
 <colgroup>
 <col style="width: 8%">
 <col style="width: 10%">
@@ -1461,14 +1555,16 @@ C_{21} &amp; C_{22}
 </tbody>
 </table>
 </div>
-<p><a href="#tbl-variance">Table&nbsp;<span class="quarto-unresolved-ref">tbl-variance</span></a> shows the high quantiles (75–100%) of local logit variance by class, calculated over non‑isotropic neighborhoods, describing the upper part of the distribution, which is the most informative for detecting confusion zones and edges between classes. In all classes, the 75th percentile values are low (≈ 0.46–0.71), indicating that most of the territory consists of compact and homogeneous patches where a single class clearly dominates. Toward the 90–95 percentiles, variances increase, signaling mixed neighborhoods and boundaries between classes.</p>
+</figure>
+</div>
+<p><a href="#tbl-variance" class="quarto-xref">Table&nbsp;<span>20.5</span></a> shows the high quantiles (75–100%) of local logit variance by class, calculated over non‑isotropic neighborhoods, describing the upper part of the distribution, which is the most informative for detecting confusion zones and edges between classes. In all classes, the 75th percentile values are low (≈ 0.46–0.71), indicating that most of the territory consists of compact and homogeneous patches where a single class clearly dominates. Toward the 90–95 percentiles, variances increase, signaling mixed neighborhoods and boundaries between classes.</p>
 <p>Regarding patterns by class, the transitional leaf development and tillering classes present the highest tails (P90 ≈ 2.1–2.14 and P95 ≈ 3.0), consistent with the appearance of edges or mixed patches. Germination also shows elevated variance in the tail (P95 ≈ 2.81), above forest (≈ 2.19) and grass (≈ 1.79). In contrast, stem elongation is the most homogeneous, with P75 = 0.46, P90 ≈ 0.92 and P95 ≈ 1.86, suggesting compact patches and less confusion with adjacent classes. The maximum values (100%) are around 10–12 in all classes and correspond to extreme cases or outliers very noisy pixels or singular edges, so they should not guide modeling decisions.</p>
 <p>These observations provide a quantitative basis for adjusting variance hyperparameters by class in Bayesian smoothing. The selection of a robust quantile (P90–P95) as reference is methodologically appropriate, considering that classes with greater spatial variability, such as leaf development and tillering, require higher hyperparameters (≈ 2–3) to preserve their intrinsic heterogeneity without incurring over-smoothing that eliminates valid spatial patterns.</p>
 <p>In contrast, classes with greater spatial homogeneity (grass, forest, stem elongation) benefit from lower values (≈ 1–2), which reinforces intra-class coherence and prioritizes the most reliable probabilistic assignments. This differentiated strategy allows optimizing the balance between reducing spectral noise characteristic of SAR images and preserving genuine spatial variability associated with each land cover class.</p>
 <p>Pixel‑based classification often exhibits local inconsistencies and edge noise. Sits’ empirical Bayesian smoothing is adopted to adjust per‑pixel class probabilities using neighborhood statistics, reinforcing spatial coherence and reducing outliers; this step typically improves class borders and removes isolated misclassifications <span class="citation" data-cites="SITSBOOK"><a href="#ref-SITSBOOK" role="doc-biblioref">[16]</a></span>.</p>
 <p>The smoothing is applied with a 7x7 pixel window considering the 50% most similar neighbors, which improves spatial coherence between adjacent classes.</p>
 <div class="cell">
-<div class="sourceCode" id="cb24"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">rf_smooth</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/sits/man/sits_smooth.html">sits_smooth</a></span><span class="op">(</span></span>
+<div class="sourceCode" id="cb24"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">rf_smooth</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://e-sensing.github.io/sits/reference/sits_smooth.html">sits_smooth</a></span><span class="op">(</span></span>
 <span>  cube <span class="op">=</span> <span class="va">rf_classify</span>,</span>
 <span>  window_size <span class="op">=</span> <span class="fl">7</span>,</span>
 <span>  neigh_fraction <span class="op">=</span> <span class="fl">0.5</span>,</span>
@@ -1486,36 +1582,44 @@ C_{21} &amp; C_{22}
 <span>  memsize <span class="op">=</span> <span class="fl">12</span></span>
 <span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>The smoothing process generates a new data cube where classification probabilities are adjusted considering the spatial and temporal context of each pixel, significantly improving the spatial coherence of classification results. <a href="#fig-rf-smooth-stages">Figure&nbsp;<span class="quarto-unresolved-ref">fig-rf-smooth-stages</span></a> presents the smoothed classification of rice phenological stages, clearly showing spatial coherence between classes and the spatial distribution of cultivation areas consistent with actual field conditions.</p>
+<p>The smoothing process generates a new data cube where classification probabilities are adjusted considering the spatial and temporal context of each pixel, significantly improving the spatial coherence of classification results. <a href="#fig-rf-smooth-stages" class="quarto-xref">Figure&nbsp;<span>20.12</span></a> presents the smoothed classification of rice phenological stages, clearly showing spatial coherence between classes and the spatial distribution of cultivation areas consistent with actual field conditions.</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode" id="cb25"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Plot the legend for the smoothed classification</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">rf_smooth</span>,</span>
 <span>     labels <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"germination"</span>, <span class="st">"leaf development"</span>,</span>
 <span>                <span class="st">"tillering"</span>, <span class="st">"stem elongation"</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell" data-layout-align="center" data-hash="cy_colombia_cache/html/fig-rf-smooth-stages_9c488a9aa15d6e02d8bb41c06fde61d7">
+<div class="cell" data-layout-align="center">
 <div class="cell-output-display">
-<div id="fig-rf-smooth-stages" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure"><p><img src="images/cy_colombia/fig-rf-smooth-stages.png" class="img-fluid figure-img" style="width:100.0%"></p>
-<figcaption class="figure-caption">Figure&nbsp;20.12: Probability of occurrence of phenological stages</figcaption></figure>
+<div id="fig-rf-smooth-stages" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure"><div aria-describedby="fig-rf-smooth-stages-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="images/cy_colombia/fig-rf-smooth-stages.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-rf-smooth-stages-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;20.12: Probability of occurrence of phenological stages
+</figcaption></figure>
 </div>
 </div>
 </div>
-<p>Similarly, <a href="#fig-rf-smooth-forest-grass">Figure&nbsp;<span class="quarto-unresolved-ref">fig-rf-smooth-forest-grass</span></a> displays the smoothed classification for forest and grass covers, demonstrating clear spatial separation between both classes with well-defined homogeneous areas. Using the adjusted probabilities, the labeled map is produced by assigning to each pixel the maximum‑probability class; optional map reclassification rules can enforce cartographic constraints when needed <span class="citation" data-cites="SITSBOOK"><a href="#ref-SITSBOOK" role="doc-biblioref">[16]</a></span>.</p>
+<p>Similarly, <a href="#fig-rf-smooth-forest-grass" class="quarto-xref">Figure&nbsp;<span>20.13</span></a> displays the smoothed classification for forest and grass covers, demonstrating clear spatial separation between both classes with well-defined homogeneous areas. Using the adjusted probabilities, the labeled map is produced by assigning to each pixel the maximum‑probability class; optional map reclassification rules can enforce cartographic constraints when needed <span class="citation" data-cites="SITSBOOK"><a href="#ref-SITSBOOK" role="doc-biblioref">[16]</a></span>.</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode" id="cb26"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">rf_smooth</span>,</span>
 <span>     labels <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"forest"</span>, <span class="st">"grass"</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell" data-layout-align="center" data-hash="cy_colombia_cache/html/fig-rf-smooth-forest-grass_fb22dfcdace61141c571199c14f7733c">
+<div class="cell" data-layout-align="center">
 <div class="cell-output-display">
-<div id="fig-rf-smooth-forest-grass" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure"><p><img src="images/cy_colombia/fig-rf-smooth-forest-grass.png" class="img-fluid figure-img" style="width:100.0%"></p>
-<figcaption class="figure-caption">Figure&nbsp;20.13: Probability of occurrence of forest and grassland</figcaption></figure>
+<div id="fig-rf-smooth-forest-grass" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure"><div aria-describedby="fig-rf-smooth-forest-grass-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="images/cy_colombia/fig-rf-smooth-forest-grass.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-rf-smooth-forest-grass-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;20.13: Probability of occurrence of forest and grassland
+</figcaption></figure>
 </div>
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode" id="cb27"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">rf_class</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/sits/man/sits_label_classification.html">sits_label_classification</a></span><span class="op">(</span></span>
+<div class="sourceCode" id="cb27"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">rf_class</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://e-sensing.github.io/sits/reference/sits_label_classification.html">sits_label_classification</a></span><span class="op">(</span></span>
 <span>  cube <span class="op">=</span> <span class="va">rf_smooth</span>,</span>
 <span>  multicores <span class="op">=</span> <span class="fl">4</span>,</span>
 <span>  memsize <span class="op">=</span> <span class="fl">12</span>,</span>
@@ -1526,10 +1630,12 @@ C_{21} &amp; C_{22}
 <p>Following sits’ time‑first, space‑later paradigm, per‑pixel time series are classified to obtain probability cubes (one probability band per class), which then support spatial post‑processing and final labeling <span class="citation" data-cites="SITSBOOK Simoes2021"><a href="#ref-Simoes2021" role="doc-biblioref">[13]</a>, <a href="#ref-SITSBOOK" role="doc-biblioref">[16]</a></span>.</p>
 </section><section id="final-classification-results" class="level3" data-number="20.5.4"><h3 data-number="20.5.4" class="anchored" data-anchor-id="final-classification-results">
 <span class="header-section-number">20.5.4</span> Final classification results</h3>
-<p><a href="#fig-rf-classification-plot">Figure&nbsp;<span class="quarto-unresolved-ref">fig-rf-classification-plot</span></a> shows the Random Forest classification over the DpRVI cube, mapping rice phenological stages and land cover in Nunchía (Casanare). The map exhibits spatially coherent patterns consistent with known land use and crop development in the region. The performance metrics are shown in <a href="#tbl-metrics">Table&nbsp;<span class="quarto-unresolved-ref">tbl-metrics</span></a>.</p>
-<div id="tbl-metrics" class="anchored">
-<table class="table">
-<caption>Table&nbsp;20.5: Key performance metrics</caption>
+<p><a href="#fig-rf-classification-plot" class="quarto-xref">Figure&nbsp;<span>20.14</span></a> shows the Random Forest classification over the DpRVI cube, mapping rice phenological stages and land cover in Nunchía (Casanare). The map exhibits spatially coherent patterns consistent with known land use and crop development in the region. The performance metrics are shown in <a href="#tbl-metrics" class="quarto-xref">Table&nbsp;<span>20.6</span></a>.</p>
+<div id="tbl-metrics" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure"><figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-metrics-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;20.6: Key performance metrics
+</figcaption><div aria-describedby="tbl-metrics-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top table">
 <thead><tr class="header">
 <th>Metric</th>
 <th>Value</th>
@@ -1550,7 +1656,9 @@ C_{21} &amp; C_{22}
 </tbody>
 </table>
 </div>
-<p>As shown in <a href="#fig-metrics-by-class">Figure&nbsp;<span class="quarto-unresolved-ref">fig-metrics-by-class</span></a>, performance varies with land‑cover stability and structural complexity:</p>
+</figure>
+</div>
+<p>As shown in <a href="#fig-metrics-by-class" class="quarto-xref">Figure&nbsp;<span>20.9</span></a>, performance varies with land‑cover stability and structural complexity:</p>
 <ul>
 <li>Permanent covers: consistently high metrics reflecting stable volume‑scattering and minimal confusion with crops.</li>
 <li>Crop stages: germination and stem elongation are well separated; tillering is lower due to transitional canopy structure.</li>
@@ -1560,11 +1668,15 @@ C_{21} &amp; C_{22}
 <div class="cell" data-layout-align="center">
 <div class="sourceCode" id="cb28"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">rf_class</span>, legend_position <span class="op">=</span> <span class="st">"outside"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell" data-layout-align="center" data-hash="cy_colombia_cache/html/fig-rf-classification-plot_a006e8b83218af732feabfc15b84b893">
+<div class="cell" data-layout-align="center">
 <div class="cell-output-display">
-<div id="fig-rf-classification-plot" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure"><p><img src="images/cy_colombia/fig-rf-classification-plot.png" class="img-fluid figure-img" style="width:100.0%"></p>
-<figcaption class="figure-caption">Figure&nbsp;20.14: Random Forest classification of the DpRVI data cube</figcaption></figure>
+<div id="fig-rf-classification-plot" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure"><div aria-describedby="fig-rf-classification-plot-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="images/cy_colombia/fig-rf-classification-plot.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-rf-classification-plot-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;20.14: Random Forest classification of the DpRVI data cube
+</figcaption></figure>
 </div>
 </div>
 </div>
@@ -1605,7 +1717,7 @@ C_{21} &amp; C_{22}
 </section><section id="references" class="level2 unnumbered"><h2 class="unnumbered anchored" data-anchor-id="references">References</h2>
 
 
-<div id="refs" class="references csl-bib-body" role="list">
+<div id="refs" class="references csl-bib-body" data-entry-spacing="0" role="list">
 <div id="ref-Dong_Xiao_rev" class="csl-entry" role="listitem">
 <div class="csl-left-margin">[1] </div>
 <div class="csl-right-inline">J. Dong and X. Xiao, <span>“Evolution of regional to global paddy rice mapping methods: A review,”</span> <em>ISPRS Journal of Photogrammetry and Remote Sensing</em>, vol. 119, pp. 214–227, 2016, doi: <a href="https://doi.org/10.1016/j.isprsjprs.2016.05.010">10.1016/j.isprsjprs.2016.05.010</a>.</div>
@@ -1696,255 +1808,425 @@ C_{21} &amp; C_{22}
 </div>
 </div>
 </section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
-window.document.addEventListener("DOMContentLoaded", function (event) {
-  const toggleBodyColorMode = (bsSheetEl) => {
-    const mode = bsSheetEl.getAttribute("data-mode");
-    const bodyEl = window.document.querySelector("body");
-    if (mode === "dark") {
-      bodyEl.classList.add("quarto-dark");
-      bodyEl.classList.remove("quarto-light");
-    } else {
-      bodyEl.classList.add("quarto-light");
-      bodyEl.classList.remove("quarto-dark");
-    }
-  }
-  const toggleBodyColorPrimary = () => {
-    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
-    if (bsSheetEl) {
-      toggleBodyColorMode(bsSheetEl);
-    }
-  }
-  toggleBodyColorPrimary();  
-  const icon = "";
-  const anchorJS = new window.AnchorJS();
-  anchorJS.options = {
-    placement: 'right',
-    icon: icon
-  };
-  anchorJS.add('.anchored');
-  const isCodeAnnotation = (el) => {
-    for (const clz of el.classList) {
-      if (clz.startsWith('code-annotation-')) {                     
-        return true;
-      }
-    }
-    return false;
-  }
-  const clipboard = new window.ClipboardJS('.code-copy-button', {
-    text: function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
-        }
-      }
-      return codeEl.innerText;
-    }
-  });
-  clipboard.on('success', function(e) {
-    // button target
-    const button = e.trigger;
-    // don't keep focus
-    button.blur();
-    // flash "checked"
-    button.classList.add('code-copy-button-checked');
-    var currentTitle = button.getAttribute("title");
-    button.setAttribute("title", "Copied!");
-    let tooltip;
-    if (window.bootstrap) {
-      button.setAttribute("data-bs-toggle", "tooltip");
-      button.setAttribute("data-bs-placement", "left");
-      button.setAttribute("data-bs-title", "Copied!");
-      tooltip = new bootstrap.Tooltip(button, 
-        { trigger: "manual", 
-          customClass: "code-copy-button-tooltip",
-          offset: [0, -8]});
-      tooltip.show();    
-    }
-    setTimeout(function() {
-      if (tooltip) {
-        tooltip.hide();
-        button.removeAttribute("data-bs-title");
-        button.removeAttribute("data-bs-toggle");
-        button.removeAttribute("data-bs-placement");
-      }
-      button.setAttribute("title", currentTitle);
-      button.classList.remove('code-copy-button-checked');
-    }, 1000);
-    // clear code selection
-    e.clearSelection();
-  });
-  function tippyHover(el, contentFn) {
-    const config = {
-      allowHTML: true,
-      content: contentFn,
-      maxWidth: 500,
-      delay: 100,
-      arrow: false,
-      appendTo: function(el) {
-          return el.parentElement;
-      },
-      interactive: true,
-      interactiveBorder: 10,
-      theme: 'quarto',
-      placement: 'bottom-start'
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
     };
-    window.tippy(el, config); 
-  }
-  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
-  for (var i=0; i<noterefs.length; i++) {
-    const ref = noterefs[i];
-    tippyHover(ref, function() {
-      // use id or data attribute instead here
-      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
-      try { href = new URL(href).hash; } catch {}
-      const id = href.replace(/^#\/?/, "");
-      const note = window.document.getElementById(id);
-      return note.innerHTML;
-    });
-  }
-      let selectedAnnoteEl;
-      const selectorForAnnotation = ( cell, annotation) => {
-        let cellAttr = 'data-code-cell="' + cell + '"';
-        let lineAttr = 'data-code-annotation="' +  annotation + '"';
-        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
-        return selector;
-      }
-      const selectCodeLines = (annoteEl) => {
-        const doc = window.document;
-        const targetCell = annoteEl.getAttribute("data-target-cell");
-        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
-        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
-        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
-        const lineIds = lines.map((line) => {
-          return targetCell + "-" + line;
-        })
-        let top = null;
-        let height = null;
-        let parent = null;
-        if (lineIds.length > 0) {
-            //compute the position of the single el (top and bottom and make a div)
-            const el = window.document.getElementById(lineIds[0]);
-            top = el.offsetTop;
-            height = el.offsetHeight;
-            parent = el.parentElement.parentElement;
-          if (lineIds.length > 1) {
-            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
-            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
-            height = bottom - top;
-          }
-          if (top !== null && height !== null && parent !== null) {
-            // cook up a div (if necessary) and position it 
-            let div = window.document.getElementById("code-annotation-line-highlight");
-            if (div === null) {
-              div = window.document.createElement("div");
-              div.setAttribute("id", "code-annotation-line-highlight");
-              div.style.position = 'absolute';
-              parent.appendChild(div);
-            }
-            div.style.top = top - 2 + "px";
-            div.style.height = height + 4 + "px";
-            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
-            if (gutterDiv === null) {
-              gutterDiv = window.document.createElement("div");
-              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
-              gutterDiv.style.position = 'absolute';
-              const codeCell = window.document.getElementById(targetCell);
-              const gutter = codeCell.querySelector('.code-annotation-gutter');
-              gutter.appendChild(gutterDiv);
-            }
-            gutterDiv.style.top = top - 2 + "px";
-            gutterDiv.style.height = height + 4 + "px";
-          }
-          selectedAnnoteEl = annoteEl;
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
         }
-      };
-      const unselectCodeLines = () => {
-        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
-        elementsIds.forEach((elId) => {
-          const div = window.document.getElementById(elId);
-          if (div) {
-            div.remove();
-          }
-        });
-        selectedAnnoteEl = undefined;
-      };
-      // Attach click handler to the DT
-      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
-      for (const annoteDlNode of annoteDls) {
-        annoteDlNode.addEventListener('click', (event) => {
-          const clickedEl = event.target;
-          if (clickedEl !== selectedAnnoteEl) {
-            unselectCodeLines();
-            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
-            if (activeEl) {
-              activeEl.classList.remove('code-annotation-active');
-            }
-            selectCodeLines(clickedEl);
-            clickedEl.classList.add('code-annotation-active');
-          } else {
-            // Unselect the line
-            unselectCodeLines();
-            clickedEl.classList.remove('code-annotation-active');
-          }
-        });
       }
-  const findCites = (el) => {
-    const parentEl = el.parentElement;
-    if (parentEl) {
-      const cites = parentEl.dataset.cites;
-      if (cites) {
-        return {
-          el,
-          cites: cites.split(' ')
-        };
-      } else {
-        return findCites(el.parentElement)
-      }
-    } else {
-      return undefined;
+      return false;
     }
-  };
-  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
-  for (var i=0; i<bibliorefs.length; i++) {
-    const ref = bibliorefs[i];
-    const citeInfo = findCites(ref);
-    if (citeInfo) {
-      tippyHover(citeInfo.el, function() {
-        var popup = window.document.createElement('div');
-        citeInfo.cites.forEach(function(cite) {
-          var citeDiv = window.document.createElement('div');
-          citeDiv.classList.add('hanging-indent');
-          citeDiv.classList.add('csl-entry');
-          var biblioDiv = window.document.getElementById('ref-' + cite);
-          if (biblioDiv) {
-            citeDiv.innerHTML = biblioDiv.innerHTML;
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+        const codeEl = trigger.previousElementSibling.cloneNode(true);
+        for (const childEl of codeEl.children) {
+          if (isCodeAnnotation(childEl)) {
+            childEl.remove();
           }
-          popup.appendChild(citeDiv);
-        });
-        return popup.innerHTML;
+        }
+        return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/FAO-EOSTAT\.github\.io\/UN-Handbook\/");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
       });
     }
-  }
-});
-</script><nav class="page-navigation"><div class="nav-page nav-page-previous">
-      <a href="./cy_indonesia.html" class="pagination-link">
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script><nav class="page-navigation"><div class="nav-page nav-page-previous">
+      <a href="./cy_indonesia.html" class="pagination-link" aria-label="Mapping Crop Phenology in Indonesia">
         <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Mapping Crop Phenology in Indonesia</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./cy_poland.html" class="pagination-link">
+      <a href="./cy_poland.html" class="pagination-link" aria-label="Yield Forecasting in Poland">
         <span class="nav-page-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Yield Forecasting in Poland</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
 </div> <!-- /content -->
 <footer class="footer"><div class="nav-footer">
-    <div class="nav-footer-left">Edited by Gilberto Camara, Lorenzo de Simone and Ronald Jansen.</div>   
+    <div class="nav-footer-left">
+<p>Edited by Gilberto Camara, Lorenzo de Simone and Ronald Jansen.</p>
+</div>   
     <div class="nav-footer-center">
       &nbsp;
-    </div>
-    <div class="nav-footer-right">This book was built with <a href="https://quarto.org/">Quarto</a>.</div>
+    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/FAO-EOSTAT/UN-Handbook/edit/quarto/cy_colombia.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/FAO-EOSTAT/UN-Handbook/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
+    <div class="nav-footer-right">
+<p>This book was built with <a href="https://quarto.org/">Quarto</a>.</p>
+</div>
   </div>
 </footer>
 

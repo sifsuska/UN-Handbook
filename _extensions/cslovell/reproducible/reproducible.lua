@@ -26,6 +26,7 @@ local function url_encode(value)
     return string.format("%%%02X", string.byte(c))
   end)
 end
+
 -- Encode values for Onyxia URL parameters
 -- Numbers/booleans pass as-is, strings are URL-encoded and wrapped in «»
 local function encode_helm_value(value)
@@ -115,7 +116,6 @@ local function build_onyxia_url(meta, config, validated_tier)
   local base_url = get_meta_string(config.onyxia, "base-url", "https://datalab.officialstatistics.org")
   local catalog = get_meta_string(config.onyxia, "catalog", "capacity")
   local chart = get_meta_string(config.onyxia, "chart", "eostat-rstudio")
-
   local auto_launch = config.onyxia["auto-launch"]
   if auto_launch == nil then auto_launch = true end
 

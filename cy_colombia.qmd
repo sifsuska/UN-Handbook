@@ -184,7 +184,6 @@ timeline <- readRDS("./etc/dprvi_timeline.rds")
 timeline
 ```
 
-
 @fig-dprvi-cube shows an RGB composite of the last three acquisitions, illustrating temporal variation in DpRVI across rice areas. This view helps identify growth patterns and spatial heterogeneity in vegetation conditions.
 
 ```{r}
@@ -506,11 +505,11 @@ set.seed(123)
 # Parameters:
 # - samples: cleaned training samples from SOM evaluation
 # - ml_method: Random Forest algorithm with 500 trees
-probs_cube <- sits_train(samples = new_samples,
+rfor_model <- sits_train(samples = new_samples,
                          ml_method = sits_rfor(num_trees = 500))
 
 # Plot the feature importance from the trained Random Forest model
-plot(probs_cube)
+plot(rfor_model)
 ```
 
 ```{r}
@@ -877,7 +876,7 @@ if (!dir.exists(output_dir)) {
 
 rf_classify <- sits_classify(
   data = cube_dprvi,
-  ml_model = probs_cube,
+  ml_model = rfor_model,
   output_dir = output_dir,
   version = "rf-raster",
   multicores = 4,
