@@ -167,7 +167,7 @@ div.csl-indent {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./th_lucc.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Land Cover and Crop Classification Schemas</span></span></a>
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Land Cover and Crop Classification Schemas for Agricultural Statistics</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -490,8 +490,8 @@ div.csl-indent {
 <p>In 2025 the experience gained after several field experiments culminated in the publishing of a first in-situ quality framework for assessing the compatibility of field data collected through Surveys and Census operations with EO applications <span class="citation" data-cites="DeSimone2025"><a href="#ref-DeSimone2025" role="doc-biblioref">[1]</a></span>.</p>
 <p>The framework includes two pillars:</p>
 <ul>
-<li><p>Survey Design Assessment (<a href="#tbl-senegal-1">Table&nbsp;<span class="quarto-unresolved-ref">tbl-senegal-1</span></a>): Evaluates the structural compatibility of sampling protocols with EO needs (e.g., crop observability, georeferencing precision, and metadata completeness).</p></li>
-<li><p>EO-Based Post-Hoc Assessment (<a href="#tbl-senegal-2">Table&nbsp;<span class="quarto-unresolved-ref">tbl-senegal-2</span></a>): Applies satellite-derived analytics (e.g., Normalized Difference Vegetation Index time series clustering, visual cross-checks) to validate the internal consistency and label quality of field samples.</p></li>
+<li><p>Survey Design Assessment (<a href="#tbl-senegal-1">Table&nbsp;<span>10.1</span></a>): Evaluates the structural compatibility of sampling protocols with EO needs (e.g., crop observability, georeferencing precision, and metadata completeness).</p></li>
+<li><p>EO-Based Post-Hoc Assessment (<a href="#tbl-senegal-2">Table&nbsp;<span>10.2</span></a>): Applies satellite-derived analytics (e.g., Normalized Difference Vegetation Index time series clustering, visual cross-checks) to validate the internal consistency and label quality of field samples.</p></li>
 </ul>
 <p>While the framework does not assign numerical scores, it identifies key design gaps and recommends corrective actions. A dataset is considered unfit if significant gaps in either pillar remain unresolved.</p>
 <div class="cell">
@@ -578,7 +578,7 @@ div.csl-indent {
 <span class="header-section-number">10.3</span> Crop mapping based on Annual Agricultural Survey</h2>
 <section id="annual-agricultural-survey-2018" class="level3" data-number="10.3.1"><h3 data-number="10.3.1" class="anchored" data-anchor-id="annual-agricultural-survey-2018">
 <span class="header-section-number">10.3.1</span> Annual Agricultural Survey 2018</h3>
-<p>The Annual Agricultural Survey (AAS) database from 2018 was shared by DAPSA as a baseline dataset to evaluate its fitness for EO-based crop mapping using FAO’s in-situ quality framework. The AAS database included 16,861 records corresponding to individual parcels cultivated by approximately 4,693 households surveyed across the country. In each holding, farmers are interviewed during the main cropping season and GPS measurements are done in a selection of fields, which are described in terms of crop type and crop practices (<a href="#fig-senegal-1">Figure&nbsp;<span class="quarto-unresolved-ref">fig-senegal-1</span></a>).</p>
+<p>The Annual Agricultural Survey (AAS) database from 2018 was shared by DAPSA as a baseline dataset to evaluate its fitness for EO-based crop mapping using FAO’s in-situ quality framework. The AAS database included 16,861 records corresponding to individual parcels cultivated by approximately 4,693 households surveyed across the country. In each holding, farmers are interviewed during the main cropping season and GPS measurements are done in a selection of fields, which are described in terms of crop type and crop practices (<a href="#fig-senegal-1">Figure&nbsp;<span>10.1</span></a>).</p>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <div id="fig-senegal-1" class="quarto-figure quarto-figure-center anchored">
@@ -587,7 +587,7 @@ div.csl-indent {
 </div>
 </div>
 </div>
-<p>Parcels’ area is also measured with GPS and this measured area is then reported manually in the survey questionnaire available on the tablet. Unfortunately, the GPS traces are not systematically archived – only a subset of them are kept for quality control by the supervision team at DAPSA. A subset of these traces, mainly located between Touba and Thiès, was also shared by DAPSA (<a href="#fig-senegal-2">Figure&nbsp;<span class="quarto-unresolved-ref">fig-senegal-2</span></a>).</p>
+<p>Parcels’ area is also measured with GPS and this measured area is then reported manually in the survey questionnaire available on the tablet. Unfortunately, the GPS traces are not systematically archived – only a subset of them are kept for quality control by the supervision team at DAPSA. A subset of these traces, mainly located between Touba and Thiès, was also shared by DAPSA (<a href="#fig-senegal-2">Figure&nbsp;<span>10.2</span></a>).</p>
 <div id="fig-senegal-2" class="cell quarto-layout-panel">
 <figure class="figure"><div class="quarto-layout-row quarto-layout-valign-top">
 <div class="cell-output-display quarto-layout-cell quarto-layout-cell-subref" style="flex-basis: 50.0%;justify-content: center;">
@@ -610,7 +610,7 @@ div.csl-indent {
 </section><section id="quality-control-of-aas-data" class="level3" data-number="10.3.2"><h3 data-number="10.3.2" class="anchored" data-anchor-id="quality-control-of-aas-data">
 <span class="header-section-number">10.3.2</span> Quality Control of AAS Data</h3>
 <p>The quality of the 16,861 records as GPS points inside the AAS database was assessed through multiple stages.</p>
-<p>First, all points located too close to roads and buildings were removed and points located less than 20 meters apart but associated with different crops are removed. The second stage of the quality control addressed the important challenge of working with GPS points (and not polygons), i.e.&nbsp;checking if the point is located in the middle of the parcel. For the sake of illustration, <a href="#fig-senegal-3">Figure&nbsp;<span class="quarto-unresolved-ref">fig-senegal-3</span></a> shows two situations where (i) point was taken at the middle of the parcels, thus making the parcels easily identifiable (left) and (ii) point was taken on the path along the parcels which makes almost impossible to know which parcel it refers to (right).</p>
+<p>First, all points located too close to roads and buildings were removed and points located less than 20 meters apart but associated with different crops are removed. The second stage of the quality control addressed the important challenge of working with GPS points (and not polygons), i.e.&nbsp;checking if the point is located in the middle of the parcel. For the sake of illustration, <a href="#fig-senegal-3">Figure&nbsp;<span>10.3</span></a> shows two situations where (i) point was taken at the middle of the parcels, thus making the parcels easily identifiable (left) and (ii) point was taken on the path along the parcels which makes almost impossible to know which parcel it refers to (right).</p>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <div id="fig-senegal-3" class="quarto-figure quarto-figure-center anchored">
@@ -624,7 +624,7 @@ div.csl-indent {
 <p>At this stage, 12,056 polygons out of the 16,861 initial records remain.</p>
 </section><section id="quality-control-of-gps-traces" class="level3" data-number="10.3.3"><h3 data-number="10.3.3" class="anchored" data-anchor-id="quality-control-of-gps-traces">
 <span class="header-section-number">10.3.3</span> Quality Control of GPS Traces</h3>
-<p>The raw GPS traces were converted into usable polygon shapefiles. This process involved removing irrelevant data, correcting naming inconsistencies, and cleaning line artifacts caused by enumerator movement between fields (<a href="#fig-senegal-4">Figure&nbsp;<span class="quarto-unresolved-ref">fig-senegal-4</span></a>).</p>
+<p>The raw GPS traces were converted into usable polygon shapefiles. This process involved removing irrelevant data, correcting naming inconsistencies, and cleaning line artifacts caused by enumerator movement between fields (<a href="#fig-senegal-4">Figure&nbsp;<span>10.4</span></a>).</p>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <div id="fig-senegal-4" class="quarto-figure quarto-figure-center anchored">
@@ -636,7 +636,7 @@ div.csl-indent {
 <p>The GPS traces needed also to be quality controlled and filtered:</p>
 <ul>
 <li><p>Traces unrelated to valid records in the AAS database (e.g., invalid file name) were discarded</p></li>
-<li><p>Traces including non-boundary movements (e.g., travel paths) were removed (<a href="#fig-senegal-5">Figure&nbsp;<span class="quarto-unresolved-ref">fig-senegal-5</span></a>)</p></li>
+<li><p>Traces including non-boundary movements (e.g., travel paths) were removed (<a href="#fig-senegal-5">Figure&nbsp;<span>10.5</span></a>)</p></li>
 <li><p>Traces with fewer than 3 points were excluded as they could not form polygon</p></li>
 </ul>
 <div class="cell" data-layout-align="center">
@@ -647,7 +647,7 @@ div.csl-indent {
 </div>
 </div>
 </div>
-<p>Finally, small polygons (the ones that disappeared after a 10-m inside buffer) were removed. Only 1,593 high-quality parcel boundaries remained, concentrated in central and western Senegal and representing 2089 hectares shared unequally into 22 crop type classes (<a href="#fig-senegal-6">Figure&nbsp;<span class="quarto-unresolved-ref">fig-senegal-6</span></a>).</p>
+<p>Finally, small polygons (the ones that disappeared after a 10-m inside buffer) were removed. Only 1,593 high-quality parcel boundaries remained, concentrated in central and western Senegal and representing 2089 hectares shared unequally into 22 crop type classes (<a href="#fig-senegal-6">Figure&nbsp;<span>10.6</span></a>).</p>
 <div id="fig-senegal-6" class="cell quarto-layout-panel">
 <figure class="figure"><div class="quarto-layout-row quarto-layout-valign-top">
 <div class="cell-output-display quarto-layout-cell quarto-layout-cell-subref" style="flex-basis: 100.0%;justify-content: center;">
@@ -675,7 +675,7 @@ div.csl-indent {
 <p>The classification was run using both the points and polygons dataset, based on GPS traces. The class imbalance in the dataset was addressed by limiting the number of groundnut samples to a maximum of 400 hectares and of rice samples to 100 hectares.</p>
 <p>The amended dataset enabled the generation of a national 10-meter spatial resolution binary cropland / non-cropland mask, with an overall accuracy of 98% and F-Score values of 76% and of 99% for the cropland and non-cropland classes, respectively. A visual inspection of the map revealed that the classification performed relatively well: the discrimination was good between cropland and the natural shrub and tree vegetation, the urban areas and the bare soil. The discrimination with the grassland was however of lower quality and the irrigated perimeters were not well identified as cropland, due to their poor representation in the in-situ data.</p>
 <p>A national crop type map was also generated, focusing only on the main crops for which enough samples were available (groundnut, maize, cassava, millet, cowpea, rice and sorghum). The overall accuracy was 78%. The patterns of the fields were generally well identified, showing that the Sentinel-2 10-meter spatial resolution has the capacity of mapping crop types at field-level. However, the map was affected by significant confusion between crops.</p>
-<p>A local crop type map was also produced, focusing only on the Sentinel-2 tile where polygons are available, was much more promising, with an overall accuracy increasing to 85% (<a href="#fig-senegal-7">Figure&nbsp;<span class="quarto-unresolved-ref">fig-senegal-7</span></a>). The results showed the added-value of working with polygons instead of points and of relying on many more samples to calibrate the algorithm.</p>
+<p>A local crop type map was also produced, focusing only on the Sentinel-2 tile where polygons are available, was much more promising, with an overall accuracy increasing to 85% (<a href="#fig-senegal-7">Figure&nbsp;<span>10.7</span></a>). The results showed the added-value of working with polygons instead of points and of relying on many more samples to calibrate the algorithm.</p>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <div id="fig-senegal-7" class="quarto-figure quarto-figure-center anchored">
@@ -701,7 +701,7 @@ div.csl-indent {
 </ul>
 <p>These gaps in AAS–GPS linkage highlight the limitations of relying on manual data entry without real-time synchronization tools.</p>
 <p>A total of 231 plots were investigated in the ODK application, out of the 396 plots inventoried by the AAS. This difference was due to a communication error during data collection: taking measurements with two different tools on all parcels complicated the task for the investigators.</p>
-<p>Taking the GPS traces as reference, the quality of the field boundaries collected with ODK was quite heterogeneous at the beginning of the field campaign (<a href="#fig-senegal-8">Figure&nbsp;<span class="quarto-unresolved-ref">fig-senegal-8</span></a>). This was due to the time required to learn a new tool, and it was gradually resolved over the course of the campaign thanks to the continuous guidance provided by DAPSA and UCLouvain.</p>
+<p>Taking the GPS traces as reference, the quality of the field boundaries collected with ODK was quite heterogeneous at the beginning of the field campaign (<a href="#fig-senegal-8">Figure&nbsp;<span>10.8</span></a>). This was due to the time required to learn a new tool, and it was gradually resolved over the course of the campaign thanks to the continuous guidance provided by DAPSA and UCLouvain.</p>
 <div id="fig-senegal-8" class="quarto-layout-panel">
 <figure class="figure"><div class="quarto-layout-row quarto-layout-valign-top">
 <div class="quarto-layout-cell" style="flex-basis: 47.9%;justify-content: center;">
@@ -730,7 +730,7 @@ div.csl-indent {
 </div>
 </section><section id="comparative-analysis-of-survey-data" class="level3" data-number="10.4.3"><h3 data-number="10.4.3" class="anchored" data-anchor-id="comparative-analysis-of-survey-data">
 <span class="header-section-number">10.4.3</span> Comparative Analysis of Survey Data</h3>
-<p>The data collected in the field by the tablet in manual mode were compared to the GPS data. <a href="#fig-senegal-9">Figure&nbsp;<span class="quarto-unresolved-ref">fig-senegal-9</span></a> relates the regression line of the tablet dataset to the reference line. The value of the slope is 0.99, close to the value of the reference slope. The position of the regression line and the bias of 0.27 indicates that the tablet data generally underestimated the reference data. This bias is confirmed by a visual analysis of the data.</p>
+<p>The data collected in the field by the tablet in manual mode were compared to the GPS data. <a href="#fig-senegal-9">Figure&nbsp;<span>10.9</span></a> relates the regression line of the tablet dataset to the reference line. The value of the slope is 0.99, close to the value of the reference slope. The position of the regression line and the bias of 0.27 indicates that the tablet data generally underestimated the reference data. This bias is confirmed by a visual analysis of the data.</p>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <div id="fig-senegal-9" class="quarto-figure quarto-figure-center anchored">
@@ -745,7 +745,7 @@ div.csl-indent {
 <li>waiting time: the tablet’s GPS takes time to stabilize its position with acceptable accuracy. A shortened waiting time can then lead to an error of up to 30 meters from the position of the investigator;</li>
 <li>recording errors by the tablet: it is possible that the device or application does not record a point correctly or does not record it at all.</li>
 </ul>
-<p>Statistically and visually, the tablet dataset is less accurate than the one recorded with the GPS and has a bias that underestimates the baseline value. The situation is improving when using ODK in automated mode (<a href="#fig-senegal-10">Figure&nbsp;<span class="quarto-unresolved-ref">fig-senegal-10</span></a>), but the comparative analysis did not support the claim that a tablet can replace a GPS for area measurement.</p>
+<p>Statistically and visually, the tablet dataset is less accurate than the one recorded with the GPS and has a bias that underestimates the baseline value. The situation is improving when using ODK in automated mode (<a href="#fig-senegal-10">Figure&nbsp;<span>10.10</span></a>), but the comparative analysis did not support the claim that a tablet can replace a GPS for area measurement.</p>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <div id="fig-senegal-10" class="quarto-figure quarto-figure-center anchored">
@@ -774,7 +774,7 @@ div.csl-indent {
 <p>The system has been tested and demonstrated in various countries around the world, thus addressing a wide diversity of both cropping systems and agricultural data collection protocols. It is available for download on the Sen4Stat website (<a href="https://www.esa-sen4stat.org/">esa-sen4stat.org</a>).</p>
 </section><section id="nioro-crop-type-map-2021" class="level3" data-number="10.5.2"><h3 data-number="10.5.2" class="anchored" data-anchor-id="nioro-crop-type-map-2021">
 <span class="header-section-number">10.5.2</span> Nioro Crop Type Map 2021</h3>
-<p>The crop type map was generated at the end of the season from May 1, 2021, to December 31, 2021, using Sentinel-2 time series. The training dataset used contains the 50 non-crop polygons and the 247 crop polygons obtained after joining and cleaning the ODK and GPS dataset (<a href="#fig-senegal-12">Figure&nbsp;<span class="quarto-unresolved-ref">fig-senegal-12</span></a> – calibration polygons). The distribution of observations is very uneven for the different crops and insufficient for maize.</p>
+<p>The crop type map was generated at the end of the season from May 1, 2021, to December 31, 2021, using Sentinel-2 time series. The training dataset used contains the 50 non-crop polygons and the 247 crop polygons obtained after joining and cleaning the ODK and GPS dataset (<a href="#fig-senegal-12">Figure&nbsp;<span>10.12</span></a> – calibration polygons). The distribution of observations is very uneven for the different crops and insufficient for maize.</p>
 <div id="fig-senegal-12" class="cell quarto-layout-panel">
 <figure class="figure"><div class="quarto-layout-row quarto-layout-valign-top">
 <div class="cell-output-display quarto-layout-cell quarto-layout-cell-subref" style="flex-basis: 100.0%;justify-content: center;">
@@ -795,7 +795,7 @@ div.csl-indent {
 <p></p><figcaption class="figure-caption">Figure&nbsp;10.12: Distribution of in-situ data into a calibration data set and a validation data set</figcaption><p></p>
 </figure>
 </div>
-<p>The obtained crop type map is shown in <a href="#fig-senegal-13">Figure&nbsp;<span class="quarto-unresolved-ref">fig-senegal-13</span></a></p>
+<p>The obtained crop type map is shown in <a href="#fig-senegal-13">Figure&nbsp;<span>10.13</span></a></p>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <div id="fig-senegal-13" class="quarto-figure quarto-figure-center anchored">
@@ -804,7 +804,7 @@ div.csl-indent {
 </div>
 </div>
 </div>
-<p>The confusion matrix (<a href="#fig-senegal-14">Figure&nbsp;<span class="quarto-unresolved-ref">fig-senegal-14</span></a>) indicates an overall accuracy of 97.1% for the cropland mask and 88.2% for the crop type map. F-score values were 98% for cropland and 95% for non-cropland. For specific crops, F-scores reached 95.2% for groundnut, 83.8% for millet, but only 54.8% for maize, which showed substantial omissions. The representation of the three crops in the dataset was highly unbalanced, and the number of samples is clearly too low to allow a proper maize classification.</p>
+<p>The confusion matrix (<a href="#fig-senegal-14">Figure&nbsp;<span>10.14</span></a>) indicates an overall accuracy of 97.1% for the cropland mask and 88.2% for the crop type map. F-score values were 98% for cropland and 95% for non-cropland. For specific crops, F-scores reached 95.2% for groundnut, 83.8% for millet, but only 54.8% for maize, which showed substantial omissions. The representation of the three crops in the dataset was highly unbalanced, and the number of samples is clearly too low to allow a proper maize classification.</p>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <div id="fig-senegal-14" class="quarto-figure quarto-figure-center anchored">
@@ -815,7 +815,7 @@ div.csl-indent {
 </div>
 </section><section id="crop-area-indicator" class="level3" data-number="10.5.3"><h3 data-number="10.5.3" class="anchored" data-anchor-id="crop-area-indicator">
 <span class="header-section-number">10.5.3</span> Crop Area Indicator</h3>
-<p>Crop area statistics were derived from the crop type map to support EO-based agricultural estimations at the municipality level. <a href="#fig-senegal-15">Figure&nbsp;<span class="quarto-unresolved-ref">fig-senegal-15</span></a> (a) shows an estimation of the areas per crop using only the remote sensing data per municipality in the Nioro du Rip department while the bottom illustration gives an estimation of the area cultivated in each municipality by the same remote sensing approach. The surface areas per crop were calculated by counting classified pixels and applying bias correction using the confusion matrix.</p>
+<p>Crop area statistics were derived from the crop type map to support EO-based agricultural estimations at the municipality level. <a href="#fig-senegal-15">Figure&nbsp;<span>10.15</span></a> (a) shows an estimation of the areas per crop using only the remote sensing data per municipality in the Nioro du Rip department while the bottom illustration gives an estimation of the area cultivated in each municipality by the same remote sensing approach. The surface areas per crop were calculated by counting classified pixels and applying bias correction using the confusion matrix.</p>
 <div id="fig-senegal-15" class="cell quarto-layout-panel">
 <figure class="figure"><div class="quarto-layout-row quarto-layout-valign-top">
 <div class="cell-output-display quarto-layout-cell quarto-layout-cell-subref" style="flex-basis: 100.0%;justify-content: center;">
@@ -840,7 +840,7 @@ div.csl-indent {
 <span class="header-section-number">10.5.4</span> Acreage Estimation by Integrating Survey and EO Data</h3>
 <p>Producing statistics by counting those pixels classified as a given crop type does not provide unbiased area estimates. Maps are subject to omission and commission errors, which are linked to the ability of the classification method to distinguish between classes. Regression estimators and calibration estimators have been widely used to correct such biases <span class="citation" data-cites="Gallego1993"><a href="#ref-Gallego1993" role="doc-biblioref">[3]</a></span> <span class="citation" data-cites="Olofsson2014"><a href="#ref-Olofsson2014" role="doc-biblioref">[4]</a></span> <span class="citation" data-cites="Khan2018"><a href="#ref-Khan2018" role="doc-biblioref">[5]</a></span> <span class="citation" data-cites="Tyukavina2025"><a href="#ref-Tyukavina2025" role="doc-biblioref">[6]</a></span>. They are traditional ways to combine accurate, possibly unbiased, information, observed on a sample with less accurate, biased information, known for the whole population or for a larger sample. Said differently, maps are used to improve an estimator that has been computed from a ground survey on a sample in preserving as much as possible the properties of the ground survey estimators (unbiasedness) and reducing the variance <span class="citation" data-cites="Gallego2004"><a href="#ref-Gallego2004" role="doc-biblioref">[7]</a></span>.</p>
 <p>Because the sampling design in Senegal is a list frame, the integration of remote sensing and ground data cannot be done using linear models, but with multinomial logit models. These multinomial models deal with the uncertainties and generate probabilities that a pixel of a given class in the map is actually this given crop on the ground. Despite the fact that the map was not perfect, this model successfully demonstrates the added-value of EO data for agricultural statistics estimation.</p>
-<p><a href="#fig-senegal-16">Figure&nbsp;<span class="quarto-unresolved-ref">fig-senegal-16</span></a> presents the crop acreage estimates in the department of Nioro, for the two main crops which are millet and groundnut and shows the efficiency of using the crop type map to support this estimation of crop acreages.</p>
+<p><a href="#fig-senegal-16">Figure&nbsp;<span>10.16</span></a> presents the crop acreage estimates in the department of Nioro, for the two main crops which are millet and groundnut and shows the efficiency of using the crop type map to support this estimation of crop acreages.</p>
 <div id="fig-senegal-16" class="cell quarto-layout-panel">
 <figure class="figure"><div class="quarto-layout-row quarto-layout-valign-top">
 <div class="cell-output-display quarto-layout-cell quarto-layout-cell-subref" style="flex-basis: 100.0%;justify-content: center;">
@@ -861,7 +861,7 @@ div.csl-indent {
 <p></p><figcaption class="figure-caption">Figure&nbsp;10.16: Crop acreage estimates using EO and ground data in Nioro (a) and efficiency of using the crop type map for crop acreage estimation (b)</figcaption><p></p>
 </figure>
 </div>
-<p>The use of a wall-to-wall map also allows to make acreage estimates available at the “arrondissement” levels with a reasonable error (expressed as the coefficient of variation), as shown in <a href="#fig-senegal-17">Figure&nbsp;<span class="quarto-unresolved-ref">fig-senegal-17</span></a>.</p>
+<p>The use of a wall-to-wall map also allows to make acreage estimates available at the “arrondissement” levels with a reasonable error (expressed as the coefficient of variation), as shown in <a href="#fig-senegal-17">Figure&nbsp;<span>10.17</span></a>.</p>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <div id="fig-senegal-17" class="quarto-figure quarto-figure-center anchored">
