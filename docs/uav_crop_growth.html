@@ -2,10 +2,10 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.7.33">
+<meta name="generator" content="quarto-1.3.361">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 <meta name="author" content="Gilberto Camara, Lorenzo de Simone, Ronald Jansen">
-<title>29&nbsp; Automated Monitoring of Crop Growth Index using UAV – UN Handbook on Remote Sensing for Agricultural Statistics</title>
+<title>UN Handbook on Remote Sensing for Agricultural Statistics - 29&nbsp; Automated Monitoring of Crop Growth Index using UAV</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -22,7 +22,6 @@ ul.task-list li input[type="checkbox"] {
 div.csl-bib-body { }
 div.csl-entry {
   clear: both;
-  margin-bottom: 0em;
 }
 .hanging-indent div.csl-entry {
   margin-left:2em;
@@ -49,28 +48,21 @@ div.csl-indent {
 <meta name="quarto:offset" content="./">
 <link href="./uav_agriculture_cook_islands.html" rel="next">
 <link href="./uav_wheat_growth.html" rel="prev">
-<script src="site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-ea385d0e468b0dd5ea5bf0780b1290d9.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-931bd9de4a2e97c797357f31cd37fa94.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light"><script id="quarto-search-options" type="application/json">{
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light"><script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
   "collapse-after": 3,
   "panel-placement": "start",
   "type": "textbox",
-  "limit": 50,
-  "keyboard-shortcut": [
-    "f",
-    "/",
-    "s"
-  ],
-  "show-item-context": false,
+  "limit": 20,
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -79,30 +71,29 @@ div.csl-indent {
     "search-more-match-text": "more match in this document",
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
-    "search-text-placeholder": "",
     "search-detached-cancel-button-title": "Cancel",
     "search-submit-button-title": "Submit",
     "search-label": "Search"
   }
 }</script>
 </head>
-<body class="nav-sidebar floating quarto-light">
+<body class="nav-sidebar floating">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top"><nav class="quarto-secondary-nav"><div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./uav_agriculture.html">UAV applications in agricultural statistics</a></li><li class="breadcrumb-item"><a href="./uav_crop_growth.html"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">Automated Monitoring of Crop Growth Index using UAV</span></a></li></ol></nav>
-        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
-        </a>
-      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./uav_agriculture.html">UAV applications in agricultural statistics</a></li><li class="breadcrumb-item"><a href="./uav_crop_growth.html"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">Automated Monitoring of Crop Growth Index using UAV</span></a></li></ol></nav>
+      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+      </a>
+      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
       </button>
     </div>
   </nav></header><!-- content --><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto"><div class="pt-lg-2 mt-2 text-left sidebar-header">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto"><div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="./">UN Handbook on Remote Sensing for Agricultural Statistics</a> 
         <div class="sidebar-tools-main">
@@ -150,7 +141,7 @@ div.csl-indent {
       <div class="sidebar-item-container"> 
             <a href="./theory.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Foundations</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -227,7 +218,7 @@ div.csl-indent {
       <div class="sidebar-item-container"> 
             <a href="./crop_type_mapping.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Use Cases in Crop Type Mapping</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -274,7 +265,7 @@ div.csl-indent {
       <div class="sidebar-item-container"> 
             <a href="./crop_yield_estimation.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Crop Yield Estimation</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -315,7 +306,7 @@ div.csl-indent {
       <div class="sidebar-item-container"> 
             <a href="./crop_statistics.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Extraction of Crop Statistics from Crop Type Maps</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -350,7 +341,7 @@ div.csl-indent {
       <div class="sidebar-item-container"> 
             <a href="./uav_agriculture.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">UAV applications in agricultural statistics</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -385,7 +376,7 @@ div.csl-indent {
       <div class="sidebar-item-container"> 
             <a href="./disaster_response.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Remote Sensing for Agricultural Disaster Response</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -402,7 +393,7 @@ div.csl-indent {
       <div class="sidebar-item-container"> 
             <a href="./additional.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Additional Topics</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -423,7 +414,7 @@ div.csl-indent {
 </li>
     </ul>
 </div>
-</nav><div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+</nav><div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">Table of contents</h2>
@@ -437,7 +428,7 @@ div.csl-indent {
   <li><a href="#conclusions" id="toc-conclusions" class="nav-link" data-scroll-target="#conclusions"><span class="header-section-number">29.6</span> Conclusions</a></li>
   <li><a href="#code-and-data-availability" id="toc-code-and-data-availability" class="nav-link" data-scroll-target="#code-and-data-availability">Code and data availability</a></li>
   <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
-  </ul><div class="toc-actions"><ul><li><a href="https://github.com/FAO-EOSTAT/UN-Handbook/edit/quarto/uav_crop_growth.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/FAO-EOSTAT/UN-Handbook/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
+  </ul><div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/FAO-EOSTAT/UN-Handbook/edit/quarto/uav_crop_growth.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/FAO-EOSTAT/UN-Handbook/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content"><div class="reproducible-local-notice full" style="border-left: 3px solid #6c757d; background: #fafafa; padding: 12px 16px; margin: 20px 0 30px 0; font-size: 0.95rem; color: rgb(44, 50, 63);">
@@ -455,7 +446,7 @@ div.csl-indent {
         </div>
     
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./uav_agriculture.html">UAV applications in agricultural statistics</a></li><li class="breadcrumb-item"><a href="./uav_crop_growth.html"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">Automated Monitoring of Crop Growth Index using UAV</span></a></li></ol></nav><div class="quarto-title">
+<header id="title-block-header" class="quarto-title-block default"><div class="quarto-title">
 <h1 class="title">
 <span class="chapter-number">29</span>&nbsp; <span class="chapter-title">Automated Monitoring of Crop Growth Index using UAV</span>
 </h1>
@@ -477,7 +468,6 @@ div.csl-indent {
   </div>
   
 
-
 </header><section id="introduction" class="level2" data-number="29.1"><h2 data-number="29.1" class="anchored" data-anchor-id="introduction">
 <span class="header-section-number">29.1</span> Introduction</h2>
 <p>Crop growth monitoring is a fundamental component of modern precision agriculture and plays a crucial role in ensuring food security and optimizing agricultural production. Unmanned aerial vehicle (UAV) imaging has become a key technology for efficient and non-destructive monitoring of crop growth <span class="citation" data-cites="Colomina2014"><a href="#ref-Colomina2014" role="doc-biblioref">[1]</a></span>. This section introduces a method for automatically monitoring crop growth using UAV-based multispectral imagery, named Crop Growth Index (CGI). The CGI integrates multispectral vegetation indices through normalization and principal component analysis (PCA), enabling effective fusion of multi-band information to improve the accuracy and stability of growth monitoring <span class="citation" data-cites="Hirosawa1996"><a href="#ref-Hirosawa1996" role="doc-biblioref">[2]</a></span>. The method emphasizes automated data processing and intuitive visual expression of results, supporting rapid generation of continuous CGI values and growth grade maps, which are valuable for field-level decision-making.</p>
@@ -496,24 +486,18 @@ div.csl-indent {
 <p>The CGI algorithm uses UAV multispectral imagery as input and enables quantitative monitoring of crop growth through a series of automated processing steps. The technical workflow includes: (1) selection and calculation of vegetation indices; (2) masks generation and indices normalization; (3) extraction of composite indicators based on principal component analysis (PCA); (4) adjustment of principal component directions to ensure positive correlation with growth status; (5) mapping of continuous CGI values to the 0–1 range and classification; and (6) output of standardized result products. The following sections elaborate these six steps in detail.</p>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
-<div id="fig-1-uav-crops" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
-<figure class="quarto-float quarto-float-fig figure"><div aria-describedby="fig-1-uav-crops-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="./images/uav_crop_growth/image1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:90.0%">
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-1-uav-crops-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;29.1: Technical flowchart of the methods used in the work.
-</figcaption></figure>
+<div id="fig-1-uav-crops" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure"><p><img src="./images/uav_crop_growth/image1.png" class="img-fluid figure-img" style="width:90.0%"></p>
+<figcaption class="figure-caption">Figure&nbsp;29.1: Technical flowchart of the methods used in the work.</figcaption></figure>
 </div>
 </div>
 </div>
 <p>The input consists of multispectral orthophotos that have undergone radiometric, atmospheric, and geometric correction, supporting either four-band (G, R, RE, NIR) or five-band (B, G, R, RE, NIR) structures. The code first determines the number of bands and unpacks them according to the prescribed order. On a per-pixel basis, five vegetation indices are then calculated: Green Normalized Difference Vegetation Index (GNDVI), Leaf Chlorophyll Index (LCI), Normalized Difference Red Edge Index (NDRE), Normalized Difference Vegetation Index (NDVI), and Optimized Soil-Adjusted Vegetation Index (OSAVI).</p>
 <p>These indices have been extensively validated in previous studies as being highly sensitive to critical physiological parameters such as chlorophyll content, photosynthetic capacity, and nitrogen status (Huete et al., 2002), making them effective indicators of crop growth and thus serving as the core inputs to CGI. To prevent division-by-zero errors, a small constant (ε = 1e − 10) is added to all denominators; for example, OSAVI is implemented as 1.16 × (NIR − R) / (NIR + R + 0.16 + ε).</p>
 <p>Once calculated, the five indices are stacked into an array of shape (5, H, W) for subsequent masking and normalization. If index values fall outside the reasonable range (approximately −1 to 1), users should first verify whether the band order is consistent with the prescribed sequence, followed by checking the upstream correction procedures.</p>
-<div id="tbl-1-uav-crop" class="quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-tbl figure"><figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-1-uav-crop-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Table&nbsp;29.1: Vegetation indices and their significance
-</figcaption><div aria-describedby="tbl-1-uav-crop-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<table class="caption-top table">
+<div id="tbl-1-uav-crop" class="anchored">
+<table class="table">
+<caption>Table&nbsp;29.1: Vegetation indices and their significance</caption>
 <colgroup>
 <col style="width: 26%">
 <col style="width: 21%">
@@ -553,102 +537,67 @@ Table&nbsp;29.1: Vegetation indices and their significance
 </tbody>
 </table>
 </div>
-</figure>
-</div>
 <p>A binary mask (valid_mask) is generated using NDVI &gt; 0.3 as the threshold to exclude non-vegetation areas such as bare soil, shadows, and water <span class="citation" data-cites="Ahmed2023"><a href="#ref-Ahmed2023" role="doc-biblioref">[10]</a></span>. The threshold can be slightly adjusted depending on crop type and growth stage but must remain consistent within a single batch to ensure comparability. The five vegetation indices are then reshaped into a two-dimensional matrix of size (N pixels, 5 indices). Normalization is applied only to pixels within the mask: each column (i.e., each index) is scaled to a 0–1 range using MinMaxScaler, based on the minimum and maximum values of valid pixels. This “mask first, normalize later” order is consistent with the code logic and prevents non-vegetation pixels from skewing the scale. The normalized results are not written to disk but passed directly to the PCA step.</p>
 <p>The normalized matrix (N × 5) is input into PCA with n_components = 1 to extract the first principal component (PC1). The code applies PCA directly to the valid-pixel matrix and produces a single column <em>cgi_valid</em> (length N). At the same time, the explained variance ratio of PC1 is recorded to quantify its contribution to the overall variation, with the terminal printing “Explained variance of PC1” as a quality control check. Since all indices have been standardized (0–1) prior to PCA, PC1 captures the integrated pattern of relative variation among indices, reducing the risk of bias from any single index. At this stage, outputs remain in memory.</p>
 <p>Because PCA component signs are not fixed, alignment with biological meaning is required. The code uses the normalized NDVI values as reference and calculates the Pearson correlation coefficient (PCC). If PCC &lt; 0, the sign of <em>cgi_valid</em> is reversed to ensure that CGI is positively correlated with NDVI (and thus crop vigor). After direction correction, the one-dimensional array is mapped back into the full two-dimensional grid, with invalid pixels filled as NoData = −9999 and valid pixels retaining <em>cgi_valid</em> values. For visualization, <em>cgi_valid</em> is further normalized to [0,1] based on valid pixels, generating <em>cgi_valid_norm</em>, which is written back into the CGI raster for display.</p>
 </section><section id="results" class="level2" data-number="29.4"><h2 data-number="29.4" class="anchored" data-anchor-id="results">
 <span class="header-section-number">29.4</span> Results</h2>
-<p><a href="#fig-2-uav-crops" class="quarto-xref">Figure&nbsp;<span>29.2</span></a> shows the results for wheat in Xinji, Hebei, during the grain-filling stage in early May. The four-band imagery acquired by the DJI Mavic 3 Multispectral UAV was processed and used for vegetation index computation. The resulting CGI effectively identified high-growth areas within the wheat canopy. Regions with better crop performance were mainly located in the central, western, and southern parts of the fields, where CGI values approached 0.8, indicating vigorous plant growth with high chlorophyll content and adequate nitrogen supply. In contrast, relatively low CGI values appeared in the eastern-central part of the field under low water and nitrogen treatments, reflecting localized growth limitations. The spatial distribution of CGI closely matched field-sampled data on chlorophyll content and leaf area index, confirming the reliability of the proposed method.</p>
-<div id="fig-2-uav-crops" class="quarto-layout-panel">
-<figure class="quarto-float quarto-float-fig figure"><div aria-describedby="fig-2-uav-crops-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<div class="quarto-layout-row">
-<div class="cell-output-display quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="fig-2-uav-crops" style="flex-basis: 50.0%;justify-content: center;">
-<div id="fig-2-uav-crops-1" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
-<figure class="quarto-float quarto-subfloat-fig figure"><div aria-describedby="fig-2-uav-crops-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="./images/uav_crop_growth/image2.png" class="img-fluid quarto-figure quarto-figure-center figure-img" data-ref-parent="fig-2-uav-crops" width="304">
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-2-uav-crops-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-(a) CGI values
-</figcaption></figure>
+<p><a href="#fig-2-uav-crops">Figure&nbsp;<span>29.2</span></a> shows the results for wheat in Xinji, Hebei, during the grain-filling stage in early May. The four-band imagery acquired by the DJI Mavic 3 Multispectral UAV was processed and used for vegetation index computation. The resulting CGI effectively identified high-growth areas within the wheat canopy. Regions with better crop performance were mainly located in the central, western, and southern parts of the fields, where CGI values approached 0.8, indicating vigorous plant growth with high chlorophyll content and adequate nitrogen supply. In contrast, relatively low CGI values appeared in the eastern-central part of the field under low water and nitrogen treatments, reflecting localized growth limitations. The spatial distribution of CGI closely matched field-sampled data on chlorophyll content and leaf area index, confirming the reliability of the proposed method.</p>
+<div id="fig-2-uav-crops" class="cell quarto-layout-panel">
+<figure class="figure"><div class="quarto-layout-row quarto-layout-valign-top">
+<div class="cell-output-display quarto-layout-cell quarto-layout-cell-subref" style="flex-basis: 50.0%;justify-content: center;">
+<div id="fig-2-uav-crops-1" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure"><p><img src="./images/uav_crop_growth/image2.png" class="img-fluid figure-img" data-ref-parent="fig-2-uav-crops" width="304"></p>
+<figcaption class="figure-caption">(a) CGI values</figcaption></figure>
 </div>
 </div>
-<div class="cell-output-display quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="fig-2-uav-crops" style="flex-basis: 50.0%;justify-content: center;">
-<div id="fig-2-uav-crops-2" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
-<figure class="quarto-float quarto-subfloat-fig figure"><div aria-describedby="fig-2-uav-crops-2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="./images/uav_crop_growth/image3.png" class="img-fluid quarto-figure quarto-figure-center figure-img" data-ref-parent="fig-2-uav-crops" width="304">
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-2-uav-crops-2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-(b) vigour based on CGI
-</figcaption></figure>
+<div class="cell-output-display quarto-layout-cell quarto-layout-cell-subref" style="flex-basis: 50.0%;justify-content: center;">
+<div id="fig-2-uav-crops-2" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure"><p><img src="./images/uav_crop_growth/image3.png" class="img-fluid figure-img" data-ref-parent="fig-2-uav-crops" width="304"></p>
+<figcaption class="figure-caption">(b) vigour based on CGI</figcaption></figure>
 </div>
 </div>
 </div>
+<p></p><figcaption class="figure-caption">Figure&nbsp;29.2: Spatial distribution of wheat growth in Xinji, Hebei, during the grain-filling stage in early May.</figcaption><p></p>
+</figure>
 </div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-2-uav-crops-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;29.2: Spatial distribution of wheat growth in Xinji, Hebei, during the grain-filling stage in early May.
-</figcaption></figure>
-</div>
-<p><a href="#fig-3-uav-crops" class="quarto-xref">Figure&nbsp;<span>29.3</span></a> shows the spatial distribution of maize in Xinxiang, Henan, during the grain-filling stage in late August. During the critical grain-filling and maturation stage of the maize crop, the CGI imagery revealed notable intra-field variability in growth conditions. High CGI values, approaching 0.6, were concentrated in the southeastern portion of the field, indicating well-developed plants with strong photosynthetic activity. In contrast, the south-central area exhibited lower CGI values around 0.3, which is attributed to soil compaction and localized water stress. The CGI imagery was further divided the growth status into five levels, visually illustrating the spatial distribution of growth conditions and providing a practical reference for implementing differentiated fertilization and irrigation strategies.</p>
-<div id="fig-3-uav-crops" class="quarto-layout-panel">
-<figure class="quarto-float quarto-float-fig figure"><div aria-describedby="fig-3-uav-crops-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<div class="quarto-layout-row">
-<div class="cell-output-display quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="fig-3-uav-crops" style="flex-basis: 50.0%;justify-content: center;">
-<div id="fig-3-uav-crops-1" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
-<figure class="quarto-float quarto-subfloat-fig figure"><div aria-describedby="fig-3-uav-crops-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="./images/uav_crop_growth/image4.png" class="img-fluid quarto-figure quarto-figure-center figure-img" data-ref-parent="fig-3-uav-crops" width="304">
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-3-uav-crops-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-(a) CGI values
-</figcaption></figure>
+<p><a href="#fig-3-uav-crops">Figure&nbsp;<span>29.3</span></a> shows the spatial distribution of maize in Xinxiang, Henan, during the grain-filling stage in late August. During the critical grain-filling and maturation stage of the maize crop, the CGI imagery revealed notable intra-field variability in growth conditions. High CGI values, approaching 0.6, were concentrated in the southeastern portion of the field, indicating well-developed plants with strong photosynthetic activity. In contrast, the south-central area exhibited lower CGI values around 0.3, which is attributed to soil compaction and localized water stress. The CGI imagery was further divided the growth status into five levels, visually illustrating the spatial distribution of growth conditions and providing a practical reference for implementing differentiated fertilization and irrigation strategies.</p>
+<div id="fig-3-uav-crops" class="cell quarto-layout-panel">
+<figure class="figure"><div class="quarto-layout-row quarto-layout-valign-top">
+<div class="cell-output-display quarto-layout-cell quarto-layout-cell-subref" style="flex-basis: 50.0%;justify-content: center;">
+<div id="fig-3-uav-crops-1" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure"><p><img src="./images/uav_crop_growth/image4.png" class="img-fluid figure-img" data-ref-parent="fig-3-uav-crops" width="304"></p>
+<figcaption class="figure-caption">(a) CGI values</figcaption></figure>
 </div>
 </div>
-<div class="cell-output-display quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="fig-3-uav-crops" style="flex-basis: 50.0%;justify-content: center;">
-<div id="fig-3-uav-crops-2" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
-<figure class="quarto-float quarto-subfloat-fig figure"><div aria-describedby="fig-3-uav-crops-2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="./images/uav_crop_growth/image5.png" class="img-fluid quarto-figure quarto-figure-center figure-img" data-ref-parent="fig-3-uav-crops" width="304">
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-3-uav-crops-2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-(b) vigour based on CGI
-</figcaption></figure>
+<div class="cell-output-display quarto-layout-cell quarto-layout-cell-subref" style="flex-basis: 50.0%;justify-content: center;">
+<div id="fig-3-uav-crops-2" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure"><p><img src="./images/uav_crop_growth/image5.png" class="img-fluid figure-img" data-ref-parent="fig-3-uav-crops" width="304"></p>
+<figcaption class="figure-caption">(b) vigour based on CGI</figcaption></figure>
 </div>
 </div>
 </div>
+<p></p><figcaption class="figure-caption">Figure&nbsp;29.3: Spatial distribution of maize in Xinxiang, Henan, during the grain-filling stage in late August.</figcaption><p></p>
+</figure>
 </div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-3-uav-crops-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;29.3: Spatial distribution of maize in Xinxiang, Henan, during the grain-filling stage in late August.
-</figcaption></figure>
-</div>
-<p><a href="#fig-4-uav-crops" class="quarto-xref">Figure&nbsp;<span>29.4</span></a> shows the spatial distribution of tobacco in Shiping, Yunnan, during vigorous growth stage, in late July. During the vigorous growth stage of the tobacco crop, the CGI imagery displayed relatively uniform growth across the field, with most areas classified as having relatively good growth, indicating overall crop health. Localized zones with lower CGI values were mainly observed near certain drainage channels, likely influenced by uneven soil moisture and potential pest or disease stress. The classified CGI map distinctly delineated five levels of crop growth, enabling rapid identification of potential risk areas. When combined with historical weather data and field management records, the CGI monitoring results provided a basis for field management and yield forecasting of tobacco.</p>
-<div id="fig-4-uav-crops" class="quarto-layout-panel">
-<figure class="quarto-float quarto-float-fig figure"><div aria-describedby="fig-4-uav-crops-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<div class="quarto-layout-row">
-<div class="cell-output-display quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="fig-4-uav-crops" style="flex-basis: 50.0%;justify-content: center;">
-<div id="fig-4-uav-crops-1" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
-<figure class="quarto-float quarto-subfloat-fig figure"><div aria-describedby="fig-4-uav-crops-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="./images/uav_crop_growth/image6.png" class="img-fluid quarto-figure quarto-figure-center figure-img" data-ref-parent="fig-4-uav-crops" width="304">
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-4-uav-crops-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-(a) CGI values
-</figcaption></figure>
+<p><a href="#fig-4-uav-crops">Figure&nbsp;<span>29.4</span></a> shows the spatial distribution of tobacco in Shiping, Yunnan, during vigorous growth stage, in late July. During the vigorous growth stage of the tobacco crop, the CGI imagery displayed relatively uniform growth across the field, with most areas classified as having relatively good growth, indicating overall crop health. Localized zones with lower CGI values were mainly observed near certain drainage channels, likely influenced by uneven soil moisture and potential pest or disease stress. The classified CGI map distinctly delineated five levels of crop growth, enabling rapid identification of potential risk areas. When combined with historical weather data and field management records, the CGI monitoring results provided a basis for field management and yield forecasting of tobacco.</p>
+<div id="fig-4-uav-crops" class="cell quarto-layout-panel">
+<figure class="figure"><div class="quarto-layout-row quarto-layout-valign-top">
+<div class="cell-output-display quarto-layout-cell quarto-layout-cell-subref" style="flex-basis: 50.0%;justify-content: center;">
+<div id="fig-4-uav-crops-1" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure"><p><img src="./images/uav_crop_growth/image6.png" class="img-fluid figure-img" data-ref-parent="fig-4-uav-crops" width="304"></p>
+<figcaption class="figure-caption">(a) CGI values</figcaption></figure>
 </div>
 </div>
-<div class="cell-output-display quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="fig-4-uav-crops" style="flex-basis: 50.0%;justify-content: center;">
-<div id="fig-4-uav-crops-2" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
-<figure class="quarto-float quarto-subfloat-fig figure"><div aria-describedby="fig-4-uav-crops-2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="./images/uav_crop_growth/image7.png" class="img-fluid quarto-figure quarto-figure-center figure-img" data-ref-parent="fig-4-uav-crops" width="304">
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-4-uav-crops-2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-(b) vigour based on CGI
-</figcaption></figure>
+<div class="cell-output-display quarto-layout-cell quarto-layout-cell-subref" style="flex-basis: 50.0%;justify-content: center;">
+<div id="fig-4-uav-crops-2" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure"><p><img src="./images/uav_crop_growth/image7.png" class="img-fluid figure-img" data-ref-parent="fig-4-uav-crops" width="304"></p>
+<figcaption class="figure-caption">(b) vigour based on CGI</figcaption></figure>
 </div>
 </div>
 </div>
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-4-uav-crops-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;29.4: Spatial distribution of tobacco in Shiping, Yunnan, during vigorous growth stage, in late July.
-</figcaption></figure>
+<p></p><figcaption class="figure-caption">Figure&nbsp;29.4: Spatial distribution of tobacco in Shiping, Yunnan, during vigorous growth stage, in late July.</figcaption><p></p>
+</figure>
 </div>
 <p>The above results demonstrate that the CGI algorithm, based on the fusion of multispectral vegetation indices, effectively captures spatial variability of crop growth across different crop types and growth stages. The outcomes show strong agreement with field observations, indicating high applicability and potential for broader adoption.</p>
 </section><section id="discussion" class="level2" data-number="29.5"><h2 data-number="29.5" class="anchored" data-anchor-id="discussion">
@@ -665,7 +614,7 @@ Figure&nbsp;29.4: Spatial distribution of tobacco in Shiping, Yunnan, during vig
 </section><section id="references" class="level2 unnumbered"><h2 class="unnumbered anchored" data-anchor-id="references">References</h2>
 
 
-<div id="refs" class="references csl-bib-body" data-entry-spacing="0" role="list">
+<div id="refs" class="references csl-bib-body" role="list">
 <div id="ref-Colomina2014" class="csl-entry" role="listitem">
 <div class="csl-left-margin">[1] </div>
 <div class="csl-right-inline">I. Colomina and P. Molina, <span>“Unmanned aerial systems for photogrammetry and remote sensing: <span>A</span> review,”</span> <em>ISPRS Journal of Photogrammetry and Remote Sensing</em>, vol. 92, pp. 79–97, 2014, doi: <a href="https://doi.org/10.1016/j.isprsjprs.2014.02.013">10.1016/j.isprsjprs.2014.02.013</a>.</div>
@@ -708,425 +657,255 @@ Figure&nbsp;29.4: Spatial distribution of tobacco in Shiping, Yunnan, during vig
 </div>
 </div>
 </section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
-  window.document.addEventListener("DOMContentLoaded", function (event) {
-    const icon = "";
-    const anchorJS = new window.AnchorJS();
-    anchorJS.options = {
-      placement: 'right',
-      icon: icon
-    };
-    anchorJS.add('.anchored');
-    const isCodeAnnotation = (el) => {
-      for (const clz of el.classList) {
-        if (clz.startsWith('code-annotation-')) {                     
-          return true;
-        }
-      }
-      return false;
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
     }
-    const onCopySuccess = function(e) {
-      // button target
-      const button = e.trigger;
-      // don't keep focus
-      button.blur();
-      // flash "checked"
-      button.classList.add('code-copy-button-checked');
-      var currentTitle = button.getAttribute("title");
-      button.setAttribute("title", "Copied!");
-      let tooltip;
-      if (window.bootstrap) {
-        button.setAttribute("data-bs-toggle", "tooltip");
-        button.setAttribute("data-bs-placement", "left");
-        button.setAttribute("data-bs-title", "Copied!");
-        tooltip = new bootstrap.Tooltip(button, 
-          { trigger: "manual", 
-            customClass: "code-copy-button-tooltip",
-            offset: [0, -8]});
-        tooltip.show();    
-      }
-      setTimeout(function() {
-        if (tooltip) {
-          tooltip.hide();
-          button.removeAttribute("data-bs-title");
-          button.removeAttribute("data-bs-toggle");
-          button.removeAttribute("data-bs-placement");
-        }
-        button.setAttribute("title", currentTitle);
-        button.classList.remove('code-copy-button-checked');
-      }, 1000);
-      // clear code selection
-      e.clearSelection();
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
     }
-    const getTextToCopy = function(trigger) {
-        const codeEl = trigger.previousElementSibling.cloneNode(true);
-        for (const childEl of codeEl.children) {
-          if (isCodeAnnotation(childEl)) {
-            childEl.remove();
-          }
-        }
-        return codeEl.innerText;
-    }
-    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
-      text: getTextToCopy
-    });
-    clipboard.on('success', onCopySuccess);
-    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
-      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
-        text: getTextToCopy,
-        container: window.document.getElementById('quarto-embedded-source-code-modal')
-      });
-      clipboardModal.on('success', onCopySuccess);
-    }
-      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
-      var mailtoRegex = new RegExp(/^mailto:/);
-        var filterRegex = new RegExp("https:\/\/FAO-EOSTAT\.github\.io\/UN-Handbook\/");
-      var isInternal = (href) => {
-          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
-      }
-      // Inspect non-navigation links and adorn them if external
-     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
-      for (var i=0; i<links.length; i++) {
-        const link = links[i];
-        if (!isInternal(link.href)) {
-          // undo the damage that might have been done by quarto-nav.js in the case of
-          // links that we want to consider external
-          if (link.dataset.originalHref !== undefined) {
-            link.href = link.dataset.originalHref;
-          }
-        }
-      }
-    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
-      const config = {
-        allowHTML: true,
-        maxWidth: 500,
-        delay: 100,
-        arrow: false,
-        appendTo: function(el) {
-            return el.parentElement;
-        },
-        interactive: true,
-        interactiveBorder: 10,
-        theme: 'quarto',
-        placement: 'bottom-start',
-      };
-      if (contentFn) {
-        config.content = contentFn;
-      }
-      if (onTriggerFn) {
-        config.onTrigger = onTriggerFn;
-      }
-      if (onUntriggerFn) {
-        config.onUntrigger = onUntriggerFn;
-      }
-      window.tippy(el, config); 
-    }
-    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
-    for (var i=0; i<noterefs.length; i++) {
-      const ref = noterefs[i];
-      tippyHover(ref, function() {
-        // use id or data attribute instead here
-        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
-        try { href = new URL(href).hash; } catch {}
-        const id = href.replace(/^#\/?/, "");
-        const note = window.document.getElementById(id);
-        if (note) {
-          return note.innerHTML;
-        } else {
-          return "";
-        }
-      });
-    }
-    const xrefs = window.document.querySelectorAll('a.quarto-xref');
-    const processXRef = (id, note) => {
-      // Strip column container classes
-      const stripColumnClz = (el) => {
-        el.classList.remove("page-full", "page-columns");
-        if (el.children) {
-          for (const child of el.children) {
-            stripColumnClz(child);
-          }
-        }
-      }
-      stripColumnClz(note)
-      if (id === null || id.startsWith('sec-')) {
-        // Special case sections, only their first couple elements
-        const container = document.createElement("div");
-        if (note.children && note.children.length > 2) {
-          container.appendChild(note.children[0].cloneNode(true));
-          for (let i = 1; i < note.children.length; i++) {
-            const child = note.children[i];
-            if (child.tagName === "P" && child.innerText === "") {
-              continue;
-            } else {
-              container.appendChild(child.cloneNode(true));
-              break;
-            }
-          }
-          if (window.Quarto?.typesetMath) {
-            window.Quarto.typesetMath(container);
-          }
-          return container.innerHTML
-        } else {
-          if (window.Quarto?.typesetMath) {
-            window.Quarto.typesetMath(note);
-          }
-          return note.innerHTML;
-        }
-      } else {
-        // Remove any anchor links if they are present
-        const anchorLink = note.querySelector('a.anchorjs-link');
-        if (anchorLink) {
-          anchorLink.remove();
-        }
-        if (window.Quarto?.typesetMath) {
-          window.Quarto.typesetMath(note);
-        }
-        if (note.classList.contains("callout")) {
-          return note.outerHTML;
-        } else {
-          return note.innerHTML;
-        }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
       }
     }
-    for (var i=0; i<xrefs.length; i++) {
-      const xref = xrefs[i];
-      tippyHover(xref, undefined, function(instance) {
-        instance.disable();
-        let url = xref.getAttribute('href');
-        let hash = undefined; 
-        if (url.startsWith('#')) {
-          hash = url;
-        } else {
-          try { hash = new URL(url).hash; } catch {}
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
         }
-        if (hash) {
-          const id = hash.replace(/^#\/?/, "");
-          const note = window.document.getElementById(id);
-          if (note !== null) {
-            try {
-              const html = processXRef(id, note.cloneNode(true));
-              instance.setContent(html);
-            } finally {
-              instance.enable();
-              instance.show();
-            }
-          } else {
-            // See if we can fetch this
-            fetch(url.split('#')[0])
-            .then(res => res.text())
-            .then(html => {
-              const parser = new DOMParser();
-              const htmlDoc = parser.parseFromString(html, "text/html");
-              const note = htmlDoc.getElementById(id);
-              if (note !== null) {
-                const html = processXRef(id, note);
-                instance.setContent(html);
-              } 
-            }).finally(() => {
-              instance.enable();
-              instance.show();
-            });
-          }
-        } else {
-          // See if we can fetch a full url (with no hash to target)
-          // This is a special case and we should probably do some content thinning / targeting
-          fetch(url)
-          .then(res => res.text())
-          .then(html => {
-            const parser = new DOMParser();
-            const htmlDoc = parser.parseFromString(html, "text/html");
-            const note = htmlDoc.querySelector('main.content');
-            if (note !== null) {
-              // This should only happen for chapter cross references
-              // (since there is no id in the URL)
-              // remove the first header
-              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
-                note.children[0].remove();
-              }
-              const html = processXRef(null, note);
-              instance.setContent(html);
-            } 
-          }).finally(() => {
-            instance.enable();
-            instance.show();
-          });
-        }
-      }, function(instance) {
-      });
-    }
-        let selectedAnnoteEl;
-        const selectorForAnnotation = ( cell, annotation) => {
-          let cellAttr = 'data-code-cell="' + cell + '"';
-          let lineAttr = 'data-code-annotation="' +  annotation + '"';
-          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
-          return selector;
-        }
-        const selectCodeLines = (annoteEl) => {
-          const doc = window.document;
-          const targetCell = annoteEl.getAttribute("data-target-cell");
-          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
-          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
-          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
-          const lineIds = lines.map((line) => {
-            return targetCell + "-" + line;
-          })
-          let top = null;
-          let height = null;
-          let parent = null;
-          if (lineIds.length > 0) {
-              //compute the position of the single el (top and bottom and make a div)
-              const el = window.document.getElementById(lineIds[0]);
-              top = el.offsetTop;
-              height = el.offsetHeight;
-              parent = el.parentElement.parentElement;
-            if (lineIds.length > 1) {
-              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
-              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
-              height = bottom - top;
-            }
-            if (top !== null && height !== null && parent !== null) {
-              // cook up a div (if necessary) and position it 
-              let div = window.document.getElementById("code-annotation-line-highlight");
-              if (div === null) {
-                div = window.document.createElement("div");
-                div.setAttribute("id", "code-annotation-line-highlight");
-                div.style.position = 'absolute';
-                parent.appendChild(div);
-              }
-              div.style.top = top - 2 + "px";
-              div.style.height = height + 4 + "px";
-              div.style.left = 0;
-              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
-              if (gutterDiv === null) {
-                gutterDiv = window.document.createElement("div");
-                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
-                gutterDiv.style.position = 'absolute';
-                const codeCell = window.document.getElementById(targetCell);
-                const gutter = codeCell.querySelector('.code-annotation-gutter');
-                gutter.appendChild(gutterDiv);
-              }
-              gutterDiv.style.top = top - 2 + "px";
-              gutterDiv.style.height = height + 4 + "px";
-            }
-            selectedAnnoteEl = annoteEl;
-          }
-        };
-        const unselectCodeLines = () => {
-          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
-          elementsIds.forEach((elId) => {
-            const div = window.document.getElementById(elId);
-            if (div) {
-              div.remove();
-            }
-          });
-          selectedAnnoteEl = undefined;
-        };
-          // Handle positioning of the toggle
-      window.addEventListener(
-        "resize",
-        throttle(() => {
-          elRect = undefined;
-          if (selectedAnnoteEl) {
-            selectCodeLines(selectedAnnoteEl);
-          }
-        }, 10)
-      );
-      function throttle(fn, ms) {
-      let throttle = false;
-      let timer;
-        return (...args) => {
-          if(!throttle) { // first call gets through
-              fn.apply(this, args);
-              throttle = true;
-          } else { // all the others get throttled
-              if(timer) clearTimeout(timer); // cancel #2
-              timer = setTimeout(() => {
-                fn.apply(this, args);
-                timer = throttle = false;
-              }, ms);
-          }
-        };
       }
-        // Attach click handler to the DT
-        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
-        for (const annoteDlNode of annoteDls) {
-          annoteDlNode.addEventListener('click', (event) => {
-            const clickedEl = event.target;
-            if (clickedEl !== selectedAnnoteEl) {
-              unselectCodeLines();
-              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
-              if (activeEl) {
-                activeEl.classList.remove('code-annotation-active');
-              }
-              selectCodeLines(clickedEl);
-              clickedEl.classList.add('code-annotation-active');
-            } else {
-              // Unselect the line
-              unselectCodeLines();
-              clickedEl.classList.remove('code-annotation-active');
-            }
-          });
-        }
-    const findCites = (el) => {
-      const parentEl = el.parentElement;
-      if (parentEl) {
-        const cites = parentEl.dataset.cites;
-        if (cites) {
-          return {
-            el,
-            cites: cites.split(' ')
-          };
-        } else {
-          return findCites(el.parentElement)
-        }
-      } else {
-        return undefined;
-      }
-    };
-    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
-    for (var i=0; i<bibliorefs.length; i++) {
-      const ref = bibliorefs[i];
-      const citeInfo = findCites(ref);
-      if (citeInfo) {
-        tippyHover(citeInfo.el, function() {
-          var popup = window.document.createElement('div');
-          citeInfo.cites.forEach(function(cite) {
-            var citeDiv = window.document.createElement('div');
-            citeDiv.classList.add('hanging-indent');
-            citeDiv.classList.add('csl-entry');
-            var biblioDiv = window.document.getElementById('ref-' + cite);
-            if (biblioDiv) {
-              citeDiv.innerHTML = biblioDiv.innerHTML;
-            }
-            popup.appendChild(citeDiv);
-          });
-          return popup.innerHTML;
-        });
-      }
+      return codeEl.innerText;
     }
   });
-  </script><nav class="page-navigation"><div class="nav-page nav-page-previous">
-      <a href="./uav_wheat_growth.html" class="pagination-link" aria-label="Application of UAV in Wheat Growth Monitoring">
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script><nav class="page-navigation"><div class="nav-page nav-page-previous">
+      <a href="./uav_wheat_growth.html" class="pagination-link">
         <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">Application of UAV in Wheat Growth Monitoring</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./uav_agriculture_cook_islands.html" class="pagination-link" aria-label="Integrating UAV Imagery into Agricultural Statistics in the Cook Islands">
+      <a href="./uav_agriculture_cook_islands.html" class="pagination-link">
         <span class="nav-page-text"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title">Integrating UAV Imagery into Agricultural Statistics in the Cook Islands</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
 </div> <!-- /content -->
 <footer class="footer"><div class="nav-footer">
-    <div class="nav-footer-left">
-<p>Edited by Gilberto Camara, Lorenzo de Simone and Ronald Jansen.</p>
-</div>   
+    <div class="nav-footer-left">Edited by Gilberto Camara, Lorenzo de Simone and Ronald Jansen.</div>   
     <div class="nav-footer-center">
       &nbsp;
-    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/FAO-EOSTAT/UN-Handbook/edit/quarto/uav_crop_growth.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/FAO-EOSTAT/UN-Handbook/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
-    <div class="nav-footer-right">
-<p>This book was built with <a href="https://quarto.org/">Quarto</a>.</p>
-</div>
+    </div>
+    <div class="nav-footer-right">This book was built with <a href="https://quarto.org/">Quarto</a>.</div>
   </div>
 </footer>
 
