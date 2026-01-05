@@ -1,6 +1,6 @@
 ---
 title: "Remote Sensing Estimation of Soybean Yield Based on Multi-Scenario Simulation"
-author: "Li Qiangzi, Xing Du and Hongyan Wang"
+author: "Li Qiangzi, Xin Du and Hongyan Wang"
 format: html
 ---
 
@@ -44,12 +44,6 @@ extends from May to late September [@Zhao2021].
 #| fig-align: center
 knitr::include_graphics("./images/cy_china/image1.png")
 ```
-
-Ground surveys were conducted in 2022 and 2023, collecting soybean yield
-data from 21 and 18 sample plots, respectively. Each plot contained nine
-randomly placed 1×1m quadrats, with harvested samples oven-dried to
-determine yield. Sowing dates were recorded during fieldwork. Leaf Area
-Index (LAI) data were obtained from the ground-based CAPLOS platform 
 
 Ground surveys were conducted in 2022 and 2023, collecting soybean yield
 data from 21 and 18 sample plots, respectively. Each plot contained nine
