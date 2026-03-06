@@ -17,8 +17,8 @@ book:
     right: |
       This book was built with <a href="https://quarto.org/">Quarto</a>.
   
-  site-url: https://FAO-EOSTAT.github.io/UN-Handbook/
-  repo-url: https://github.com/FAO-EOSTAT/UN-Handbook
+  site-url: https://sifsuska.github.io/UN-Handbook/
+  repo-url: https://github.com/sifsuska/UN-Handbook
   repo-branch: quarto
   repo-actions: [edit, issue]
   chapters:
